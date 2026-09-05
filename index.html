@@ -936,7 +936,13 @@ function gradeSet(c){
     if(!have.has(q.id)){out.push(q);have.add(q.id);} }
   return(_setCache[c]=out);
 }
-const seenLately=q=>(S.recent||[]).includes(q.id);
+/* ---------- 쪼갠 형제 문항 ----------
+   같은 사실을 학년마다 다른 정밀도로 묻는 문항들은 group 이 같습니다.
+   예: 태정관 지령을 1800년대(초등) · 1870년대(중등) · 1877년(대학)으로 묻는 셋.
+   한 수업에 형제가 같이 나오면 고장으로 보이므로 묶음마다 하나만 넣습니다.
+   묶음이 없는 문항은 자기 id 를 묶음으로 삼아 서로 부딪히지 않습니다. */
+const groupOf=q=>q.group||("i"+q.id);
+const seenLately=q=>(S.recent||[]).includes(q.id)||(S.recentG||[]).includes(groupOf(q));
 
 const LESSON_N=5, EXAM_N=8, EXAM_PASS=.75, MASTER_LV=2, PROMOTE_AT=.8;
 /* 복습 간격. 칸 수가 곧 불빛 단계입니다.
@@ -1025,7 +1031,7 @@ function bgmBtn(on){
   b.title=on?(cur.t+" 재생 중 · 눌러서 끄기"):"배경음악 켜기";
   b.classList.toggle("on",!!on);
 }
-function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0};}
+function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[]};}
 const who=()=>S.name||S.nick||"이름 없음";
 
 /* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
@@ -1118,6 +1124,9 @@ const mastered=id=>(S.m[id]?S.m[id].lv:0)>=MASTER_LV;   // 복습 큐에서 빼�
    숙달(mastered)과 분리한 이유는 보상이 즉시 보여야 하기 때문입니다. */
 const isLit=id=>(S.m[id]?S.m[id].lv:0)>=1;
 const lightCount=()=>Object.keys(S.m).filter(id=>isLit(id)).length;
+/* 지금까지 맞힌 문제 수. 같은 문제를 다시 맞혀도 하나씩 올라갑니다.
+   줄어들지 않는 숫자라 자랑거리로 삼기에 가장 좋습니다. */
+const totalCorrect=()=>Object.keys(S.m).reduce((a,k)=>a+((S.m[k]||{}).cor||0),0);
 /* ---------- 불빛 단계 ----------
    문항 하나가 불빛 하나입니다. 반복해서 맞힐수록 그 불빛이 커지고 색이 바뀝니다.
    1 처음 맞힘   작은 불 · 주광색
@@ -1208,7 +1217,11 @@ function fixJosa(sentence,value,at){
   /* ② 서술격 '다' / '이다' */
   if(ENDS_DA.test(rest)&&b)   return sentence.slice(0,end)+"이"+rest;
   if(/^이다/.test(rest)&&!b)  return sentence.slice(0,end)+rest;   /* '해국이다'도 자연스러워 그대로 둡니다 */
-  /* ③ 일반 조사 */
+  /* ③ 인용 조사. '땅라고'가 아니라 '땅이라고'가 되어야 합니다.
+     JOSA 표는 은/는·이/가만 다뤄서 이 자리를 몰랏습니다. */
+  if(/^라(고|는|며|도)/.test(rest)&&b)   return sentence.slice(0,end)+"이"+rest;
+  if(/^이라(고|는|며|도)/.test(rest)&&!b) return sentence.slice(0,end)+rest.slice(1);
+  /* ④ 일반 조사 */
   for(let i=0;i<JOSA.length;i++){
     const withB=JOSA[i][0], noB=JOSA[i][1];
     if(withB==='이'&&COPULA.test(rest))break;
@@ -1618,23 +1631,36 @@ function renderHome(){
 let L=null;
 function startLesson(mode){
   let items=[];
+  /* 한 수업 안에서 같은 문항도, 같은 묶음의 형제도 두 번 나오지 않게 담습니다.
+     담을 때마다 id 와 묶음을 함께 기억합니다. */
+  const usedId=new Set(), usedG=new Set();
+  const take=(list,n)=>{
+    const out=[];
+    for(const q of shuffle(list)){
+      if(out.length>=n)break;
+      const g=groupOf(q);
+      if(usedId.has(q.id)||usedG.has(g))continue;
+      usedId.add(q.id);usedG.add(g);out.push(q);
+    }
+    return out;
+  };
   if(mode==="exam"){
-    items=shuffle(poolOf(S.grade)).slice(0,EXAM_N);
+    items=take(poolOf(S.grade),EXAM_N);
   }else if(mode==="review"){
-    items=shuffle(dueList()).slice(0,LESSON_N);
+    items=take(dueList(),LESSON_N);
   }else{
-    const due=shuffle(dueList()).slice(0,2);
-    const taken=new Set(due.map(q=>q.id));
-    const pick=q=>!taken.has(q.id);
+    /* 복습 두 자리를 먼저 채웁니다. */
+    const due=take(dueList(),2);
+    const room=()=>LESSON_N-due.length-cand.length;
     /* ① 이번 학년에서 아직 안 익혔고 최근에 안 나온 것 */
-    let cand=shuffle(poolOf(S.grade).filter(q=>pick(q)&&!mastered(q.id)&&!seenLately(q)));
+    let cand=take(poolOf(S.grade).filter(q=>!mastered(q.id)&&!seenLately(q)),LESSON_N-due.length);
     /* ② 모자라면 아래 학년까지 (얇은 학년의 반복을 막습니다) */
-    if(due.length+cand.length<LESSON_N)
-      cand=cand.concat(shuffle(lowerPool(S.grade).filter(q=>pick(q)&&!seenLately(q)&&!cand.includes(q))));
+    if(room()>0) cand=cand.concat(take(lowerPool(S.grade).filter(q=>!seenLately(q)),room()));
     /* ③ 그래도 모자라면 최근 제한을 풉니다 */
-    if(due.length+cand.length<LESSON_N)
-      cand=cand.concat(shuffle(poolOf(S.grade).filter(q=>pick(q)&&!cand.includes(q))));
-    items=due.concat(cand.slice(0,LESSON_N-due.length));
+    if(room()>0) cand=cand.concat(take(poolOf(S.grade),room()));
+    /* ④ 그래도 비면 형제 제한까지 풉니다. 빈 수업보다는 낫습니다. */
+    if(due.length+cand.length===0) cand=shuffle(poolOf(S.grade)).slice(0,LESSON_N);
+    items=due.concat(cand);
   }
   if(!items.length){toast("지금 풀 항목이 없습니다.");return;}
   /* 형식을 순수 무작위로 뽑으면 한 수업이 통째로 OX만 나오기도 합니다.
@@ -1702,6 +1728,9 @@ function answer(pick){
   const wasLit=isLit(item.id), wasLv=litLv(item.id);
   /* 최근 24문항은 다음 수업에서 뒤로 미룹니다. */
   S.recent=[item.id].concat((S.recent||[]).filter(v=>v!==item.id)).slice(0,24);
+  /* 형제는 며칠 간격으로도 붙어 나오면 같은 문제로 느껴집니다. 묶음 단위로도 뒤로 미룹니다. */
+  const gg=groupOf(item);
+  S.recentG=[gg].concat((S.recentG||[]).filter(v=>v!==gg)).slice(0,12);
   r.seen++; r.att=(r.att||0)+1; if(ok)r.cor=(r.cor||0)+1;
   if(ok){L.ok++;L.xp+=gained;S.xp+=gained;
     r.earned=Math.max(r.earned||0,pt);   // 진급 점수는 한 번만 · 힌트를 쓰면 절반만 쌓입니다
@@ -1898,8 +1927,8 @@ const lightLine=()=>{const b=beacons(lightCount());
 const shareText=()=>[
   `🏫 ${APP_NAME} ${flagOf(S.flag)}`,
   `${who()} · ${S.school||"독도초등학교"}`,
-  `나의 독도 학력: ${gradeName(S.grade)} (Lv.${levelOf(S.xp)} · ${S.xp}점)`,
-  `연속 개근 ${S.streak}일 · ${lightLine()}`,
+  `독도 문제 ${totalCorrect()}개 정답 · ${S.xp}점 · 연속 개근 ${S.streak}일`,
+  `${gradeName(S.grade)} · Lv.${levelOf(S.xp)} · ${lightLine()}`,
   ``,
   `당신의 독도 학력은 몇 학년인가요?`,
   `▶ ${APP_URL}`
@@ -2293,9 +2322,15 @@ function makeCard(){
   /* 신분 — 카드에서 제일 큰 글자 */
   drawIdentity(x,W,196);
 
-  /* 학력 */
-  F("",300,27,"#6F8399");x.fillText("나의 독도 학력",W/2,320);
-  F("",700,86,"#E8EFF7");x.fillText(gradeName(S.grade),W/2,404);
+  /* 자랑거리 셋 — 카드에서 제일 큰 글자.
+     학년을 크게 박아 두면 '초등학교 3학년'이라 적힌 카드가 됩니다. 아무도 공유하지 않습니다.
+     여기에는 줄어들지 않고 계속 올라가는 숫자만 올립니다. */
+  const HERO=[[String(S.xp),"점수"],
+              [String(totalCorrect()),"맞힌 문제"],
+              [String(S.streak),"연속 개근"]];
+  HERO.forEach((v,i)=>{const cx=W/2+(i-1)*300;
+    F("",700,78,"#F7B733");x.fillText(v[0],cx,392);
+    F("",400,26,"#6F8399");x.fillText(v[1],cx,436);});
 
   /* 섬 (앱 화면과 같은 좌표를 2.7배로) */
   /* K=2.7이면 섬 폭이 카드 폭과 같아져 좌우 뱃지 줄과 겹칩니다. 2.4로 줄여 여백을 냅니다. */
@@ -2339,15 +2374,10 @@ function makeCard(){
     drawChip(x, right?W-66:66, 540+k*80, b.s, b.test());
   });
 
-  /* 지표 3칸 */
+  /* 학년은 여기, 작게. 카드를 받은 사람이 궁금해서 눌러 보게 만드는 한 줄입니다. */
   const lb=levelBar(S.xp);
-  const cols=[
-    [`Lv.${lb.lv}`,`${S.xp}점`],
-    [bc.big?`${bc.big}·${bc.small}`:String(lit), bc.big?"봉화 · 불빛":"밝힌 불빛"],
-    [String(S.streak),"연속 개근"]];
-  cols.forEach((v,i)=>{const cx=W/2+(i-1)*292;
-    F("",600,58,"#F7B733");x.fillText(v[0],cx,1090);
-    F("",400,24,"#6F8399");x.fillText(v[1],cx,1134);});
+  const foot=`${gradeName(S.grade)}  ·  Lv.${lb.lv}  ·  ${bc.big?`봉화 ${bc.big} · 불빛 ${bc.small}`:`밝힌 불빛 ${lit}`}`;
+  F("",500,28,"#8FA6BC");x.fillText(foot,W/2,1112);
 
   F("",400,24,"#54697D");x.fillText("당신의 독도 학력은 몇 학년인가요?",W/2,1230);
   F("",500,21,"#3D5468");x.fillText(APP_URL.replace(/^https?:\/\//,""),W/2,1280);
@@ -2447,7 +2477,12 @@ function showCard(src,blob,name){
 const PLACE=["K","E1","E2","E3","E4"];
 let P=null;
 function startPlacement(){
-  const items=PLACE.map(c=>{const it=itemsOf(c);return it[Math.floor(Math.random()*it.length)];}).filter(Boolean);
+  /* 배치고사도 형제가 겹치지 않게 합니다. 다섯 학년에서 한 문제씩 뽑습니다. */
+  const seen=new Set(), items=[];
+  PLACE.forEach(c=>{
+    const it=shuffle(itemsOf(c)).find(q=>!seen.has(groupOf(q)));
+    if(it){seen.add(groupOf(it));items.push(it);}
+  });
   P={items,i:0,ok:0};
   L={mode:"place",items,i:0,ok:0,xp:0,wrong:[]};
   show("s-lesson");renderPlaceQ();
