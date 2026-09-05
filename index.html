@@ -575,6 +575,8 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .sch-list b i{font-style:normal;opacity:.55;font-size:11.5px;margin-left:6px}
 .sch-list:empty{display:none}
 .code-row{display:flex;gap:6px;align-items:stretch}
+.opt{font-weight:500;opacity:.6;font-size:.86em}
+#school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn{width:auto;flex:none;padding:0 12px;font-size:12.5px;white-space:nowrap;line-height:1}
 @media(max-width:380px){.code-row{flex-wrap:wrap}.code-row input{flex:1 0 100%}}
@@ -650,18 +652,21 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <p class="hint"><span class="bi-ko" lang="ko">뱃지와 공유 카드에 이 이름 그대로 표시됩니다. 본명이 부담스러우면 별명을 적으셔도 됩니다.</span><span class="bi-en" lang="en">Your badge and share card will show this name . A nickname is fine.</span></p>
 </div>
 <div class="field">
-<label for="school"><span class="bi-ko" lang="ko">소속</span><span class="bi-en" lang="en">School or organization</span></label>
-<div class="sch-wrap"><input autocomplete="off" id="school" maxlength="40" placeholder="학교 이름을 두 글자만 쳐 보세요 / Type two letters"/><div class="sch-list" id="sch-list"></div></div>
-<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">목록에서 고르면 학교 순위에 함께 집계됩니다.</span><span class="bi-en" lang="en">Pick from the list so your school can be ranked.</span></p>
+<label><span class="bi-ko" lang="ko">소속 (선택)</span><span class="bi-en" lang="en">School (optional)</span></label>
+<div class="code-row">
+  <input id="school-show" readonly placeholder="고르지 않아도 됩니다 / Optional"/>
+  <button type="button" class="btn ghost" id="school-find">학교 찾기</button>
+</div>
+<div class="sch-wrap" hidden="" id="sch-wrap"><input autocomplete="off" id="school" maxlength="40" placeholder="학교 이름을 두 글자만 쳐 보세요 / Type two letters"/><div class="sch-list" id="sch-list"></div></div>
+<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">학교를 고르면 학교 순위에 함께 집계됩니다. 건너뛰어도 학습에는 지장이 없습니다.</span><span class="bi-en" lang="en">Pick your school to join the school ranking. You can skip this.</span></p>
 </div>
 <div class="field">
-<label for="mycode">이어받기 번호</label>
+<label for="mycode"><span class="bi-ko" lang="ko">네 자리 비밀번호</span><span class="bi-en" lang="en">Four-digit code</span></label>
 <div class="code-row">
-  <input id="mycode" readonly style="flex:1 1 auto;font-variant-numeric:tabular-nums"/>
-  <button type="button" class="btn ghost" id="code-copy" style="width:auto;padding:10px 12px">번호 복사</button>
-  <button type="button" class="btn ghost" id="code-load" style="width:auto;padding:10px 12px">가져오기</button>
+  <input id="mycode" inputmode="numeric" maxlength="4" autocomplete="off" style="flex:1 1 auto;font-variant-numeric:tabular-nums;letter-spacing:.22em"/>
+  <button type="button" class="btn ghost" id="code-load" style="width:auto;padding:10px 12px">기록 가져오기</button>
 </div>
-<p class="hint"><b>이어받기 번호</b>는 폰을 바꿔도 불빛과 학년을 그대로 가져오는 열쇠입니다. 이름·생년월일·전화번호는 받지 않습니다.</p>
+<p class="hint"><span class="bi-ko" lang="ko">위의 <b>이름</b>과 이 <b>네 자리</b>만 기억하시면 폰을 바꿔도 불빛과 학년이 그대로 따라옵니다. 외우기 쉬운 숫자로 바꾸셔도 됩니다. 생년월일·전화번호는 받지 않습니다.</span><span class="bi-en" lang="en">Your name plus these four digits restore your lights on any device.</span></p>
 </div>
 <div class="field" hidden>
 <p class="hint"><span class="bi-ko" lang="ko">뱃지에 함께 새겨집니다. 학교·동아리·회사 무엇이든 좋습니다.</span><span class="bi-en" lang="en">A school, club or workplace. Leave blank to use Dokdo School.</span></p>
@@ -1087,10 +1092,11 @@ function tickerLinesKO(){
   const out=[];
   const me=S.nick||S.name||"이름 없는 독코민";
   const top=FEED&&FEED.top;
-  if(top&&top.nick&&top.run>=3)
-    out.push(`🏅 <b>${escHtml(top.nick)}</b>님이 <b>${top.run}개</b>를 연속으로 맞추셨습니다`);
-  else if(S.best>=3)
-    out.push(`🏅 <b>${escHtml(me)}</b>님이 <b>${S.best}개</b>를 연속으로 맞추셨습니다`);
+  const tn=top&&(top.correct!=null?top.correct:top.run);
+  if(top&&top.nick&&tn>=3)
+    out.push(`🏅 이번 주 <b>${escHtml(top.nick)}</b>님이 <b>${tn}문제</b>를 맞히셨습니다`);
+  else if(totalCorrect()>=3)
+    out.push(`🏅 <b>${escHtml(me)}</b>님이 지금까지 <b>${totalCorrect()}문제</b>를 맞히셨습니다`);
   const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
   if(n>0)out.push(`📚 오늘 독도 코리아 스쿨 키즈가 총 <b>${n}문제</b>를 풀었습니다`);
   if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
@@ -1102,10 +1108,11 @@ function tickerLinesEN(){
   const out=[];
   const me=S.nick||S.name||"A Dokdo learner";
   const top=FEED&&FEED.top;
-  if(top&&top.nick&&top.run>=3)
-    out.push(`🏅 <b>${escHtml(top.nick)}</b> answered <b>${top.run} questions</b> correctly in a row`);
-  else if(S.best>=3)
-    out.push(`🏅 <b>${escHtml(me)}</b> answered <b>${S.best} questions</b> correctly in a row`);
+  const tn=top&&(top.correct!=null?top.correct:top.run);
+  if(top&&top.nick&&tn>=3)
+    out.push(`🏅 <b>${escHtml(top.nick)}</b> answered <b>${tn} questions</b> right this week`);
+  else if(totalCorrect()>=3)
+    out.push(`🏅 <b>${escHtml(me)}</b> has answered <b>${totalCorrect()} questions</b> right so far`);
   const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
   if(n>0)out.push(`📚 Together, learners answered <b>${n} questions</b> today`);
   if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
@@ -1201,7 +1208,7 @@ function renderHall(){
       h+='<div class="hall-sec"><div class="hall-t">개인</div>';
       wk.forEach((p,i)=>{ h+='<div class="hall-row"><span class="hall-m">'+medal[i]+'</span>'
         +'<span class="hall-n">'+escHtml(p.nick)+'</span>'
-        +'<span class="hall-v">'+p.run+' 연속</span></div>'; });
+        +'<span class="hall-v">'+(p.correct!=null?p.correct:p.run)+'문제</span></div>'; });
       h+='</div>';
     }
     ["E","M","H","W"].forEach(c=>{
@@ -2813,7 +2820,7 @@ $("#go-enter").addEventListener("click",()=>{show("s-start");renderFlags();});
 $("#intro-go").addEventListener("click",endIntro);
 $("#h-notify").addEventListener("click",()=>askNotify($("#h-notify")));
 function grabNames(){S.name=$("#realname").value.trim();
-  S.school=$("#school").value.trim()||"독도초등학교";save();}
+  S.school=S.school||"독도초등학교";save();}
 $("#go-placement").addEventListener("click",()=>{grabNames();startPlacement();});
 $("#go-kinder").addEventListener("click",()=>{grabNames();S.grade="K";S.started=true;save();show("s-home");renderHome();});
 $("#go-lesson").addEventListener("click",()=>startLesson("daily"));
@@ -2838,7 +2845,7 @@ if(location.hash==="#reset"){try{localStorage.removeItem(KEY);}catch(e){}try{his
 S=load();
 renderFlags();
 $("#realname").value=S.name||"";
-$("#school").value=S.school||"";
+/* 학교는 아래 학교 찾기에서 채웁니다 */
 if(S.started){show("s-home");renderHome();}
 else if(S.introDay!==today()){S.introDay=today();save();show("s-intro");playIntro();}
 else show("s-locate");
@@ -2848,8 +2855,21 @@ else show("s-locate");
   if(!inp||!list)return;
   let items=[],cur=-1;
   const close=()=>{list.innerHTML='';cur=-1;};
+  const show2=document.getElementById('school-show');
+  const wrap=document.getElementById('sch-wrap');
+  const findBtn=document.getElementById('school-find');
+  /* 고른 학교는 위 칸에 적히고 검색창은 다시 접힙니다.
+     늘 열려 있으면 첫 화면이 복잡해 보이고, 안 고르면 안 되는 칸처럼 보입니다. */
+  const paint=()=>{
+    if(show2) show2.value=S.school||'';
+    if(findBtn) findBtn.textContent=S.school?('바꾸기'):('학교 찾기');
+  };
+  const open=()=>{ if(wrap){wrap.hidden=false;} inp.value=''; close(); loadSchools(); inp.focus(); };
+  const shut=()=>{ close(); if(wrap)wrap.hidden=true; paint(); };
+  if(findBtn) findBtn.addEventListener('click',()=>{ (wrap&&wrap.hidden)?open():shut(); });
+  paint();
   const pick=x=>{
-    inp.value=x.n; S.school=x.n; S.schoolCode=x.k; S.schoolCat=x.c; save(); close();
+    inp.value=x.n; S.school=x.n; S.schoolCode=x.k; S.schoolCat=x.c; save(); shut();
   };
   const draw=()=>{
     list.innerHTML=items.map((x,i)=>'<b data-i="'+i+'"'+(i===cur?' class="on"':'')+'>'
@@ -2879,21 +2899,30 @@ else show("s-locate");
   inp.addEventListener('blur',()=>setTimeout(close,150));
 })();
 
-/* ---------- 이어받기 번호 ---------- */
+/* ---------- 이름 + 네 자리 ----------
+   별명#숫자를 통째로 외우게 하면 아무도 외우지 않습니다.
+   화면에 이미 적어 둔 이름을 쓰고, 사람이 기억할 것은 네 자리뿐입니다. */
 (function(){
   const box=document.getElementById('mycode');
-  if(box) box.value=myKey();
-  const c=document.getElementById('code-copy');
-  if(c) c.addEventListener('click',()=>copyOrShow(myKey(),"번호를 복사했습니다"));
+  const nm=()=>((document.getElementById('realname')||{}).value||'').trim();
+  if(box){
+    box.value=myCode();
+    box.addEventListener('input',()=>{
+      box.value=box.value.replace(/[^0-9]/g,'').slice(0,4);
+      if(box.value.length===4){ S.code=box.value; save(); }
+    });
+  }
   const l=document.getElementById('code-load');
   if(l) l.addEventListener('click',async()=>{
-    const k=prompt("이어받을 번호를 입력하세요 (예: 독도지킴이#7412)", myKey());
-    if(!k)return;
-    toast("가져오는 중…");
-    const ok=await restoreProgress(k.trim());
-    if(ok){ toast("기록을 가져왔습니다"); if(box)box.value=myKey();
+    const n=nm(), c=(box?box.value:'').trim();
+    if(!n||!/^[0-9]{4}$/.test(c)){ toast('이름과 네 자리 숫자를 모두 적어 주세요'); return; }
+    toast('가져오는 중…');
+    const ok=await restoreProgress(n+'#'+c);
+    if(ok){ toast('기록을 가져왔습니다');
+            const r=document.getElementById('realname'); if(r)r.value=S.name||n;
+            if(box)box.value=myCode();
             renderFlags(); show(S.started?'s-home':'s-locate'); if(S.started)renderHome(); }
-    else toast("그 번호로 저장된 기록이 없습니다");
+    else toast('그 이름과 번호로 저장된 기록이 없습니다');
   });
 })();
 

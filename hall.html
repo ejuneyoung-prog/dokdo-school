@@ -7,34 +7,41 @@
 <style>
 /* OBS 브라우저 소스용.
    배경이 비어 있어 방송 화면 위에 그대로 얹힙니다.
-   주소 뒤에 ?bg=1 을 붙이면 어두운 배경이 깔립니다(미리보기용).
-   ?scale=1.4 로 키우고, ?only=school 이나 ?only=person 으로 한쪽만 띄울 수 있습니다. */
+   ?bg=1 을 붙이면 어두운 배경이 깔립니다(미리보기용).
+   ?scale=1.4 로 키우고, ?only=school 이나 ?only=person 으로 한쪽만 띄웁니다.
+
+   글자 크기는 vw 로 잡았습니다. 소스 너비를 키우면 글자도 같이 커집니다.
+   OBS에서 화면 위에 올려 두고 마우스로 줄이면 글자만 작아져 읽히지 않습니다.
+   크기는 소스 속성의 너비로 조절하십시오. */
 :root{
-  --gold:#F7B733; --ink:#EAF3FF; --dim:#9DB4CC; --line:rgba(255,255,255,.14);
+  --gold:#F7B733; --ink:#EAF3FF; --dim:#9DB4CC; --line:rgba(255,255,255,.16);
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:transparent;font-family:"GmarketSans","Apple SD Gothic Neo",
   "Malgun Gothic",sans-serif;color:var(--ink)}
 body.bg{background:#07131F}
-#wrap{padding:18px 22px;transform-origin:top left}
-.head{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
-.head h1{margin:0;font-size:23px;font-weight:800;color:var(--gold);letter-spacing:-.01em}
-.head small{font-size:13px;color:var(--dim)}
-.sec{margin:0 0 16px}
-.sec-t{font-size:13px;font-weight:800;color:var(--dim);letter-spacing:.04em;margin:0 0 6px}
-.row{display:flex;align-items:center;gap:11px;padding:8px 0;border-top:1px solid var(--line)}
+#wrap{padding:2.2vw 2.6vw 1.4vw;transform-origin:top left}
+.head{display:flex;align-items:baseline;gap:1.6vw;margin:0 0 2vw}
+.head h1{margin:0;font-size:clamp(20px,5.4vw,54px);font-weight:800;color:var(--gold);
+  letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.head small{font-size:clamp(11px,2.5vw,24px);color:var(--dim)}
+.sec{margin:0 0 2.4vw}
+.sec-t{font-size:clamp(12px,3vw,30px);font-weight:800;color:var(--gold);opacity:.85;
+  letter-spacing:.02em;margin:0 0 .6vw}
+.row{display:flex;align-items:center;gap:1.8vw;padding:1.1vw 0;border-top:1px solid var(--line)}
 .sec .row:first-of-type{border-top:none}
-.m{font-size:21px;width:28px;text-align:center;flex:none}
-.n{flex:1 1 auto;min-width:0;font-weight:700;font-size:19px;
+.m{font-size:clamp(18px,5.2vw,52px);width:7.5vw;min-width:26px;text-align:center;flex:none}
+.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(17px,5vw,50px);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  text-shadow:0 2px 6px rgba(0,0,0,.55)}
-.v{flex:none;font-size:15px;color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
-.v small{color:var(--dim);font-weight:500;font-size:13px;margin-left:5px}
-.foot{font-size:12px;color:var(--dim);opacity:.75;margin-top:4px}
-.empty{font-size:15px;color:var(--dim);padding:8px 0}
+  text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.v{flex:none;font-size:clamp(14px,3.8vw,38px);color:var(--gold);font-weight:800;
+  font-variant-numeric:tabular-nums;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.v small{color:var(--dim);font-weight:600;font-size:.72em;margin-left:.4em}
+.foot{font-size:clamp(10px,2.3vw,22px);color:var(--dim);opacity:.7;margin-top:1vw}
+.empty{font-size:clamp(14px,3.4vw,34px);color:var(--dim);padding:1.4vw 0}
 /* 1등만 살짝 빛나게 */
 .row.first .n{color:#FFE7B0}
-.row.first .m{filter:drop-shadow(0 0 6px rgba(247,183,51,.6))}
+.row.first .m{filter:drop-shadow(0 0 8px rgba(247,183,51,.7))}
 </style>
 </head>
 <body>
@@ -72,7 +79,7 @@ function draw(f){
   if(ONLY!=="school" && f.week && f.week.length){
     any=true;
     h+='<div class="sec"><div class="sec-t">개인</div>'
-      +rows(f.week,function(x){return x.run+'<small>연속</small>';})+'</div>';
+      +rows(f.week,function(x){return (x.correct!=null?x.correct:x.run)+'<small>문제</small>';})+'</div>';
   }
   if(ONLY!=="person" && f.schools){
     ["E","M","H","W"].forEach(function(c){

@@ -574,6 +574,8 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .sch-list b i{font-style:normal;opacity:.55;font-size:11.5px;margin-left:6px}
 .sch-list:empty{display:none}
 .code-row{display:flex;gap:6px;align-items:stretch}
+.opt{font-weight:500;opacity:.6;font-size:.86em}
+#school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn{width:auto;flex:none;padding:0 12px;font-size:12.5px;white-space:nowrap;line-height:1}
 @media(max-width:380px){.code-row{flex-wrap:wrap}.code-row input{flex:1 0 100%}}
@@ -650,18 +652,21 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <p class="hint"><span class="bi-ko" lang="ko">뱃지와 공유 카드에 이 이름 그대로 표시됩니다. 본명이 부담스러우면 별명을 적으셔도 됩니다.</span><span class="bi-en" lang="en">Your badge and share card will show this name . A nickname is fine.</span></p>
 </div>
 <div class="field">
-<label for="school"><span class="bi-ko" lang="ko">소속</span><span class="bi-en" lang="en">School or organization</span></label>
-<div class="sch-wrap"><input autocomplete="off" id="school" maxlength="40" placeholder="Type two letters of your school / 학교 이름 두 글자"/><div class="sch-list" id="sch-list"></div></div>
-<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">목록에서 고르면 학교 순위에 함께 집계됩니다.</span><span class="bi-en" lang="en">Pick from the list so your school can be ranked.</span></p>
+<label><span class="bi-ko" lang="ko">소속 (선택)</span><span class="bi-en" lang="en">School (optional)</span></label>
+<div class="code-row">
+  <input id="school-show" readonly placeholder="Optional — you can skip this"/>
+  <button type="button" class="btn ghost" id="school-find">Find school</button>
+</div>
+<div class="sch-wrap" hidden="" id="sch-wrap"><input autocomplete="off" id="school" maxlength="40" placeholder="Type two letters of your school / 학교 이름 두 글자"/><div class="sch-list" id="sch-list"></div></div>
+<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">학교를 고르면 학교 순위에 함께 집계됩니다. 건너뛰어도 학습에는 지장이 없습니다.</span><span class="bi-en" lang="en">Pick your school to join the school ranking. You can skip this.</span></p>
 </div>
 <div class="field">
-<label for="mycode">Restore code</label>
+<label for="mycode">Four-digit code</label>
 <div class="code-row">
-  <input id="mycode" readonly style="flex:1 1 auto;font-variant-numeric:tabular-nums"/>
-  <button type="button" class="btn ghost" id="code-copy" style="width:auto;padding:10px 12px">Copy</button>
+  <input id="mycode" inputmode="numeric" maxlength="4" autocomplete="off" style="flex:1 1 auto;font-variant-numeric:tabular-nums;letter-spacing:.22em"/>
   <button type="button" class="btn ghost" id="code-load" style="width:auto;padding:10px 12px">Restore</button>
 </div>
-<p class="hint">Your <b>restore code</b> carries your lights and level to another phone. No name, birthday or phone number is collected.</p>
+<p class="hint">Your <b>name</b> above plus these <b>four digits</b> bring your lights and level to any device. Change them to something you will remember. No birthday or phone number is collected.</p>
 </div>
 <div class="field" hidden>
 <p class="hint"><span class="bi-ko" lang="ko">뱃지에 함께 새겨집니다. 학교·동아리·회사 무엇이든 좋습니다.</span><span class="bi-en" lang="en">A school, club or workplace. Leave blank to use Dokdo School.</span></p>
@@ -1084,10 +1089,11 @@ function tickerLinesKO(){
   const out=[];
   const me=S.nick||S.name||"이름 없는 독코민";
   const top=FEED&&FEED.top;
-  if(top&&top.nick&&top.run>=3)
-    out.push(`🏅 <b>${escHtml(top.nick)}</b>님이 <b>${top.run}개</b>를 연속으로 맞추셨습니다`);
-  else if(S.best>=3)
-    out.push(`🏅 <b>${escHtml(me)}</b>님이 <b>${S.best}개</b>를 연속으로 맞추셨습니다`);
+  const tn=top&&(top.correct!=null?top.correct:top.run);
+  if(top&&top.nick&&tn>=3)
+    out.push(`🏅 이번 주 <b>${escHtml(top.nick)}</b>님이 <b>${tn}문제</b>를 맞히셨습니다`);
+  else if(totalCorrect()>=3)
+    out.push(`🏅 <b>${escHtml(me)}</b>님이 지금까지 <b>${totalCorrect()}문제</b>를 맞히셨습니다`);
   const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
   if(n>0)out.push(`📚 오늘 독도 코리아 스쿨 키즈가 총 <b>${n}문제</b>를 풀었습니다`);
   if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
@@ -1099,10 +1105,11 @@ function tickerLinesEN(){
   const out=[];
   const me=S.nick||S.name||"A Dokdo learner";
   const top=FEED&&FEED.top;
-  if(top&&top.nick&&top.run>=3)
-    out.push(`🏅 <b>${escHtml(top.nick)}</b> answered <b>${top.run} questions</b> correctly in a row`);
-  else if(S.best>=3)
-    out.push(`🏅 <b>${escHtml(me)}</b> answered <b>${S.best} questions</b> correctly in a row`);
+  const tn=top&&(top.correct!=null?top.correct:top.run);
+  if(top&&top.nick&&tn>=3)
+    out.push(`🏅 <b>${escHtml(top.nick)}</b> answered <b>${tn} questions</b> right this week`);
+  else if(totalCorrect()>=3)
+    out.push(`🏅 <b>${escHtml(me)}</b> has answered <b>${totalCorrect()} questions</b> right so far`);
   const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
   if(n>0)out.push(`📚 Together, learners answered <b>${n} questions</b> today`);
   if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
@@ -1134,6 +1141,14 @@ async function loadSchools(){
       SCHOOLS=j.rows.map(x=>({k:x[0],
         n:(x[1].charAt(0)==="="?x[1].slice(1):x[1]+(SUF[x[2]]||"")),
         c:x[2], r:j.reg[x[3]]||""}));
+      /* 영어판에서는 학교 이름도 영어로 보여 줍니다. 집계 열쇠는 코드라서
+         이름이 어느 말이든 순위는 같은 곳에 쌓입니다.
+         영문 이름 파일을 못 받아도 한글 이름 그대로 쓸 수 있게 둡니다. */
+      try{
+        const e=await fetch("schools-en.json",{cache:"force-cache"});
+        if(e.ok){ const m=(await e.json()).eng||{};
+          SCHOOLS.forEach(x=>{ const t=m[x.k]; if(t){ x.ko=x.n; x.n=t; } }); }
+      }catch(e2){}
     }
   }catch(e){}
   SCHOOL_LOADING=false;
@@ -1143,7 +1158,10 @@ function findSchools(q){
   if(!SCHOOLS||!q)return[];
   const s=q.trim(); if(s.length<2)return[];
   const out=[];
-  for(const x of SCHOOLS){ if(x.n.indexOf(s)>=0){ out.push(x); if(out.length>=40)break; } }
+  const low=s.toLowerCase();
+  for(const x of SCHOOLS){
+    if(x.n.toLowerCase().indexOf(low)>=0 || (x.ko&&x.ko.indexOf(s)>=0)){
+      out.push(x); if(out.length>=40)break; } }
   return out;
 }
 
@@ -1198,7 +1216,7 @@ function renderHall(){
       h+='<div class="hall-sec"><div class="hall-t">Top learners</div>';
       wk.forEach((p,i)=>{ h+='<div class="hall-row"><span class="hall-m">'+medal[i]+'</span>'
         +'<span class="hall-n">'+escHtml(p.nick)+'</span>'
-        +'<span class="hall-v">'+p.run+' 연속</span></div>'; });
+        +'<span class="hall-v">'+(p.correct!=null?p.correct:p.run)+' correct</span></div>'; });
       h+='</div>';
     }
     ["E","M","H","W"].forEach(c=>{
@@ -1206,7 +1224,7 @@ function renderHall(){
       h+='<div class="hall-sec"><div class="hall-t">'+SCHOOL_CAT[c]+'</div>';
       list.forEach((s,i)=>{ h+='<div class="hall-row"><span class="hall-m">'+medal[i]+'</span>'
         +'<span class="hall-n">'+escHtml(s.name)+'</span>'
-        +'<span class="hall-v">'+s.correct+'correct · '+s.people+'people</span></div>'; });
+        +'<span class="hall-v">'+s.correct+' correct · '+s.people+' learners</span></div>'; });
       h+='</div>';
     });
   }
@@ -2761,7 +2779,7 @@ $("#go-enter").addEventListener("click",()=>{show("s-start");renderFlags();});
 $("#intro-go").addEventListener("click",endIntro);
 $("#h-notify").addEventListener("click",()=>askNotify($("#h-notify")));
 function grabNames(){S.name=$("#realname").value.trim();
-  S.school=$("#school").value.trim()||"Dokdo School";save();}
+  S.school=S.school||"Dokdo School";save();}
 $("#go-placement").addEventListener("click",()=>{grabNames();startPlacement();});
 $("#go-kinder").addEventListener("click",()=>{grabNames();S.grade="K";S.started=true;save();show("s-home");renderHome();});
 $("#go-lesson").addEventListener("click",()=>startLesson("daily"));
@@ -2786,7 +2804,7 @@ if(location.hash==="#reset"){try{localStorage.removeItem(KEY);}catch(e){}try{his
 S=load();
 renderFlags();
 $("#realname").value=S.name||"";
-$("#school").value=S.school||"";
+/* 학교는 아래 학교 찾기에서 채웁니다 */
 if(S.started){show("s-home");renderHome();}
 else if(S.introDay!==today()){S.introDay=today();save();show("s-intro");playIntro();}
 else show("s-locate");
@@ -2796,8 +2814,21 @@ else show("s-locate");
   if(!inp||!list)return;
   let items=[],cur=-1;
   const close=()=>{list.innerHTML='';cur=-1;};
+  const show2=document.getElementById('school-show');
+  const wrap=document.getElementById('sch-wrap');
+  const findBtn=document.getElementById('school-find');
+  /* 고른 학교는 위 칸에 적히고 검색창은 다시 접힙니다.
+     늘 열려 있으면 첫 화면이 복잡해 보이고, 안 고르면 안 되는 칸처럼 보입니다. */
+  const paint=()=>{
+    if(show2) show2.value=S.school||'';
+    if(findBtn) findBtn.textContent=S.school?('Change'):('Find school');
+  };
+  const open=()=>{ if(wrap){wrap.hidden=false;} inp.value=''; close(); loadSchools(); inp.focus(); };
+  const shut=()=>{ close(); if(wrap)wrap.hidden=true; paint(); };
+  if(findBtn) findBtn.addEventListener('click',()=>{ (wrap&&wrap.hidden)?open():shut(); });
+  paint();
   const pick=x=>{
-    inp.value=x.n; S.school=x.n; S.schoolCode=x.k; S.schoolCat=x.c; save(); close();
+    inp.value=x.n; S.school=x.n; S.schoolCode=x.k; S.schoolCat=x.c; save(); shut();
   };
   const draw=()=>{
     list.innerHTML=items.map((x,i)=>'<b data-i="'+i+'"'+(i===cur?' class="on"':'')+'>'
@@ -2827,21 +2858,30 @@ else show("s-locate");
   inp.addEventListener('blur',()=>setTimeout(close,150));
 })();
 
-/* ---------- 이어받기 번호 ---------- */
+/* ---------- 이름 + 네 자리 ----------
+   별명#숫자를 통째로 외우게 하면 아무도 외우지 않습니다.
+   화면에 이미 적어 둔 이름을 쓰고, 사람이 기억할 것은 네 자리뿐입니다. */
 (function(){
   const box=document.getElementById('mycode');
-  if(box) box.value=myKey();
-  const c=document.getElementById('code-copy');
-  if(c) c.addEventListener('click',()=>copyOrShow(myKey(),"Code copied"));
+  const nm=()=>((document.getElementById('realname')||{}).value||'').trim();
+  if(box){
+    box.value=myCode();
+    box.addEventListener('input',()=>{
+      box.value=box.value.replace(/[^0-9]/g,'').slice(0,4);
+      if(box.value.length===4){ S.code=box.value; save(); }
+    });
+  }
   const l=document.getElementById('code-load');
   if(l) l.addEventListener('click',async()=>{
-    const k=prompt("Enter your restore code", myKey());
-    if(!k)return;
-    toast("Restoring…");
-    const ok=await restoreProgress(k.trim());
-    if(ok){ toast("Record restored"); if(box)box.value=myKey();
+    const n=nm(), c=(box?box.value:'').trim();
+    if(!n||!/^[0-9]{4}$/.test(c)){ toast('Please fill in your name and four digits'); return; }
+    toast('Restoring…');
+    const ok=await restoreProgress(n+'#'+c);
+    if(ok){ toast('Your record is back');
+            const r=document.getElementById('realname'); if(r)r.value=S.name||n;
+            if(box)box.value=myCode();
             renderFlags(); show(S.started?'s-home':'s-locate'); if(S.started)renderHome(); }
-    else toast("No saved record for that code");
+    else toast('No record found for that name and code');
   });
 })();
 
