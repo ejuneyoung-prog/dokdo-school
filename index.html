@@ -86,7 +86,9 @@
   }
   /* 좁은 화면에서 상단 줄이 두 줄로 깨지지 않게 합니다. */
   .topbar .stat{white-space:nowrap;flex:none}
-  .topbar .brand{flex:1 1 auto;min-width:0}
+  /* 지마켓산스가 아직 안 내려왔거나 막혀 있으면 대체 글꼴이 더 넓어
+     "독도 코 / 리아 스 / 쿨" 세 줄로 깨집니다. 한 줄로 고정합니다. */
+  .topbar .brand{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   #h-sound{padding:5px 9px;font-size:13px;line-height:1}
   @media(max-width:400px){
     .topbar .brand{font-size:15px}
@@ -468,6 +470,30 @@
     background:var(--panel);border:1px solid var(--line-soft);margin-top:14px}
   .cool-t{font-family:"IBM Plex Mono",monospace;font-size:23px;color:var(--light);font-weight:600;font-variant-numeric:tabular-nums}
   .cool small{display:block;font-size:12px;color:var(--ink-dim);font-family:"IBM Plex Sans KR",sans-serif}
+
+/* ---------- 상단 흐르는 소식 ----------
+   오른쪽에서 왼쪽으로 흐릅니다. 손가락을 올리면 멈춥니다.
+   움직임을 줄이도록 설정한 기기에서는 흐르지 않고 그냥 보입니다. */
+.ticker{overflow:hidden;white-space:nowrap;border-radius:13px;margin:0 0 11px;
+  padding:9px 0;background:linear-gradient(100deg,#0c3050,#164e79 55%,#0c3050);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 3px 10px rgba(10,40,70,.16)}
+/* 같은 줄을 두 번 이어 붙이고 딱 절반만 밀기 때문에 끊김 없이 이어집니다.
+   왼쪽 여백을 주면 절반 계산이 어긋나 한 바퀴마다 튑니다. 여백은 글 안에 넣습니다. */
+.ticker-in{display:inline-block;padding:0;color:#e9f3ff;
+  font-size:13.5px;font-weight:600;letter-spacing:.1px;
+  animation:tkroll 30s linear infinite}
+.ticker-in b{color:#ffd76b;font-weight:800}
+.ticker:hover .ticker-in,.ticker:active .ticker-in{animation-play-state:paused}
+@keyframes tkroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .ticker-in{animation:none;padding-left:0;display:block;
+    white-space:normal;padding:0 13px;line-height:1.55}
+}
+/* ---------- 굿즈 자리 ---------- */
+.goods{opacity:.72}
+.goods .g-row{display:flex;align-items:center;gap:9px;margin-top:7px}
+.goods .g-chip{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;
+  background:var(--line,#e3e9f0);color:var(--ink-mid,#5b6b7d)}
 </style>
 </head>
 <body>
@@ -566,6 +592,9 @@
       <button class="stat js-reset" id="h-reset" title="기록을 지우고 처음부터 다시 시작합니다">↺ 처음부터</button>
     </div>
 
+    <!-- 오늘의 소식. 시트가 연결돼 있으면 전체 기록, 없으면 내 기록을 보여 줍니다. -->
+    <div class="ticker" id="ticker" hidden><div class="ticker-in" id="ticker-in"></div></div>
+
     <div class="island-card">
       <div id="island-holder"></div>
       <!-- 상단 줄에 두면 다른 표시에 묻힙니다. 섬 그림 위가 가장 잘 보입니다. -->
@@ -619,6 +648,12 @@
     <div class="ladder">
       <div class="eyebrow">학제</div>
       <div class="ladder-list" id="ladder"></div>
+    </div>
+
+    <div class="ladder goods">
+      <div class="eyebrow">독도 코리아 굿즈</div>
+      <div class="g-row"><span class="g-chip">준비 중</span>
+        <span class="note" style="margin:0">티셔츠·스티커·배지를 준비하고 있습니다. 곧 이 자리에서 만나실 수 있습니다.</span></div>
     </div>
 
     <p class="note" id="home-note"></p>
@@ -808,13 +843,13 @@ const QSRC="questions.json";
 
 /* 기존 85문항은 U·MA·PHD 한 칸씩에 몰려 있습니다. 세분화한 칸으로 옮깁니다.
    나머지 칸(U2~U4, MA2, PHD2)은 새 문항으로 채워야 합니다. */
-const GRADE_MIGRATE={U:"U1",MA:"MA1",PHD:"PHD1",RES:"CR1",PROF:"PR1"};
+const GRADE_MIGRATE={U:"U1",MA:"MA1",PHD:"PHD1",RES:"DK1",PROF:"DK6"};
 DATA.questions.forEach(q=>{ if(GRADE_MIGRATE[q.grade])q.grade=GRADE_MIGRATE[q.grade]; });
 
 /* ---------- 학제 ---------- */
 /* 학제는 두 갈래입니다.
    ① 학업 과정(유치원~박사 2년, 21단계) — 문항을 익혀 진급 시험으로 올라갑니다.
-   ② 경력 과정(대리~학교장, 9단계) — 배울 문항이 더 없는 구간입니다.
+   ② 독코민 과정(LV.1~LV.9, 9단계) — 배울 문항이 더 없는 구간입니다.
       누적 점수와 개근으로 임용됩니다. 여기가 오래 남는 사람을 위한 자리입니다.
    상위 9단계를 문항으로 만들면 단계당 8문항씩 72개를 더 만들어야 하는데,
    그건 콘텐츠가 아니라 숫자 채우기가 됩니다. */
@@ -827,17 +862,24 @@ const LADDER=[
  {c:"U1", n:"대학교 1학년"},{c:"U2",n:"대학교 2학년"},{c:"U3",n:"대학교 3학년"},{c:"U4",n:"대학교 4학년"},
  {c:"MA1",n:"석사 1년"},{c:"MA2",n:"석사 2년"},
  {c:"PHD1",n:"박사 1년"},{c:"PHD2",n:"박사 2년"},
- /* ── 여기부터 경력 과정 ── */
- {c:"CR1",n:"독도연구소 대리",   job:1},
- {c:"CR2",n:"독도연구소 과장",   job:1},
- {c:"CR3",n:"독도연구소 차장",   job:1},
- {c:"CR4",n:"독도연구소 부장",   job:1},
- {c:"CR5",n:"독도연구소 본부장", job:1},
- {c:"PR1",n:"독도 조교수",      job:1},
- {c:"PR2",n:"독도 부교수",      job:1},
- {c:"PR3",n:"독도 정교수",      job:1},
- {c:"HEAD",n:"독도 스쿨 학교장", job:1}
+ /* ── 여기부터 독코민 과정 ──
+    박사 다음에 대리·과장이 오면 박사보다 대리가 위라는 뜻이 됩니다.
+    학교는 박사에서 졸업하고, 그 위는 커뮤니티 안의 명예 등급으로 갑니다.
+    실제 직함을 쓰지 않으니 누구나 자기 등급을 그대로 말할 수 있습니다. */
+ {c:"DK1",n:"LV.1 독코민", job:1},
+ {c:"DK2",n:"LV.2 독코민", job:1},
+ {c:"DK3",n:"LV.3 독코민", job:1},
+ {c:"DK4",n:"LV.4 독코민", job:1},
+ {c:"DK5",n:"LV.5 독코민", job:1},
+ {c:"DK6",n:"LV.6 독코민", job:1},
+ {c:"DK7",n:"LV.7 독코민", job:1},
+ {c:"DK8",n:"LV.8 독코민", job:1},
+ {c:"DK9",n:"LV.9 독코민", job:1}
 ];
+/* 예전 판에서 연구원·교수 단계까지 올라간 분들을 같은 높이의 독코민 등급으로 옮깁니다.
+   기록을 지우지 않습니다. */
+const OLD_GRADE={CR1:"DK1",CR2:"DK2",CR3:"DK3",CR4:"DK4",CR5:"DK5",
+                 PR1:"DK6",PR2:"DK7",PR3:"DK8",HEAD:"DK9"};
 const isJob=c=>!!(LADDER.find(g=>g.c===c)||{}).job;
 /* 홈 화면 학제는 학교 단위로 묶어 보여줍니다. */
 const STAGES=[
@@ -847,15 +889,15 @@ const STAGES=[
   {n:"고등학교",   cs:["H1","H2","H3"]},
   {n:"대학교",     cs:["U1","U2","U3","U4"]},
   {n:"대학원",     cs:["MA1","MA2","PHD1","PHD2"]},
-  {n:"독도연구소", cs:["CR1","CR2","CR3","CR4","CR5","PR1","PR2","PR3","HEAD"]},
+  {n:"독코민",     cs:["DK1","DK2","DK3","DK4","DK5","DK6","DK7","DK8","DK9"]},
 ];
 const OPEN_STAGE=new Set();
 const ACADEMIC_N=LADDER.filter(g=>!g.job).length;
 
 /* 경력 임용 기준 — 전체 문항 총점의 배수와 개근 일수.
    문항이 늘어나면 기준도 같이 올라가므로 숫자를 다시 손볼 필요가 없습니다. */
-const CAREER=[["CR1",1.0,3],["CR2",1.3,7],["CR3",1.6,14],["CR4",2.0,21],["CR5",2.5,30],
-              ["PR1",3.0,45],["PR2",3.8,60],["PR3",4.6,90],["HEAD",6.0,120]];
+const CAREER=[["DK1",1.0,3],["DK2",1.3,7],["DK3",1.6,14],["DK4",2.0,21],["DK5",2.5,30],
+              ["DK6",3.0,45],["DK7",3.8,60],["DK8",4.6,90],["DK9",6.0,120]];
 let TOTAL_PT=0;   // DATA 로드 후 계산합니다
 function careerNeed(c){
   const row=CAREER.find(r=>r[0]===c); if(!row)return null;
@@ -983,7 +1025,7 @@ function bgmBtn(on){
   b.title=on?(cur.t+" 재생 중 · 눌러서 끄기"):"배경음악 켜기";
   b.classList.toggle("on",!!on);
 }
-function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false};}
+function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0};}
 const who=()=>S.name||S.nick||"이름 없음";
 
 /* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
@@ -997,8 +1039,74 @@ const FLAGS=[["KR","🇰🇷","대한민국"],["US","🇺🇸","미국"],["JP","
 ["CL","🇨🇱","칠레"],["PE","🇵🇪","페루"],["NO","🇳🇴","노르웨이"],["FI","🇫🇮","핀란드"],["CH","🇨🇭","스위스"]];
 const flagOf=c=>(FLAGS.find(f=>f[0]===c)||FLAGS[0])[1];
 const countryOf=c=>(FLAGS.find(f=>f[0]===c)||FLAGS[0])[2];
-function load(){try{const r=localStorage.getItem(KEY);if(r)return Object.assign(fresh(),JSON.parse(r));}catch(e){}return fresh();}
+function migrate(s){
+  if(OLD_GRADE[s.grade])s.grade=OLD_GRADE[s.grade];
+  if(Array.isArray(s.passed))s.passed=s.passed.map(c=>OLD_GRADE[c]||c);
+  return s;
+}
+function load(){try{const r=localStorage.getItem(KEY);if(r)return migrate(Object.assign(fresh(),JSON.parse(r)));}catch(e){}return fresh();}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+/* ---------- 오늘의 소식 ----------
+   SHEET_API 는 구글 시트 웹앱 주소입니다.
+   비워 두면 아무 데도 보내지 않고, 내 기록만으로 소식을 만듭니다.
+   주소를 넣으면 응답 한 줄을 시트에 쌓고, 전체 집계를 받아 옵니다.
+   시트가 죽어 있어도 앱은 그대로 돌아갑니다. */
+const SHEET_API="";
+let FEED=null;
+
+const escHtml=s=>String(s==null?"":s).replace(/[&<>"']/g,
+  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function sendLog(p){
+  if(!SHEET_API)return;
+  /* text/plain 이라야 브라우저가 사전 확인 요청을 보내지 않습니다.
+     응답은 읽지 않습니다. 실패해도 사용자는 아무것도 느끼지 않습니다. */
+  try{ fetch(SHEET_API,{method:"POST",mode:"no-cors",
+    headers:{"Content-Type":"text/plain;charset=utf-8"},
+    body:JSON.stringify(p)}); }catch(e){}
+}
+
+async function loadFeed(){
+  if(!SHEET_API)return;
+  try{
+    const r=await fetch(SHEET_API+"?ts="+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;
+    const j=await r.json();
+    if(j&&typeof j==="object"){FEED=j;renderTicker();}
+  }catch(e){}
+}
+
+const myDayCount=()=>S.dayD===today()?(S.dayN||0):0;
+
+function tickerLines(){
+  const out=[];
+  const me=S.nick||S.name||"이름 없는 독코민";
+  const top=FEED&&FEED.top;
+  if(top&&top.nick&&top.run>=3)
+    out.push(`🏅 <b>${escHtml(top.nick)}</b>님이 <b>${top.run}개</b>를 연속으로 맞추셨습니다`);
+  else if(S.best>=3)
+    out.push(`🏅 <b>${escHtml(me)}</b>님이 <b>${S.best}개</b>를 연속으로 맞추셨습니다`);
+  const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
+  if(n>0)out.push(`📚 오늘 독도 코리아 스쿨 키즈가 총 <b>${n}문제</b>를 풀었습니다`);
+  if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
+    out.push(`👥 오늘 <b>${FEED.people}명</b>이 함께 공부하고 있습니다`);
+  if(!out.length)out.push("🇰🇷 오늘도 독도를 한 문제씩 알아 갑니다");
+  return out;
+}
+
+function renderTicker(){
+  const box=document.getElementById("ticker"), inn=document.getElementById("ticker-in");
+  if(!box||!inn)return;
+  const sep="&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;";
+  const one=tickerLines().join(sep)+sep;
+  /* 두 벌이 정확히 같아야 절반(-50%)이 한 벌과 맞아떨어집니다. */
+  inn.innerHTML=one+one;
+  /* 글이 길어지면 시간을 늘려 읽는 속도를 일정하게 유지합니다. 초당 55px. */
+  const w=inn.scrollWidth/2;
+  inn.style.animationDuration=Math.max(18,Math.round(w/55))+"s";
+  box.hidden=false;
+}
+
 const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
 function daysBetween(a,b){if(!a)return 99;return Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);}
 
@@ -1252,7 +1360,7 @@ const BADGES=[
  {k:"int",  s:"INT",n:"해외 유학생",d:"대한민국 밖에서 진급",           test:()=>S.flag!=="KR"&&S.passed.length>0},
  {k:"mid",  s:"MID",n:"중등 수료", d:"중학교 3학년 수료",              test:()=>S.passed.includes("M3")},
  {k:"phd",  s:"PHD",n:"박사",     d:"박사 과정 수료",                test:()=>S.passed.includes("PHD2")},
- {k:"head",s:"TOP",n:"학교장",d:"독도 스쿨 학교장 임용",test:()=>S.grade==="HEAD"},
+ {k:"head",s:"TOP",n:"최고 등급",d:"LV.9 독코민 도달",test:()=>S.grade==="DK9"},
 ];
 const earnedBadges=()=>BADGES.filter(b=>b.test());
 
@@ -1359,7 +1467,10 @@ function playIntro(){
 }
 function endIntro(){ $("#intro-slot").innerHTML=""; show("s-locate"); }
 /* 저학년은 틀려도 수업이 끝나지 않습니다 — 일곱 살이 첫 문제 틀리고 쫓겨나면 다시 오지 않습니다 */
-const oneStrike=grade=>idx(grade)>3;
+/* 초3 이하를 예외로 두었더니 '틀려도 계속 진행된다'는 상태가 되어
+   한 문제 한 문제의 긴장감이 사라졌습니다. 전 학년에 적용합니다.
+   여전히 일일 수업 전용입니다. 시험·복습에는 걸리지 않습니다. */
+const oneStrike=grade=>true;
 const cooling=()=>S.cool>Date.now();
 function coolText(){
   const ms=Math.max(0,S.cool-Date.now()),h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1000);
@@ -1471,10 +1582,10 @@ function renderHome(){
     const open=now||OPEN_STAGE.has(si);
     const jobs=rows.every(g=>g.job);
     const n=rows.reduce((a,g)=>a+itemsOf(g.c).length,0);
-    const label=jobs?"경력 "+rows.length+"단계":(now?"재학 중":done?"수료":n?n+"항목":"준비 중");
+    const label=jobs?"명예 등급 "+rows.length+"단계":(now?"재학 중":done?"수료":n?n+"항목":"준비 중");
     const inner=open?`<div class="stage-in">`+rows.map(g=>{
       const it=itemsOf(g.c).length, d=S.passed.includes(g.c), nw=g.c===S.grade;
-      const cnt=g.job?"경력":it?it+"항목":"준비 중";
+      const cnt=g.job?"명예":it?it+"항목":"준비 중";
       return`<div class="rung ${d?"done":""} ${nw?"now":""} ${!g.job&&!it&&!nw?"soon":""}"><span class="rung-dot"></span><span class="rung-name">${g.n}</span><span class="rung-n">${cnt}</span></div>`;
     }).join("")+`</div>`:"";
     return`<div class="stage ${done?"done":""} ${now?"now":""} ${open?"open":""}">
@@ -1492,12 +1603,13 @@ function renderHome(){
     ?"진급 시험이 열렸습니다. 이번 학년 범위에서 8문항이 나옵니다."
     :isJob(S.grade)?(()=>{const n=careerNeed(S.grade),nx=idx(S.grade)+1;
         return nx<LADDER.length
-          ?`박사 과정을 마쳤습니다. 전 학년 문항이 모두 열려 있습니다. ${LADDER[nx].n} 임용까지 누적 ${n?Math.max(0,n.xp-S.xp):0}점 · 개근 ${n?Math.max(0,n.streak-S.streak):0}일 남았습니다.`
-          :"독도 스쿨 학교장. 더 오를 자리가 없습니다. 이제 새 문항을 제안해 후배들의 학교를 넓혀 주세요.";})()
+          ?`박사 과정을 마쳤습니다. 전 학년 문항이 모두 열려 있습니다. ${LADDER[nx].n}까지 누적 ${n?Math.max(0,n.xp-S.xp):0}점 · 개근 ${n?Math.max(0,n.streak-S.streak):0}일 남았습니다.`
+          :"LV.9 독코민. 더 오를 자리가 없습니다. 이제 새 문항을 제안해 후배들의 학교를 넓혀 주세요.";})()
     :`이번 학년 항목의 80%를 익히면 진급 시험이 열립니다. 남은 휴교권 ${S.shelter}회.`;
   $("#home-note").textContent=note;
   /* 지금 보고 있는 판을 눈으로 확인할 수 있게 합니다. 캐시된 옛 버전 판별용입니다. */
   $("#ver-note").textContent=`문항 ${DATA.questions.length}개 · ${QVER} 판`;
+  renderTicker();
 }
 
 /* ---------- 수업 ---------- */
@@ -1597,6 +1709,13 @@ function answer(pick){
   r.due=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   save();
 
+  /* 연속 정답과 오늘 푼 문제 수. 상단 소식의 재료입니다. */
+  if(S.dayD!==today()){S.dayD=today();S.dayN=0;}
+  S.dayN=(S.dayN||0)+1;
+  if(ok){S.run=(S.run||0)+1; if(S.run>(S.best||0))S.best=S.run;} else S.run=0;
+  save();
+  sendLog({t:"a",nick:S.nick||S.name||"",flag:S.flag,grade:S.grade,
+           qid:item.id,ok:ok?1:0,run:S.run,best:S.best,mode:L.mode});
   /* 문항별 정답률의 재료입니다. 누가 풀었는지는 보내지 않습니다. */
   ev("question_answered",{qid:item.id,correct:ok?1:0,qtype:q.type,
                           grade:S.grade,item_grade:item.grade,hint:half?1:0});
@@ -2478,6 +2597,12 @@ else show("s-locate");
 $("#h-sound").addEventListener("click",bgmToggle);
 /* 소리를 켜 두셨던 분만 첫 터치에 음악이 이어집니다. */
 bgmArm();bgmBtn(false);
+
+/* 오늘의 소식을 한 번 받아 오고, 화면을 켜 둔 사람에게는 2분마다 갱신합니다.
+   시트 주소가 비어 있으면 아무 일도 일어나지 않습니다. */
+loadFeed();
+setInterval(()=>{ if(!document.hidden)loadFeed(); },120000);
+document.addEventListener("visibilitychange",()=>{ if(!document.hidden)loadFeed(); });
 
 /* ---------- 미세 시차 ----------
    화면을 내릴 때 별이 섬보다 아주 조금 느리게 따라옵니다.
