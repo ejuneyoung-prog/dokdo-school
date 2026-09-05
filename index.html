@@ -1,0 +1,2034 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#060D17">
+<meta name="description" content="독도를 하루 한 수업씩 배워 유치원에서 박사까지 오르는 학습 게임.">
+<!-- 카카오톡·유튜브·트위터에 링크를 붙였을 때 미리보기 카드가 뜨도록 합니다. og:image는 배포 후 실제 파일로 교체하세요. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="독도 코리아 스쿨 · 당신의 독도 학력은 몇 학년인가요?">
+<meta property="og:description" content="독도를 하루 한 수업씩. 유치원에서 박사까지, 출석할수록 섬에 불이 켜집니다.">
+<meta property="og:site_name" content="독도 코리아 스쿨">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://dokdo-korea-school.example/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>독도 코리아 스쿨 · Dokdo Korea School</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%AB%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --sea-deep:#060D17;
+    --sea:#0B1524;
+    --panel:#111E30;
+    --panel-2:#16273D;
+    --line:#22394F;
+    --line-soft:#1A2C40;
+    --ink:#E8EFF7;
+    --ink-mid:#A9BCD0;
+    --ink-dim:#6F8399;
+    --light:#F7B733;
+    --light-soft:#FFD57E;
+    --light-deep:#B87A12;
+    --ok:#48C79E;
+    --no:#E4695D;
+    --rock:#1D2E3F;
+    --rock-lit:#2A4056;
+    --r:14px;
+    --maxw:600px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--sea-deep);
+    color:var(--ink);
+    font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px 64px;min-height:100vh}
+  h1,h2,h3{font-family:"Gowun Batang",serif;font-weight:700;text-wrap:balance;margin:0;letter-spacing:-.01em}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+  button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  button:focus-visible,input:focus-visible{outline:2px solid var(--light);outline-offset:2px}
+  .hidden{display:none !important}
+
+  /* ---------- 상단 상태바 ---------- */
+  .topbar{
+    display:flex;align-items:center;gap:8px;
+    padding:16px 0 12px;
+  }
+  .brand{font-family:"Gowun Batang",serif;font-weight:700;font-size:17px;letter-spacing:.02em;margin-right:auto}
+  .brand span{color:var(--light)}
+  .stat{
+    display:flex;align-items:center;gap:5px;
+    background:var(--panel);border:1px solid var(--line-soft);
+    border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--ink-mid);
+  }
+  .stat b{color:var(--ink);font-family:"IBM Plex Mono",monospace;font-weight:600;font-variant-numeric:tabular-nums}
+  .stat.on{border-color:var(--light-deep);color:var(--light-soft)}
+  .stat.on b{color:var(--light)}
+
+  /* ---------- 섬 ---------- */
+  .island-card{
+    position:relative;overflow:hidden;
+    background:linear-gradient(180deg,#040A13 0%,#08111D 46%,#0B1929 100%);
+    border:1px solid var(--line-soft);border-radius:var(--r);
+    margin-bottom:14px;
+  }
+  .island-card svg{display:block;width:100%;height:auto}
+  .stars circle{fill:#CFE0F0}
+  .rockface{fill:var(--rock)}
+  .rockedge{fill:none;stroke:var(--rock-lit);stroke-width:1.1}
+  .lamp{fill:var(--light-soft)}
+  .lamp-halo{fill:var(--light)}
+  .seaband{stroke:#16344F;stroke-width:1;opacity:.5}
+  .island-cap{
+    position:absolute;left:0;right:0;bottom:0;
+    padding:12px 14px;
+    display:flex;align-items:flex-end;gap:10px;
+    background:linear-gradient(180deg,rgba(6,13,23,0) 0%,rgba(6,13,23,.9) 62%);
+  }
+  .cap-grade{font-family:"Gowun Batang",serif;font-size:23px;font-weight:700;line-height:1.15}
+  .cap-sub{font-size:12px;color:var(--ink-dim);margin-top:1px}
+  .cap-right{margin-left:auto;text-align:right;font-size:12px;color:var(--ink-dim)}
+  .cap-right b{display:block;font-family:"IBM Plex Mono",monospace;font-size:19px;color:var(--light);font-weight:600}
+
+  /* ---------- 진도 막대 ---------- */
+  .prog{margin:14px 0 6px}
+  .prog-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--ink-dim);margin-bottom:7px}
+  .prog-head b{color:var(--ink-mid);font-weight:500}
+  .bar{height:7px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--light-deep),var(--light));transition:width .5s cubic-bezier(.2,.8,.3,1)}
+
+  /* ---------- 버튼 ---------- */
+  .btn{
+    display:block;width:100%;text-align:center;
+    padding:15px 18px;border-radius:12px;
+    background:var(--light);color:#241703;font-weight:600;font-size:15.5px;
+    letter-spacing:-.01em;transition:transform .12s ease,filter .12s ease;
+  }
+  .btn:hover{filter:brightness(1.07)}
+  .btn:active{transform:translateY(1px)}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-mid);font-weight:500}
+  .btn.ghost:hover{border-color:var(--ink-dim);color:var(--ink)}
+  .btn.exam{background:linear-gradient(100deg,#F7B733,#FFD57E);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
+  .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none;transform:none}
+  .btnrow{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+
+  /* ---------- 카드 ---------- */
+  .card{background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r);padding:16px}
+  .eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);font-weight:600}
+
+  /* ---------- 학제 사다리 ---------- */
+  .ladder{margin-top:22px}
+  .ladder-list{display:flex;flex-direction:column-reverse;gap:0;margin-top:10px}
+  .rung{display:flex;align-items:center;gap:11px;padding:7px 0;border-top:1px solid var(--line-soft)}
+  .rung:last-child{border-top:0}
+  .rung-dot{width:9px;height:9px;border-radius:99px;background:var(--panel-2);border:1px solid var(--line);flex:none}
+  .rung-name{font-size:13.5px;color:var(--ink-dim)}
+  .rung-n{margin-left:auto;font-size:11.5px;color:var(--ink-dim);font-family:"IBM Plex Mono",monospace}
+  .rung.done .rung-dot{background:var(--light-deep);border-color:var(--light-deep)}
+  .rung.done .rung-name{color:var(--ink-mid)}
+  .rung.now .rung-dot{background:var(--light);border-color:var(--light);box-shadow:0 0 0 4px rgba(247,183,51,.16)}
+  .rung.now .rung-name{color:var(--light-soft);font-weight:600}
+  .rung.soon{opacity:.45}
+  .rung.soon .rung-n{color:var(--ink-dim);font-style:italic}
+
+  /* ---------- 수업 ---------- */
+  .lesson-top{display:flex;align-items:center;gap:12px;padding:16px 0 14px}
+  .lesson-top .bar{flex:1}
+  .quit{font-size:13px;color:var(--ink-dim)}
+  .quit:hover{color:var(--ink)}
+  .qtype{display:inline-block;font-size:11px;letter-spacing:.1em;font-weight:600;color:var(--light);border:1px solid var(--light-deep);border-radius:99px;padding:3px 10px;margin-bottom:14px}
+  .qtext{font-family:"Gowun Batang",serif;font-size:21px;line-height:1.5;font-weight:700;margin-bottom:20px;white-space:pre-wrap}
+  /* 자료제시형 문항의 자료 부분. 발문과 글꼴·크기를 다르게 해 읽는 순서를 분리합니다. */
+  .matbox{white-space:pre-wrap;font-size:14.5px;line-height:1.62;color:var(--ink-mid);
+    background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
+    border-left:3px solid var(--light-deep);border-radius:10px;
+    padding:13px 15px;margin:2px 0 16px;max-height:46vh;overflow-y:auto;
+    font-family:"IBM Plex Sans KR",-apple-system,sans-serif;word-break:keep-all}
+  .matbox b{color:var(--light);font-weight:600}
+  .qtext em{font-style:normal;color:var(--light);border-bottom:2px dotted var(--light-deep);padding-bottom:1px}
+  .opts{display:flex;flex-direction:column;gap:9px}
+  .opt{
+    display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
+    padding:14px 15px;border-radius:11px;
+    background:var(--panel);border:1px solid var(--line-soft);
+    font-size:14.5px;line-height:1.5;transition:border-color .14s,background .14s;
+  }
+  .opt:hover:not(:disabled){border-color:var(--ink-dim);background:var(--panel-2)}
+  .opt .num{
+    flex:none;width:21px;height:21px;border-radius:6px;margin-top:1px;
+    background:var(--panel-2);border:1px solid var(--line);
+    font-size:11.5px;display:grid;place-items:center;color:var(--ink-dim);
+    font-family:"IBM Plex Mono",monospace;font-weight:600;
+  }
+  .opt.pick-ok{border-color:var(--ok);background:rgba(72,199,158,.11)}
+  .opt.pick-ok .num{background:var(--ok);border-color:var(--ok);color:#052E22}
+  .opt.pick-no{border-color:var(--no);background:rgba(228,105,93,.11)}
+  .opt.pick-no .num{background:var(--no);border-color:var(--no);color:#2E0705}
+  .opt.reveal{border-color:var(--ok)}
+  .opt:disabled{cursor:default}
+  /* 저학년이 주로 만나는 2지선다는 손가락으로 누르기 쉽게 크게 */
+  .opts.two .opt{padding:22px 16px;font-size:17px;font-weight:500}
+  .opts.two .opt .num{width:24px;height:24px}
+
+  /* ---------- 해설 ---------- */
+  .feedback{margin-top:16px;border-radius:12px;border:1px solid var(--line-soft);background:var(--panel);overflow:hidden}
+  .fb-head{display:flex;align-items:center;gap:8px;padding:12px 15px;font-weight:600;font-size:14.5px;border-bottom:1px solid var(--line-soft)}
+  .fb-head.ok{color:var(--ok)}
+  .fb-head.no{color:var(--no)}
+  .fb-xp{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--light)}
+  .fb-body{padding:13px 15px;font-size:14px;color:var(--ink-mid);line-height:1.65}
+
+  /* ---------- 결과 ---------- */
+  .score-hero{text-align:center;padding:34px 0 26px}
+  .score-num{font-family:"IBM Plex Mono",monospace;font-size:56px;font-weight:600;color:var(--light);line-height:1;font-variant-numeric:tabular-nums}
+  .score-lab{font-size:13px;color:var(--ink-dim);margin-top:9px}
+  .score-title{font-family:"Gowun Batang",serif;font-size:26px;font-weight:700;margin-bottom:8px}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:18px 0}
+  .kpi{background:var(--panel);border:1px solid var(--line-soft);border-radius:11px;padding:13px 10px;text-align:center}
+  .kpi b{display:block;font-family:"IBM Plex Mono",monospace;font-size:21px;color:var(--ink);font-weight:600}
+  .kpi span{font-size:11.5px;color:var(--ink-dim)}
+  .promo{
+    text-align:center;padding:26px 20px;border-radius:var(--r);
+    background:linear-gradient(160deg,rgba(247,183,51,.14),rgba(247,183,51,.03));
+    border:1px solid var(--light-deep);margin-bottom:14px;
+  }
+  .promo .big{font-family:"Gowun Batang",serif;font-size:28px;font-weight:700;color:var(--light-soft);margin:6px 0}
+
+  /* ---------- 시작 화면 ---------- */
+  .intro{padding:44px 0 26px;text-align:center}
+  .intro h1{font-size:38px;line-height:1.2;margin-bottom:12px}
+  .intro h1 span{color:var(--light)}
+  .intro p{color:var(--ink-mid);font-size:14.5px;max-width:34ch;margin:0 auto;line-height:1.7}
+  .field{margin:26px 0 6px}
+  .field label{display:block;font-size:12.5px;color:var(--ink-dim);margin-bottom:7px}
+  .field input{
+    width:100%;padding:14px 15px;border-radius:11px;font-size:15px;
+    background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    font-family:inherit;
+  }
+  .field input::placeholder{color:var(--ink-dim)}
+  .hint{font-size:12px;color:var(--ink-dim);margin:6px 0 0;line-height:1.5}
+
+  /* ---------- 해설 강화 ---------- */
+  .fb-wrong{margin:0 15px 12px;padding:11px 13px;border-radius:9px;
+    background:rgba(228,105,93,.09);border:1px solid rgba(228,105,93,.35);font-size:13.5px;color:var(--ink-mid);line-height:1.6}
+  .fb-wrong b{color:var(--no);font-weight:600}
+  .lit-note{margin:0 15px 12px;padding:10px 13px;border-radius:9px;
+    background:rgba(247,183,51,.10);border:1px solid var(--light-deep);
+    font-size:13px;color:var(--light-soft);line-height:1.55}
+  .lit-note b{font-family:"IBM Plex Mono",monospace;color:var(--light)}
+  .fb-deep{border-top:1px solid var(--line-soft)}
+  .fb-deep summary{padding:12px 15px;cursor:pointer;font-size:13px;color:var(--light);
+    font-weight:600;list-style:none;display:flex;align-items:center;gap:6px}
+  .fb-deep summary::-webkit-details-marker{display:none}
+  .fb-deep summary::before{content:"＋";font-size:14px;color:var(--light-deep)}
+  .fb-deep[open] summary::before{content:"−"}
+  .fb-deep .in{padding:0 15px 16px;font-size:14px;color:var(--ink-mid);line-height:1.85}
+  .fb-deep .in p{margin:0 0 13px}
+  .fb-deep .in p:last-child{margin-bottom:0}
+  .fb-deep .in b{color:var(--ink);font-weight:600}
+  .fb-deep .in em{font-style:normal;color:var(--light-soft)}
+  .fb-src{padding:0 15px 13px;font-size:11.5px;color:var(--ink-dim)}
+  .fb-foot{display:flex;align-items:center;gap:10px;padding:10px 15px;border-top:1px solid var(--line-soft)}
+  .btn-plain{font-size:12.5px;color:var(--ink-dim);padding:5px 0;text-decoration:underline;text-underline-offset:3px}
+  .btn-plain:hover{color:var(--ink-mid)}
+
+  /* ---------- 결과 카드 ---------- */
+  .shot{margin:14px 0;border-radius:12px;overflow:hidden;border:1px solid var(--line-soft);background:var(--panel)}
+  .shot img{display:block;width:100%;height:auto}
+  .shot-note{padding:11px 14px;font-size:12.5px;color:var(--ink-dim);line-height:1.6;border-top:1px solid var(--line-soft)}
+  .shot-btns{display:flex;gap:8px;padding:11px 12px;border-top:1px solid var(--line-soft)}
+  .shot-b{flex:1;text-align:center;padding:12px 10px;border-radius:10px;font-size:13.5px;
+    border:1px solid var(--line);color:var(--ink-mid);text-decoration:none;display:block;cursor:pointer}
+  .shot-b.main{background:var(--light);border-color:var(--light);color:#241703;font-weight:600}
+  .shot-b:hover{filter:brightness(1.08)}
+
+  .note{font-size:12.5px;color:var(--ink-dim);line-height:1.65;margin-top:14px}
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
+    background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
+    padding:11px 17px;border-radius:99px;font-size:13.5px;z-index:50;
+    box-shadow:0 12px 34px -14px #000;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  }
+  @keyframes twinkle{0%,100%{opacity:.12;transform:scale(.7)}45%{opacity:1;transform:scale(1.35)}70%{opacity:.35;transform:scale(.9)}}
+  @keyframes lampin{from{opacity:0;transform:scale(.2)}to{opacity:1;transform:scale(1)}}
+  @keyframes glow{0%,100%{opacity:.08;transform:scale(.86)}50%{opacity:.26;transform:scale(1.14)}}
+  @keyframes ring{0%,100%{opacity:.2;transform:scale(.92)}50%{opacity:.42;transform:scale(1.1)}}
+  @keyframes core{0%,100%{opacity:.86}50%{opacity:1}}
+  .dokdo-glow{animation:glow 2.8s ease-in-out infinite;transform-origin:243px 126px}
+  .dokdo-ring{animation:ring 2.8s ease-in-out .25s infinite;transform-origin:243px 126px}
+  .dokdo-core{animation:core 2.8s ease-in-out infinite;filter:drop-shadow(0 0 5px var(--light))}
+
+  /* ---------- 국기 ---------- */
+  .flags{display:grid;grid-template-columns:repeat(auto-fill,minmax(58px,1fr));gap:7px;max-height:186px;overflow-y:auto;padding:4px;margin-top:8px;
+    background:var(--panel);border:1px solid var(--line-soft);border-radius:11px}
+  .flag{padding:8px 4px 6px;border-radius:9px;text-align:center;border:1px solid transparent;transition:background .12s,border-color .12s}
+  .flag:hover{background:var(--panel-2)}
+  .flag.on{border-color:var(--light);background:rgba(247,183,51,.12)}
+  .flag i{display:block;font-style:normal;font-size:21px;line-height:1.25;height:24px}
+  .flag i canvas{border-radius:3px}
+  .flag span{font-size:10px;color:var(--ink-dim);letter-spacing:-.02em}
+  .flag.on span{color:var(--light-soft)}
+
+  /* ---------- 위치 지도 ---------- */
+  .locmap{background:linear-gradient(180deg,#071320,#0A1B2B);border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden}
+  .locmap svg{display:block;width:100%;height:auto}
+  .loc-legend{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--ink-dim)}
+  .loc-legend div{flex:1}
+  .loc-legend b{display:block;font-family:"IBM Plex Mono",monospace;font-size:17px;color:var(--ink);font-weight:600}
+  .loc-legend .near b{color:var(--light)}
+  .mapname{font-family:"IBM Plex Sans KR",sans-serif;font-size:9px;fill:var(--ink-dim);letter-spacing:.04em}
+  .mapname.ko{fill:var(--ink-mid);font-size:10px}
+  .mapsea{font-family:"Gowun Batang",serif;font-size:13px;fill:#3D6180;letter-spacing:.22em}
+
+  /* ---------- 성취 뱃지 ---------- */
+  .badgerow{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:8px;margin-top:10px}
+  .bdg{text-align:center;padding:9px 3px 7px;border-radius:11px;
+    background:var(--panel);border:1px solid var(--line-soft);opacity:.34;transition:opacity .2s,border-color .2s}
+  .bdg i{display:block;font-style:normal;font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-weight:600;font-size:16px;letter-spacing:.02em;line-height:1.45;color:var(--ink-dim)}
+  .bdg span{display:block;font-size:9.5px;color:var(--ink-dim);letter-spacing:-.03em;margin-top:3px}
+  .bdg.on{opacity:1;border-color:var(--light-deep);background:rgba(247,183,51,.10)}
+  .bdg.on i{color:var(--light)}
+  .bdg.on span{color:var(--light-soft)}
+
+  /* ---------- 배점 칩 ---------- */
+  .pts{margin-left:7px;padding:2px 8px;border-radius:99px;font-size:10.5px;font-weight:600;
+    font-family:"IBM Plex Mono",monospace;letter-spacing:0}
+  .pts.t1{background:rgba(111,131,153,.22);color:#A9BCD0}
+  .pts.t2{background:rgba(72,199,158,.18);color:#6FD8B6}
+  .pts.t3{background:rgba(247,183,51,.18);color:var(--light-soft)}
+  .pts.t4{background:rgba(228,105,93,.20);color:#F09085}
+
+  /* ---------- 유튜브 강조 ---------- */
+  .sheet-i.live{background:rgba(255,0,0,.07);border-top:0}
+  .sheet-i.live i{color:#FF4B4B}
+  .sheet-i.live span{font-weight:600}
+
+  /* ---------- 진급 게이지 ---------- */
+  .levelup{margin:18px 0 4px;padding:16px 16px 14px;border-radius:var(--r);
+    background:linear-gradient(160deg,rgba(247,183,51,.10),rgba(247,183,51,.02));
+    border:1px solid var(--line)}
+  .lv-row{display:flex;align-items:baseline;gap:8px;font-size:13px;color:var(--ink-dim);margin-bottom:9px}
+  .lv-now{color:var(--ink-mid);font-weight:500}
+  .lv-next{margin-left:auto;color:var(--light-soft);font-weight:600}
+  .lv-bar{position:relative;height:11px;border-radius:99px;background:var(--panel-2);overflow:hidden}
+  .lv-bar i{display:block;height:100%;border-radius:99px;
+    background:linear-gradient(90deg,var(--light-deep),var(--light));
+    transition:width 1.1s cubic-bezier(.16,.9,.3,1)}
+  .lv-bar u{position:absolute;top:0;bottom:0;width:2px;background:var(--light-soft);opacity:.5}
+  .lv-foot{display:flex;align-items:baseline;gap:6px;margin-top:10px;font-size:13px;color:var(--ink-mid)}
+  .lv-need{font-family:"IBM Plex Mono",monospace;font-size:25px;font-weight:600;color:var(--light);line-height:1}
+  .lv-gain{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--ok);
+    opacity:0;transform:translateY(4px);transition:opacity .5s .8s,transform .5s .8s}
+  .lv-gain.in{opacity:1;transform:none}
+  .lv-open{color:var(--light);font-weight:600}
+
+  /* ---------- 공유 메뉴 ---------- */
+  .sheet{margin-top:12px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);overflow:hidden}
+  .sheet-h{padding:12px 15px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-dim);font-weight:600;border-bottom:1px solid var(--line-soft)}
+  .sheet-i{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+    padding:14px 15px;font-size:14.5px;border-top:1px solid var(--line-soft);transition:background .12s}
+  .sheet-i:first-of-type{border-top:0}
+  .sheet-i:hover{background:var(--panel-2)}
+  .sheet-i i{font-style:normal;font-size:18px;width:24px;text-align:center;flex:none}
+  .sheet-i small{display:block;font-size:11.5px;color:var(--ink-dim);margin-top:2px}
+  .sheet-i span{flex:1}
+  .copybox{margin:0 15px 14px;padding:11px 13px;border-radius:9px;background:var(--sea);
+    border:1px solid var(--line);font-size:13px;color:var(--ink-mid);line-height:1.6;
+    white-space:pre-wrap;word-break:break-all;user-select:all;-webkit-user-select:all}
+
+  /* ---------- 쿨타임 ---------- */
+  .cool{display:flex;align-items:center;gap:11px;padding:15px;border-radius:12px;
+    background:var(--panel);border:1px solid var(--line-soft);margin-top:14px}
+  .cool-t{font-family:"IBM Plex Mono",monospace;font-size:23px;color:var(--light);font-weight:600;font-variant-numeric:tabular-nums}
+  .cool small{display:block;font-size:12px;color:var(--ink-dim);font-family:"IBM Plex Sans KR",sans-serif}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ 입구: 독도의 위치 ============ -->
+  <section id="s-locate">
+    <div class="intro" style="padding:36px 0 20px">
+      <h1>독도 코리아 <span>스쿨</span></h1>
+      <p>먼저, 독도가 어디에 있는지부터.</p>
+    </div>
+    <div class="locmap">
+      <svg viewBox="0 0 400 250" role="img" aria-label="동해에서 울릉도와 독도, 일본 오키섬의 상대적 위치">
+        <!-- 한반도 동쪽 해안 -->
+        <path d="M0,26 L44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250 L0,250 Z" fill="#16293B"/>
+        <path d="M44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250" fill="none" stroke="#26445E" stroke-width="1.2"/>
+        <text class="mapname ko" x="14" y="132" style="letter-spacing:.16em;font-size:12px">KOREA</text>
+        <!-- 일본 혼슈 서안 -->
+        <path d="M400,150 L366,164 L344,190 L332,216 L318,250 L400,250 Z" fill="#16293B"/>
+        <path d="M366,164 L344,190 L332,216 L318,250" fill="none" stroke="#26445E" stroke-width="1.2"/>
+        <text class="mapname" x="348" y="232" style="letter-spacing:.14em;font-size:11px">JAPAN</text>
+        <!-- 동해 -->
+        <text class="mapsea" x="150" y="46">동 해</text>
+        <text class="mapname" x="150" y="60" style="letter-spacing:.1em">EAST SEA</text>
+        <!-- 거리선 -->
+        <line x1="150" y1="140" x2="243" y2="126" stroke="var(--light)" stroke-width="1.3" stroke-dasharray="4 3" opacity=".85"/>
+        <line x1="243" y1="126" x2="336" y2="176" stroke="#3D6180" stroke-width="1.3" stroke-dasharray="4 3" opacity=".7"/>
+        <text class="mapname" x="163" y="126" fill="#F7B733">87.4km</text>
+        <text class="mapname" x="272" y="146">157.5km</text>
+        <!-- 울릉도 -->
+        <circle cx="150" cy="140" r="5.5" fill="#24415A"/><circle cx="150" cy="140" r="2" fill="#7E97AC"/>
+        <text class="mapname ko" x="126" y="160">울릉도</text>
+        <!-- 오키섬 -->
+        <circle cx="336" cy="176" r="4.5" fill="#24415A"/><circle cx="336" cy="176" r="1.8" fill="#7E97AC"/>
+        <text class="mapname" x="308" y="196">일본 오키섬</text>
+        <!-- 독도 -->
+        <circle class="dokdo-glow" cx="243" cy="126" r="17" fill="var(--light)"/>
+        <circle class="dokdo-ring" cx="243" cy="126" r="9" fill="var(--light)"/>
+        <circle class="dokdo-core" cx="243" cy="126" r="4" fill="var(--light-soft)"/>
+        <text x="243" y="106" text-anchor="middle" style="font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;fill:var(--light-soft)">독도 <tspan style="font-size:12px;fill:var(--light-deep)">獨島</tspan></text>
+      </svg>
+      <div class="loc-legend">
+        <div class="near"><b>87.4km</b>울릉도에서</div>
+        <div><b>157.5km</b>일본 오키섬에서</div>
+        <div><b>37°14′N</b>경상북도 울릉군</div>
+      </div>
+    </div>
+    <p class="note">울릉도에서 독도까지는 87.4km, 일본 오키섬에서는 157.5km입니다. 맑은 날 울릉도에서 독도가 육안으로 보이는 이유입니다.</p>
+    <div class="btnrow"><button class="btn" id="go-enter">독도 코리아 스쿨 들어가기</button></div>
+  </section>
+
+  <!-- ============ 시작 ============ -->
+  <section id="s-start" class="hidden">
+    <div class="intro" style="padding:34px 0 18px">
+      <h1>독도 코리아 <span>스쿨</span></h1>
+      <p>하루 한 수업씩 독도를 배웁니다.<br>출석할수록 섬에 불이 켜집니다.</p>
+    </div>
+    <div class="field">
+      <label for="realname">이름 (또는 닉네임)</label>
+      <input id="realname" maxlength="14" placeholder="예: 안용복" autocomplete="name">
+      <p class="hint">뱃지와 공유 카드에 <b style="color:var(--ink-mid)">이 이름 그대로</b> 표시됩니다. 본명이 부담스러우면 별명을 적으셔도 됩니다.</p>
+    </div>
+    <div class="field">
+      <label for="school">소속</label>
+      <input id="school" maxlength="18" placeholder="독도초등학교" autocomplete="organization">
+      <p class="hint">뱃지에 함께 새겨집니다. 학교·동아리·회사 무엇이든 좋습니다.</p>
+    </div>
+    <div class="field">
+      <label>어느 나라에서 배우시나요?</label>
+      <div class="flags" id="flags"></div>
+    </div>
+    <div class="btnrow">
+      <button class="btn" id="go-placement">배치고사 보고 시작하기</button>
+      <button class="btn ghost" id="go-kinder">유치원부터 차근차근 시작하기</button>
+    </div>
+    <p class="note">배치고사는 5문항입니다. 뒤로 갈수록 어려워지며, 맞힌 만큼 위 학년에서 시작합니다. 틀린 문제는 바로 해설을 봅니다.</p>
+  </section>
+
+  <!-- ============ 홈 ============ -->
+  <section id="s-home" class="hidden">
+    <div class="topbar">
+      <div class="brand">독도 코리아 <span>스쿨</span></div>
+      <div class="stat on" id="st-streak">🔥 개근 <b>0</b>일</div>
+      <div class="stat" id="st-xp">XP <b>0</b></div>
+      <button class="stat js-reset" id="h-reset" title="기록을 지우고 처음부터 다시 시작합니다">↺ 처음부터</button>
+    </div>
+
+    <div class="island-card">
+      <div id="island-holder"></div>
+      <div class="island-cap">
+        <div>
+          <div class="cap-grade" id="cap-grade">유치원</div>
+          <div class="cap-sub" id="cap-sub">독도 코리아 스쿨 재학 중</div>
+        </div>
+        <div class="cap-right">
+          <b id="cap-lights">0</b>
+          밝힌 불빛
+        </div>
+      </div>
+    </div>
+
+    <div class="prog">
+      <div class="prog-head"><b id="prog-label">이번 학년 진도</b><span id="prog-num" class="mono">0 / 0</span></div>
+      <div class="bar"><i id="prog-bar" style="width:0%"></i></div>
+    </div>
+
+    <div class="cool hidden" id="cool-box">
+      <div><div class="cool-t js-cool">00:00:00</div><small>뒤에 다시 수업이 열립니다</small></div>
+      <button class="btn ghost" style="width:auto;padding:11px 15px;margin-left:auto" id="h-notify">열리면 알림 받기</button>
+      <button class="btn ghost js-reset" style="width:auto;padding:11px 15px" id="c-reset">처음부터</button>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn" id="go-lesson">오늘 수업 듣기</button>
+      <button class="btn exam hidden" id="go-exam">진급 시험 보기</button>
+      <button class="btn ghost" id="go-review">복습할 항목 <span id="review-n">0</span>개</button>
+    </div>
+
+    <div class="ladder">
+      <div class="eyebrow">성취 뱃지 <span id="badge-n">0</span>/12</div>
+      <div class="badgerow" id="badgerow"></div>
+    </div>
+
+    <div class="ladder hidden" id="weak-wrap">
+      <div class="eyebrow">가장 많이 틀리는 항목</div>
+      <p class="note" style="margin:6px 0 4px">응답이 쌓일수록 체감 정답률이 갱신됩니다. 여기 오래 남아 있는 항목이 다음 방송에서 다룰 소재입니다.</p>
+      <div id="weak"></div>
+    </div>
+
+    <div class="ladder">
+      <div class="eyebrow">학제</div>
+      <div class="ladder-list" id="ladder"></div>
+    </div>
+
+    <p class="note" id="home-note"></p>
+    <p class="note" id="ver-note" style="opacity:.55;font-size:11.5px;margin-top:10px"></p>
+  </section>
+
+  <!-- ============ 수업 ============ -->
+  <section id="s-lesson" class="hidden">
+    <div class="lesson-top">
+      <button class="quit" id="quit">← 나가기</button>
+      <div class="bar"><i id="l-bar" style="width:0%"></i></div>
+      <span class="mono" style="font-size:12.5px;color:var(--ink-dim)" id="l-count">1/5</span>
+    </div>
+    <div id="q-type" class="qtype">4지선다</div>
+    <div id="q-material" class="matbox hidden"></div>
+    <h2 class="qtext" id="q-text"></h2>
+    <div class="opts" id="q-opts"></div>
+    <div id="q-fb"></div>
+    <div class="btnrow"><button class="btn hidden" id="q-next">다음</button></div>
+  </section>
+
+  <!-- ============ 결과 ============ -->
+  <section id="s-result" class="hidden"></section>
+
+</div>
+
+<script>
+/* =========================================================
+   독도 코리아 스쿨 · Dokdo Korea School
+   문항 데이터는 아래 DATA 한 곳에만 있습니다.
+   여기에 항목을 추가하면 앱에 바로 반영됩니다.
+   ========================================================= */
+const DATA = {"questions":[
+{"id": 60, "grade": "K", "category": "자연생태", "q": "독도에서 멸종된 강치의 다른 이름은?", "choices": ["물범", "해달", "물개", "바다사자"], "answer": 3, "fact": "독도 강치는 [[바다사자]]의 일종이다.", "distractor": "물개", "explain": "강치는 바다사자과에 속하는 해양 포유류로, 독도 바다에 수만 마리가 번성했습니다.", "tip": "Easy인데 정답률 32%. 물개·물범과 헷갈리는 분이 많습니다.", "rate": 32, "asOf": null, "atype": "생물", "deep": "강치는 바다사자과에 속하는 해양 포유류입니다. 물개·물범과 달리 귓바퀴가 있고 앞다리로 몸을 세워 걸을 수 있습니다. 1900년대 초 독도에는 수만 마리가 서식했으나 나카이 요사부로 등의 상업적 남획으로 급감해 1970년대 초를 끝으로 자취를 감췄습니다.", "wrong": {"0": "귓바퀴가 없고 몸을 세우지 못합니다", "1": "족제비과로 계통이 아예 다릅니다", "2": "같은 기각류지만 종이 다릅니다. 가장 많이 나온 오답입니다"}},
+{"id": 84, "grade": "K", "category": "현대주권", "q": "독도에 실제로 편지를 보내면?", "choices": ["배달됨 — 우체통이 있고 정기 수거됨", "울릉도까지만 배달됨", "군사 지역이라 우편 불가", "우편번호가 없어서 반송됨"], "answer": 0, "fact": "독도에는 우체통이 있어 편지가 [[배달된다]].", "distractor": "반송된다", "explain": "공식 우편번호와 집배원의 정기 수거 프로세스가 대한민국 행정 체계의 작동을 증명합니다.", "tip": "주권의 일상성을 가장 잘 보여주는 퀴즈입니다.", "rate": 71, "asOf": null, "atype": "서술"},
+{"id": 100, "grade": "K", "category": "현대주권", "q": "독도의 날은 언제인가요?", "choices": ["3월 1일", "6월 6일", "8월 15일", "10월 25일"], "answer": 3, "fact": "독도의 날은 [[10월 25일]]이다.", "distractor": "8월 15일", "explain": "1900년 10월 25일 고종황제가 대한제국 칙령 제41호를 반포해 독도를 울릉군 관할로 공식 편입한 날을 기념합니다.", "tip": "100회 특집 상징 문제. 가볍게 터치하기 좋습니다.", "rate": null, "asOf": null, "atype": "연도"},
+{"id": 201, "grade": "K", "category": "자연생태", "q": "독도는 어느 바다에 있나요?", "choices": ["동해", "서해", "남해", "제주 바다"], "answer": 0, "fact": "독도는 [[동해]]에 있는 우리나라 땅이다.", "distractor": "서해", "explain": "독도는 우리나라에서 해가 가장 먼저 뜨는 동쪽 끝 섬입니다.", "tip": "가장 기본이 되는 첫 문항입니다.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 202, "grade": "K", "category": "자연생태", "q": "독도에서 가장 많이 볼 수 있는 새는?", "choices": ["참새", "괭이갈매기", "까치", "비둘기"], "answer": 1, "fact": "독도에서 가장 많이 볼 수 있는 새는 [[괭이갈매기]]다.", "distractor": "까치", "explain": "괭이갈매기는 고양이 울음소리를 닮아서 붙은 이름입니다. 독도의 터줏대감이라 불립니다.", "tip": "울음소리 이야기를 곁들이면 아이들이 아주 좋아합니다.", "rate": null, "asOf": null, "atype": "생물", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 203, "grade": "K", "category": "자연생태", "q": "독도는 큰 섬 몇 개로 이루어져 있나요?", "choices": ["1개", "2개", "5개", "10개"], "answer": 1, "fact": "독도는 큰 섬 [[2개]]와 작은 바위섬들로 이루어져 있다.", "distractor": "5개", "explain": "큰 섬 두 개는 동도와 서도이고, 그 둘레에 작은 바위섬들이 모여 있습니다.", "tip": "동도·서도 이름은 다음 학년에서 배웁니다.", "rate": null, "asOf": null, "atype": "수치", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 204, "grade": "K", "category": "현대주권", "q": "밤에 독도에서 바다를 향해 빛을 비추는 것은?", "choices": ["등대", "가로등", "신호등", "횃불"], "answer": 0, "fact": "독도에는 밤바다를 비추는 [[등대]]가 있다.", "distractor": "가로등", "explain": "독도등대는 동도 꼭대기에 서서 지나가는 배들에게 길을 알려줍니다.", "tip": "등대 불빛 이야기는 점등 지도와도 이어집니다.", "rate": null, "asOf": null, "atype": "사물", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 205, "grade": "K", "category": "현대주권", "q": "독도에 가려면 무엇을 타고 갈까요?", "choices": ["배", "기차", "버스", "자전거"], "answer": 0, "fact": "독도에 가려면 [[배]]를 타고 간다.", "distractor": "기차", "explain": "울릉도에서 배를 타고 갑니다. 파도가 높은 날에는 배가 뜨지 못해 돌아오기도 합니다.", "tip": "'결항' 개념을 자연스럽게 알려줄 수 있습니다.", "rate": null, "asOf": null, "atype": "탈것", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 52, "grade": "E1", "category": "현대주권", "q": "독도에서 일반 관광객이 입도할 수 있는 곳은?", "choices": ["동도와 서도 모두", "동도만", "서도만", "현재 일반인 입도 전면 금지"], "answer": 1, "fact": "일반 관광객이 입도할 수 있는 곳은 [[동도]]뿐이다.", "distractor": "서도", "explain": "2005년 전면 개방 이후 누적 360만 명의 국민이 동도 선착장을 밟았습니다.", "tip": "국민의 발걸음 하나하나가 실효적 지배의 현장입니다.", "rate": 46, "asOf": null, "atype": "지명"},
+{"id": 98, "grade": "E1", "category": "자연생태", "q": "독도 바위틈에서 보랏빛 꽃을 피우는 대표 식물은?", "choices": ["갯까치수영", "해국", "참억새", "사철나무"], "answer": 1, "fact": "독도 바위틈에서 보랏빛 꽃을 피우는 대표 식물은 [[해국]]이다.", "distractor": "참억새", "explain": "'바다국화'로도 불리는 해국은 척박한 해안 절벽 바위틈에 뿌리를 내려 여름부터 가을까지 독도를 보랏빛으로 물들입니다.", "tip": "난이도 하인데 정답률이 반토막. 생태적 감성을 공유하기 좋습니다.", "rate": 45, "asOf": null, "atype": "생물"},
+{"id": 206, "grade": "E1", "category": "자연생태", "q": "독도의 두 큰 섬의 이름은?", "choices": ["남도와 북도", "동도와 서도", "앞섬과 뒷섬", "큰섬과 작은섬"], "answer": 1, "fact": "독도의 두 큰 섬은 [[동도와 서도]]다.", "distractor": "남도와 북도", "explain": "동쪽에 있어서 동도, 서쪽에 있어서 서도입니다. 사이의 바다는 아주 얕습니다.", "tip": "이름의 유래가 방향 그대로라 기억하기 쉽습니다.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 207, "grade": "E1", "category": "현대주권", "q": "독도의 등대가 서 있는 섬은?", "choices": ["동도", "서도", "울릉도", "오키섬"], "answer": 0, "fact": "독도의 등대는 [[동도]]에 있다.", "distractor": "서도", "explain": "경비대 숙소와 헬기장, 배를 대는 시설도 모두 동도에 모여 있습니다.", "tip": "동도는 사람이 오가는 섬, 서도는 물이 나는 섬으로 묶어서 설명하면 좋습니다.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 208, "grade": "E1", "category": "자연생태", "q": "독도에 살고 있는 단 하나뿐인 텃새는?", "choices": ["참새", "까마귀", "제비", "오리"], "answer": 0, "fact": "독도의 유일한 텃새는 [[참새]]다.", "distractor": "까마귀", "explain": "다른 새들은 철따라 오갔다 가지만, 참새는 독도에서 일 년 내내 삽니다.", "tip": "'독도에도 참새가 산다'는 사실이 의외로 반응이 좋습니다.", "rate": null, "asOf": null, "atype": "생물", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 209, "grade": "E1", "category": "현대주권", "q": "독도는 어느 도에 속해 있나요?", "choices": ["강원도", "경상북도", "전라남도", "제주도"], "answer": 1, "fact": "독도는 [[경상북도]] 울릉군에 속한다.", "distractor": "강원도", "explain": "독도의 주소는 경상북도 울릉군 울릉읍 독도리입니다.", "tip": "주소가 있다는 것 자체가 우리 땅이라는 증거입니다.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 210, "grade": "E1", "category": "자연생태", "q": "독도는 어떻게 만들어진 섬인가요?", "choices": ["바닷속 화산이 솟아올라서", "모래가 쌓여서", "빙하가 깎아서", "사람이 만들어서"], "answer": 0, "fact": "독도는 [[바닷속 화산이 솟아올라]] 만들어진 섬이다.", "distractor": "모래가 쌓여", "explain": "바다 밑 2,000m에서부터 솟아오른 거대한 화산의 꼭대기가 바로 독도입니다.", "tip": "울릉도보다도 먼저 생긴 형님 섬입니다.", "rate": null, "asOf": null, "atype": "서술", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 211, "grade": "E1", "category": "자연생태", "q": "괭이갈매기가 독도에서 알을 낳고 새끼를 기르는 때는?", "choices": ["봄에서 여름", "가을에서 겨울", "겨울에만", "일 년 내내"], "answer": 0, "fact": "괭이갈매기는 [[봄에서 여름]] 사이에 독도에서 새끼를 기른다.", "distractor": "가을에서 겨울", "explain": "3월 말부터 7월까지 독도는 괭이갈매기의 커다란 아기방이 됩니다.", "tip": "이 시기 독도 사진은 새들로 하얗게 뒤덮여 있습니다.", "rate": null, "asOf": null, "atype": "계절", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 41, "grade": "E2", "category": "자연생태", "q": "동도와 서도 사이 해협의 수심은?", "choices": ["10m 미만", "10m 이상 50m 미만", "50m 이상 100m 미만", "100m 이상"], "answer": 0, "fact": "동도와 서도 사이 해협의 수심은 [[10m 미만]]이다.", "distractor": "100m 이상", "explain": "동도와 서도는 별개의 섬이 아니라 얕은 바다 밑에서 거대한 하부 구조를 공유하는 '한 몸'입니다.", "tip": "Easy인데 정답률 16%. 역대급 반전 문제입니다.", "rate": 16, "asOf": null, "atype": "수치", "deep": "동도와 서도는 겉보기에 떨어진 두 섬이지만, 사이 해협의 폭은 약 151m이고 수심은 10m가 채 되지 않습니다. 바다 밑에서는 하나의 화산체로 이어져 있고, 지질학적으로는 460만 년 전 형성된 단일 화산의 남은 부분입니다. 두 섬이 아니라 한 몸이라는 뜻입니다.", "wrong": {"1": "실제보다 다섯 배 이상 깊게 본 값입니다", "2": "동해 평원 수심(약 2,000m)과 혼동하기 쉬운 구간입니다", "3": "두 섬 사이가 얕게 이어져 있다는 관측과 맞지 않는 깊이입니다"}},
+{"id": 69, "grade": "E2", "category": "인물", "q": "독도 최초 민간 거주자 최종덕 씨가 서도에서 주로 채취한 해산물은?", "choices": ["오징어", "전복, 소라", "홍게", "미역"], "answer": 1, "fact": "최종덕은 서도에서 주로 [[전복과 소라]]를 채취했다.", "distractor": "오징어", "explain": "1965년 홀로 서도에 둥지를 틀고 실효적 경제 활동 지배력을 온몸으로 입증했습니다.", "tip": "민간인 개척사의 시작점입니다.", "rate": null, "asOf": null, "atype": "생물"},
+{"id": 82, "grade": "E2", "category": "현대주권", "q": "독도 경비대원의 근무 교대 주기는?", "choices": ["약 2주", "약 2개월", "약 6개월", "약 1년"], "answer": 1, "fact": "독도 경비대원의 근무 교대 주기는 약 [[2개월]]이다.", "distractor": "6개월", "explain": "제한된 공간과 거센 파도 속에서 24시간 철통 경비가 이어집니다.", "tip": "경비대원들의 고충을 칭찬하는 멘트가 좋습니다.", "rate": 35, "asOf": null, "atype": "수치", "deep": "독도경비대는 경상북도지방경찰청 소속으로 40여 명이 2개월 단위로 교대 근무합니다. 군대가 아니라 경찰이 지킨다는 점이 중요합니다. 분쟁 지역이라면 군이 주둔하지만, 독도는 대한민국의 일상적인 치안 관할 구역이기 때문에 경찰이 배치되어 있습니다.", "wrong": {"0": "보급선 운항 주기와 혼동하기 쉽습니다", "2": "고립 근무 부담을 고려하면 지나치게 깁니다", "3": "실제보다 여섯 배 깁니다"}},
+{"id": 212, "grade": "E2", "category": "자연생태", "q": "울릉도에서 독도까지의 거리는?", "choices": ["약 87km", "약 300km", "약 700km", "약 1,500km"], "answer": 0, "fact": "울릉도에서 독도까지는 약 [[87km]]다.", "distractor": "700km", "explain": "일본 오키섬에서는 157.5km로 훨씬 멉니다. 맑은 날 울릉도에서 독도가 눈으로 보이는 이유입니다.", "tip": "입구 지도 화면과 그대로 이어지는 문항입니다.", "rate": null, "asOf": null, "atype": "수치", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 213, "grade": "E2", "category": "자연생태", "q": "독도 동도에서 가장 높은 봉우리의 이름은?", "choices": ["대한봉", "우산봉", "백두봉", "한라봉"], "answer": 1, "fact": "독도 동도의 가장 높은 봉우리는 [[우산봉]]이다.", "distractor": "대한봉", "explain": "서도의 가장 높은 곳은 대한봉, 동도의 가장 높은 곳은 우산봉입니다.", "tip": "우산도라는 옛 이름에서 온 이름입니다.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 214, "grade": "E2", "category": "자연생태", "q": "독도에서 가장 높은 곳의 높이는?", "choices": ["약 30m", "약 70m", "약 168m", "약 500m"], "answer": 2, "fact": "독도에서 가장 높은 곳은 서도 대한봉으로 약 [[168m]]다.", "distractor": "500m", "explain": "동도 우산봉은 98.6m, 서도 대한봉은 168.5m로 서도가 훨씬 높고 가파릅니다.", "tip": "아파트 50층 정도 높이라고 하면 감이 옵니다.", "rate": null, "asOf": null, "atype": "수치", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 215, "grade": "E2", "category": "현대주권", "q": "독도등대의 불빛은 얼마나 멀리까지 갈까요?", "choices": ["약 1마일", "약 5마일", "약 25마일", "약 100마일"], "answer": 2, "fact": "독도등대의 불빛은 약 [[25마일]]까지 닿는다.", "distractor": "1마일", "explain": "약 46km 떨어진 바다에서도 독도등대의 불빛을 볼 수 있습니다.", "tip": "캄캄한 동해에서 이 불빛이 우리 땅을 알립니다.", "rate": null, "asOf": null, "atype": "수치", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 216, "grade": "E2", "category": "현대주권", "q": "독도에 사는 사람들은 마실 물을 어떻게 구할까요?", "choices": ["바닷물을 민물로 바꿔서", "비를 받아서만", "울릉도에서 매일 실어 와서", "땅을 깊게 파서"], "answer": 0, "fact": "독도에서는 [[바닷물을 민물로 바꾸는]] 시설로 물을 얻는다.", "distractor": "비를 받아서만", "explain": "하루에 27톤의 물을 만들어 냅니다. 서도에는 물골이라는 자연 샘도 있습니다.", "tip": "사람이 살 수 있는 섬이라는 국제법상 요건과 이어집니다.", "rate": null, "asOf": null, "atype": "서술", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 217, "grade": "E2", "category": "자연생태", "q": "독도 서도의 높은 절벽에서 새끼를 기르는 사나운 새는?", "choices": ["매", "참새", "오리", "비둘기"], "answer": 0, "fact": "독도 서도의 절벽에서는 [[매]]가 새끼를 기른다.", "distractor": "오리", "explain": "사람이 오르기 힘든 서도의 가파른 절벽이 매에게는 안전한 둥지가 됩니다.", "tip": "동도는 사람의 섬, 서도는 새와 나무의 섬입니다.", "rate": null, "asOf": null, "atype": "생물", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 32, "grade": "E3", "category": "자연생태", "q": "독도 서도 최고봉의 공식 명칭은?", "choices": ["우산봉", "대한봉", "독립봉", "이사부봉"], "answer": 1, "fact": "독도 서도 최고봉의 이름은 [[대한봉]]이며 높이는 168.5m다.", "distractor": "우산봉", "explain": "독도에서 가장 높은 지점(168.5m)의 이름이 다름 아닌 '대한'입니다.", "tip": "동도 최고봉 우산봉과 헷갈려 정답률이 매우 낮았습니다.", "rate": 21, "asOf": null, "atype": "지명", "deep": "서도 정상은 해발 168.5m로 독도에서 가장 높습니다. 2000년 울릉군 지명위원회가 '대한봉(大韓峰)'으로 공식 명명했고, 동도 정상(98.6m)은 '우산봉'으로 지었습니다. 독도의 가장 높은 지점 이름이 '대한'이라는 사실 자체가 상징적입니다.", "wrong": {"0": "동도 최고봉의 이름입니다. 둘을 바꿔 아는 경우가 가장 많습니다", "2": "존재하지 않는 이름입니다", "3": "이사부는 도로명(독도이사부길)에 쓰였습니다"}},
+{"id": 54, "grade": "E3", "category": "현대주권", "q": "독도의 우편번호는?", "choices": ["06234", "22382", "40240", "63068"], "answer": 2, "fact": "독도의 우편번호는 [[40240]]이다.", "distractor": "22382", "explain": "분쟁 지역에는 우편번호가 부여될 수 없습니다. 대한민국 행정망이 독도 구석구석까지 작동하고 있다는 증거입니다.", "tip": "행정 주권의 상징. 유쾌한 일상 팩트입니다.", "rate": 30, "asOf": null, "atype": "수치", "deep": "2015년 도로명주소 전면 시행에 맞춰 부여된 다섯 자리 우편번호입니다. 앞의 40은 경상북도, 240은 울릉군 구역을 뜻합니다. 국제법상 분쟁 지역에는 일방 국가가 우편번호를 부여할 수 없습니다. 이 다섯 자리가 곧 행정 주권의 증거입니다.", "wrong": {"0": "서울 강남 지역입니다", "1": "인천 지역 번호대입니다", "3": "제주 지역입니다"}},
+{"id": 64, "grade": "E3", "category": "현대주권", "q": "독도에 헬기장이 있는 곳은?", "choices": ["서도 대한봉 정상", "동도와 서도 사이 해협", "동도 정상부", "서도 물골 인근"], "answer": 2, "fact": "독도의 헬기장은 [[동도 정상부]]에 있다.", "distractor": "서도 물골 인근", "explain": "초소와 등대가 밀집한 동도 마루에 위치한 핵심 교통 인프라입니다.", "tip": "상시적인 군경 수송과 국가 행정이 닿는 시설입니다.", "rate": null, "asOf": null, "atype": "지명", "deep": "동도 정상부 경비대 숙소 앞에 약 400㎡ 규모로 조성되어 있습니다. 등대, 접안시설, 담수시설, 위성안테나가 모두 동도에 모여 있어 동도가 행정·경비의 중심입니다. 서도는 물골이라는 자연 용천수가 있어 생활용수의 근원이 되는 섬입니다.", "wrong": {"0": "경사가 급해 헬기 착륙이 불가능합니다", "1": "바다입니다", "3": "물골은 식수원이지 항공 시설이 아닙니다"}},
+{"id": 77, "grade": "E3", "category": "자연생태", "q": "독도 강치가 지구상에서 마지막으로 목격된 시기는?", "choices": ["1905년", "1941년", "1958년", "1970년대 초"], "answer": 3, "fact": "독도 강치가 마지막으로 목격된 시기는 [[1970년대 초]]이다.", "distractor": "1905년", "explain": "수만 마리가 번성하던 강치는 일본인들의 잔혹한 남획으로 1970년대 초를 끝으로 멸종했습니다.", "tip": "생태사적 비극입니다.", "rate": null, "asOf": null, "atype": "연도", "deep": "1900년대 초 독도에는 강치가 수만 마리 서식했습니다. 1905년 나카이 요사부로가 독도 편입을 청원한 직접적 동기도 강치 어업 독점이었습니다. 1904년부터 1913년까지 1만 4천 마리 넘게 포획되면서 개체군이 붕괴했고, 1970년대 초 목격을 마지막으로 절멸했습니다.", "wrong": {"0": "편입 연도와 혼동한 경우로, 이때는 아직 수만 마리가 있었습니다", "1": "태평양전쟁기에도 소수가 관찰됐습니다", "2": "이후로도 목격 기록이 남아 있습니다"}},
+{"id": 218, "grade": "E3", "category": "현대주권", "q": "독도등대가 처음 불을 켠 해는?", "choices": ["1945년", "1954년", "1982년", "2005년"], "answer": 1, "fact": "독도등대가 처음 불을 켠 해는 [[1954년]]이다.", "distractor": "1945년", "explain": "광복 9년 뒤인 1954년 8월, 독도에 우리 등대가 처음 불을 밝혔습니다.", "tip": "독도의용수비대가 활동하던 바로 그 시기입니다.", "rate": null, "asOf": null, "atype": "연도", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 219, "grade": "E3", "category": "현대주권", "q": "독도의 행정 주소는 어디일까요?", "choices": ["강원도 삼척시 독도리", "경상북도 울릉군 울릉읍 독도리", "부산광역시 동구 독도동", "제주특별자치도 독도리"], "answer": 1, "fact": "독도의 주소는 [[경상북도 울릉군 울릉읍 독도리]]다.", "distractor": "강원도 삼척시 독도리", "explain": "번지까지 있는 정식 주소입니다. 우편번호 40240으로 편지도 배달됩니다.", "tip": "주소·우편번호·도로명이 모두 있다는 점을 묶어서 설명하세요.", "rate": null, "asOf": null, "atype": "지명", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 220, "grade": "E3", "category": "현대주권", "q": "독도에 배를 댈 수 있는 시설이 만들어진 해는?", "choices": ["1954년", "1975년", "1997년", "2013년"], "answer": 2, "fact": "독도에 배를 댈 수 있는 접안시설이 만들어진 해는 [[1997년]]이다.", "distractor": "1954년", "explain": "1997년 동도에 길이 80m의 접안시설이 생기면서 500톤급 배까지 댈 수 있게 됐습니다.", "tip": "이 시설 덕분에 일반 국민의 독도 방문이 가능해졌습니다.", "rate": null, "asOf": null, "atype": "연도", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 221, "grade": "E3", "category": "자연생태", "q": "독도에서 관찰되는 새는 모두 몇 종쯤 될까요?", "choices": ["약 5종", "약 20종", "약 80종", "약 500종"], "answer": 2, "fact": "독도에서 관찰되는 새는 약 [[80종]]에 이른다.", "distractor": "5종", "explain": "작은 섬이지만 철새들이 오가는 길목이라 해마다 1만 5천 마리가 넘는 새가 독도를 찾습니다.", "tip": "'작은 섬, 큰 생태계'로 정리하면 좋습니다.", "rate": null, "asOf": null, "atype": "수치", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 222, "grade": "E3", "category": "현대주권", "q": "독도에 인터넷 위성 안테나가 설치된 해는?", "choices": ["1954년", "1982년", "2000년", "2018년"], "answer": 2, "fact": "독도에 인터넷 위성 안테나가 설치된 해는 [[2000년]]이다.", "distractor": "1982년", "explain": "2000년 위성 인터넷, 2013년 LTE가 열리면서 독도는 완전히 연결된 섬이 됐습니다.", "tip": "현대적 실효 지배를 보여주는 인프라 계보입니다.", "rate": null, "asOf": null, "atype": "연도", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 223, "grade": "E3", "category": "자연생태", "q": "독도에서 100년 넘게 자라 천연기념물이 된 나무는?", "choices": ["소나무", "사철나무", "대나무", "은행나무"], "answer": 1, "fact": "독도에서 100년 넘게 자란 천연기념물 나무는 [[사철나무]]다.", "distractor": "소나무", "explain": "거센 바닷바람 때문에 땅에 납작 붙어 자라지만 100년 넘게 버텨 왔습니다.", "tip": "독도의 모진 역사를 비유하기 좋은 나무입니다.", "rate": null, "asOf": null, "atype": "생물", "src": "외교부 독도 공식사이트 · 동북아역사재단"},
+{"id": 45, "grade": "E4", "category": "현대주권", "q": "독도의 도로명 주소 중 서도의 도로명은?", "choices": ["독도이사부길", "독도안용복길", "독도홍순칠길", "독도최종덕길"], "answer": 1, "fact": "독도 서도의 도로명은 [[독도안용복길]]이다.", "distractor": "독도이사부길", "explain": "동도는 신라의 장군 '독도이사부길', 서도는 조선의 어부 '독도안용복길'입니다.", "tip": "1,500년 주권의 역사가 행정 주소에 새겨져 있습니다.", "rate": 43, "asOf": null, "atype": "지명"},
+{"id": 57, "grade": "E4", "category": "자연생태", "q": "독도에서 유일하게 자연적으로 솟아나는 용천수가 있는 곳은?", "choices": ["동도 선착장 인근", "서도 북쪽 물골", "동도 우산봉 정상부", "서도 대한봉 남쪽 절벽"], "answer": 1, "fact": "독도의 유일한 용천수는 [[서도 북쪽 물골]]에 있다.", "distractor": "동도 우산봉 정상부", "explain": "섬에 물이 나온다는 사실은 '인간이 거주할 수 있는 섬'이라는 국제법상 중요한 요건을 충족합니다.", "tip": "동도 우산봉으로 오답이 더 많이 쏠린 반전 문항입니다.", "rate": 33, "asOf": null, "atype": "지명", "deep": "서도 북서쪽 해안 절벽 아래에 있는 동굴형 샘으로, 하루 1,000리터가량이 솟습니다. 최초 거주자 최종덕이 여기까지 오르내리기 위해 998개의 시멘트 계단을 손수 만들었습니다. 유엔 해양법협약상 '인간의 거주를 유지할 수 있는가'가 섬과 암초를 가르는 기준인데, 담수원의 존재가 그 요건과 직결됩니다.", "wrong": {"0": "접안시설 구역으로 담수원이 없습니다", "2": "오답이 37%로 정답보다 많이 몰린 지점입니다. 정상부에는 물이 나오지 않습니다", "3": "방향이 반대입니다"}},
+{"id": 83, "grade": "E4", "category": "인물", "q": "최종덕이 서도의 식수원 물골까지 가기 위해 직접 만든 것은?", "choices": ["암벽용 밧줄 사다리", "소형 보트 선착장", "998개의 시멘트 계단", "서도 둘레길"], "answer": 2, "fact": "최종덕은 물골까지 가기 위해 [[998개]]의 시멘트 계단을 직접 만들었다.", "distractor": "350개", "explain": "맨몸으로 시멘트 포대를 짊어지고 절벽에 길을 냈습니다.", "tip": "시청자들의 울컥한 감정을 이끌어내기 가장 좋은 스토리입니다.", "rate": 43, "asOf": null, "atype": "수치"},
+{"id": 50, "grade": "E5", "category": "자연생태", "q": "독도의 총 면적은 약 얼마인가?", "choices": ["약 87,554㎡", "약 137,554㎡", "약 187,554㎡", "약 237,554㎡"], "answer": 2, "fact": "독도의 총 면적은 약 [[187,554㎡]]이다.", "distractor": "87,554㎡", "explain": "동도와 서도, 89개의 부속 도서를 합산한 면적입니다.", "tip": "여의도의 6%에 불과하지만 이 작은 섬이 품은 해양 강국의 가치를 짚어주세요.", "rate": 41, "asOf": null, "atype": "수치"},
+{"id": 67, "grade": "E5", "category": "자연생태", "q": "독도가 천연기념물로 지정된 연도와 번호는?", "choices": ["1975년 제289호", "1990년 제412호", "2000년 제501호", "1982년 제336호"], "answer": 3, "fact": "독도는 [[1982년]] 천연기념물 제336호로 지정됐다.", "distractor": "1975년", "explain": "영토적 가치를 넘어 국가가 법적으로 생태 보전 구역임을 선포한 해입니다.", "tip": "고유 유산 번호까지 함께 기억하면 좋습니다.", "rate": null, "asOf": null, "atype": "연도", "deep": "1982년 11월 문화재청이 '독도 해조류 번식지'로 지정했다가, 1999년 '독도 천연보호구역'으로 명칭을 바꾸며 섬 전체를 보호 대상으로 넓혔습니다. 국가가 법으로 보전 구역을 선포한다는 것은 그 땅에 대한 관할권을 전제로만 가능한 행위입니다.", "wrong": {"0": "근거 없는 조합입니다", "1": "근거 없는 조합입니다", "2": "1999년 명칭 변경과 혼동하기 쉽습니다"}},
+{"id": 87, "grade": "E5", "category": "현대주권", "q": "독도에서 LTE 서비스가 처음 개통된 날짜는?", "choices": ["2005년 10월 25일", "2010년 1월 1일", "2013년 8월 15일 광복절", "2018년 1월 25일"], "answer": 2, "fact": "독도 LTE 서비스는 [[2013년 광복절]]에 개통됐다.", "distractor": "2005년 독도의 날", "explain": "광복절에 개통되어 단 한 번의 단절 없이 주권 통신망이 작동하고 있습니다.", "tip": "독도의 날과 광복절 사이에서 오답이 쏟아진 문제입니다.", "rate": 32, "asOf": null, "atype": "연도", "deep": "2013년 8월 15일 광복절에 맞춰 개통했습니다. 육지에서 200km 넘게 떨어진 섬에 상용 이동통신망을 구축하고 유지한다는 것은 상시적인 국가 인프라 관리가 이루어지고 있다는 뜻입니다. 2000년 위성 인터넷에 이은 현대적 실효 지배의 두 번째 축입니다.", "wrong": {"0": "독도의 날과 혼동한 경우로 오답이 많았습니다", "1": "근거 없는 날짜입니다", "3": "근거 없는 날짜입니다"}},
+{"id": 97, "grade": "E5", "category": "현대주권", "q": "2026년 기준 독도 명예주민증 누적 발급 건수는?", "choices": ["약 1만 건", "약 5만 건", "약 15만 건", "약 50만 건"], "answer": 2, "fact": "2026년 기준 독도 명예주민증 누적 발급 건수는 약 [[15만 건]]이다.", "distractor": "50만 건", "explain": "실제 거주 주민은 0명이지만 국민 15만 명이 주권 의지를 표했습니다.", "tip": "일본의 다케시마 본적 등록자 112명과 반드시 세트로 비교하세요.", "rate": 23, "asOf": 2026, "atype": "수치", "deep": "2005년 시작된 제도로 울릉군이 발급합니다. 실제 거주가 아니라 독도에 대한 관심을 등록하는 상징적 절차인데도 15만 명이 신청서를 작성했습니다. 같은 시점 일본에서 다케시마로 본적을 옮긴 사람은 112명입니다.", "wrong": {"0": "제도 시행 첫해 규모입니다", "1": "2010년대 초반 수준입니다", "3": "과대 추정입니다"}},
+{"id": 56, "grade": "E6", "category": "자연생태", "q": "독도가 솟아있는 동해 해양 평원의 평균 수심은?", "choices": ["약 500m", "약 1,000m", "약 2,000m", "약 4,000m"], "answer": 2, "fact": "독도가 솟아있는 동해 평원의 평균 수심은 약 [[2,000m]]이다.", "distractor": "500m", "explain": "독도는 해저 2,000m에서 우뚝 솟아오른 거대한 화산체의 꼭대기입니다.", "tip": "'눈에 보이는 게 전부가 아닙니다'로 시각적 웅장함을 전달하세요.", "rate": 44, "asOf": null, "atype": "수치"},
+{"id": 62, "grade": "E6", "category": "현대주권", "q": "일본 정부가 독도 영유권 주장을 위해 도쿄에 개관한 시설의 이름은?", "choices": ["다케시마 역사관", "영토주권전시관", "일본영토기념관", "시마네현 독도자료실"], "answer": 1, "fact": "일본이 도쿄에 개관한 영토 왜곡 시설의 이름은 [[영토주권전시관]]이다.", "distractor": "다케시마 역사관", "explain": "도쿄 히비야공원 근처에 국가 예산으로 지어진 영토 수정주의 홍보 기지입니다.", "tip": "정확한 명칭을 각인시켜 주세요.", "rate": null, "asOf": null, "atype": "문헌기관", "deep": "2018년 도쿄 히비야공원 시정회관 지하에 개관해 2020년 도라노몬으로 확장 이전했고, 2025년 다시 확장했습니다. 명칭에 '다케시마'가 아니라 '영토주권'을 넣은 것은 독도·센카쿠·쿠릴을 묶어 국가 차원의 영토 문제로 격상시키려는 의도입니다.", "wrong": {"0": "직관적이지만 실제 명칭이 아닙니다", "2": "존재하지 않는 시설입니다", "3": "시마네현이 별도로 운영하는 기관과 혼동한 것입니다"}},
+{"id": 72, "grade": "E6", "category": "자연생태", "q": "울릉도와 독도 연안에서만 발견되는 대표 해조류는?", "choices": ["미역", "김", "다시마", "대황"], "answer": 3, "fact": "울릉도와 독도 연안에서만 거대한 숲을 이루는 해조류는 [[대황]]이다.", "distractor": "다시마", "explain": "전 세계에서 유독 울릉도와 독도 청정 구역에만 서식하는 희귀 해조류입니다.", "tip": "생태적 보전 필요성을 일깨워주는 과학 퀴즈입니다.", "rate": null, "asOf": null, "atype": "생물"},
+{"id": 90, "grade": "E6", "category": "현대주권", "q": "독도 접안시설에 댈 수 있는 최대 선박 규모는?", "choices": ["100톤급", "500톤급", "1,000톤급", "3,000톤급"], "answer": 1, "fact": "독도 접안시설에는 최대 [[500톤급]] 선박이 접안할 수 있다.", "distractor": "3,000톤급", "explain": "사람과 물자가 오가는 이 시설의 존재 자체가 명백한 실효 지배의 증거입니다.", "tip": "과장된 오답 선택지로 함정을 판 문제입니다.", "rate": 31, "asOf": null, "atype": "수치", "deep": "1997년 11월 동도에 길이 80m 규모로 완공됐습니다. 그 전에는 파도가 조금만 높아도 접안이 불가능해 사실상 접근이 막혀 있었습니다. 이 시설이 생기면서 2005년 일반인 입도 전면 개방이 가능해졌고, 누적 360만 명이 독도를 밟았습니다.", "wrong": {"0": "소형 어선 수준으로 과소 추정입니다", "2": "현재 접안시설 규모를 넘습니다", "3": "대형 여객선급으로 독도 지형상 불가능합니다"}},
+{"id": 91, "grade": "E6", "category": "자연생태", "q": "독도 사철나무가 육지의 같은 종과 다른 독특한 생육 형태는?", "choices": ["강한 해풍으로 가지가 땅에 납작하게 퍼짐", "바닷물을 흡수해 내륙보다 빠르게 성장", "꽃을 피우지 않고 뿌리로만 번식", "겨울에 잎을 떨어뜨려 수분을 보존"], "answer": 0, "fact": "독도 사철나무는 강한 해풍 때문에 가지가 [[땅에 납작하게]] 퍼져 자란다.", "distractor": "하늘로 곧게", "explain": "100년 이상 된 독도 사철나무는 천연기념물 제538호입니다.", "tip": "독도의 모진 역사를 비유하기 좋은 아름다운 문항입니다.", "rate": 59, "asOf": null, "atype": "서술"},
+{"id": 1, "grade": "M1", "category": "역사문헌", "q": "일본이 러일전쟁 중 독도를 시마네현에 강제 편입한 연도는?", "choices": ["1895년", "1900년", "1905년", "1910년"], "answer": 2, "fact": "일본이 독도를 시마네현에 강제 편입한 해는 [[1905년]]이다.", "distractor": "1910년", "explain": "우리의 1900년 칙령 제41호보다 5년이나 늦게, 전시 상황을 틈타 일방적으로 강탈했습니다.", "tip": "대망의 첫 번째 문제였습니다.", "rate": 45, "asOf": null, "atype": "연도"},
+{"id": 35, "grade": "M1", "category": "인물", "q": "안용복이 1693년 처음 일본에 건너가게 된 직접적 계기는?", "choices": ["조선 정부의 공식 외교 사절로 파견됨", "울릉도에서 일본 어부들에게 납치됨", "독도 영유권 협상을 위해 자진 도일함", "일본 상인과의 무역 분쟁으로 연행됨"], "answer": 1, "fact": "안용복은 1693년 울릉도에서 일본 어부들에게 [[납치]]되어 일본으로 건너갔다.", "distractor": "공식 사절로 파견", "explain": "납치당해 끌려간 위기 속에서도 호키 태수에게 당당히 조선 땅임을 선포했습니다.", "tip": "어부의 용기가 역사의 흐름을 바꿨습니다.", "rate": 34, "asOf": null, "atype": "서술", "deep": "1693년 봄 울릉도에서 조업하던 안용복은 일본 어부들과 마주쳤고, 오히려 그들에게 붙잡혀 오키섬으로 끌려갔습니다. 납치된 처지에서도 호키주 태수 앞에서 울릉도와 독도가 조선 땅임을 주장했고, 결국 막부로부터 그 취지의 서계를 받아냈습니다.", "wrong": {"0": "안용복은 관직이 없는 평민이었습니다", "2": "자진 도일은 3년 뒤인 1696년 2차 때입니다", "3": "무역이 아니라 조업 중 충돌이었습니다"}},
+{"id": 48, "grade": "M1", "category": "자연생태", "q": "독도 주변이 세계적인 황금 어장이 되는 핵심 이유는?", "choices": ["수심이 얕아 햇빛이 잘 들기 때문", "난류와 한류가 만나는 조경수역이기 때문", "독도 주변에 산호초가 발달해 있기 때문", "중국 대륙붕의 영향으로 영양염류가 풍부하기 때문"], "answer": 1, "fact": "독도 주변이 황금 어장인 이유는 난류와 한류가 만나는 [[조경수역]]이기 때문이다.", "distractor": "산호초 지대", "explain": "따뜻한 해류와 차가운 해류가 만나 플랑크톤이 대량 번식합니다.", "tip": "정답률이 높고 깔끔한 해양학 문제입니다.", "rate": 74, "asOf": null, "atype": "개념어"},
+{"id": 61, "grade": "M1", "category": "역사문헌", "q": "1900년 대한제국 칙령 제41호에서 독도를 부른 공식 명칭은?", "choices": ["우산도", "자산도", "가지도", "석도"], "answer": 3, "fact": "1900년 대한제국 칙령 제41호는 독도를 [[석도]]라 불렀다.", "distractor": "우산도", "explain": "주민들이 부르던 '돌섬'의 훈차 표기가 '석도'이며, 사투리 '독섬'을 거쳐 오늘날의 '독도'가 됐습니다.", "tip": "음운사적 근거를 보여주는 문항입니다.", "rate": null, "asOf": null, "atype": "옛이름", "deep": "주민들이 부르던 '돌섬'을 한자 훈으로 옮기면 石島가 됩니다. 경상도·전라도 방언에서 '돌'이 '독'으로 발음되어 '독섬'이 되었고, 이것이 다시 한자음으로 정착해 오늘날의 獨島가 됐습니다. 칙령 41호의 '석도'와 현재의 '독도'가 같은 섬임을 증명하는 음운학적 연결고리입니다.", "wrong": {"0": "조선 전기부터 쓰인 명칭이지만 칙령의 표기는 아닙니다", "1": "안용복이 일본에서 부른 이름입니다", "2": "강치가 많다는 뜻의 별칭입니다"}},
+{"id": 65, "grade": "M1", "category": "자연생태", "q": "최근 독도 주변 해조류가 급감하고 갯녹음이 발생하는 주된 원인은?", "choices": ["독도 관광객 증가로 인한 해양 오염", "수온 상승과 불가사리 증가", "일본 어선의 불법 해조류 채취", "독도 건설 공사로 인한 토사 유입"], "answer": 1, "fact": "갯녹음의 주된 원인은 [[수온 상승과 불가사리 증가]]다.", "distractor": "관광객 증가로 인한 오염", "explain": "해조류 숲이 하얗게 사막화되는 '바다의 사막화' 현상입니다.", "tip": "온난화의 심각성을 알리는 환경 문제입니다.", "rate": null, "asOf": null, "atype": "서술"},
+{"id": 68, "grade": "M1", "category": "자연생태", "q": "독도 주변에서 난류와 한류가 만나 플랑크톤이 대량 번식하는 해양 현상은?", "choices": ["엘니뇨 현상", "해저 화산 분출", "용승 현상", "갯녹음 현상"], "answer": 2, "fact": "심해의 영양염류가 표면으로 올라오는 현상을 [[용승]] 현상이라 한다.", "distractor": "엘니뇨", "explain": "북한한류와 동한난류가 격돌하며 심해층 영양염류를 끌어올립니다.", "tip": "독도가 아시아 최고 어장이 된 과학적 이유입니다.", "rate": null, "asOf": null, "atype": "개념어"},
+{"id": 43, "grade": "M2", "category": "역사문헌", "q": "1849년 독도를 발견하고 서양 지도에 처음 표기한 프랑스 선박의 이름은?", "choices": ["라페루즈호", "브로튼호", "리앙쿠르호", "호넷호"], "answer": 2, "fact": "1849년 독도를 서양 지도에 처음 표기한 프랑스 포경선은 [[리앙쿠르호]]다.", "distractor": "라페루즈호", "explain": "'리앙쿠르 암초'라는 중립적 명칭의 어원이 된 배입니다.", "tip": "제3국 지도 표기의 유래를 정립해주는 문항입니다.", "rate": 54, "asOf": null, "atype": "선박"},
+{"id": 74, "grade": "M2", "category": "인물", "q": "안용복이 두 차례 도일 후 조선 조정에서 받은 처분은?", "choices": ["관직에 임명됨", "포상금을 받음", "유배형을 받음", "아무 처분도 없었음"], "answer": 2, "fact": "안용복은 귀국 후 조선 조정에서 [[유배형]]을 받았다.", "distractor": "관직 임명", "explain": "국경을 사적으로 넘었다는 이유였으나, 그의 활약으로 에도 막부가 도해 금지령을 내렸습니다.", "tip": "'조정은 벌했으나 역사는 영웅으로 기억한다'는 숭고한 팩트입니다.", "rate": null, "asOf": null, "atype": "처분"},
+{"id": 93, "grade": "M2", "category": "역사문헌", "q": "조선이 울릉도·독도에 시행한 공도정책의 진짜 목적은?", "choices": ["영토를 포기한 것", "일본에 양도 준비", "섬의 존재를 몰랐기 때문", "왜구로부터 주민 보호를 위한 관리 정책"], "answer": 3, "fact": "공도정책의 목적은 [[왜구로부터 주민을 보호]]하기 위한 관리 정책이었다.", "distractor": "영토를 포기하기", "explain": "섬을 비운 것(보호)과 버린 것(포기)은 다릅니다. 조선은 수토관을 정기 파견하여 실효 지배를 이어갔습니다.", "tip": "최고 정답률을 기록한 문항. 스토리텔링으로 풀기 좋습니다.", "rate": 78, "asOf": null, "atype": "서술"},
+{"id": 75, "grade": "M3", "category": "인물", "q": "독도의용수비대가 무기를 구입한 방법은?", "choices": ["미군 무상 지원", "오징어 매매로 자금 확보 후 대구서 구입", "주민 성금과 정부 보조금", "한국전쟁 참전 당시 무기"], "answer": 1, "fact": "홍순칠 대장은 [[오징어]] 매매로 자금을 불려 무기를 구입했다.", "distractor": "정부 보조금", "explain": "울릉도 오징어를 대량 매입해 부산에 되팔아 자금을 두 배로 불린 뒤 대구 암시장에서 M1 소총과 박격포를 구했습니다.", "tip": "개인이 국방을 책임진 경이로운 비즈니스 수완입니다.", "rate": null, "asOf": null, "atype": "사물"},
+{"id": 78, "grade": "M3", "category": "역사문헌", "q": "일본이 현재 독도를 부르는 '다케시마'는 원래 어떤 섬을 가리키는 이름이었는가?", "choices": ["오키섬", "대마도", "울릉도", "센카쿠 열도"], "answer": 2, "fact": "메이지 이전 일본에서 '다케시마'는 [[울릉도]]를 가리키는 이름이었다.", "distractor": "오키섬", "explain": "메이지 유신 이전 일본은 울릉도를 다케시마, 독도를 마쓰시마라 불렀습니다. 1905년 편입 때 명칭을 억지로 갈아 끼웠습니다.", "tip": "일본의 논리적 정체성 상실을 폭로하는 문항입니다.", "rate": null, "asOf": null, "atype": "지명", "deep": "메이지 유신 이전 일본은 울릉도를 다케시마(竹島), 독도를 마쓰시마(松島)라 불렀습니다. 1849년 프랑스 배가 독도를 '리앙쿠르'로 기록하고 서양 지도가 들어오면서 명칭 혼란이 생겼고, 1905년 편입 때 일본은 원래 울릉도를 가리키던 '다케시마'를 독도에 옮겨 붙였습니다.", "wrong": {"0": "일본 시마네현의 실제 섬으로 명칭 이동과 무관합니다", "1": "한일 사이의 별개 섬입니다", "3": "중국·대만과의 분쟁 지역으로 독도와 무관합니다"}},
+{"id": 79, "grade": "M3", "category": "인물", "q": "독도의용수비대가 일본 비행기의 접근을 차단하는 데 성공한 방법은?", "choices": ["미군에게 요청해 방공 지원을 받음", "대공 사격으로 직접 격추함", "통나무 대포 위장으로 접근 차단", "한국 공군에 요청해 전투기를 출격시킴"], "answer": 2, "fact": "독도의용수비대는 [[통나무]]에 검은 칠을 해 대포처럼 위장했다.", "distractor": "실제 대포", "explain": "무기도 부족하던 시절 홍순칠 대장과 대원들의 지혜로운 일화입니다.", "tip": "경이롭고 지혜로운 일화입니다.", "rate": null, "asOf": null, "atype": "사물"},
+{"id": 85, "grade": "H1", "category": "현대주권", "q": "일본 초등학교에서 독도를 자국 영토로 가르치기 시작한 시기는?", "choices": ["1990년대부터", "2005년부터", "2차 세계대전 이전부터", "2008년부터"], "answer": 3, "fact": "일본 초등학교의 독도 왜곡 교육은 [[2008년]]부터 시작됐다.", "distractor": "1990년대", "explain": "문부과학성의 '학습지도요령 해설서'가 발령된 해입니다.", "tip": "미래 세대 왜곡의 위험성을 강조하기 좋습니다.", "rate": 20, "asOf": null, "atype": "연도", "deep": "2008년 중학교 학습지도요령 해설서에 독도 관련 서술이 명기되면서 시작됐고, 2014년 초등학교로, 2017년에는 모든 교과서로 확대됐습니다. 2008년에 초등학교에 입학한 세대가 2026년 현재 20대 후반이 되어 사회에 진입하고 있습니다.", "wrong": {"0": "이 시기에는 교과서에 독도 서술이 거의 없었습니다", "1": "시마네현 '다케시마의 날' 제정 연도와 혼동하기 쉽습니다", "2": "전전 교과서에는 오히려 독도가 조선 영토로 표시된 사례가 있습니다"}},
+{"id": 86, "grade": "H1", "category": "현대주권", "q": "2025년 기준 독도를 '다케시마'로 본적 등록한 일본인 수는?", "choices": ["12명", "56명", "112명", "500명"], "answer": 2, "fact": "2025년 기준 다케시마 본적 등록 일본인은 [[112명]]이다.", "distractor": "500명", "explain": "극우 단체의 선동에도 겨우 112명에 불과합니다.", "tip": "명예주민증 15만 건과 세트로 묶어 스케일 차이를 비교하세요.", "rate": 38, "asOf": 2025, "atype": "수치"},
+{"id": 94, "grade": "H1", "category": "현대주권", "q": "일본이 도쿄에 영토주권전시관을 최초로 개관한 연도는?", "choices": ["2018년", "2010년", "2015년", "2020년"], "answer": 0, "fact": "일본이 도쿄에 영토주권전시관을 최초 개관한 해는 [[2018년]]이다.", "distractor": "2010년", "explain": "2018년 히비야공원 내 최초 개관 이후 2020년 확장 이전, 2025년 추가 확장까지 조직적으로 규모를 키우고 있습니다.", "tip": "점진적·조직적 확장 타임라인을 팩트체크해 주세요.", "rate": 31, "asOf": null, "atype": "연도", "deep": "2018년 1월 히비야공원 시정회관 지하 1층에 약 100㎡ 규모로 개관했습니다. 2020년 도라노몬으로 옮기며 면적을 일곱 배로 늘렸고, 2025년 다시 확장했습니다. 7년 사이 세 단계로 규모를 키운 것은 개인이나 지방의 움직임이 아니라 국가 예산이 투입된 조직적 사업임을 뜻합니다.", "wrong": {"1": "이 시기에는 시설이 없었습니다", "2": "이 시기에도 시설이 없었습니다", "3": "최초 개관이 아니라 확장 이전한 해입니다"}},
+{"id": 58, "grade": "H2", "category": "국제법", "q": "SCAPIN 677호가 발령된 날짜는?", "choices": ["1945년 8월 15일", "1946년 1월 29일", "1951년 9월 8일", "1952년 1월 18일"], "answer": 1, "fact": "SCAPIN 677호가 발령된 날짜는 [[1946년 1월 29일]]이다.", "distractor": "1945년 8월 15일", "explain": "연합국이 전후 일본의 통치 범위를 확정하며 독도를 제외한 날입니다.", "tip": "굵직한 날짜들 사이에서 연도학적 고증을 요구하는 문제입니다.", "rate": 38, "asOf": null, "atype": "연도"},
+{"id": 76, "grade": "H2", "category": "역사문헌", "q": "1906년 울도군수 심흥택이 일본의 독도 편입 사실을 알게 된 경위는?", "choices": ["대한제국 외부로부터 공식 통보를 받음", "시마네현 시찰단이 울도군 방문해 직접 통보", "울릉도 어민이 독도에서 일본 표석을 발견해 보고함", "일본 정부가 관보로 국제사회에 공표한 것을 확인함"], "answer": 1, "fact": "심흥택은 [[시마네현 시찰단의 방문]]을 통해 편입 사실을 알게 됐다.", "distractor": "대한제국 외부의 공식 통보", "explain": "군수는 경악하여 조정에 '본군 소속 독도가 일본에 탈취당했다'고 긴급 보고를 올렸습니다.", "tip": "역사적 타임라인을 명확히 짚어주세요.", "rate": null, "asOf": null, "atype": "문헌기관", "deep": "1906년 3월 28일 시마네현 시찰단 일행이 울릉도를 방문해 '독도가 일본 영토가 되었다'고 말했습니다. 심흥택 군수는 이튿날 강원도 관찰사에게 \"본군 소속 독도가 일본에 편입되었다 하므로 보고한다\"는 긴급 보고를 올렸습니다. '본군 소속'이라는 네 글자가 독도가 이미 울도군 관할이었음을 보여주는 결정적 표현입니다.", "wrong": {"0": "일본이 통고하지 않았으므로 정부도 몰랐습니다", "2": "표석 설치는 이후의 일입니다", "3": "관보 공표 자체가 없었습니다"}},
+{"id": 81, "grade": "H2", "category": "역사문헌", "q": "일본이 1905년 독도 편입 사실을 대한제국에 알린 시기는?", "choices": ["편입과 동시에 1905년 2월", "3개월 뒤 1905년 5월", "1년 뒤 1906년 3월", "끝까지 알리지 않음"], "answer": 2, "fact": "일본은 1905년 편입 사실을 [[1년 뒤인 1906년 3월]]에야 알렸다.", "distractor": "편입과 동시에", "explain": "떳떳한 영토 편입이었다면 즉시 공표했어야 마땅합니다. 1년간의 은폐 자체가 불법성의 자백입니다.", "tip": "일본의 도둑 편입 논리를 부수는 결정적 팩트입니다.", "rate": 27, "asOf": null, "atype": "연도", "deep": "1905년 2월 시마네현 고시 제40호로 편입을 결정하고도 대한제국에 알리지 않았습니다. 이듬해 3월 시마네현 시찰단이 울릉도를 방문해 구두로 언급하면서 심흥택 군수가 처음 알게 됐습니다. 국제법상 영토 편입은 이해관계국에 통고해야 효력을 주장할 수 있는데, 1년 넘게 숨겼다는 사실 자체가 그 요건을 채우지 못했음을 보여줍니다.", "wrong": {"0": "떳떳한 절차였다면 그랬어야 하지만 실제로는 통고가 없었습니다", "1": "이 시기에도 통고는 없었습니다", "3": "1906년 3월에 뒤늦게, 그것도 공식 문서가 아닌 방문으로 알려졌습니다"}},
+{"id": 92, "grade": "H2", "category": "국제법", "q": "SCAPIN 677호와 함께 독도 수호의 양대 지령으로 불리는 SCAPIN 1033호의 핵심 내용은?", "choices": ["독도를 한국에 반환 명령", "독도에 미군 기지 설치", "일본 선박 독도 12해리 접근 금지", "독도를 유엔 신탁통치"], "answer": 2, "fact": "SCAPIN 1033호는 일본 선박의 독도 [[12해리]] 접근을 금지했다.", "distractor": "3해리", "explain": "677호가 행정적으로 독도를 제외했다면, 1033호는 물리적 접근까지 차단한 세트 지령입니다.", "tip": "두 지령을 세트로 리마인드해 주십시오.", "rate": 65, "asOf": null, "atype": "수치"},
+{"id": 53, "grade": "H3", "category": "역사문헌", "q": "일본이 1905년 러일전쟁 중 독도를 군사적으로 활용한 방법은?", "choices": ["해군 기지 건설 및 함대 주둔", "망루와 해저전선 설치로 러시아 함대 감시", "독도를 포로수용소로 활용함", "러시아 함대와 직접 해전"], "answer": 1, "fact": "일본은 러일전쟁 중 독도에 [[망루와 해저전선]]을 설치해 러시아 함대를 감시했다.", "distractor": "해군 기지와 함대", "explain": "일본이 왜 하필 1905년에 독도를 급하게 강탈했는지 그 군사적 야욕의 실체입니다.", "tip": "핵심 역사 문제입니다.", "rate": 44, "asOf": null, "atype": "사물"},
+{"id": 59, "grade": "H3", "category": "국제법", "q": "이승만 대통령이 1952년 '평화선'을 선포하게 된 직접적 계기는?", "choices": ["일본 어선의 독도 침범이 급증해서", "샌프란시스코 조약 발효로 맥아더 라인이 폐지될 예정이었기 때문", "유엔이 한국에 해양 주권선 선포를 권고해서", "일본이 독도에 군사시설을 건설하려 해서"], "answer": 1, "fact": "평화선 선포의 직접적 계기는 [[맥아더 라인 폐지]] 예정이었다.", "distractor": "일본 어선 침범 급증", "explain": "국제정치학적 맥락에 대응한 정부의 선제적 조치였습니다.", "tip": "일본 어선 침범이라는 함정에 많이 빠진 문제입니다.", "rate": 40, "asOf": null, "atype": "서술"},
+{"id": 80, "grade": "H3", "category": "인물", "q": "2006년 노무현 대통령이 독도 특별담화에서 독도 문제를 규정한 핵심 표현은?", "choices": ["순수한 영토 분쟁", "경제적 해양 자원 다툼", "단순한 영토 문제가 아니라 일제 침략에 대한 역사 청산의 문제", "한일 양국이 공동 관리해야 할 과제"], "answer": 2, "fact": "노무현 대통령은 독도 문제를 일제 침략에 대한 [[역사 청산]]의 문제로 규정했다.", "distractor": "순수한 영토 분쟁", "explain": "일본의 독도 인근 해양조사 강행 시도에 맞서 문제의 본질을 꿰뚫는 메시지를 천명했습니다.", "tip": "밤새 대통령이 직접 펜을 쥐고 써 내려간 담화입니다.", "rate": null, "asOf": null, "atype": "개념어"},
+{"id": 95, "grade": "H3", "category": "현대주권", "q": "2025년 일본이 영토주권전시관을 추가 확장했을 때 한국 외교부의 대응은?", "choices": ["유엔에 공식 항의서 제출", "일본대사관 총괄공사 초치 및 폐쇄 촉구", "독도에 군대 추가 배치", "외교 관계 단절 선언"], "answer": 1, "fact": "2025년 한국 외교부는 일본대사관 [[총괄공사를 초치]]하고 폐쇄를 촉구했다.", "distractor": "유엔에 항의서 제출", "explain": "주한일본대사관 마쓰오 총괄공사를 즉각 초치하여 경고하고 강력히 항의했습니다.", "tip": "2025년 11월의 최신 외교 현안입니다.", "rate": 54, "asOf": 2025, "atype": "서술"},
+{"id": 24, "grade": "U1", "category": "국제법", "q": "일본이 독도 영유권 문제를 국제사법재판소(ICJ)에 회부하자고 제안한 횟수는?", "choices": ["1회", "2회", "3회", "4회"], "answer": 2, "fact": "일본이 ICJ 회부를 제안한 것은 1954년, 1962년, 2012년 총 [[3회]]다.", "distractor": "4회", "explain": "평화적 해결을 가장하지만 실상은 독도를 국제적 분쟁 지역으로 만들려는 꼼수입니다.", "tip": "4회로 오답이 쏠렸습니다.", "rate": 31, "asOf": null, "atype": "수치", "deep": "1954년, 1962년, 2012년 세 차례입니다. ICJ는 분쟁 당사국 모두가 동의해야 재판이 열리므로, 한국이 응하지 않으면 성립하지 않습니다. 그럼에도 반복 제안하는 이유는 재판 자체보다 '독도는 국제 분쟁 지역'이라는 인상을 국제사회에 남기는 데 목적이 있기 때문입니다.", "wrong": {"0": "가장 최근의 2012년만 기억한 경우입니다", "1": "1954년과 2012년만 기억한 경우입니다", "3": "오답이 51%로 가장 많이 몰렸습니다. 제안 시도와 실제 회부 제안을 섞어 세면 늘어납니다"}},
+{"id": 47, "grade": "U1", "category": "국제법", "q": "일본이 독도를 '고유 영토'라 주장하며 동시에 1905년 '무주지 선점'으로 편입했다는 주장의 논리적 모순은?", "choices": ["1905년 이전에도 일본이 실효 지배했으므로 편입이 불필요했음", "고유 영토라면 선점할 필요가 없고, 선점했다면 고유 영토가 아니므로 두 주장이 양립할 수 없음", "무주지 선점론은 국제법상 유효한 영토 취득 방법이 아님", "1905년 당시 일본은 대한제국과 조약을 맺지 않았음"], "answer": 1, "fact": "고유 영토라면 선점할 필요가 없고 선점했다면 고유 영토가 아니므로, 일본의 두 주장은 [[양립할 수 없다]].", "distractor": "서로를 보완한다", "explain": "일본 외교 논리의 가장 아픈 곳을 찌르는 자폭 모순입니다.", "tip": "라이브에서 시원하게 꼬집으면 호응이 엄청납니다.", "rate": 62, "asOf": null, "atype": "서술"},
+{"id": 66, "grade": "U1", "category": "국제법", "q": "일본이 1905년 독도를 편입할 때 내세운 국제법적 논리는?", "choices": ["무주지 선점론", "시효 취득론", "할양론", "정복론"], "answer": 0, "fact": "일본이 1905년 독도 편입 때 내세운 논리는 [[무주지 선점론]]이다.", "distractor": "시효 취득론", "explain": "1900년 칙령 41호가 이미 존재했고 일본 자신의 1877년 태정관 지령도 있으므로 원천 성립 불가능합니다.", "tip": "가장 핵심적인 국제법 문제입니다.", "rate": null, "asOf": null, "atype": "개념어"},
+{"id": 88, "grade": "U1", "category": "역사문헌", "q": "1837년 도해 금지령을 어기고 울릉도에 불법 입도한 하치에몬이 받은 형벌은?", "choices": ["벌금형", "추방형", "종신 투옥", "사형"], "answer": 3, "fact": "1837년 도해 금지령을 어긴 하치에몬은 [[사형]]에 처해졌다.", "distractor": "벌금형", "explain": "에도 막부가 자국 어부에게 최고형을 내린 근거는 울릉도와 독도가 조선 영토라는 인식이 확고했기 때문입니다.", "tip": "역사의 준엄함을 보여주는 판례 기반 문제입니다.", "rate": 39, "asOf": null, "atype": "처분"},
+{"id": 96, "grade": "U1", "category": "현대주권", "q": "일본 문부과학성이 독도 왜곡 교육에 법적 구속력을 부여한 문서는?", "choices": ["시마네현 조례", "영토주권전시관 안내서", "다케시마 백서", "학습지도요령 해설서"], "answer": 3, "fact": "일본의 독도 왜곡 교육에 법적 구속력을 부여한 문서는 [[학습지도요령 해설서]]다.", "distractor": "다케시마 백서", "explain": "2008년부터 교과서에 '독도는 일본 고유 영토, 한국이 불법 점거 중'이라는 왜곡 서술을 강제한 지침입니다.", "tip": "극도로 낮은 정답률을 보인 법학·교육 체계 문제입니다.", "rate": 19, "asOf": null, "atype": "문헌기관", "deep": "학습지도요령 자체는 교육 대강이지만, '해설서'는 교과서 검정의 실질 기준이 됩니다. 2008년 중학교 사회과 해설서에 독도를 일본 고유 영토로 서술하도록 명기되면서, 교과서 출판사가 이를 따르지 않으면 검정을 통과할 수 없게 됐습니다. 왜곡이 개별 출판사의 선택이 아니라 국가의 강제가 된 지점입니다.", "wrong": {"0": "지방 조례라 전국 교과서에 미치지 않습니다", "1": "2018년 개관한 전시 시설의 자료입니다", "2": "외무성 홍보 자료로 교육에 대한 구속력이 없습니다"}},
+{"id": 21, "grade": "MA1", "category": "역사문헌", "q": "1667년 일본이 스스로 편찬한 지리서로, 독도와 울릉도가 조선 영토임을 명시한 문헌은?", "choices": ["태정관 지령", "은주시청합기", "도토리번 답변서", "시마네현 고시 40호"], "answer": 1, "fact": "1667년 [[은주시청합기]]는 일본의 북서 한계를 오키섬으로 명시했다.", "distractor": "태정관 지령", "explain": "일본이 스스로 국경의 한계를 오키섬으로 제한한 최초의 관찬 기록입니다.", "tip": "Medium 난이도 중 최저 정답률(10%). 태정관 지령에 묻혔던 보석 같은 문서입니다.", "rate": 10, "asOf": null, "atype": "문헌기관", "deep": "1667년 이즈모번 관리 사이토 호센이 편찬한 관찬 지리서입니다. 울릉도와 독도를 기술한 뒤 \"일본의 서북쪽 경계는 이 주(오키섬)로써 한계를 삼는다\"고 못 박았습니다. 일본이 스스로 국경선을 오키섬까지로 그은 최초의 공식 기록이고, 그 바깥에 있는 독도는 자동으로 일본 영토가 아니게 됩니다.", "wrong": {"0": "1877년 문서로 210년 뒤입니다. 유명해서 오답이 41%나 몰렸습니다", "2": "1695년 막부 질의에 대한 회신으로, 지리서가 아닙니다", "3": "1905년 편입 고시로 시기가 전혀 다릅니다"}},
+{"id": 46, "grade": "MA1", "category": "역사문헌", "q": "오키섬 무라카미 가문 문서가 독도 영유권 논쟁에서 결정적 증거가 되는 이유는?", "choices": ["일본 어부들이 독도에서 조업했다는 기록이 담겨 있어서", "자산도=우산도=독도라고 명시해 일본의 주장을 직접 반박하기 때문", "독도가 오키섬 관할이라고 기록되어 있어서", "안용복의 신분을 조선 관리로 인정했기 때문"], "answer": 1, "fact": "무라카미 가문 문서는 [[자산도가 곧 우산도이자 독도]]임을 명시한다.", "distractor": "독도가 오키섬 관할", "explain": "조선의 우산도와 현대의 독도가 다른 섬이라는 일본 학계의 주장을 그들 자신의 사료로 격파합니다.", "tip": "채널의 수많은 응답이 몰린 역사적 문항입니다.", "rate": 48, "asOf": null, "atype": "서술"},
+{"id": 55, "grade": "MA1", "category": "인물", "q": "안용복이 1696년 2차 도일 때 가지고 간 결정적 증거 자료는?", "choices": ["조선 왕의 친서", "조선팔도지도", "일본의 도해 금지령 사본", "울릉도 토지 문서"], "answer": 1, "fact": "안용복이 2차 도일 때 가져간 증거는 [[조선팔도지도]]다.", "distractor": "조선 왕의 친서", "explain": "평민 어부가 조선의 강역 지도를 펼쳐 막부 관료들을 압도했습니다.", "tip": "무라카미 가문 문서와의 교차 고증을 언급하기 좋습니다.", "rate": 32, "asOf": null, "atype": "문헌기관", "deep": "1696년 2차 도일 때 안용복은 조선팔도지도를 지참했습니다. 호키주 관청에서 이 지도를 펼쳐 강원도 안에 울릉도와 독도가 포함되어 있음을 직접 가리키며 조선 영토임을 주장했습니다. 평민 어부가 국가의 강역도를 근거로 외국 관청에서 영유권을 논증한 사례입니다.", "wrong": {"0": "안용복은 사적으로 건너간 것이라 국서를 지닐 수 없었습니다", "2": "도해 금지령은 이 사건 이후인 1696년 1월에 내려졌습니다", "3": "당시 울릉도는 공도정책으로 비워져 있었습니다"}},
+{"id": 71, "grade": "MA1", "category": "역사문헌", "q": "조선 성종 때 김자주가 발견하고 그림으로 그려 왕에게 바친 독도의 옛 이름은?", "choices": ["우산도", "삼봉도", "석도", "가지도"], "answer": 1, "fact": "김자주가 성종에게 그려 바친 독도의 옛 이름은 [[삼봉도]]다.", "distractor": "우산도", "explain": "함경도에서 출발해 세 개의 봉우리로 이루어진 섬을 목격하고 세밀하게 그려 진상했습니다.", "tip": "지질학적 고증 기록입니다.", "rate": null, "asOf": null, "atype": "옛이름"},
+{"id": 89, "grade": "MA1", "category": "역사문헌", "q": "일본이 독도 영유권의 근거로 드는 가장 오래된 문헌은?", "choices": ["시마네현 고시 제40호, 1905년", "태정관 지령, 1877년", "은주시청합기, 1667년", "조선국교제시말내탐서, 1870년"], "answer": 2, "fact": "일본이 근거로 드는 가장 오래된 문헌은 [[은주시청합기]](1667년)다.", "distractor": "태정관 지령", "explain": "정작 이 문서에는 '일본의 북서 한계는 오키섬까지'라고 적혀 있어 독도를 스스로 일본 영토 밖으로 밀어냈습니다.", "tip": "이사부 정복(512년)과 비교하면 1,100년 차이입니다.", "rate": 20, "asOf": null, "atype": "문헌기관"},
+{"id": 9, "grade": "PHD1", "category": "역사문헌", "q": "조선 어부 안용복이 일본에서 독도를 가리켜 부른 이름은?", "choices": ["우산도", "자산도", "석도", "가지도"], "answer": 1, "fact": "안용복이 일본 재판장에서 독도를 부른 이름은 [[자산도]]다.", "distractor": "우산도", "explain": "오키섬 무라카미 가문 문서에 '자산도가 곧 우산도요 독도다'라고 적혀 있어 교차 고증의 핵심이 됩니다.", "tip": "정답률 10%. 공식 문헌의 우산도로 오답이 몰빵된 문제입니다.", "rate": 10, "asOf": null, "atype": "옛이름", "deep": "안용복은 1696년 2차 도일 때 호키주 관청에서 독도를 '자산도(子山島)'라 불렀습니다. 우산도(于山島)의 '于'를 '子'로 옮겨 적은 것으로, 오키섬 무라카미 가문이 남긴 취조 기록에 그대로 적혀 있습니다. 이 문서가 결정적인 이유는 '조선의 우산도와 오늘날의 독도는 다른 섬'이라는 일본 학계의 주장을 일본 측 사료가 직접 반박하기 때문입니다.", "wrong": {"0": "조선 관찬 문헌의 공식 명칭이라 헷갈리기 쉽지만, 안용복이 일본에서 실제로 말한 이름은 아닙니다", "2": "1900년 대한제국 칙령 제41호의 표기로, 안용복보다 200년 뒤입니다", "3": "강치(가지어)가 많다고 붙은 별칭입니다"}},
+{"id": 44, "grade": "PHD1", "category": "역사문헌", "q": "1837년 하치에몬 사건 재판 기록 지도에서 일본 영토는 어떤 색으로 표기됐는가?", "choices": ["붉은색", "노란색", "파란색", "초록색"], "answer": 1, "fact": "하치에몬 재판 기록 지도에서 일본 영토는 [[노란색]]으로 표기됐다.", "distractor": "붉은색", "explain": "에도 막부가 자국 영토는 노란색으로, 조선의 울릉도와 독도는 붉은색으로 칠했습니다.", "tip": "'눈으로 보고도 우길 수 없는 시각적 자백'으로 강렬한 연출이 가능합니다.", "rate": 30, "asOf": null, "atype": "색", "deep": "1837년 하마다번 상인 하치에몬이 도해 금지령을 어기고 울릉도에서 밀무역을 하다 처형된 사건의 재판 기록입니다. 첨부된 '죽도방각도'에서 막부는 일본 영토를 노란색, 조선 영토를 붉은색으로 칠했는데 울릉도와 독도가 붉은색입니다. 막부가 그린 지도에서 독도가 조선 색이었다는 시각적 증거입니다.", "wrong": {"0": "조선 영토에 칠한 색입니다. 정확히 반대로 기억한 경우입니다", "2": "이 지도에 쓰이지 않은 색입니다", "3": "이 지도에 쓰이지 않은 색입니다"}},
+{"id": 51, "grade": "PHD1", "category": "역사문헌", "q": "에도 막부가 도해 금지령을 내릴 때 '울릉도와 독도는 우리 관할이 아니다'라고 공식 답변한 일본 지방은?", "choices": ["시마네번", "오키번", "도토리번", "나가사키번"], "answer": 2, "fact": "1695년 스스로 영유권을 부정한 일본 지방 정부는 [[도토리번]]이다.", "distractor": "시마네번", "explain": "당시 독도와 가장 가까웠던 지방 정부가 스스로 영유권을 부정한 서류가 명백히 존재합니다.", "tip": "시마네번으로 오답이 가장 많이 몰린 고난도 문항입니다.", "rate": 29, "asOf": null, "atype": "문헌기관", "deep": "1695년 막부가 '울릉도가 언제부터 돗토리번에 속했는가'를 묻자, 돗토리번은 \"울릉도와 독도는 물론 그 밖의 어느 섬도 본번에 속하지 않는다\"고 회신했습니다. 독도와 가장 가까운 일본 지방정부가 스스로 관할권을 부정한 문서이고, 이 답변이 이듬해 도해 금지령의 직접적 근거가 됐습니다.", "wrong": {"0": "1905년 편입 주체인 시마네현과 혼동해 오답이 43%로 가장 많이 몰렸습니다", "1": "오키섬은 돗토리번이 아닌 마쓰에번 관할이었습니다", "3": "대외 창구였지만 울릉도와 무관합니다"}},
+{"id": 63, "grade": "PHD1", "category": "인물", "q": "1711년 울릉도 수토를 마치고 독도를 가장 상세하게 관찰·기록한 조선 관리는?", "choices": ["김인우", "김자주", "안용복", "장한상"], "answer": 3, "fact": "1711년 울릉도 수토를 기록한 삼척첨사는 [[장한상]]이다.", "distractor": "안용복", "explain": "'울릉도의 3분의 1 크기 섬이 동남쪽에 선명히 보인다'는 정확한 지형 관측 기록을 남겼습니다.", "tip": "정답률 18%. 안용복이라는 스타 오답에 묻혔던 인물입니다.", "rate": 18, "asOf": null, "atype": "인명", "deep": "1694년 삼척첨사로 울릉도를 수토한 장한상은 1711년 기록에서 \"동남쪽에 섬 하나가 아득히 보이는데 크기는 울릉도의 3분의 1이 안 되고 거리는 300여 리\"라고 적었습니다. 육안 관측 거리와 크기 비율이 실제 독도와 일치해, 조선이 독도의 위치를 정확히 알고 관리했음을 보여주는 관측 기록입니다.", "wrong": {"0": "조선 초 울릉도 안무사로 시기가 300년 앞섭니다", "1": "성종 때 삼봉도를 관찰한 인물로 200년 앞섭니다", "2": "같은 시기 인물이라 오답이 가장 많이 몰렸지만, 안용복은 관리가 아닌 어부입니다"}},
+{"id": 99, "grade": "PHD1", "category": "역사문헌", "q": "1870년 메이지 외무성 조선국교제시말내탐서에서 독도를 부른 명칭은?", "choices": ["마쓰시마-송도", "다케시마-독도", "리앙쿠르", "우산도"], "answer": 0, "fact": "1870년 조선국교제시말내탐서는 독도를 [[마쓰시마(송도)]]라 불렀다.", "distractor": "다케시마(죽도)", "explain": "일본 외무성이 직접 '조선의 부속이 된 경위'를 공식 기술한, 일본 스스로 조선 영토임을 인정한 결정적 자료입니다.", "tip": "정답률이 매우 낮아 방송에서 짚어주기 좋은 고난도 문제입니다.", "rate": 23, "asOf": null, "atype": "옛이름", "deep": "1870년 메이지 외무성이 조선의 실정을 조사해 올린 복명서입니다. '죽도(울릉도)와 송도(독도)가 조선의 부속이 된 경위'라는 항목을 두어, 두 섬이 조선에 속한다는 것을 전제로 그 경위를 기술했습니다. 1905년 편입 주장보다 35년 앞서 일본 정부가 스스로 남긴 기록입니다.", "wrong": {"1": "당시 일본은 울릉도를 다케시마(죽도)라 불렀습니다. 명칭이 뒤바뀐 것은 1905년 이후입니다", "2": "1849년 프랑스 포경선에서 유래한 서양식 명칭입니다", "3": "조선 측 명칭입니다"}},
+{"id": 301, "grade": "U2", "level": "L4", "category": "자연생태", "materialId": "DK-GEO-2024", "q": "[자료: 경상북도 독도 일반현황, 2024-12-31]\n면적: 동도 73297㎡, 서도 88740㎡, 기타 부속도서 25517㎡, 전체 187554㎡.\n\n전체 면적에서 부속도서 면적을 제외해 두 주섬의 면적을 구하려 한다. 계산 결과는?", "choices": ["162037㎡", "187554㎡", "15443㎡", "25517㎡"], "answer": 0, "fact": "제시된 전체 면적 187554㎡에서 부속도서 25517㎡를 빼면 두 주섬의 면적은 [[162037㎡]]이다.", "distractor": "187554㎡", "blankDistractors": ["187554㎡", "15443㎡", "25517㎡"], "explain": "전체에서 부속도서 면적을 뺀다. 187554−25517=162037㎡이며 두 주섬을 직접 합해도 같다.", "deep": "전체는 동도·서도·부속도서로 구성된다. 전체를 묻는 값과 일부를 묻는 값을 먼저 구분해야 한다. 이 계산은 제시된 면적 자료를 이용한 집계이며, 지도상의 빈 바다 면적이나 두 섬 사이의 해협 면적을 더하는 계산이 아니다.", "wrong": {"1": "부속도서까지 포함한 전체 면적입니다.", "2": "서도와 동도의 면적 차이입니다.", "3": "제외해야 할 부속도서 면적입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": 2024, "src": "경상북도, 독도 일반현황(2024-12-31), 면적·높이·둘레 표의 수치; https://gb.go.kr/Main/marinefishery/page.do?LARGE_CODE=1100&MEDIUM_CODE=20&mnu_order=2&mnu_uid=15954 ; 교차 확인: 한국해양과학기술원 독도종합정보시스템, 규모; https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=64"},
+{"id": 302, "grade": "U2", "level": "L4", "category": "자연생태", "materialId": "DK-GEO-2024", "q": "[자료: 경상북도 독도 일반현황, 2024-12-31]\n동도 면적 73297㎡, 독도 전체 면적 187554㎡.\n\n전체 독도 면적 중 동도 면적의 비율을 원그래프에 표시하려 한다. 백분율을 소수 첫째 자리까지 반올림하면?", "choices": ["47.3%", "39.1%", "13.6%", "86.4%"], "answer": 1, "fact": "동도 73297㎡를 전체 187554㎡로 나눈 백분율을 소수 첫째 자리까지 반올림하면 [[39.1%]]이다.", "distractor": "47.3%", "blankDistractors": ["47.3%", "13.6%", "86.4%"], "explain": "동도 면적을 전체 면적으로 나누고 100을 곱한다. 약 39.08%이므로 소수 첫째 자리에서는 39.1%이다.", "deep": "백분율을 계산하기 전에 무엇을 전체로 삼는지 정해야 한다. 이 문항의 분모는 두 주섬의 합이 아니라 부속도서까지 포함한 독도 전체 면적이다. 먼저 나눗셈을 충분한 자리까지 계산한 뒤 마지막에 반올림한다.", "wrong": {"0": "서도 면적을 전체로 나눈 비율입니다.", "2": "부속도서 면적을 전체로 나눈 비율입니다.", "3": "동도와 서도를 합친 비율입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": 2024, "src": "경상북도, 독도 일반현황(2024-12-31), 면적·높이·둘레 표의 수치; https://gb.go.kr/Main/marinefishery/page.do?LARGE_CODE=1100&MEDIUM_CODE=20&mnu_order=2&mnu_uid=15954 ; 교차 확인: 한국해양과학기술원 독도종합정보시스템, 규모; https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=64"},
+{"id": 303, "grade": "U2", "level": "L4", "category": "자연생태", "materialId": "DK-GEO-2024", "q": "[자료: 경상북도 독도 일반현황, 2024-12-31]\n높이: 동도 98.6m, 서도 168.5m. 둘레: 동도 2.8km, 서도 2.6km.\n\n두 섬의 높이 차이를 지형 설명판에 표시하려 한다. 제시된 높이끼리 뺀 값은?", "choices": ["267.1m", "0.2m", "69.9m", "69.9km"], "answer": 2, "fact": "서도 168.5m에서 동도 98.6m를 뺀 높이 차이는 [[69.9m]]이다.", "distractor": "267.1m", "blankDistractors": ["267.1m", "0.2m", "699m"], "explain": "같은 높이 단위인 m끼리 계산한다. 168.5−98.6=69.9m이며, 둘레의 km 값은 사용하지 않는다.", "deep": "면적·높이·둘레가 한 표에 있어도 서로 바꿔 계산할 수 없다. 여기서는 높이라는 동일한 항목을 선택한 뒤 차이를 구한다. 한 섬의 절벽 높이 전체나 두 섬 사이 해협의 수심을 이 값으로 대신 설명해서는 안 된다.", "wrong": {"0": "두 높이의 차이가 아니라 합입니다.", "1": "둘레 차이의 숫자를 높이 차이로 잘못 사용했습니다.", "3": "뺄셈 결과의 단위를 km로 바꾸면 안 됩니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": 2024, "src": "경상북도, 독도 일반현황(2024-12-31), 면적·높이·둘레 표의 수치; https://gb.go.kr/Main/marinefishery/page.do?LARGE_CODE=1100&MEDIUM_CODE=20&mnu_order=2&mnu_uid=15954 ; 교차 확인: 한국해양과학기술원 독도종합정보시스템, 규모; https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=64"},
+{"id": 304, "grade": "U2", "level": "L4", "category": "자연생태", "materialId": "DK-GEO-2024", "q": "[자료: 경상북도 독도 일반현황, 2024-12-31]\n동도=73297㎡·둘레 2.8km, 서도=88740㎡·둘레 2.6km.\n\n면적 차이를 보정하려고 '1만㎡당 둘레=(둘레 m÷면적 ㎡)×10000'을 계산한다. 비교 결과는?", "choices": ["서도가 더 길다", "두 섬이 동일하다", "비교가 불가능하다", "동도가 더 길다"], "answer": 3, "fact": "동도 2800m·73297㎡와 서도 2600m·88740㎡의 1만㎡당 둘레를 비교한 결론은 [[동도가 더 길다]]는 것이다.", "distractor": "서도가 더 길다", "blankDistractors": ["서도가 더 길다", "두 섬이 동일하다", "비교가 불가능하다"], "explain": "둘레를 m로 바꿔 계산하면 동도는 1만㎡당 약 382m, 서도는 약 293m이므로 동도가 더 길다.", "deep": "분모를 같은 면적으로 맞추면 크기가 다른 섬도 같은 기준으로 비교할 수 있다. 이는 표에 제시된 면적과 둘레로 만든 지표일 뿐이다. 이 지표 하나만으로 현장 조사 난도나 생태적 가치까지 결정할 수는 없다.", "wrong": {"0": "면적이 더 크다는 사실만으로 단위면적당 둘레가 길어지지 않습니다.", "1": "계산하면 동도 약 382m, 서도 약 293m로 다릅니다.", "2": "km를 m로 바꾸면 주어진 식으로 비교할 수 있습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": 2024, "src": "경상북도, 독도 일반현황(2024-12-31), 면적·높이·둘레 표의 수치; https://gb.go.kr/Main/marinefishery/page.do?LARGE_CODE=1100&MEDIUM_CODE=20&mnu_order=2&mnu_uid=15954 ; 교차 확인: 한국해양과학기술원 독도종합정보시스템, 규모; https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=64"},
+{"id": 305, "grade": "U2", "level": "L5", "category": "자연생태", "materialId": "DK-GEO-2024", "q": "[자료: 경상북도 독도 일반현황, 2024-12-31]\n동도=73297㎡·둘레 2.8km, 서도=88740㎡·둘레 2.6km.\n\n'이 두 섬에서는 면적이 큰 섬의 둘레도 더 길다'는 설명을 표로 검토한다. 올바른 판단은?", "choices": ["서도의 수치가 그 설명의 반례다", "서도의 수치가 그 설명을 입증한다", "높이 차이만으로 그 설명이 입증된다", "동도와 서도의 둘레가 같으므로 판단할 수 없다"], "answer": 0, "fact": "서도가 동도보다 면적은 크지만 둘레는 짧다는 자료는 '큰 면적이면 더 긴 둘레'라는 설명의 [[반례]]에 해당한다.", "distractor": "확증", "blankDistractors": ["확증", "무관한 사례", "동일한 수치"], "explain": "서도는 면적이 더 크지만 둘레는 2.6km로 동도의 2.8km보다 짧다. 따라서 그 설명은 이 표와 맞지 않는다.", "deep": "서로 다른 두 지표가 항상 같은 방향으로 움직인다고 가정해서는 안 된다. 주장에 포함된 비교 대상과 조건을 확인하고, 그 조건에 맞으면서 결론에는 어긋나는 사례가 있는지 찾는다. 이 문항은 그런 반례를 확인하는 문제다.", "wrong": {"1": "서도는 면적이 크지만 둘레는 더 짧습니다.", "2": "높이는 해당 설명이 비교하는 둘레가 아닙니다.", "3": "표의 둘레는 2.8km와 2.6km로 다릅니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": 2024, "src": "경상북도, 독도 일반현황(2024-12-31), 면적·높이·둘레 표의 수치; https://gb.go.kr/Main/marinefishery/page.do?LARGE_CODE=1100&MEDIUM_CODE=20&mnu_order=2&mnu_uid=15954 ; 교차 확인: 한국해양과학기술원 독도종합정보시스템, 규모; https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=64"},
+{"id": 306, "grade": "U2", "level": "L2", "category": "역사문헌", "materialId": "DK-DECREE41", "q": "[자료: 칙령 제41호 제1조, 외교부 역문 요약]\n울릉도를 울도로 개칭하고, 도감을 군수로 바꾼다.\n\n시행 전 장부의 두 항목 '행정명: 울릉도 / 책임자 직명: 도감'을 제1조에 맞춰 갱신한다. 알맞은 조합은?", "choices": ["울릉도 / 도감", "울도 / 군수", "울도 / 도감", "울릉도 / 군수"], "answer": 1, "fact": "칙령 제41호의 두 개정 사항을 시행 전 장부에 함께 적용한 표기는 [[울도 / 군수]]이다.", "distractor": "울도 / 도감", "blankDistractors": ["울도 / 도감", "울릉도 / 군수", "울릉도 / 도감"], "explain": "제1조는 명칭과 책임자 직명을 함께 바꾸도록 했다. 따라서 장부의 두 항목을 각각 울도와 군수로 갱신해야 한다.", "deep": "문서의 규정을 실제 기록 항목에 대응시키는 문제다. 명칭만 바꾸거나 직명만 바꾸면 개정 내용의 일부만 반영한 것이다. 이 문항의 장부는 규정 적용을 연습하기 위해 설정한 예시이며 특정 실물 장부를 인용한 것은 아니다.", "wrong": {"0": "두 항목 모두 개정 전 표기입니다.", "2": "행정명만 바꾸고 책임자 직명은 바꾸지 않았습니다.", "3": "책임자 직명만 바꾸고 행정명은 바꾸지 않았습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "대한민국 외교부 독도 자료실, 칙령 제41호(1900-10-25), 역문 제1·2·4·5·6조; https://dokdo.mofa.go.kr/kor/pds/part02_view02.jsp"},
+{"id": 307, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-DECREE41", "q": "[자료: 칙령 제41호 제2조, 외교부 역문 요약]\n군청은 태하동에 두며, 관할 범위는 울릉전도·죽도·석도이다.\n\n초안에 '군청 위치=울릉전도·죽도·석도 / 관할 구역=태하동'이라고 적혔다. 제2조에 맞추려면?", "choices": ["군청 위치만 태하동으로 바꾸고 관할은 그대로 둔다", "관할 구역만 고치고 군청 위치는 그대로 둔다", "두 항목의 내용을 서로 바꾼다", "제2조와 일치하므로 그대로 둔다"], "answer": 2, "fact": "칙령 제41호의 군청 위치와 관할 구역을 맞바꿔 적은 초안의 수정 방법은 [[두 항목의 내용 교환]]이다.", "distractor": "군청 위치만 수정", "blankDistractors": ["군청 위치만 수정", "관할 구역만 수정", "두 항목 모두 유지"], "explain": "제2조의 소재지와 관할 범위를 서로 뒤집어 옮겼다. 두 내용을 교환해야 두 항목이 모두 규정과 맞는다.", "deep": "기관이 자리 잡는 곳과 그 기관이 담당하는 범위는 서로 다른 정보다. 같은 조문에 나온 지명이라는 이유만으로 두 항목을 섞으면 행정 기록의 의미가 달라진다. 초안의 양쪽 항목을 모두 검토해야 부분 수정에 그치지 않는다.", "wrong": {"0": "관할 구역도 태하동으로 남아 여전히 잘못됩니다.", "1": "군청 위치가 여러 섬의 목록으로 남습니다.", "3": "청사 소재지와 행정 관할이 뒤바뀌어 있습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "대한민국 외교부 독도 자료실, 칙령 제41호(1900-10-25), 역문 제1·2·4·5·6조; https://dokdo.mofa.go.kr/kor/pds/part02_view02.jsp"},
+{"id": 308, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-DECREE41", "q": "[자료: 칙령 제41호 제4조, 외교부 역문 요약]\n초기 경비는 섬에서 걷는 세금으로 우선 마련한다.\n\n[가상 예산] 초기 경비가 100냥 필요하고 섬의 세금 중 사용할 수 있는 금액이 40냥이다. 제4조의 우선 재원으로 40냥을 충당한 뒤 남는 부족액은?", "choices": ["40냥", "100냥", "140냥", "60냥"], "answer": 3, "fact": "학습용 가정에서 경비 100냥 중 세금 40냥을 충당하면 남는 부족액은 [[60냥]]이다.", "distractor": "40냥", "blankDistractors": ["40냥", "100냥", "140냥"], "explain": "필요한 경비에서 충당 가능한 금액을 뺀다. 100−40=60냥이다. 제시된 금액은 실제 역사 통계가 아니다.", "deep": "제4조는 초기 경비의 우선 재원을 설명하지만 이 문항의 구체적인 예산 액수까지 기록한 것은 아니다. 조문에서 확인한 재원 원칙과 출제자가 만든 계산 조건을 구분해야 한다. 다른 재원으로 얼마를 충당했는지는 이 자료만으로 알 수 없다.", "wrong": {"0": "충당한 재원이지 남은 부족액이 아닙니다.", "1": "처음 필요한 총경비입니다.", "2": "필요액과 재원을 더하면 부족액이 되지 않습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "대한민국 외교부 독도 자료실, 칙령 제41호(1900-10-25), 역문 제1·2·4·5·6조; https://dokdo.mofa.go.kr/kor/pds/part02_view02.jsp"},
+{"id": 309, "grade": "U2", "level": "L5", "category": "역사문헌", "materialId": "DK-DECREE41", "q": "[자료: 칙령 제41호 제5·6조, 외교부 역문 요약]\n제5조는 미비 규정의 추후 보완, 제6조는 반포일부터 시행을 정한다.\n\n편집자가 '미비 규정이 있으므로 모두 보완될 때까지 칙령은 시행되지 않는다'고 썼다. 제5·6조를 함께 적용한 수정 방향은?", "choices": ["시행 시점과 규정 보완 절차를 구분한다", "모든 규정 보완 뒤로 시행일을 미룬다", "반포부터 시행하므로 규정 보완 조항을 삭제한다", "제5조만 적용하고 제6조는 무시한다"], "answer": 0, "fact": "칙령 제41호의 제5·6조를 함께 적용할 때 필요한 원칙은 [[시행과 보완의 분리]]이다.", "distractor": "보완 완료까지 시행 연기", "blankDistractors": ["보완 완료까지 시행 연기", "시행 후 보완 조항 삭제", "시행과 보완의 동일시"], "explain": "제5조는 미비한 규정의 보완, 제6조는 시행 시점을 다룬다. 보완이 남았다는 이유만으로 시행을 미루는 내용은 없다.", "deep": "서로 다른 조항이 다루는 대상이 무엇인지 구분해야 한다. 시행에 관한 규정과 앞으로 세부 사항을 보완한다는 규정은 양립할 수 있다. 원문에 없는 유예 조건을 임의로 추가하면 자료의 내용이 달라진다.", "wrong": {"1": "제6조의 반포일부터 시행한다는 규정을 바꿉니다.", "2": "제5조에 따른 추후 보완과 즉시 시행은 함께 성립할 수 있습니다.", "3": "시행 시점을 직접 규정한 조항을 제외할 수 없습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "대한민국 외교부 독도 자료실, 칙령 제41호(1900-10-25), 역문 제1·2·4·5·6조; https://dokdo.mofa.go.kr/kor/pds/part02_view02.jsp"},
+{"id": 310, "grade": "U2", "level": "L2", "category": "역사문헌", "materialId": "DK-DECREE41", "q": "[자료: 칙령 제41호, 외교부 역문 요약]\n제1조는 강원도 소속·군수 직명, 제2조는 태하동 소재지·울릉전도와 죽도·석도 관할, 제4조는 초기 경비의 세금 충당을 다룬다.\n\n행정 기록의 검수 항목을 A=소속 도·직명, B=군청 소재지·관할, C=초기 경비 재원으로 나눴다. A·B·C에 연결할 조항은 차례대로?", "choices": ["제2조 / 제1조 / 제4조", "제1조 / 제2조 / 제4조", "제1조 / 제4조 / 제2조", "제4조 / 제2조 / 제1조"], "answer": 1, "fact": "칙령 제41호에서 소속·직명 → 소재지·관할 → 초기 재원에 대응하는 조문 순서는 [[제1조·제2조·제4조]]이다.", "distractor": "제2조·제1조·제4조", "blankDistractors": ["제2조·제1조·제4조", "제1조·제4조·제2조", "제4조·제2조·제1조"], "explain": "검수 항목을 조문의 주제와 연결한다. 조직은 제1조, 소재지와 관할은 제2조, 초기 재원은 제4조에 대응한다.", "deep": "출처가 있다는 것만으로 모든 설명이 그 출처에서 확인되는 것은 아니다. 검토할 항목마다 어떤 조문이 직접적인 근거인지 연결해야 한다. 여러 항목을 하나의 조문으로 뭉뚱그리지 않고 주제별로 근거를 대응시키는 연습이다.", "wrong": {"0": "A와 B에 연결한 조항이 뒤바뀌었습니다.", "2": "B와 C에 연결한 조항이 뒤바뀌었습니다.", "3": "A와 C에 연결한 조항이 뒤바뀌었습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "대한민국 외교부 독도 자료실, 칙령 제41호(1900-10-25), 역문 제1·2·4·5·6조; https://dokdo.mofa.go.kr/kor/pds/part02_view02.jsp"},
+{"id": 311, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-MAP-1877", "q": "[자료: 국사편찬위원회의 기죽도약도 해설 요약]\n이소다케시마=울릉도, 마쓰시마=독도. 후쿠우라는 오키섬 도고의 지명이다.\n\n지도 기록의 '후쿠우라→마쓰시마→이소다케시마'를 설명 패널의 현대 지명으로 바꾼다. 출발지의 섬부터 순서대로 적으면?", "choices": ["오키섬 → 울릉도 → 독도", "울릉도 → 독도 → 오키섬", "오키섬 → 독도 → 울릉도", "독도 → 오키섬 → 울릉도"], "answer": 2, "fact": "기죽도약도 설명에서 후쿠우라→마쓰시마→이소다케시마를 현대 지명으로 대응한 순서는 [[오키섬·독도·울릉도]]이다.", "distractor": "오키섬·울릉도·독도", "blankDistractors": ["오키섬·울릉도·독도", "울릉도·독도·오키섬", "독도·오키섬·울릉도"], "explain": "지도에 쓰인 이름을 자료의 대응표로 바꾼다. 후쿠우라는 오키섬에, 마쓰시마는 독도에, 이소다케시마는 울릉도에 대응한다.", "deep": "과거 문헌의 지명은 오늘날의 쓰임과 그대로 일치한다고 가정하면 안 된다. 이 문항은 특정 지도의 해설에 제시된 대응 관계를 이용한다. 다른 시기의 지도에도 같은 대응표를 검토 없이 일괄 적용해도 된다는 뜻은 아니다.", "wrong": {"0": "지도 속 두 섬의 명칭 대응을 뒤집었습니다.", "1": "후쿠우라가 속한 출발지와 도착지를 바꿨습니다.", "3": "후쿠우라를 독도에 있는 곳으로 잘못 대응했습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "국사편찬위원회 우리역사넷, 사료로 본 한국사 '태정관지령', 기죽도약도 명칭·방향·거리 해설; https://contents.history.go.kr/front/hm/print.do?levelId=hm_122_0010&treeId=020107"},
+{"id": 312, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-MAP-1877", "q": "[자료: 국사편찬위원회의 기죽도약도 해설 요약]\n기록된 거리는 독도→울릉도 약 40리, 후쿠우라→독도 약 80리이다. 현대 실측값과 구분한다.\n\n지도에 기록된 '독도→울릉도' 거리와 '후쿠우라→독도' 거리의 비를 가장 간단한 정수비로 나타내면?", "choices": ["2:1", "1:3", "1:1", "1:2"], "answer": 3, "fact": "기죽도약도 설명의 거리 40리와 80리를 이 순서대로 비교한 정수비는 [[1:2]]이다.", "distractor": "2:1", "blankDistractors": ["2:1", "1:3", "1:1"], "explain": "같은 단위로 기록된 두 값을 비교한다. 40:80의 양쪽을 40으로 나누면 1:2가 된다.", "deep": "비율은 반드시 질문에서 지정한 순서로 계산해야 한다. 이 결과는 고지도에 기록된 두 수치 사이의 관계다. 현대 항로의 거리나 실제 선박 운항 시간도 같은 비율이라고 결론 내려서는 안 된다.", "wrong": {"0": "비교 순서를 반대로 놓았습니다.", "1": "40과 80의 합을 두 번째 거리로 사용한 값입니다.", "2": "두 기록값은 40리와 80리로 같지 않습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "국사편찬위원회 우리역사넷, 사료로 본 한국사 '태정관지령', 기죽도약도 명칭·방향·거리 해설; https://contents.history.go.kr/front/hm/print.do?levelId=hm_122_0010&treeId=020107"},
+{"id": 313, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-MAP-1877", "q": "[자료: 국사편찬위원회의 기죽도약도 해설 요약]\n독도→울릉도 기록값은 약 40리이며, 해설의 단위 환산값은 1리≈3.9km이다.\n\n현대 실측 거리가 아니라 고지도의 기록값을 환산하려 한다. 약 40리를 자료의 환산값 1리≈3.9km로 계산하면?", "choices": ["약 156km", "약 15.6km", "약 312km", "약 10.3km"], "answer": 0, "fact": "기죽도약도 설명의 40리를 1리≈3.9km로 환산한 계산값은 약 [[156km]]이다.", "distractor": "15.6km", "blankDistractors": ["15.6km", "312km", "10.3km"], "explain": "40×3.9=156이므로 약 156km이다. 이는 고지도 수치의 환산 결과이지 현대에 측정한 두 섬 사이 거리가 아니다.", "deep": "옛 단위의 기록값을 현대 단위로 바꾸는 것과 옛 기록의 정확성을 검증하는 것은 별개의 작업이다. 단위 환산만으로 기록에 포함된 오차가 사라지지 않는다. 결과를 설명할 때는 고지도 수치의 환산값이라는 조건을 함께 표시해야 한다.", "wrong": {"1": "곱셈에서 자릿수를 한 자리 줄였습니다.", "2": "80리를 환산한 값입니다.", "3": "40에 3.9를 곱하지 않고 나눈 값입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "국사편찬위원회 우리역사넷, 사료로 본 한국사 '태정관지령', 기죽도약도 명칭·방향·거리 해설; https://contents.history.go.kr/front/hm/print.do?levelId=hm_122_0010&treeId=020107"},
+{"id": 314, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-MAP-1877", "q": "[자료: 국사편찬위원회의 기죽도약도 해설 요약]\n후쿠우라→독도 약 80리, 독도→울릉도 약 40리이다. 이는 고지도 기록값이다.\n\n기록된 두 구간 '후쿠우라→독도'와 '독도→울릉도'를 이어 표시한다. 구간별 기록값을 합친 거리는?", "choices": ["약 40리", "약 120리", "약 80리", "약 160리"], "answer": 1, "fact": "기죽도약도 설명의 약 80리 구간과 약 40리 구간을 이어 합친 기록값은 약 [[120리]]이다.", "distractor": "40리", "blankDistractors": ["40리", "80리", "160리"], "explain": "연속한 두 구간의 기록값을 더하면 80+40=120리이다. 출발지와 최종 도착지 사이의 직선거리와는 구분한다.", "deep": "여러 구간을 따라 이동하는 경로의 길이는 그 구간들의 길이를 더해 구한다. 두 끝점을 곧바로 연결하는 거리와 같은 개념은 아니다. 또한 이 문제는 고지도의 기록값을 계산하는 것이며 실제 운항 경로를 재현한 결과가 아니다.", "wrong": {"0": "두 구간 중 짧은 한 구간만 사용했습니다.", "2": "두 구간 중 긴 한 구간만 사용했습니다.", "3": "80리 구간을 두 번 더한 값입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "국사편찬위원회 우리역사넷, 사료로 본 한국사 '태정관지령', 기죽도약도 명칭·방향·거리 해설; https://contents.history.go.kr/front/hm/print.do?levelId=hm_122_0010&treeId=020107"},
+{"id": 315, "grade": "U2", "level": "L4", "category": "역사문헌", "materialId": "DK-MAP-1877", "q": "[자료: 국사편찬위원회의 기죽도약도 해설 요약]\n독도를 출발점으로 보면 울릉도는 북서쪽에 놓인다.\n\n자료에서 독도를 출발점으로 한 울릉도의 방향은 북서쪽이다. 위치 관계를 반대로 읽어 울릉도를 출발점으로 삼으면 독도는 어느 방향인가?", "choices": ["북서쪽", "북동쪽", "남동쪽", "남서쪽"], "answer": 2, "fact": "자료의 독도→울릉도 북서쪽 관계를 반대로 읽은 울릉도→독도의 방향은 [[남동쪽]]이다.", "distractor": "북서쪽", "blankDistractors": ["북서쪽", "북동쪽", "남서쪽"], "explain": "출발점과 도착점을 바꾸면 북은 남으로, 서는 동으로 뒤집힌다. 북서쪽의 반대 방향은 남동쪽이다.", "deep": "방향은 어느 지점을 기준으로 설명하는지에 따라 달라진다. 같은 두 지점이라도 출발점을 바꾸고 이전 방향을 그대로 쓰면 위치 관계가 뒤집힌다. 여기서는 지도 해설의 방위 관계를 읽으며 실제 항해 방위각을 계산하지 않는다.", "wrong": {"0": "출발점을 바꾸지 않은 원래 방향입니다.", "1": "남북 방향의 반전을 적용하지 않았습니다.", "3": "동서 방향의 반전을 적용하지 않았습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "국사편찬위원회 우리역사넷, 사료로 본 한국사 '태정관지령', 기죽도약도 명칭·방향·거리 해설; https://contents.history.go.kr/front/hm/print.do?levelId=hm_122_0010&treeId=020107"},
+{"id": 316, "grade": "U2", "level": "L4", "category": "국제법", "materialId": "DK-UNCLOS-ZONES", "q": "[자료: 유엔해양법협약 제3·57조 요약]\n영해 폭은 기선부터 최대 12해리, EEZ 외측 한계는 같은 기선부터 최대 200해리이다.\n[가정] 국가 간 경계 중첩은 제외하며 실제 독도 주변 경계를 판정하지 않는다.\n\n가상 해역에서 영해를 12해리로 정한 뒤, 담당자가 그 바깥 경계에서 다시 200해리를 더해 EEZ 한계선을 그렸다. 제57조의 상한에 맞추려면 기선에서 몇 해리인 선으로 고쳐야 하는가?", "choices": ["212해리", "188해리", "224해리", "200해리"], "answer": 3, "fact": "EEZ 한계선의 상한을 그릴 때 영해 폭 12해리를 추가하지 않고 같은 기선에서 [[200해리]]를 잰다.", "distractor": "212해리", "blankDistractors": ["212해리", "188해리", "224해리"], "explain": "영해와 EEZ의 거리 상한은 같은 기선에서 잰다. 영해 바깥 경계에 200해리를 추가하는 방식은 아니다.", "deep": "조문의 거리값을 더하기 전에 각각 어디서 측정을 시작하는지 확인해야 한다. 이 문제는 외측 한계의 일반적인 상한을 적용하는 가상 사례다. 실제 경계 획정이나 특정 섬의 해역 권원은 이 계산만으로 판정하지 않는다.", "wrong": {"0": "영해 폭을 EEZ 상한에 중복해서 더했습니다.", "1": "상한의 기점은 영해 경계가 아니라 기선입니다.", "2": "접속수역의 상한을 EEZ 상한에 추가한 값입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "UN DOALOS, UNCLOS 제3·33조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm ; 제55·57조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm ; UNTERM, contiguous zone; https://unterm.un.org/unterm2/view/UNHQ/4502E5FB59BFE09985256B410065E2A6"},
+{"id": 317, "grade": "U2", "level": "L4", "category": "국제법", "materialId": "DK-UNCLOS-ZONES", "q": "[자료: 유엔해양법협약 제3·33·57조 요약]\n동일 기선 기준 상한은 영해 12해리, 접속수역 외측 24해리, EEZ 외측 200해리이다.\n[가정] 거리 상한만 판단하며 실제 경계 획정은 제외한다.\n\n가상 계획의 수치는 모두 같은 기선에서 잰 해리이다. A=(영해 10, 접속 외측 24, EEZ 외측 190), B=(14,24,190), C=(10,26,190), D=(10,24,210). 세 거리의 상한 조건만 모두 충족하는 계획은?", "choices": ["A안", "B안", "C안", "D안"], "answer": 0, "fact": "상한 12·24·200해리에 대해 A=(10·24·190), B=(14·24·190), C=(10·26·190), D=(10·24·210)을 대조하면 모두 충족하는 계획은 [[A안]]이다.", "distractor": "B안", "blankDistractors": ["B안", "C안", "D안"], "explain": "A안만 세 값이 각 상한을 넘지 않는다. 상한 조건을 충족한다는 판단은 다른 법적 요건까지 모두 충족한다는 뜻은 아니다.", "deep": "상한은 반드시 그 값으로 정해야 한다는 뜻이 아니라 그 값을 넘을 수 없다는 뜻이다. 따라서 10해리 영해나 190해리 외측 한계라는 값은 이 거리 조건만으로 배제되지 않는다. 다른 국가와의 중첩 등은 문제의 가정에서 제외했다.", "wrong": {"1": "영해 14해리가 제3조의 상한 12해리를 넘습니다.", "2": "접속수역 외측 26해리가 상한 24해리를 넘습니다.", "3": "EEZ 외측 210해리가 상한 200해리를 넘습니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "UN DOALOS, UNCLOS 제3·33조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm ; 제55·57조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm ; UNTERM, contiguous zone; https://unterm.un.org/unterm2/view/UNHQ/4502E5FB59BFE09985256B410065E2A6"},
+{"id": 318, "grade": "U2", "level": "L4", "category": "국제법", "materialId": "DK-UNCLOS-ZONES", "q": "[자료: 유엔해양법협약 제3·33·55·57조 요약]\n영해는 기선부터 정한 폭까지이고, 접속수역과 EEZ는 영해 바깥에 있다. 외측 한계의 상한은 각각 기선부터 24해리와 200해리이다.\n[가정] 다른 국가와의 경계 중첩은 제외한다.\n\n[추가 가정] 영해 외측 12해리, 접속수역 외측 24해리, EEZ 외측 200해리로 설정했다. 기선에서 18해리인 지점에 거리 기준으로 함께 붙일 수 있는 두 해역 표시는?", "choices": ["영해·접속수역", "접속수역·EEZ", "영해·EEZ", "내수·영해"], "answer": 1, "fact": "영해 12해리·접속 외측 24해리·EEZ 외측 200해리인 가정에서 기선부터 18해리인 지점에는 [[접속수역·EEZ]] 표시가 함께 가능하다.", "distractor": "영해·접속수역", "blankDistractors": ["영해·접속수역", "영해·EEZ", "내수·영해"], "explain": "18해리는 12해리 바깥이면서 24해리와 200해리 안쪽이다. 접속수역과 EEZ는 공간적으로 겹칠 수 있다.", "deep": "해역의 이름을 서로 겹칠 수 없는 구간이라고 가정하면 잘못된 표시가 생긴다. 서로 다른 법적 기능을 가진 구역이 같은 공간에 놓일 수 있다. 거리상 중첩된다는 사실이 그곳에서 행사하는 모든 권한이 같다는 뜻은 아니다.", "wrong": {"0": "18해리는 영해 외측 12해리보다 바깥입니다.", "2": "EEZ에는 놓일 수 있지만 영해에는 놓이지 않습니다.", "3": "문제의 지점은 기선과 영해 경계의 바깥입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "UN DOALOS, UNCLOS 제3·33조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm ; 제55·57조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm ; UNTERM, contiguous zone; https://unterm.un.org/unterm2/view/UNHQ/4502E5FB59BFE09985256B410065E2A6"},
+{"id": 319, "grade": "U2", "level": "L4", "category": "국제법", "materialId": "DK-UNCLOS-ZONES", "q": "[자료: 유엔해양법협약 제57조 요약]\nEEZ 외측 한계는 영해를 측정하는 기선부터 200해리를 넘을 수 없다.\n\n실제 지도가 아닌 학습용 직선 눈금에서 기선은 0cm이고 1cm가 20해리를 나타낸다. 제57조의 EEZ 거리 상한을 표시할 위치는?", "choices": ["1cm", "5cm", "10cm", "20cm"], "answer": 2, "fact": "기선이 0cm이고 1cm가 20해리인 학습용 눈금에서 200해리 상한의 위치는 [[10cm]]이다.", "distractor": "1cm", "blankDistractors": ["1cm", "5cm", "20cm"], "explain": "실제 거리 200해리를 눈금 1cm당 20해리로 나눈다. 200÷20=10이므로 0cm에서 10cm 떨어진 위치이다.", "deep": "축척을 적용할 때는 1cm에 해당하는 실제 거리로 전체 거리를 나눈다. 이 문항의 선은 원리 학습용 눈금이며 실제 해안선이나 기선의 모양을 재현하지 않는다. 계산한 위치를 실제 독도 주변 해양경계로 사용해서는 안 된다.", "wrong": {"0": "20해리만 나타내므로 EEZ 상한이 아닙니다.", "1": "100해리에 해당합니다.", "3": "400해리로 상한을 두 배로 표시한 값입니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "UN DOALOS, UNCLOS 제3·33조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm ; 제55·57조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm ; UNTERM, contiguous zone; https://unterm.un.org/unterm2/view/UNHQ/4502E5FB59BFE09985256B410065E2A6"},
+{"id": 320, "grade": "U2", "level": "L4", "category": "국제법", "materialId": "DK-UNCLOS-ZONES", "q": "[자료: 유엔해양법협약 제33조 요약]\n접속수역에서는 영토·영해의 관세·재정·출입국·위생 법규 위반을 예방·처벌하는 데 필요한 통제를 할 수 있다.\n\n[추가 가정] 영해는 12해리이고 선박은 기선에서 18해리인 접속수역에 있다. 연안국이 자국 영토로의 밀수를 막으려는 조치를 검토한다. 제33조에서 직접 연결할 수 있는 통제 목적은?", "choices": ["접속수역 전체를 영토로 편입", "외국 선박의 국적 자동 변경", "모든 외국 선박 항행의 전면 금지", "영토·영해의 관세법 위반 예방"], "answer": 3, "fact": "접속수역에서 영토·영해의 밀수에 대응할 때 제33조의 직접적인 통제 목적은 [[관세법 위반 예방]]이다.", "distractor": "영토 주권의 확장", "blankDistractors": ["영토 주권의 확장", "선박 국적의 변경", "무조건 항행 금지"], "explain": "제33조는 영토·영해의 관세법 위반을 예방하는 데 필요한 통제를 규정한다. 이를 모든 행위의 전면 통제권으로 확대하면 안 된다.", "deep": "법적 권한을 적용할 때는 장소뿐 아니라 조문의 목적과 범위도 확인해야 한다. 이 문항은 조치의 목적이 조문과 연결되는지만 묻는다. 특정 선박에 취할 수 있는 구체적인 강제 조치의 적법성까지 확정하는 문제는 아니다.", "wrong": {"0": "접속수역 통제를 영토 편입 권한으로 바꾸어 해석했습니다.", "1": "해당 조항이 규정하는 통제 목적이 아닙니다.", "2": "필요한 통제와 무조건적인 전면 금지는 다릅니다."}, "atype": "개별보기_교차추출금지", "rate": null, "asOf": null, "src": "UN DOALOS, UNCLOS 제3·33조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part2.htm ; 제55·57조; https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm ; UNTERM, contiguous zone; https://unterm.un.org/unterm2/view/UNHQ/4502E5FB59BFE09985256B410065E2A6"}
+]};
+
+/* ---------- 문항 판 번호 ----------
+   위 DATA는 배포본에 함께 담아 두는 내장 사본입니다. 앱은 이걸로 먼저 켜지고,
+   같은 폴더의 questions.json을 읽어 판 번호가 다르면 그쪽으로 갈아탑니다.
+   문항만 고칠 때는 questions.json 하나만 올리면 됩니다.
+   파일이 없거나 읽기에 실패해도 앱은 내장 사본으로 그대로 돌아갑니다. */
+let QVER="2026-09-05.1";
+const QSRC="questions.json";
+
+/* 기존 85문항은 U·MA·PHD 한 칸씩에 몰려 있습니다. 세분화한 칸으로 옮깁니다.
+   나머지 칸(U2~U4, MA2, PHD2)은 새 문항으로 채워야 합니다. */
+const GRADE_MIGRATE={U:"U1",MA:"MA1",PHD:"PHD1",RES:"CR1",PROF:"PR1"};
+DATA.questions.forEach(q=>{ if(GRADE_MIGRATE[q.grade])q.grade=GRADE_MIGRATE[q.grade]; });
+
+/* ---------- 학제 ---------- */
+/* 학제는 두 갈래입니다.
+   ① 학업 과정(유치원~박사 2년, 21단계) — 문항을 익혀 진급 시험으로 올라갑니다.
+   ② 경력 과정(대리~학교장, 9단계) — 배울 문항이 더 없는 구간입니다.
+      누적 점수와 개근으로 임용됩니다. 여기가 오래 남는 사람을 위한 자리입니다.
+   상위 9단계를 문항으로 만들면 단계당 8문항씩 72개를 더 만들어야 하는데,
+   그건 콘텐츠가 아니라 숫자 채우기가 됩니다. */
+const LADDER=[
+ {c:"K",  n:"유치원"},
+ {c:"E1", n:"초등학교 1학년"},{c:"E2",n:"초등학교 2학년"},{c:"E3",n:"초등학교 3학년"},
+ {c:"E4", n:"초등학교 4학년"},{c:"E5",n:"초등학교 5학년"},{c:"E6",n:"초등학교 6학년"},
+ {c:"M1", n:"중학교 1학년"},{c:"M2",n:"중학교 2학년"},{c:"M3",n:"중학교 3학년"},
+ {c:"H1", n:"고등학교 1학년"},{c:"H2",n:"고등학교 2학년"},{c:"H3",n:"고등학교 3학년"},
+ {c:"U1", n:"대학교 1학년"},{c:"U2",n:"대학교 2학년"},{c:"U3",n:"대학교 3학년"},{c:"U4",n:"대학교 4학년"},
+ {c:"MA1",n:"석사 1년"},{c:"MA2",n:"석사 2년"},
+ {c:"PHD1",n:"박사 1년"},{c:"PHD2",n:"박사 2년"},
+ /* ── 여기부터 경력 과정 ── */
+ {c:"CR1",n:"독도연구소 대리",   job:1},
+ {c:"CR2",n:"독도연구소 과장",   job:1},
+ {c:"CR3",n:"독도연구소 차장",   job:1},
+ {c:"CR4",n:"독도연구소 부장",   job:1},
+ {c:"CR5",n:"독도연구소 본부장", job:1},
+ {c:"PR1",n:"독도 조교수",      job:1},
+ {c:"PR2",n:"독도 부교수",      job:1},
+ {c:"PR3",n:"독도 정교수",      job:1},
+ {c:"HEAD",n:"독도 스쿨 학교장", job:1}
+];
+const isJob=c=>!!(LADDER.find(g=>g.c===c)||{}).job;
+const ACADEMIC_N=LADDER.filter(g=>!g.job).length;
+
+/* 경력 임용 기준 — 전체 문항 총점의 배수와 개근 일수.
+   문항이 늘어나면 기준도 같이 올라가므로 숫자를 다시 손볼 필요가 없습니다. */
+const CAREER=[["CR1",1.0,3],["CR2",1.3,7],["CR3",1.6,14],["CR4",2.0,21],["CR5",2.5,30],
+              ["PR1",3.0,45],["PR2",3.8,60],["PR3",4.6,90],["HEAD",6.0,120]];
+let TOTAL_PT=0;   // DATA 로드 후 계산합니다
+function careerNeed(c){
+  const row=CAREER.find(r=>r[0]===c); if(!row)return null;
+  return{xp:Math.round(TOTAL_PT*row[1]),streak:row[2]};
+}
+function careerOK(c){
+  const n=careerNeed(c); if(!n)return false;
+  return S.xp>=n.xp&&S.streak>=n.streak;
+}
+const idx=c=>LADDER.findIndex(g=>g.c===c);
+TOTAL_PT=0;   // tierOf 정의 뒤 초기화됩니다
+const gradeName=c=>(LADDER.find(g=>g.c===c)||{n:"—"}).n;
+const itemsOf=c=>DATA.questions.filter(q=>q.grade===c);
+/* 연구원·교수 단계에는 전용 문항이 없습니다. 그대로 두면 풀 문항이 0개라
+   "지금 풀 항목이 없습니다"만 뜨는 막다른 길이 됩니다. 졸업 후에는 전 학년이 열립니다. */
+const GRADUATE=c=>isJob(c);
+const poolOf=c=>GRADUATE(c)?DATA.questions:itemsOf(c);
+/* 학년당 문항이 3개뿐인 구간이 있어(중2·중3·고1) 같은 문제가 계속 돌아옵니다.
+   아래 학년까지 끌어와 되풀이를 줄입니다. 진급 점수는 여전히 자기 학년에서만 쌓입니다. */
+const lowerPool=c=>{const i=idx(c),out=[];for(let k=i-1;k>=0;k--)out.push(...itemsOf(LADDER[k].c));return out;};
+
+/* 진급 판정에 쓰는 문항 묶음.
+   전용 문항이 8개가 안 되는 칸은 바로 아래 학년에서 모자란 만큼 빌려옵니다.
+   id 순으로 결정론적으로 고르기 때문에 "남은 점수"가 새로고침마다 달라지지 않습니다.
+   새 문항이 채워지면 빌려온 것들은 자연히 빠집니다. */
+const GRADE_MIN=8;
+const _setCache={};
+function gradeSet(c){
+  if(isJob(c))return [];
+  if(_setCache[c])return _setCache[c];
+  const own=itemsOf(c).slice().sort((a,b)=>a.id-b.id);
+  if(own.length>=GRADE_MIN)return(_setCache[c]=own);
+  const have=new Set(own.map(q=>q.id)), out=own.slice();
+  const lower=lowerPool(c).slice().sort((a,b)=>a.id-b.id);
+  for(const q of lower){ if(out.length>=GRADE_MIN)break;
+    if(!have.has(q.id)){out.push(q);have.add(q.id);} }
+  return(_setCache[c]=out);
+}
+const seenLately=q=>(S.recent||[]).includes(q.id);
+
+const LESSON_N=5, EXAM_N=8, EXAM_PASS=.75, MASTER_LV=2, PROMOTE_AT=.8;
+const INTERVALS=[1,3,7,14];
+
+/* ---------- 앱 정보 ---------- */
+/* 이름과 주소는 여기 한 곳만 고치면 화면·공유카드·메일 제목에 모두 반영됩니다. */
+const APP_NAME   = "독도 코리아 스쿨";
+const APP_NAME_EN= "DOKDO KOREA SCHOOL";
+const APP_URL    = "https://dokdo-korea-school.example";   // TODO 실제 도메인으로 교체
+const LIVE_URL   = "https://www.youtube.com/live/wytHepZ1fcs";
+/* ↑ 특정 방송 주소라 라이브가 끝나면 죽습니다. 채널 고정 주소로 바꾸면
+   방송이 바뀔 때마다 앱을 다시 배포할 필요가 없습니다(제미니 실측으로 동작 확인됨):
+   const LIVE_URL = "https://www.youtube.com/@채널핸들/live";  ← 공개 스트림만, 예약은 1개만 걸어둘 것 */
+
+/* ---------- 상태 ---------- */
+const KEY="dokdo-korea-school-v2";
+/* 쿨타임 15분. 4시간이면 첫 문제를 틀린 신규 방문자가 그대로 이탈합니다. */
+const COOL_MS=15*60*1000;
+let S=null;
+const REPORT_TO="ejuneyoung2@gmail.com";   // 문항 이의 신청 수신 주소
+function fresh(){return{name:"",nick:"",flag:"KR",school:"독도초등학교",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false};}
+const who=()=>S.name||S.nick||"이름 없음";
+
+/* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
+const FLAGS=[["KR","🇰🇷","대한민국"],["US","🇺🇸","미국"],["JP","🇯🇵","일본"],["CN","🇨🇳","중국"],["GB","🇬🇧","영국"],
+["FR","🇫🇷","프랑스"],["DE","🇩🇪","독일"],["CA","🇨🇦","캐나다"],["AU","🇦🇺","호주"],["NZ","🇳🇿","뉴질랜드"],
+["BR","🇧🇷","브라질"],["MX","🇲🇽","멕시코"],["AR","🇦🇷","아르헨티나"],["ES","🇪🇸","스페인"],["IT","🇮🇹","이탈리아"],
+["NL","🇳🇱","네덜란드"],["SE","🇸🇪","스웨덴"],["PL","🇵🇱","폴란드"],["RU","🇷🇺","러시아"],["TR","🇹🇷","튀르키예"],
+["IN","🇮🇳","인도"],["ID","🇮🇩","인도네시아"],["VN","🇻🇳","베트남"],["TH","🇹🇭","태국"],["PH","🇵🇭","필리핀"],
+["MY","🇲🇾","말레이시아"],["SG","🇸🇬","싱가포르"],["TW","🇹🇼","대만"],["MN","🇲🇳","몽골"],["UZ","🇺🇿","우즈베키스탄"],
+["AE","🇦🇪","아랍에미리트"],["EG","🇪🇬","이집트"],["ZA","🇿🇦","남아공"],["NG","🇳🇬","나이지리아"],["KE","🇰🇪","케냐"],
+["CL","🇨🇱","칠레"],["PE","🇵🇪","페루"],["NO","🇳🇴","노르웨이"],["FI","🇫🇮","핀란드"],["CH","🇨🇭","스위스"]];
+const flagOf=c=>(FLAGS.find(f=>f[0]===c)||FLAGS[0])[1];
+const countryOf=c=>(FLAGS.find(f=>f[0]===c)||FLAGS[0])[2];
+function load(){try{const r=localStorage.getItem(KEY);if(r)return Object.assign(fresh(),JSON.parse(r));}catch(e){}return fresh();}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");};
+function daysBetween(a,b){if(!a)return 99;return Math.round((new Date(b+"T00:00:00")-new Date(a+"T00:00:00"))/864e5);}
+
+const rec=id=>S.m[id]||(S.m[id]={lv:0,due:null,seen:0,att:0,cor:0,earned:0});
+const mastered=id=>(S.m[id]?S.m[id].lv:0)>=MASTER_LV;   // 복습 큐에서 빼는 기준
+/* 불빛은 "한 번이라도 맞힌 문항". 맞히는 즉시 켜지고, 나중에 틀리면 꺼집니다.
+   숙달(mastered)과 분리한 이유는 보상이 즉시 보여야 하기 때문입니다. */
+const isLit=id=>(S.m[id]?S.m[id].lv:0)>=1;
+const lightCount=()=>Object.keys(S.m).filter(id=>isLit(id)).length;
+function dueList(){const t=today();return DATA.questions.filter(q=>{const r=S.m[q.id];return r&&r.due&&daysBetween(r.due,t)>=0&&r.lv<MASTER_LV+1;});}
+function gradeProgress(c){const it=itemsOf(c);if(!it.length)return{done:0,total:0,ratio:1};const d=it.filter(q=>mastered(q.id)).length;return{done:d,total:it.length,ratio:d/it.length};}
+/* 진급 시험이 열리기까지 몇 문항을 더 익혀야 하는지. 홈과 결과 화면이 같은 값을 씁니다. */
+function toNext(c){
+  /* 경력 과정은 점수와 개근으로 잽니다. */
+  if(isJob(c)){
+    const n=careerNeed(c);
+    if(!n)return{need:0,got:0,total:0,ratio:1,open:false,grad:true,job:true};
+    return{job:true,grad:false,open:careerOK(c),
+      need:Math.max(0,n.xp-S.xp),needStreak:Math.max(0,n.streak-S.streak),
+      got:S.xp,total:n.xp,ratio:Math.min(1,S.xp/n.xp),goal:n.xp};
+  }
+  const g=gradeScore(c);
+  if(!g.total)return{need:0,got:0,total:0,ratio:1,open:false,grad:true};
+  const goal=Math.ceil(g.total*PROMOTE_AT);
+  return{need:Math.max(0,goal-g.got),got:g.got,total:g.total,goal,
+         ratio:g.ratio,open:g.got>=goal,grad:false};
+}
+const nextName=c=>{const n=idx(c)+1;return n<LADDER.length?LADDER[n].n:"—";};
+const canExam=()=>{const t=toNext(S.grade);return !isJob(S.grade)&&!t.grad&&t.open&&!S.passed.includes(S.grade);};
+/* 경력 과정은 시험이 아니라 실적으로 임용됩니다. 수업이 끝날 때마다 확인합니다. */
+function promoteCareer(){
+  let up=false;
+  while(isJob(S.grade)&&careerOK(S.grade)){
+    if(!S.passed.includes(S.grade))S.passed.push(S.grade);
+    const n=idx(S.grade)+1; if(n>=LADDER.length)break;
+    S.grade=LADDER[n].c; up=true;
+  }
+  if(up)save();
+  return up;
+}
+
+/* ---------- 문항 형식 자동 생성 ---------- */
+const FILL=/\[\[(.+?)\]\]/;
+const marked=f=>{const m=f.match(FILL);return m?m[1]:null;};
+const strip=f=>f.replace(FILL,"$1");
+
+/* ---------- 치환 문장 다듬기 ----------
+   OX는 fact의 [[값]] 자리에 정답 또는 distractor를 끼워 만듭니다.
+   그런데 조사는 앞말의 받침에 따라 달라지므로, 데이터에 조사를 고정해 두면
+   '오키섬를', '가로등가', '태정관 지령는' 같은 문장이 반드시 생깁니다.
+   문항을 하나씩 손보는 대신 치환 직후에 조사를 다시 고릅니다.
+   새 문항이 늘어나도 같은 결함이 재발하지 않습니다. */
+const CLOSED='0136780';                  /* 영·일·삼·육·칠·팔·십 — 받침으로 끝나는 한자음 */
+function hasBatchim(v){
+  const s=String(v||'').trim(); if(!s)return false;
+  const ch=s[s.length-1], o=ch.charCodeAt(0);
+  if(o>=0xAC00&&o<=0xD7A3)return (o-0xAC00)%28!==0;   /* 한글 */
+  if(/[0-9]/.test(ch))return CLOSED.indexOf(ch)>=0;   /* 숫자는 읽는 소리 기준 */
+  if(/[a-zA-Z]/.test(ch))return 'lmnrLMNR'.indexOf(ch)>=0;
+  return false;                                        /* ㎡·% 등 기호는 열린 소리로 봅니다 */
+}
+/* 앞이 받침 있음 / 없음 순서 */
+const JOSA=[['은','는'],['이','가'],['을','를'],['과','와'],['으로','로']];
+/* '이다·이며·이기…'는 조사가 아니라 서술격이므로 건드리지 않습니다. */
+const COPULA=/^이(다|며|기|라|었|야|지|었|랑|나요|에요|예요|ㅂ니다|입니)/;
+function fixJosa(sentence,value,at){
+  const end=at+String(value).length, rest=sentence.slice(end);
+  const b=hasBatchim(value);
+  for(let i=0;i<JOSA.length;i++){
+    const withB=JOSA[i][0], noB=JOSA[i][1];
+    if(withB==='이'&&COPULA.test(rest))break;          /* 서술격 '이다' 보호 */
+    if(rest.indexOf(withB)===0&&!b)
+      return sentence.slice(0,end)+noB+rest.slice(withB.length);
+    if(rest.indexOf(noB)===0&&b)
+      return sentence.slice(0,end)+withB+rest.slice(noB.length);
+  }
+  return sentence;
+}
+/* fact에 이미 '약'이 있는데 값도 '약 …'으로 시작하면 '약 약 500m'가 됩니다. */
+const tidy=s=>s.replace(/약\s+약\s+/g,'약 ').replace(/([가-힣])\1(을|를|이|가|은|는)\b/g,'$1$2')
+               .replace(/\s{2,}/g,' ').trim();
+/* fact의 [[값]] 자리에 v를 넣고 문장을 다듬어 돌려줍니다. */
+function substitute(fact,v){
+  const m=fact.match(FILL); if(!m)return fact;
+  const at=fact.indexOf(m[0]);
+  return tidy(fixJosa(fact.slice(0,at)+v+fact.slice(at+m[0].length),v,at));
+}
+
+/* ---------- 자료제시형 ----------
+   신규 문항의 q는 '[자료: …]\n자료 본문\n\n발문' 형태입니다.
+   한 덩어리로 붙여 놓으면 읽히지 않으므로 자료와 발문을 나눠 그립니다. */
+function splitMaterial(text){
+  const t=String(text||'');
+  if(t.indexOf('[자료:')!==0)return{material:'',prompt:t};
+  const i=t.indexOf('\n\n');
+  if(i<0)return{material:'',prompt:t};
+  return{material:t.slice(0,i).trim(),prompt:t.slice(i+2).trim()};
+}
+/* 자료를 읽고 푸는 문항은 OX·빈칸으로 바꾸면 자료가 통째로 사라져
+   적용 문제가 단순 암기로 바뀝니다. 원래 형식을 유지합니다. */
+const isMaterial=item=>!!item.materialId||['L4','L5','L6'].indexOf(item.level)>=0
+                       ||String(item.q||'').indexOf('[자료:')===0;
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* 빈칸 보기는 '답의 종류(atype)'가 같은 항목에서만 가져온다.
+   그래야 "강치는 ___의 일종이다"에 '10m' 같은 엉뚱한 보기가 섞이지 않는다.
+   서술형은 교차 인용이 어색하므로 자기 distractor와 2지선다로만 출제. */
+function fillOptions(item){
+  const val=marked(item.fact);
+  if(!val)return null;
+  /* 개별보기 예외 문항은 자기 blankDistractors만 씁니다.
+     같은 atype에서 끌어오면 '교차추출금지'라는 이름 그대로의 사고가 납니다.
+     오답 3개가 없으면 빈칸을 포기하고 원래 4지선다로 돌아갑니다. */
+  if(item.atype==="개별보기_교차추출금지"){
+    const bd=(item.blankDistractors||[]).filter(v=>v&&v!==val);
+    return bd.length>=3?[val].concat(bd.slice(0,3)):null;
+  }
+  const out=[val];
+  if(item.distractor&&item.distractor!==val)out.push(item.distractor);
+  if(item.atype&&item.atype!=="서술"){
+    const L=val.length;
+    const pool=DATA.questions
+      .filter(q=>q.id!==item.id&&q.atype===item.atype)
+      .map(q=>marked(q.fact))
+      .filter(v=>v&&!out.includes(v)&&v.length<=L*2.2+4&&v.length>=Math.max(1,L*.4-2));
+    shuffle(pool).forEach(v=>{if(out.length<4&&!out.includes(v))out.push(v);});
+  }
+  return out.length>=2?out:null;
+}
+
+/* 학년대별 출제 형식 비중 — 저학년일수록 OX 위주 */
+function typesFor(grade){
+  const i=idx(grade);
+  if(i<=3)return["ox","ox","ox","mc"];              // 유치원~초3
+  if(i<=6)return["ox","ox","mc","mc","fill"];       // 초4~초6
+  return["ox","mc","mc","fill"];                    // 중등 이상
+}
+
+function makeQ(item,forceType){
+  const val=marked(item.fact);
+  let type=forceType;
+  if(isMaterial(item))type="mc";        /* 자료 적용 문항은 변형하지 않습니다 */
+  if(!type){
+    const allowed=typesFor(item.grade).filter(t=>t!=="ox"||(val&&item.distractor));
+    type=allowed[Math.floor(Math.random()*allowed.length)]||"mc";
+  }
+  if(type==="ox"&&val&&item.distractor){
+    const useTrue=Math.random()<.5;
+    return{item,type:"ox",label:"O · X",text:substitute(item.fact,useTrue?val:item.distractor),
+           opts:["○  맞다","✕  아니다"],ans:useTrue?0:1};
+  }
+  if(type==="fill"){
+    const set=fillOptions(item);
+    if(set){
+      const opts=shuffle(set);
+      return{item,type:"fill",label:opts.length===2?"둘 중 고르기":"빈칸 채우기",
+             text:item.fact.replace(FILL,'<em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</em>'),html:true,
+             opts,ans:opts.indexOf(val)};
+    }
+  }
+  const sh=shuffle(item.choices.map((t,i)=>({t,ok:i===item.answer})));
+  return{item,type:"mc",label:"4지선다",text:item.q,opts:sh.map(p=>p.t),ans:sh.findIndex(p=>p.ok)};
+}
+
+/* 체감 정답률 — 원본 독도100 정답률(seed)에서 출발해 앱에 쌓이는 응답으로 보정.
+   응답이 적을 땐 seed를 믿고, 쌓일수록 실제 데이터 쪽으로 이동한다. */
+const PRIOR=30;
+function eff(item){
+  const seed=item.rate==null?45:item.rate, r=S.m[item.id];
+  if(!r||!r.att)return seed;
+  return Math.round((seed*PRIOR+r.cor*100)/(PRIOR+r.att));
+}
+/* ---------- 난이도 배점 ----------
+   배점은 원본 정답률(seed)로만 정합니다. 체감 정답률로 매기면 내가 풀수록
+   학년 총점이 흔들려서 "몇 점 남았는지"가 계속 달라집니다. */
+const seedRate=item=>item.rate==null?45:item.rate;
+const TIERS=[{lim:25,pt:60,n:"최상",c:"t4"},{lim:45,pt:35,n:"어려움",c:"t3"},
+             {lim:70,pt:20,n:"보통",c:"t2"},{lim:101,pt:10,n:"기본",c:"t1"}];
+const tierOf=item=>TIERS.find(t=>seedRate(item)<t.lim)||TIERS[3];
+TOTAL_PT=DATA.questions.reduce((a,q)=>a+tierOf(q).pt,0);
+
+/* 한 문항의 배점은 처음 맞혔을 때 한 번만 진급 점수로 쌓입니다.
+   같은 문제를 반복해서 점수를 부풀릴 수 없습니다. XP는 누적입니다. */
+function gradeScore(c){
+  const it=gradeSet(c); if(!it.length)return{got:0,total:0,ratio:1};
+  let got=0,total=0;
+  for(const q of it){total+=tierOf(q).pt;got+=((S.m[q.id]||{}).earned||0);}
+  return{got,total,ratio:total?got/total:1};
+}
+
+/* ---------- 레벨 ---------- */
+const levelOf=xp=>Math.max(1,Math.floor(Math.sqrt(Math.max(0,xp)/40))+1);
+const xpAtLevel=lv=>Math.round(40*Math.pow(Math.max(0,lv-1),2));
+const levelBar=xp=>{const lv=levelOf(xp),a=xpAtLevel(lv),b=xpAtLevel(lv+1);
+  return{lv,into:xp-a,span:b-a,rest:b-xp,pct:Math.min(100,(xp-a)/(b-a)*100)};};
+
+/* ---------- 봉화 ----------
+   작은 불빛 10개가 모이면 봉화 하나로 합쳐집니다. */
+const BEACON_AT=10;
+const beacons=n=>({big:Math.floor(n/BEACON_AT),small:n%BEACON_AT,
+                   next:BEACON_AT-(n%BEACON_AT)});
+
+/* ---------- 성취 뱃지 ----------
+   초등학생에게는 이게 딱지입니다. 잠긴 칸이 보여야 채우고 싶어집니다. */
+const catAll=c=>{const it=DATA.questions.filter(q=>q.category===c);
+  return it.length>0&&it.every(q=>mastered(q.id));};
+const BADGES=[
+ {k:"first",s:"1",  n:"첫 등교",   d:"첫 수업을 마쳤습니다",           test:()=>S.xp>0},
+ {k:"w1",   s:"D7", n:"개근 7일",  d:"7일 연속 출석",                 test:()=>S.streak>=7},
+ {k:"w4",   s:"D30",n:"개근 30일",d:"30일 연속 출석",                test:()=>S.streak>=30},
+ {k:"b1",   s:"B1", n:"첫 봉화",  d:"불빛 10개를 모아 봉화를 올렸습니다", test:()=>lightCount()>=10},
+ {k:"b3",   s:"B3", n:"봉화 셋",  d:"봉화 3개 (불빛 30개)",           test:()=>lightCount()>=30},
+ {k:"eco",  s:"ECO",n:"강치 지킴이",d:"자연생태 전 문항 숙달",          test:()=>catAll("자연생태")},
+ {k:"doc",  s:"DOC",n:"사료 해독가",d:"역사문헌 전 문항 숙달",          test:()=>catAll("역사문헌")},
+ {k:"law",  s:"LAW",n:"국제법 통", d:"국제법 전 문항 숙달",            test:()=>catAll("국제법")},
+ {k:"int",  s:"INT",n:"해외 유학생",d:"대한민국 밖에서 진급",           test:()=>S.flag!=="KR"&&S.passed.length>0},
+ {k:"mid",  s:"MID",n:"중등 수료", d:"중학교 3학년 수료",              test:()=>S.passed.includes("M3")},
+ {k:"phd",  s:"PHD",n:"박사",     d:"박사 과정 수료",                test:()=>S.passed.includes("PHD2")},
+ {k:"head",s:"TOP",n:"학교장",d:"독도 스쿨 학교장 임용",test:()=>S.grade==="HEAD"},
+];
+const earnedBadges=()=>BADGES.filter(b=>b.test());
+
+/* ---------- 섬 ---------- */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+/* 불빛 자리는 문항 수만큼 만듭니다. 80으로 고정하면 85번째부터는 마스터해도 불이 안 켜집니다. */
+/* 문항이 교체되면 자리도 다시 만들어야 하므로 함수로 빼 둡니다. */
+let SPOT_N=0, SPOTS=[];
+function buildSpots(){
+  SPOT_N=Math.max(100,DATA.questions.length);
+  const r=mulberry(20261025); SPOTS=[];
+  for(let i=0;i<SPOT_N;i++){
+    const west=i%2===0, u=r(), v=r();
+    if(west){const y=58+u*104, hw=(y-44)/126*68; SPOTS.push({x:107+(v*2-1)*hw*.82,y});}
+    else{const y=106+u*58, hw=20+(y-98)/72*46; SPOTS.push({x:280+(v*2-1)*hw*.82,y});}
+  }
+}
+buildSpots();
+
+function island(n){
+  const stars=Array.from({length:52},(_,i)=>{
+    const r=mulberry(7+i*13), x=r()*400, y=r()*96, big=r();
+    const rad=big>.88?1.5:big>.6?1.05:.7;
+    return`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${rad}" style="animation:twinkle ${(1.8+r()*2.6).toFixed(1)}s ease-in-out ${(r()*3).toFixed(1)}s infinite;transform-origin:${x.toFixed(1)}px ${y.toFixed(1)}px"/>`;
+  }).join("");
+  const bands=[178,186,194,202].map(y=>`<line class="seaband" x1="0" y1="${y}" x2="400" y2="${y}"/>`).join("");
+  /* 작은 불빛 10개가 봉화 하나로 합쳐집니다. 10번째를 켜는 순간 화면이 바뀝니다. */
+  const bc=beacons(Math.min(n,SPOTS.length*BEACON_AT));
+  const at=i=>SPOTS[i%SPOTS.length];
+  const big=Array.from({length:bc.big},(_,i)=>{const p=at(i);
+    return`<g style="animation:lampin .6s cubic-bezier(.2,1.4,.4,1) ${(i*.05).toFixed(2)}s both;transform-origin:${p.x.toFixed(1)}px ${p.y.toFixed(1)}px">
+       <circle class="lamp-halo" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="11" opacity=".16"/>
+       <circle class="lamp-halo" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="6" opacity=".3"/>
+       <circle class="lamp" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3.1"/>
+     </g>`;}).join("");
+  const small=Array.from({length:bc.small},(_,i)=>{const p=at(bc.big+i);
+    return`<g style="animation:lampin .5s cubic-bezier(.2,1.2,.4,1) ${((bc.big+i)*.035).toFixed(2)}s both;transform-origin:${p.x.toFixed(1)}px ${p.y.toFixed(1)}px">
+       <circle class="lamp-halo" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4.2" opacity=".2"/>
+       <circle class="lamp" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="1.35"/>
+     </g>`;}).join("");
+  const lamps=big+small;
+  return `<svg viewBox="0 0 400 210" role="img" aria-label="독도 위에 ${n}개의 불빛이 켜진 그림">
+    <g class="stars">${stars}</g>
+    <path class="rockface" d="M30,172 L44,148 L53,153 L64,120 L73,126 L83,90 L92,97 L101,55 L108,44 L115,63 L123,59 L131,87 L141,105 L149,101 L159,133 L169,148 L179,172 Z"/>
+    <path class="rockedge" d="M101,55 L108,44 L115,63"/>
+    <path class="rockface" d="M202,172 L214,151 L223,155 L233,129 L243,117 L253,111 L263,101 L277,96 L289,97 L301,105 L309,117 L319,129 L327,149 L337,153 L350,172 Z"/>
+    <path class="rockedge" d="M263,101 L277,96 L289,97"/>
+    <rect x="286" y="80" width="3" height="18" fill="#31485E"/>
+    <circle cx="287.5" cy="78" r="2.6" fill="var(--light)" opacity=".9"/>
+    <circle cx="287.5" cy="78" r="8" fill="var(--light)" opacity=".13"/>
+    ${lamps}
+    <rect x="0" y="172" width="400" height="38" fill="#081726"/>
+    ${bands}
+  </svg>`;
+}
+
+/* ---------- 화면 ---------- */
+const $=s=>document.querySelector(s);
+const SCREENS=["s-locate","s-start","s-home","s-lesson","s-result"];
+/* 저학년은 틀려도 수업이 끝나지 않습니다 — 일곱 살이 첫 문제 틀리고 쫓겨나면 다시 오지 않습니다 */
+const oneStrike=grade=>idx(grade)>3;
+const cooling=()=>S.cool>Date.now();
+function coolText(){
+  const ms=Math.max(0,S.cool-Date.now()),h=Math.floor(ms/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1000);
+  return `${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:${String(s).padStart(2,"0")}`;
+}
+/* ---------- 문항 교체 ----------
+   id는 사용자의 진도·복습 일정·불빛의 열쇠입니다. 새 판에서 id를 재사용하면
+   남의 기록이 엉뚱한 문항에 붙습니다. 삭제된 id의 기록은 그냥 무시됩니다. */
+function applyQuestions(list){
+  DATA.questions.length=0;
+  for(const q of list)DATA.questions.push(q);
+  DATA.questions.forEach(q=>{ if(GRADE_MIGRATE[q.grade])q.grade=GRADE_MIGRATE[q.grade]; });
+  TOTAL_PT=DATA.questions.reduce((a,q)=>a+tierOf(q).pt,0);   /* 학년 총점 재계산 */
+  buildSpots();                                              /* 불빛 자리 재생성 */
+  Object.keys(_setCache).forEach(k=>delete _setCache[k]);    /* 진급 묶음 캐시 비우기 */
+}
+/* 수업 도중에 문항이 바뀌면 남은 점수가 흔들리므로, 수업이 끝난 뒤에 적용합니다. */
+let PENDING=null;
+function show(id){
+  if(id!=="s-lesson"&&PENDING){applyQuestions(PENDING.list);QVER=PENDING.ver;PENDING=null;}
+  SCREENS.forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));window.scrollTo(0,0);
+}
+/* 받은 문항이 쓸 만한지 최소한만 확인합니다. 형식이 깨졌으면 내장 사본을 지킵니다. */
+function usableQuestions(list){
+  if(!Array.isArray(list)||list.length<20)return false;
+  const seen=new Set();
+  for(const q of list){
+    if(typeof q.id!=="number"||seen.has(q.id))return false; seen.add(q.id);
+    if(!Array.isArray(q.choices)||q.choices.length!==4)return false;
+    if(typeof q.answer!=="number"||q.answer<0||q.answer>3)return false;
+    if(typeof q.q!=="string"||!q.q)return false;
+  }
+  return true;
+}
+async function loadRemoteQuestions(){
+  /* 파일을 그대로 열어 본 경우(file://)에는 fetch가 막혀 있습니다.
+     시도하면 콘솔에 오류만 남으므로 내장 사본으로 조용히 진행합니다. */
+  if(location.protocol==="file:")return;
+  try{
+    /* 판 번호를 주소에 붙여 브라우저·CDN 캐시를 우회합니다.
+       이게 없으면 파일을 올려도 옛 문항이 계속 보입니다. */
+    const r=await fetch(QSRC+"?v="+encodeURIComponent(QVER)+"."+Date.now(),{cache:"no-store"});
+    if(!r.ok)return;
+    const j=await r.json();
+    if(!j||!usableQuestions(j.questions))return;
+    if(j.version&&j.version===QVER)return;      /* 같은 판이면 그대로 둡니다 */
+    const ver=j.version||QVER;
+    if(!$("#s-lesson").classList.contains("hidden")){PENDING={list:j.questions,ver};return;}
+    applyQuestions(j.questions); QVER=ver;
+    if(!$("#s-home").classList.contains("hidden"))renderHome();
+  }catch(e){/* 로컬 파일로 열었거나 네트워크가 없는 경우입니다. 내장 사본으로 계속합니다. */}
+}
+function toast(msg){const t=document.createElement("div");t.className="toast";t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),2600);}
+
+function renderHome(){
+  const lights=lightCount(), due=dueList().length, bc=beacons(lights), lb=levelBar(S.xp);
+  $("#st-streak").innerHTML=`🔥 개근 <b>${S.streak}</b>일`;
+  $("#st-xp").innerHTML=`Lv.<b>${lb.lv}</b> <span style="opacity:.6">${S.xp}점</span>`;
+  $("#island-holder").innerHTML=island(lights);
+  $("#cap-grade").textContent=gradeName(S.grade);
+  $("#cap-sub").innerHTML="";
+  const fi=flagImg(S.flag,20);
+  if(fi){fi.style.marginRight="6px";fi.style.borderRadius="2px";$("#cap-sub").appendChild(fi);}
+  $("#cap-sub").appendChild(document.createTextNode(
+    `${fi?"":flagOf(S.flag)+" "}${who()} · ${countryOf(S.flag)}에서 배우는 중`));
+  $("#cap-lights").innerHTML=bc.big?`${bc.big}<span style="font-size:13px;color:var(--ink-mid)">봉화</span> ${bc.small}`:lights;
+  $(".cap-right").lastChild.textContent=bc.big?" 봉화와 불빛":" 밝힌 불빛";
+  const tn0=toNext(S.grade);
+  $("#prog-num").textContent=tn0.grad?"—":`${tn0.got} / ${tn0.total}점`;
+  $("#prog-bar").style.width=(tn0.grad?100:tn0.ratio*100)+"%";
+  const tn=tn0;
+  $("#prog-label").textContent=tn.grad?`전 학년 복습`
+    :tn.open?`${gradeName(S.grade)} · 진급 시험 열림`
+    :`${gradeName(S.grade)} · ${nextName(S.grade)}까지 ${tn.need}점`;
+  const cool=cooling();
+  $("#cool-box").classList.toggle("hidden",!cool);
+  document.querySelectorAll(".js-cool").forEach(el=>el.textContent=coolText());
+  $("#h-notify").textContent=S.notify?"알림 신청됨":"열리면 알림 받기";
+  $("#go-exam").classList.toggle("hidden",!canExam()||cool);
+  $("#review-n").textContent=due;
+  $("#go-review").disabled=due===0||cool;
+  $("#go-lesson").disabled=cool;
+  $("#go-lesson").textContent=cool?"수업이 닫혀 있습니다":(tn0.grad||tn0.ratio>=1?"복습 수업 듣기":"오늘 수업 듣기");
+  $("#badgerow").innerHTML=BADGES.map(b=>{const on=b.test();
+    return`<div class="bdg ${on?"on":""}" title="${b.d}"><i>${b.s}</i><span>${b.n}</span></div>`;}).join("");
+  $("#badge-n").textContent=BADGES.filter(b=>b.test()).length;
+
+  const weak=DATA.questions.filter(q=>(S.m[q.id]||{}).att).sort((a,b)=>eff(a)-eff(b)).slice(0,5);
+  $("#weak-wrap").classList.toggle("hidden",weak.length<3);
+  $("#weak").innerHTML=weak.map(q=>{
+    const r=S.m[q.id],e=eff(q);
+    return`<div class="rung"><span class="rung-dot" style="background:${e<35?"var(--no)":e<60?"var(--light-deep)":"var(--ok)"};border-color:transparent"></span>
+      <span class="rung-name" style="color:var(--ink-mid)">${strip(q.fact)}</span>
+      <span class="rung-n">${e}% · ${r.cor}/${r.att}</span></div>`;
+  }).join("");
+
+  $("#ladder").innerHTML=LADDER.map((g,i)=>{
+    const it=itemsOf(g.c).length, done=S.passed.includes(g.c), now=g.c===S.grade;
+    const cnt=g.job?"경력":it?it+"항목":"준비 중";
+    const soon=!g.job&&!it&&!now;
+    return`<div class="rung ${done?"done":""} ${now?"now":""} ${soon?"soon":""}"><span class="rung-dot"></span><span class="rung-name">${g.n}</span><span class="rung-n">${cnt}</span></div>`;
+  }).join("");
+
+  const note=canExam()
+    ?"진급 시험이 열렸습니다. 이번 학년 범위에서 8문항이 나옵니다."
+    :isJob(S.grade)?(()=>{const n=careerNeed(S.grade),nx=idx(S.grade)+1;
+        return nx<LADDER.length
+          ?`박사 과정을 마쳤습니다. 전 학년 문항이 모두 열려 있습니다. ${LADDER[nx].n} 임용까지 누적 ${n?Math.max(0,n.xp-S.xp):0}점 · 개근 ${n?Math.max(0,n.streak-S.streak):0}일 남았습니다.`
+          :"독도 스쿨 학교장. 더 오를 자리가 없습니다. 이제 새 문항을 제안해 후배들의 학교를 넓혀 주세요.";})()
+    :`이번 학년 항목의 80%를 익히면 진급 시험이 열립니다. 남은 휴교권 ${S.shelter}회.`;
+  $("#home-note").textContent=note;
+  /* 지금 보고 있는 판을 눈으로 확인할 수 있게 합니다. 캐시된 옛 버전 판별용입니다. */
+  $("#ver-note").textContent=`문항 ${DATA.questions.length}개 · ${QVER} 판`;
+}
+
+/* ---------- 수업 ---------- */
+let L=null;
+function startLesson(mode){
+  let items=[];
+  if(mode==="exam"){
+    items=shuffle(poolOf(S.grade)).slice(0,EXAM_N);
+  }else if(mode==="review"){
+    items=shuffle(dueList()).slice(0,LESSON_N);
+  }else{
+    const due=shuffle(dueList()).slice(0,2);
+    const taken=new Set(due.map(q=>q.id));
+    const pick=q=>!taken.has(q.id);
+    /* ① 이번 학년에서 아직 안 익혔고 최근에 안 나온 것 */
+    let cand=shuffle(poolOf(S.grade).filter(q=>pick(q)&&!mastered(q.id)&&!seenLately(q)));
+    /* ② 모자라면 아래 학년까지 (얇은 학년의 반복을 막습니다) */
+    if(due.length+cand.length<LESSON_N)
+      cand=cand.concat(shuffle(lowerPool(S.grade).filter(q=>pick(q)&&!seenLately(q)&&!cand.includes(q))));
+    /* ③ 그래도 모자라면 최근 제한을 풉니다 */
+    if(due.length+cand.length<LESSON_N)
+      cand=cand.concat(shuffle(poolOf(S.grade).filter(q=>pick(q)&&!cand.includes(q))));
+    items=due.concat(cand.slice(0,LESSON_N-due.length));
+  }
+  if(!items.length){toast("지금 풀 항목이 없습니다.");return;}
+  /* 형식을 순수 무작위로 뽑으면 한 수업이 통째로 OX만 나오기도 합니다.
+     비중은 유지하되 순서를 섞어 돌려서 한 수업 안에 형식이 골고루 섞이게 합니다. */
+  const w=shuffle(typesFor(S.grade));
+  const seq=items.map((_,i)=>w[i%w.length]);
+  const snap=toNext(S.grade);
+  L={mode,items,i:0,ok:0,xp:0,wrong:[],seq,progBefore:snap.ratio,gotBefore:snap.got};
+  show("s-lesson");renderQ();
+}
+
+function renderQ(){
+  const item=L.items[L.i];
+  const q=makeQ(item,L.mode==="exam"?"mc":(L.seq?L.seq[L.i]:null));
+  L.cur=q;
+  $("#l-count").textContent=`${L.i+1}/${L.items.length}`;
+  $("#l-bar").style.width=(L.i/L.items.length*100)+"%";
+  const tr=tierOf(item);
+  $("#q-type").innerHTML=`${L.mode==="exam"?"진급 시험":q.label}<span class="pts ${tr.c}">${tr.pt}점</span>`;
+  /* 자료제시형이면 자료를 위 상자에, 발문만 큰 글씨로 내립니다. */
+  const mat=$("#q-material"), parts=q.type==="mc"?splitMaterial(q.text):{material:"",prompt:q.text};
+  mat.textContent=parts.material;
+  mat.classList.toggle("hidden",!parts.material);
+  mat.scrollTop=0;
+  $("#q-text")[q.html?"innerHTML":"textContent"]=q.html?q.text:parts.prompt;
+  $("#q-fb").innerHTML="";
+  $("#q-next").classList.add("hidden");
+  $("#q-opts").className="opts"+(q.opts.length===2?" two":"");
+  $("#q-opts").innerHTML=q.opts.map((t,i)=>
+    `<button class="opt" data-i="${i}"><span class="num">${i+1}</span><span>${t}</span></button>`).join("");
+  $("#q-opts").querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>answer(+b.dataset.i)));
+}
+
+function answer(pick){
+  const q=L.cur,item=q.item,ok=pick===q.ans;
+  const btns=$("#q-opts").querySelectorAll(".opt");
+  btns.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===pick)b.classList.add(ok?"pick-ok":"pick-no");
+    else if(i===q.ans&&!ok)b.classList.add("reveal");
+  });
+  const r=rec(item.id);
+  const tier=tierOf(item), gained=ok?tier.pt:0;
+  const wasLit=isLit(item.id);
+  /* 최근 24문항은 다음 수업에서 뒤로 미룹니다. */
+  S.recent=[item.id].concat((S.recent||[]).filter(v=>v!==item.id)).slice(0,24);
+  r.seen++; r.att=(r.att||0)+1; if(ok)r.cor=(r.cor||0)+1;
+  if(ok){L.ok++;L.xp+=gained;S.xp+=gained;
+    r.earned=Math.max(r.earned||0,tier.pt);   // 진급 점수는 한 번만
+    r.lv=Math.min(r.lv+1,INTERVALS.length-1);}
+  else{r.lv=0;L.wrong.push(item);}
+  const d=new Date();d.setDate(d.getDate()+INTERVALS[Math.min(r.lv,INTERVALS.length-1)]);
+  r.due=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+  save();
+
+  const rateLine=` · ${tier.n} · 체감 정답률 ${eff(item)}%`;
+  const justLit=ok&&!wasLit&&isLit(item.id);
+  const bcNow=beacons(lightCount());
+  const litNote=justLit
+    ?`<div class="lit-note">섬에 불빛 하나가 켜졌습니다 · 지금 <b>${lightCount()}</b>개${bcNow.small?` · 봉화까지 <b>${bcNow.next}</b>개`:" · 봉화가 하나 올랐습니다"}</div>`:"";
+  const wrongNote=(!ok&&item.wrong&&q.type==="mc")?(()=>{
+    const picked=q.opts[pick];
+    const oi=item.choices.indexOf(picked);
+    const n=oi>=0?item.wrong[String(oi)]:null;
+    return n?`<div class="fb-wrong"><b>고르신 “${picked}”은</b> ${n}</div>`:"";
+  })():"";
+  $("#q-fb").innerHTML=`
+    <div class="feedback">
+      <div class="fb-head ${ok?"ok":"no"}">${ok?"정답입니다":"아쉽습니다"}
+        <span class="fb-xp">${ok?`+${gained}점`:`0점`}${rateLine}</span></div>
+      ${wrongNote}${litNote}
+      <div class="fb-body"><b style="color:var(--ink)">${strip(item.fact)}</b><br><br>${item.explain}</div>
+      ${deepBlock(item)}
+      ${item.src?`<div class="fb-src">출처 · ${item.src}</div>`:""}
+      <div class="fb-foot">
+        <button class="btn-plain" id="q-report">이 문제에 이의가 있어요</button>
+      </div>
+    </div>`;
+  $("#q-report").addEventListener("click",()=>report(item,q));
+  /* 한 번 틀리면 그 학년 수업은 여기서 끝. 단, 해설을 보여주고 복습 큐에 넣은 뒤에 끝냅니다. */
+  /* 원스트라이크는 일일 수업 전용.
+     시험에 걸어두면 3개 맞히고 4번을 일부러 틀렸을 때 3/4=75%로 진급하는 구멍이 생기고,
+     복습에 걸어두면 틀린 걸 고치러 온 사람을 쫓아내게 됩니다. */
+  L.dead=!ok&&L.mode==="daily"&&oneStrike(S.grade);
+  const nx=$("#q-next");
+  nx.classList.remove("hidden");
+  nx.textContent=L.dead?"오늘 수업 마치기":(L.i===L.items.length-1?"결과 보기":"다음");
+  nx.focus();
+}
+
+function nextQ(){
+  if(L.dead){
+    S.cool=Date.now()+COOL_MS;save();
+    markAttendance();finish();return;
+  }
+  L.i++;
+  if(L.i<L.items.length){renderQ();return;}
+  markAttendance();
+  finish();
+}
+
+function markAttendance(){
+  const t=today(), gap=daysBetween(S.lastDay,t);
+  if(gap===0)return;
+  if(!S.lastDay)S.streak=1;
+  else if(gap===1)S.streak++;
+  else if(gap===2&&S.shelter>0){S.shelter--;S.streak++;S.sheltered=true;}
+  else S.streak=1;
+  S.lastDay=t;save();
+}
+
+function finish(){
+  const total=L.dead?L.i+1:L.items.length, pct=Math.round(L.ok/total*100);
+  let promoted=false,graduated=false;
+  if(L.mode==="exam"&&L.ok/total>=EXAM_PASS){
+    if(!S.passed.includes(S.grade))S.passed.push(S.grade);
+    const n=idx(S.grade)+1;
+    if(n<LADDER.length){S.grade=LADDER[n].c;promoted=true;graduated=isJob(LADDER[n].c);}
+    save();
+  }
+  /* 박사 2년을 마치면 그때부터는 누적 실적으로 임용됩니다. */
+  const hired=promoteCareer();
+  if(hired){promoted=true;}
+  const shel=S.sheltered;S.sheltered=false;
+
+  const head=(hired&&L.mode!=="exam")
+    ?`<div class="promo"><div class="eyebrow">임용</div><div class="big">${gradeName(S.grade)}</div><div style="font-size:13.5px;color:var(--ink-mid)">누적 실적으로 임용되었습니다.</div></div>`
+    :L.mode==="exam"
+    ?(promoted?`<div class="promo"><div class="eyebrow">진급</div><div class="big">${gradeName(S.grade)}</div><div style="font-size:13.5px;color:var(--ink-mid)">${graduated?"박사 과정을 마치고 독도연구소 연구원이 되었습니다.":"수료했습니다. 다음 학년이 열렸습니다."}</div></div>`
+      :`<div class="card" style="text-align:center;margin-bottom:14px"><div class="score-title">아쉽게 수료하지 못했습니다</div><div style="font-size:13.5px;color:var(--ink-mid)">${Math.round(EXAM_PASS*100)}% 이상 맞히면 진급합니다. 복습 후 다시 도전해 보세요.</div></div>`)
+    :"";
+
+  /* 수업 시작 시점과 지금을 비교해 막대가 실제로 차오르는 것을 보여줍니다. */
+  const t=toNext(S.grade), before=Math.round((L.progBefore||0)*100), after=Math.round(t.ratio*100);
+  const gained=t.got-(L.gotBefore||0);
+  const goalPct=t.total?Math.round(t.goal/t.total*100):100;
+  const levelBlock=(L.mode==="exam"&&promoted)?"":`
+    <div class="levelup">
+      <div class="lv-row">
+        <span class="lv-now">${gradeName(S.grade)}</span>
+        ${t.grad?'<span class="lv-next">전 학년 복습 중</span>'
+                :`<span>→</span><span class="lv-next">${nextName(S.grade)}</span>`}
+      </div>
+      <div class="lv-bar"><i id="lv-fill" style="width:${before}%"></i>
+        ${t.grad?"":`<u style="left:${goalPct}%"></u>`}</div>
+      <div class="lv-foot">
+        ${t.grad?'<span>익힌 항목이 곧 섬의 불빛입니다.</span>'
+          :t.job?(t.open?'<span class="lv-open">임용 조건을 채웠습니다.</span>'
+            :`<b class="lv-need">${t.need}</b><span>점${t.needStreak?` · 개근 ${t.needStreak}일`:""} 더 채우면 승진합니다</span>`)
+          :t.open?'<span class="lv-open">진급 시험이 열렸습니다. 지금 응시할 수 있습니다.</span>'
+          :`<b class="lv-need">${t.need}</b><span>점만 더 얻으면 진급 시험이 열립니다</span>`}
+        ${gained>0?`<span class="lv-gain" id="lv-gain">+${gained}점</span>`:""}
+      </div>
+    </div>`;
+
+  const wrongList=L.wrong.length
+    ?`<div class="card" style="margin-top:14px"><div class="eyebrow" style="margin-bottom:9px">복습 예정</div>${
+      L.wrong.map(w=>`<div style="font-size:13.5px;color:var(--ink-mid);padding:6px 0;border-top:1px solid var(--line-soft)">${strip(w.fact)}</div>`).join("")
+      }<p class="note" style="margin-top:10px">틀린 항목은 내일 다시 나옵니다.</p></div>`:"";
+
+  $("#s-result").innerHTML=`
+    <div class="topbar"><div class="brand">독도 코리아 <span>스쿨</span></div></div>
+    ${head}
+    <div class="score-hero">
+      <div class="score-num">${pct}<span style="font-size:26px">%</span></div>
+      <div class="score-lab">${total}문항 중 ${L.ok}문항 정답</div>
+    </div>
+    ${levelBlock}
+    <div class="kpis">
+      <div class="kpi"><b>+${L.xp}</b><span>획득 점수</span></div>
+      <div class="kpi"><b>Lv.${levelOf(S.xp)}</b><span>${levelBar(S.xp).rest}점 뒤 Lv.${levelOf(S.xp)+1}</span></div>
+      <div class="kpi"><b>${beacons(lightCount()).big?`${beacons(lightCount()).big}·${beacons(lightCount()).small}`:lightCount()}</b><span>${beacons(lightCount()).big?"봉화 · 불빛":"밝힌 불빛"}</span></div>
+    </div>
+    ${shel?`<p class="note">하루 쉬셨지만 <b style="color:var(--light-soft)">휴교</b>로 개근이 이어졌습니다. 남은 휴교권 ${S.shelter}회.</p>`:""}
+    ${L.dead?`<div class="cool">
+        <div><div class="cool-t js-cool">${coolText()}</div><small>뒤에 다시 수업이 열립니다</small></div>
+        <button class="btn ghost" style="width:auto;padding:11px 15px;margin-left:auto" id="r-notify">${S.notify?"알림 신청됨":"열리면 알림 받기"}</button>
+      </div>
+      <p class="note">한 문제를 틀리면 그날 수업은 여기서 끝납니다. 방금 틀린 항목은 복습 큐에 담아뒀습니다.</p>`:""}
+    ${wrongList}
+    <div id="card-box"></div>
+    <div class="btnrow">
+      <button class="btn" id="r-invite">나의 결과 자랑하기</button>
+      <button class="btn ghost" id="r-link">친구에게 링크 공유하기</button>
+      <button class="btn ghost" id="r-home">학교로 돌아가기</button>
+    </div>
+    <div id="sheet-box"></div>`;
+  $("#r-home").addEventListener("click",()=>{show("s-home");renderHome();});
+  $("#r-invite").addEventListener("click",()=>toggleSheet());
+  $("#r-link").addEventListener("click",shareLink);
+  const nb=$("#r-notify");if(nb)nb.addEventListener("click",()=>askNotify(nb));
+  show("s-result");
+  /* 막대가 이전 값에서 지금 값으로 차오르는 것을 눈으로 보게 합니다. */
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    const f=$("#lv-fill"); if(f)f.style.width=after+"%";
+    const g=$("#lv-gain"); if(g)g.classList.add("in");
+  }));
+}
+
+/* 쿨타임이 풀리면 알려주기. 실제 푸시 발송은 서버가 붙어야 완성됩니다. */
+/* 버튼 엘리먼트를 인자로 받습니다. 예전처럼 id로 다시 찾으면
+   requestPermission().then() 안에서 실행될 때 이미 id가 바뀐 뒤라 글자가 갱신되지 않습니다. */
+function askNotify(btn){
+  const done=()=>{S.notify=true;save();if(btn)btn.textContent="알림 신청됨";toast("수업이 열리면 알려드릴게요");};
+  if(!("Notification" in window)){toast("이 브라우저는 알림을 지원하지 않습니다");return;}
+  if(Notification.permission==="granted")return done();
+  Notification.requestPermission().then(p=>p==="granted"?done():toast("알림이 차단되어 있습니다"));
+}
+function notifyIfOpen(){
+  if(S.notify&&!cooling()&&S.cool){
+    S.cool=0;S.notify=false;save();
+    try{if(Notification.permission==="granted")new Notification(APP_NAME,{body:"수업이 다시 열렸습니다."});}catch(e){}
+  }
+}
+
+/* ---------- 공유 ---------- */
+/* 전문(카톡·복사용). 받은 사람이 갈 곳이 없으면 확산되지 않으므로 주소를 반드시 붙입니다. */
+/* 유튜브 라이브 채팅은 줄바꿈을 전부 없애고 한 줄로 붙여버립니다.
+   그래서 각 줄이 반드시 구분기호나 문장부호로 끝나야 합니다.
+   그러지 않으면 "밝힌 불빛 0개당신의 독도 학력은..."처럼 단어가 엉겨붙습니다. */
+const lightLine=()=>{const b=beacons(lightCount());
+  return b.big?`봉화 ${b.big}개 · 불빛 ${b.small}개`:`밝힌 불빛 ${lightCount()}개`;};
+const shareText=()=>[
+  `🏫 ${APP_NAME} ${flagOf(S.flag)}`,
+  `${who()} · ${S.school||"독도초등학교"}`,
+  `나의 독도 학력: ${gradeName(S.grade)} (Lv.${levelOf(S.xp)} · ${S.xp}점)`,
+  `연속 개근 ${S.streak}일 · ${lightLine()}`,
+  ``,
+  `당신의 독도 학력은 몇 학년인가요?`,
+  `▶ ${APP_URL}`
+].join(" \n");   // 줄 끝 공백은 카톡에선 안 보이고, 줄바꿈이 제거돼도 단어가 붙지 않습니다
+
+/* 라이브 채팅은 글자 수 제한이 있고 링크가 걸러질 수 있습니다. 한 줄로 짧게. */
+/* 라이브 채팅용 — 처음부터 한 줄. 링크는 채팅에서 걸러질 수 있어 넣지 않습니다. */
+const liveText=()=>`${who()}(${S.school||"독도초등학교"})의 독도 학력은 ${gradeName(S.grade)}! `
+  +`Lv.${levelOf(S.xp)} · ${lightLine()} · ${APP_NAME}`;
+
+/* 복사 성공을 확인한 뒤에만 성공이라고 말합니다.
+   유튜브 인앱 브라우저(특히 iOS)에서는 클립보드가 막히는 경우가 있어 실패 시 직접 복사 상자를 띄웁니다. */
+async function copyOrShow(txt,okMsg){
+  try{
+    await navigator.clipboard.writeText(txt);
+    toast(okMsg); return true;
+  }catch(e){
+    showCopyBox(txt); toast("자동 복사가 막혔습니다 · 아래 글을 길게 눌러 복사하세요"); return false;
+  }
+}
+function showCopyBox(txt){
+  const box=$("#sheet-box"); if(!box)return;
+  const el=document.createElement("div");
+  el.className="copybox"; el.textContent=txt;
+  const old=box.querySelector(".copybox"); if(old)old.remove();
+  box.querySelector(".sheet")?.appendChild(el);
+  el.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+function toggleSheet(){
+  const box=$("#sheet-box"); if(!box)return;
+  if(box.innerHTML){box.innerHTML="";return;}
+  box.innerHTML=`
+    <div class="sheet">
+      <div class="sheet-h">나의 결과 자랑하기</div>
+      <button class="sheet-i live" id="sh-live"><i>▶</i><span>독도 코리아 라이브에 결과 공유하기<small>채팅용 한 줄로 복사하고 방송을 엽니다</small></span></button>
+      <button class="sheet-i" id="sh-card"><i>📸</i><span>결과 이미지 저장<small>사진첩에 저장하거나 바로 공유합니다</small></span></button>
+      <button class="sheet-i" id="sh-kakao"><i>💬</i><span>카톡으로 전송<small>공유 시트에서 대화상대를 고릅니다</small></span></button>
+      <button class="sheet-i" id="sh-copy"><i>📋</i><span>결과 글로 복사하기<small>카톡·메모용 (여러 줄)</small></span></button>
+    </div>`;
+  $("#sh-card").addEventListener("click",saveCard);
+  $("#sh-live").addEventListener("click",shareLive);
+  $("#sh-kakao").addEventListener("click",shareKakao);
+  $("#sh-copy").addEventListener("click",()=>copyOrShow(shareText(),"결과를 복사했습니다"));
+  box.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+/* 유튜브는 URL만으로 댓글창을 미리 채우는 공식 방법이 없습니다.
+   복사 → 방송 열기 → 사용자가 붙여넣기, 두 단계를 정직하게 안내합니다. */
+async function shareLive(){
+  const ok=await copyOrShow(liveText(),"복사했습니다 · 채팅창에 붙여넣으세요");
+  setTimeout(()=>{try{window.open(LIVE_URL,"_blank","noopener");}catch(e){location.href=LIVE_URL;}},ok?450:1600);
+}
+
+/* 카톡 전용 API는 없습니다. 기기 공유 시트를 열고, 없으면 복사로 내려갑니다. */
+async function shareKakao(){
+  const txt=shareText();
+  try{
+    if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
+  }catch(e){ if(e&&e.name==="AbortError")return; }
+  copyOrShow(txt,"결과를 복사했습니다 · 카톡에 붙여넣으세요");
+}
+
+/* 결과가 아니라 앱 자체를 권합니다. 성적이 부끄러운 사람도 누를 수 있는 버튼입니다. */
+async function shareLink(){
+  const txt=`독도, 얼마나 알고 있나요?\n${APP_NAME}에서 내 독도 학력을 확인해 보세요.\n${APP_URL}`;
+  try{
+    if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
+  }catch(e){ if(e&&e.name==="AbortError")return; }
+  copyOrShow(txt,"링크를 복사했습니다");
+}
+
+/* deep(심화 해설)은 빈 줄로 문단을 나눠 씁니다. 한 덩어리로 길게 쓰면 아무도 안 읽습니다.
+   <b> <em> 태그는 그대로 살리고, 문단만 <p>로 감쌉니다. */
+function deepBlock(item){
+  if(!item.deep)return "";
+  const paras=String(item.deep).split(/\n\s*\n/).map(t=>t.trim()).filter(Boolean);
+  const body=paras.length>1?paras.map(t=>`<p>${t}</p>`).join(""):`<p>${paras[0]||item.deep}</p>`;
+  return `<details class="fb-deep"><summary>이야기 더 읽기</summary><div class="in">${body}</div></details>`;
+}
+
+/* ---------- 문항 이의 신청 ---------- */
+function report(item,q){
+  const body=
+`※ 아래 내용은 그대로 두고, 맨 아래에 의견을 적어주세요.
+
+문항 번호 : #${String(item.id).padStart(3,"0")}
+학년      : ${gradeName(item.grade)} (${item.grade})
+출제 형식 : ${q?q.label:"-"}
+질문      : ${item.q}
+보기      : ${item.choices.map((c,i)=>`${"①②③④"[i]} ${c}`).join(" / ")}
+정답      : ${"①②③④"[item.answer]} ${item.choices[item.answer]}
+핵심 사실 : ${strip(item.fact)}
+체감 정답률: ${eff(item)}%
+보낸 사람 : ${S.name||"-"} (${S.nick||"-"}) ${flagOf(S.flag)}
+보낸 시각 : ${new Date().toLocaleString("ko-KR")}
+
+────────────────────────
+어떤 점이 잘못되었나요?
+
+
+`;
+  const subject=`[${APP_NAME}] 문항 #${String(item.id).padStart(3,"0")} 이의 신청`;
+  const url=`mailto:${REPORT_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  /* window.open(mailto)는 빈 탭을 띄우고 그대로 흰 화면으로 남습니다.
+     숨은 링크를 클릭시키면 현재 화면을 유지한 채 메일 앱만 열립니다. */
+  try{
+    const a=document.createElement("a");
+    a.href=url; a.style.display="none";
+    document.body.appendChild(a); a.click(); a.remove();
+  }catch(e){}
+  /* 메일 앱이 없는 환경을 대비해 내용도 함께 복사해 둡니다 */
+  try{ navigator.clipboard.writeText(`받는사람: ${REPORT_TO}\n제목: ${subject}\n\n${body}`); }catch(e){}
+  toast(`메일 앱을 엽니다 · 안 열리면 ${REPORT_TO}로 붙여넣기 하세요`);
+}
+
+/* ---------- 결과 카드 이미지 ---------- */
+/* 국가코드 칩 + 국가명 + 닉네임. 이모지를 쓰지 않아 모든 기기에서 같게 보입니다. */
+/* ---------- 국기 그리기 ----------
+   이모지 국기는 윈도우에서 글리프가 없어 "KR" 두 글자로 깨집니다.
+   어느 기기에서나 같게 보이도록 벡터로 직접 그립니다.
+   표에 없는 나라는 국가코드 칩으로 우아하게 떨어집니다. */
+const FLAG_ART={
+  KR:["kr"], JP:["jp"], CN:["cn"], US:["us"], GB:["gb"], CH:["ch"],
+  TR:["tr"], VN:["vn"], BR:["br"], TW:["tw"],
+  FR:["v","#0055A4","#FFFFFF","#EF4135"],
+  IT:["v","#009246","#FFFFFF","#CE2B37"],
+  MX:["v","#006847","#FFFFFF","#CE1126"],
+  NG:["v","#008751","#FFFFFF","#008751"],
+  PE:["v","#D91023","#FFFFFF","#D91023"],
+  CA:["v","#D52B1E","#FFFFFF","#D52B1E"],
+  MN:["v","#C4272F","#015197","#C4272F"],
+  DE:["h","#000000","#DD0000","#FFCE00"],
+  NL:["h","#AE1C28","#FFFFFF","#21468B"],
+  RU:["h","#FFFFFF","#0039A6","#D52B1E"],
+  AR:["h","#74ACDF","#FFFFFF","#74ACDF"],
+  ES:["h","#AA151B","#F1BF00","#AA151B"],
+  EG:["h","#CE1126","#FFFFFF","#000000"],
+  KE:["h","#000000","#BB0000","#006600"],
+  UZ:["h","#0099B5","#FFFFFF","#1EB53A"],
+  IN:["h","#FF9933","#FFFFFF","#138808"],
+  TH:["h","#A51931","#F4F5F8","#A51931"],
+  ZA:["h","#007A4D","#FFFFFF","#DE3831"],
+  AE:["h","#00732F","#FFFFFF","#000000"],
+  PL:["h2","#FFFFFF","#DC143C"],
+  ID:["h2","#CE1126","#FFFFFF"],
+  SG:["h2","#EE2536","#FFFFFF"],
+  MY:["h2","#CC0001","#FFFFFF"],
+  PH:["h2","#0038A8","#CE1126"],
+  SE:["nordic","#006AA7","#FECC00"],
+  NO:["nordic","#EF2B2D","#FFFFFF"],
+  FI:["nordic","#FFFFFF","#003580"],
+  AU:["field","#00247D"], NZ:["field","#00247D"], CL:["field","#0039A6"]
+};
+
+function star(x,cx,cy,r,fill){
+  x.beginPath();
+  for(let i=0;i<10;i++){
+    const rad=i%2?r*.42:r, a=-Math.PI/2+i*Math.PI/5;
+    const px=cx+Math.cos(a)*rad, py=cy+Math.sin(a)*rad;
+    i?x.lineTo(px,py):x.moveTo(px,py);
+  }
+  x.closePath();x.fillStyle=fill;x.fill();
+}
+
+/* w = 가로 폭. 세로는 2/3. (px,py)는 왼쪽 위 모서리. */
+function drawFlag(x,px,py,w,code){
+  const spec=FLAG_ART[code]; if(!spec)return false;
+  const h=w*2/3, t=spec[0];
+  x.save();
+  x.beginPath();
+  if(x.roundRect)x.roundRect(px,py,w,h,Math.max(2,w*.06));else x.rect(px,py,w,h);
+  x.clip();
+
+  if(t==="v"||t==="h"){
+    for(let i=0;i<3;i++){x.fillStyle=spec[i+1];
+      t==="v"?x.fillRect(px+w/3*i,py,w/3+1,h):x.fillRect(px,py+h/3*i,w,h/3+1);}
+  }else if(t==="h2"){
+    x.fillStyle=spec[1];x.fillRect(px,py,w,h/2+1);
+    x.fillStyle=spec[2];x.fillRect(px,py+h/2,w,h/2);
+  }else if(t==="nordic"){
+    x.fillStyle=spec[1];x.fillRect(px,py,w,h);
+    x.fillStyle=spec[2];
+    x.fillRect(px+w*.28,py,w*.14,h);x.fillRect(px,py+h*.42,w,h*.16);
+  }else if(t==="field"){
+    x.fillStyle=spec[1];x.fillRect(px,py,w,h);
+    star(x,px+w*.72,py+h*.34,w*.07,"#FFFFFF");
+    star(x,px+w*.80,py+h*.62,w*.055,"#FFFFFF");
+  }else if(t==="kr"){
+    x.fillStyle="#FFFFFF";x.fillRect(px,py,w,h);
+    const cx=px+w/2,cy=py+h/2,r=h*.26;
+    x.beginPath();x.arc(cx,cy,r,Math.PI,0);x.fillStyle="#CD2E3A";x.fill();
+    x.beginPath();x.arc(cx,cy,r,0,Math.PI);x.fillStyle="#0047A0";x.fill();
+    x.beginPath();x.arc(cx-r/2,cy,r/2,0,7);x.fillStyle="#CD2E3A";x.fill();
+    x.beginPath();x.arc(cx+r/2,cy,r/2,0,7);x.fillStyle="#0047A0";x.fill();
+    /* 네 모서리 괘 — 작은 크기에서는 막대 세 줄로 충분히 읽힙니다 */
+    x.fillStyle="#000";const bw=w*.09,bh=h*.028,gp=bh*1.9;
+    [[.17,.20,-38],[.17,.80,38],[.83,.20,38],[.83,.80,-38]].forEach(([fx,fy,deg])=>{
+      x.save();x.translate(px+w*fx,py+h*fy);x.rotate(deg*Math.PI/180);
+      for(let i=-1;i<=1;i++)x.fillRect(-bw/2,i*gp-bh/2,bw,bh);
+      x.restore();});
+  }else if(t==="jp"){
+    x.fillStyle="#FFFFFF";x.fillRect(px,py,w,h);
+    x.beginPath();x.arc(px+w/2,py+h/2,h*.30,0,7);x.fillStyle="#BC002D";x.fill();
+  }else if(t==="cn"){
+    x.fillStyle="#DE2910";x.fillRect(px,py,w,h);
+    star(x,px+w*.17,py+h*.28,h*.15,"#FFDE00");
+    [[.33,.11],[.40,.22],[.40,.38],[.33,.49]].forEach(([fx,fy])=>
+      star(x,px+w*fx,py+h*fy,h*.055,"#FFDE00"));
+  }else if(t==="us"){
+    x.fillStyle="#FFFFFF";x.fillRect(px,py,w,h);
+    x.fillStyle="#B22234";
+    for(let i=0;i<7;i++)x.fillRect(px,py+h/13*i*2,w,h/13);
+    x.fillStyle="#3C3B6E";x.fillRect(px,py,w*.42,h*7/13);
+    x.fillStyle="#FFFFFF";
+    for(let r=0;r<4;r++)for(let cN=0;cN<5;cN++)
+      {x.beginPath();x.arc(px+w*.05+cN*w*.083,py+h*.06+r*h*.13,w*.013,0,7);x.fill();}
+  }else if(t==="gb"){
+    x.fillStyle="#012169";x.fillRect(px,py,w,h);
+    x.strokeStyle="#FFFFFF";x.lineWidth=h*.16;
+    x.beginPath();x.moveTo(px,py);x.lineTo(px+w,py+h);
+    x.moveTo(px+w,py);x.lineTo(px,py+h);x.stroke();
+    x.strokeStyle="#C8102E";x.lineWidth=h*.07;
+    x.beginPath();x.moveTo(px,py);x.lineTo(px+w,py+h);
+    x.moveTo(px+w,py);x.lineTo(px,py+h);x.stroke();
+    x.fillStyle="#FFFFFF";
+    x.fillRect(px+w*.40,py,w*.20,h);x.fillRect(px,py+h*.35,w,h*.30);
+    x.fillStyle="#C8102E";
+    x.fillRect(px+w*.44,py,w*.12,h);x.fillRect(px,py+h*.41,w,h*.18);
+  }else if(t==="ch"){
+    x.fillStyle="#D52B1E";x.fillRect(px,py,w,h);
+    x.fillStyle="#FFFFFF";
+    x.fillRect(px+w*.42,py+h*.22,w*.16,h*.56);
+    x.fillRect(px+w*.27,py+h*.37,w*.46,h*.26);
+  }else if(t==="tr"){
+    x.fillStyle="#E30A17";x.fillRect(px,py,w,h);
+    x.fillStyle="#FFFFFF";x.beginPath();x.arc(px+w*.36,py+h/2,h*.24,0,7);x.fill();
+    x.fillStyle="#E30A17";x.beginPath();x.arc(px+w*.42,py+h/2,h*.19,0,7);x.fill();
+    star(x,px+w*.56,py+h/2,h*.11,"#FFFFFF");
+  }else if(t==="vn"){
+    x.fillStyle="#DA251D";x.fillRect(px,py,w,h);
+    star(x,px+w/2,py+h/2,h*.30,"#FFFF00");
+  }else if(t==="br"){
+    x.fillStyle="#009B3A";x.fillRect(px,py,w,h);
+    x.beginPath();x.moveTo(px+w/2,py+h*.12);x.lineTo(px+w*.90,py+h/2);
+    x.lineTo(px+w/2,py+h*.88);x.lineTo(px+w*.10,py+h/2);x.closePath();
+    x.fillStyle="#FEDF00";x.fill();
+    x.beginPath();x.arc(px+w/2,py+h/2,h*.22,0,7);x.fillStyle="#002776";x.fill();
+  }else if(t==="tw"){
+    x.fillStyle="#FE0000";x.fillRect(px,py,w,h);
+    x.fillStyle="#000095";x.fillRect(px,py,w/2,h/2);
+    star(x,px+w*.25,py+h*.25,h*.16,"#FFFFFF");
+  }
+  x.restore();
+  /* 흰 바탕 국기가 어두운 카드에 묻히지 않게 얇은 테두리 */
+  x.save();x.beginPath();
+  if(x.roundRect)x.roundRect(px,py,w,h,Math.max(2,w*.06));else x.rect(px,py,w,h);
+  x.strokeStyle="rgba(255,255,255,.28)";x.lineWidth=Math.max(1,w*.018);x.stroke();x.restore();
+  return true;
+}
+
+/* DOM에서 쓸 작은 국기 — 국기 선택 화면과 섬 캡션에 붙습니다. */
+function flagImg(code,w){
+  const c=document.createElement("canvas"), dpr=Math.min(3,window.devicePixelRatio||1);
+  c.width=w*dpr;c.height=Math.round(w*2/3*dpr);
+  c.style.width=w+"px";c.style.height=Math.round(w*2/3)+"px";
+  c.style.display="inline-block";c.style.verticalAlign="-2px";
+  const x=c.getContext("2d");x.scale(dpr,dpr);
+  if(!drawFlag(x,0,0,w,code))return null;
+  return c;
+}
+
+/* ---------- 뱃지 칩 ---------- */
+/* 좌우 세로줄에 딱지처럼 붙습니다. 획득한 것만 빛나고 나머지는 흐리게 남아
+   "저 칸을 채우고 싶다"는 마음이 생기게 합니다. 한자 한 글자라 어느 기기에서나 보입니다. */
+function drawChip(x,cx,cy,glyph,on){
+  const r=33;
+  x.beginPath();x.arc(cx,cy,r,0,7);
+  x.fillStyle=on?"rgba(247,183,51,.13)":"rgba(22,39,61,.55)";x.fill();
+  x.lineWidth=on?3:1.5;x.strokeStyle=on?"#F7B733":"#22394F";x.stroke();
+  if(on){x.globalAlpha=.18;x.beginPath();x.arc(cx,cy,r+9,0,7);
+    x.fillStyle="#F7B733";x.fill();x.globalAlpha=1;}
+  /* 글자 수에 맞춰 크기를 줄여 원 안에 확실히 들어가게 합니다. */
+  const fs=glyph.length>=3?19:glyph.length===2?25:31;
+  x.font=`700 ${fs}px "IBM Plex Mono",ui-monospace,monospace`;
+  x.textAlign="center";x.textBaseline="middle";
+  x.fillStyle=on?"#FFD57E":"#3D5468";x.fillText(glyph,cx,cy+1);
+  x.textBaseline="alphabetic";
+}
+
+/* ---------- 신분 블록 ----------
+   뱃지의 주인공은 점수가 아니라 사람입니다. 닉네임을 제일 크게,
+   소속과 국가를 그 아래 한 줄로. 국기 이모지는 윈도우 캔버스에서 깨지므로 쓰지 않습니다. */
+function drawIdentity(x,W,y){
+  const nick=who(), school=S.school||"독도초등학교", nation=countryOf(S.flag), code=S.flag;
+  /* 긴 닉네임이 카드 밖으로 나가지 않도록 폭에 맞춰 줄입니다. */
+  let size=62;
+  do{ x.font=`700 ${size}px "Gowun Batang",serif`; size-=2; }
+  while(x.measureText(nick).width>W-260&&size>30);
+  x.textAlign="center";x.fillStyle="#E8EFF7";x.fillText(nick,W/2,y);
+
+  const sub=`${school} · ${nation}`;
+  x.font='500 27px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif';
+  const tw=x.measureText(sub).width;
+  const fw=46, hasFlag=!!FLAG_ART[code];
+  let cw=fw, cy=y+44;
+  if(!hasFlag){ x.font='600 21px "IBM Plex Mono",monospace'; cw=x.measureText(code).width+24; }
+  let left=W/2-(cw+13+tw)/2;
+  if(hasFlag){
+    drawFlag(x,left,cy-fw/3-5,fw,code);
+  }else{
+    x.fillStyle="#16273D";x.strokeStyle="#2A4056";x.lineWidth=1.5;
+    if(x.roundRect){x.beginPath();x.roundRect(left,cy-21,cw,30,8);x.fill();x.stroke();}
+    else x.fillRect(left,cy-21,cw,30);
+    x.font='600 21px "IBM Plex Mono",monospace';
+    x.fillStyle="#FFD57E";x.fillText(code,left+cw/2,cy);
+  }
+  x.font='500 27px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif';
+  x.fillStyle="#A9BCD0";x.textAlign="left";x.fillText(sub,left+cw+13,cy);
+  x.textAlign="center";
+}
+
+function makeCard(){
+  const W=1080,H=1350,c=document.createElement("canvas");
+  c.width=W;c.height=H;const x=c.getContext("2d");
+  const g=x.createLinearGradient(0,0,0,H);
+  g.addColorStop(0,"#040A13");g.addColorStop(.55,"#08111D");g.addColorStop(1,"#0B1929");
+  x.fillStyle=g;x.fillRect(0,0,W,H);
+
+  /* 같은 사람이 다시 받아도 같은 별자리가 나오도록 시드 난수를 씁니다. */
+  const rnd=mulberry(20261025);
+  for(let i=0;i<110;i++){const sx=rnd()*W,sy=rnd()*640,r=rnd()*2.2+.8;
+    x.globalAlpha=rnd()*.7+.25;x.fillStyle="#CFE0F0";
+    x.beginPath();x.arc(sx,sy,r,0,7);x.fill();}
+  x.globalAlpha=1;
+
+  const F=(s,w,sz,col,al)=>{x.font=`${w} ${sz}px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif`;
+    x.fillStyle=col;x.textAlign=al||"center";};
+
+  /* 머리말 */
+  F("",700,30,"#F7B733");x.fillText(APP_NAME,W/2,86);
+  F("",500,15,"#54697D");x.fillText(APP_NAME_EN,W/2,114);
+
+  /* 신분 — 카드에서 제일 큰 글자 */
+  drawIdentity(x,W,196);
+
+  /* 학력 */
+  F("",300,27,"#6F8399");x.fillText("나의 독도 학력",W/2,320);
+  F("",700,86,"#E8EFF7");x.fillText(gradeName(S.grade),W/2,404);
+
+  /* 섬 (앱 화면과 같은 좌표를 2.7배로) */
+  /* K=2.7이면 섬 폭이 카드 폭과 같아져 좌우 뱃지 줄과 겹칩니다. 2.4로 줄여 여백을 냅니다. */
+  const K=2.4,OX=(W-400*K)/2,OY=500;
+  const P=(d)=>{x.beginPath();d.split("L").forEach((p,i)=>{
+      const [a,b]=p.replace(/[MZ]/g,"").split(",").map(Number);
+      if(isNaN(a))return; i===0?x.moveTo(OX+a*K,OY+b*K):x.lineTo(OX+a*K,OY+b*K);});
+    x.closePath();x.fill();};
+  x.fillStyle="#1D2E3F";
+  P("M30,172L44,148L53,153L64,120L73,126L83,90L92,97L101,55L108,44L115,63L123,59L131,87L141,105L149,101L159,133L169,148L179,172Z");
+  P("M202,172L214,151L223,155L233,129L243,117L253,111L263,101L277,96L289,97L301,105L309,117L319,129L327,149L337,153L350,172Z");
+  x.fillStyle="#081726";x.fillRect(0,OY+172*K,W,H-(OY+172*K));
+  /* 앱 화면과 같은 수평 물결선. 없으면 아래쪽이 텅 빈 검은 판이 됩니다. */
+  x.strokeStyle="#16344F";x.lineWidth=2;x.globalAlpha=.5;
+  for(let i=0;i<7;i++){const yy=OY+178*K+i*26;if(yy>H-210)break;
+    x.beginPath();x.moveTo(0,yy);x.lineTo(W,yy);x.stroke();}
+  x.globalAlpha=1;
+
+  /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있다 */
+  x.fillStyle="#31485E";x.fillRect(OX+286*K,OY+80*K,3*K,18*K);
+  const lx=OX+287.5*K,ly=OY+78*K;
+  x.globalAlpha=.15;x.fillStyle="#F7B733";x.beginPath();x.arc(lx,ly,26,0,7);x.fill();
+  x.globalAlpha=1;x.fillStyle="#F7B733";x.beginPath();x.arc(lx,ly,7,0,7);x.fill();
+
+  /* 봉화와 불빛 — 작은 빛 10개가 큰 봉화 하나로 합쳐집니다. */
+  const lit=lightCount(), bc=beacons(Math.min(lit,SPOTS.length*BEACON_AT));
+  const at=i=>SPOTS[i%SPOTS.length];
+  for(let i=0;i<bc.big;i++){const p=at(i),px=OX+p.x*K,py=OY+p.y*K;
+    x.globalAlpha=.14;x.fillStyle="#F7B733";x.beginPath();x.arc(px,py,30,0,7);x.fill();
+    x.globalAlpha=.30;x.beginPath();x.arc(px,py,17,0,7);x.fill();
+    x.globalAlpha=1;x.fillStyle="#FFE7B0";x.beginPath();x.arc(px,py,8.4,0,7);x.fill();}
+  for(let i=0;i<bc.small;i++){const p=at(bc.big+i),px=OX+p.x*K,py=OY+p.y*K;
+    x.globalAlpha=.22;x.fillStyle="#F7B733";x.beginPath();x.arc(px,py,11,0,7);x.fill();
+    x.globalAlpha=1;x.fillStyle="#FFD57E";x.beginPath();x.arc(px,py,3.6,0,7);x.fill();}
+  x.globalAlpha=1;
+
+  /* 성취 뱃지 — 좌우 세로줄. 획득 여부와 무관하게 자리는 늘 보입니다. */
+  const half=Math.ceil(BADGES.length/2);
+  BADGES.forEach((b,i)=>{
+    const right=i>=half, k=right?i-half:i;
+    drawChip(x, right?W-66:66, 540+k*80, b.s, b.test());
+  });
+
+  /* 지표 3칸 */
+  const lb=levelBar(S.xp);
+  const cols=[
+    [`Lv.${lb.lv}`,`${S.xp}점`],
+    [bc.big?`${bc.big}·${bc.small}`:String(lit), bc.big?"봉화 · 불빛":"밝힌 불빛"],
+    [String(S.streak),"연속 개근"]];
+  cols.forEach((v,i)=>{const cx=W/2+(i-1)*292;
+    F("",600,58,"#F7B733");x.fillText(v[0],cx,1090);
+    F("",400,24,"#6F8399");x.fillText(v[1],cx,1134);});
+
+  F("",400,24,"#54697D");x.fillText("당신의 독도 학력은 몇 학년인가요?",W/2,1230);
+  F("",500,21,"#3D5468");x.fillText(APP_URL.replace(/^https?:\/\//,""),W/2,1280);
+  return c;
+}
+
+/* 미리보기 창(iframe) 안에서는 브라우저가 다운로드를 통째로 막습니다.
+   그래서 저장 경로를 하나만 두면 조용히 실패합니다. 네 갈래로 나눕니다. */
+const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
+
+function dataUrlToBlob(u){
+  const [head,body]=u.split(",");
+  const mime=(/:(.*?);/.exec(head)||[])[1]||"image/png";
+  const bin=atob(body), arr=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);
+  return new Blob([arr],{type:mime});
+}
+
+async function saveCard(){
+  toast("뱃지를 만드는 중…");
+  /* fonts.ready가 끝내 응답하지 않는 환경이 있습니다. 1.5초만 기다리고 진행합니다.
+     안 그러면 버튼을 눌러도 아무 일도 안 일어난 것처럼 보입니다. */
+  try{ await Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]); }catch(e){}
+
+  let c;
+  try{ c=makeCard(); }
+  catch(e){ toast("뱃지를 그리지 못했습니다 · "+((e&&e.message)||e)); return; }
+
+  const name=`${APP_NAME.replace(/ /g,"")}_${who()}_${gradeName(S.grade)}_${today()}.png`
+              .replace(/[\\/:*?"<>|]/g,"");
+  let dataUrl="", blob=null;
+  try{ dataUrl=c.toDataURL("image/png"); }catch(e){}
+  try{ blob=await new Promise(r=>c.toBlob(r,"image/png")); }catch(e){}
+  if(!blob&&dataUrl){ try{ blob=dataUrlToBlob(dataUrl); }catch(e){} }
+  if(!blob&&!dataUrl){ toast("이미지를 내보내지 못했습니다"); return; }
+
+  /* ① 무엇보다 먼저 화면에 띄웁니다. 저장이 전부 막혀도 최소한 눈으로 보고
+     길게 눌러 저장할 수 있어야 합니다. */
+  showCard(dataUrl,blob,name);
+
+  /* ② 모바일 공유 시트 — 미리보기 창 안에서는 대개 차단되므로 건너뜁니다. */
+  if(!inFrame&&blob){
+    try{
+      const f=new File([blob],name,{type:"image/png"});
+      if(navigator.canShare&&navigator.canShare({files:[f]})){
+        await navigator.share({files:[f],title:APP_NAME,
+          text:`${who()} · ${S.school||"독도초등학교"}\n나의 독도 학력: ${gradeName(S.grade)}\n▶ ${APP_URL}`});
+        return;
+      }
+    }catch(e){ if(e&&e.name==="AbortError")return; }
+  }
+
+  /* ③ 자동 저장 시도. a.click()은 막혀도 예외를 던지지 않으므로
+     "저장했습니다"라고 단정하지 않습니다. 거짓말하는 토스트가 제일 나쁩니다. */
+  if(!inFrame&&blob){
+    try{
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement("a");a.href=url;a.download=name;
+      document.body.appendChild(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(url),8000);
+      toast("저장이 시작되지 않았다면 아래 뱃지를 눌러 저장하세요");
+      return;
+    }catch(e){}
+  }
+  toast(inFrame?"미리보기 창에서는 자동 저장이 막힙니다 · 아래에서 저장하세요"
+               :"아래 뱃지를 길게 눌러 저장하세요");
+}
+
+/* 화면에 띄운 뱃지 + 직접 누를 수 있는 저장 링크.
+   프로그램이 누르는 클릭은 막혀도 사람이 누르는 링크는 열리는 환경이 있습니다. */
+function showCard(src,blob,name){
+  const box=$("#card-box"); if(!box)return;
+  const href=blob?URL.createObjectURL(blob):src;
+  box.innerHTML=`<div class="shot">
+      <img src="${src}" alt="나의 독도 학력 뱃지">
+      <div class="shot-btns">
+        <a class="shot-b main" id="sc-dl" href="${href}" download="${name||"dokdo-badge.png"}">이미지 파일로 저장</a>
+        <button class="shot-b" id="sc-tab">새 탭에서 열기</button>
+      </div>
+      <div class="shot-note">저장이 안 되면 뱃지를 <b>길게 눌러</b>(PC는 오른쪽 클릭 → 이미지 저장) 보관하세요.
+      ${inFrame?"<br>미리보기 창에서는 브라우저가 다운로드를 막습니다. HTML 파일을 내려받아 브라우저에서 직접 열면 정상 저장됩니다.":""}</div>
+    </div>`;
+  const tab=$("#sc-tab");
+  if(tab)tab.addEventListener("click",()=>{
+    try{ const w=window.open(href,"_blank","noopener");
+      if(!w)toast("팝업이 차단되었습니다 · 뱃지를 길게 눌러 저장하세요");
+    }catch(e){ toast("새 탭을 열지 못했습니다 · 뱃지를 길게 눌러 저장하세요"); }
+  });
+  box.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+/* ---------- 배치고사 ---------- */
+/* 배치고사 5문항 — 뒤로 갈수록 난이도가 올라갑니다 */
+const PLACE=["E1","E4","M1","H1","MA1"];
+let P=null;
+function startPlacement(){
+  const items=PLACE.map(c=>{const it=itemsOf(c);return it[Math.floor(Math.random()*it.length)];}).filter(Boolean);
+  P={items,i:0,ok:0};
+  L={mode:"place",items,i:0,ok:0,xp:0,wrong:[]};
+  show("s-lesson");renderPlaceQ();
+}
+function renderPlaceQ(){
+  const item=L.items[L.i], q=makeQ(item,"mc");L.cur=q;
+  $("#l-count").textContent=`${L.i+1}/${L.items.length}`;
+  $("#l-bar").style.width=(L.i/L.items.length*100)+"%";
+  $("#q-type").innerHTML=`배치고사<span class="pts ${tierOf(item).c}">${tierOf(item).pt}점</span>`;
+  $("#q-text").textContent=q.text;
+  $("#q-fb").innerHTML="";$("#q-next").classList.add("hidden");
+  $("#q-opts").className="opts"+(q.opts.length===2?" two":"");
+  $("#q-opts").innerHTML=q.opts.map((t,i)=>`<button class="opt" data-i="${i}"><span class="num">${i+1}</span><span>${t}</span></button>`).join("");
+  $("#q-opts").querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{
+    const pick=+b.dataset.i, ok=pick===q.ans;
+    if(ok)L.ok++;
+    $("#q-opts").querySelectorAll(".opt").forEach((x,i)=>{
+      x.disabled=true;
+      if(i===pick)x.classList.add(ok?"pick-ok":"pick-no");
+      else if(i===q.ans&&!ok)x.classList.add("reveal");
+    });
+    /* 배치고사에서도 왜 틀렸는지 바로 확인합니다 */
+    const wrongNote=(!ok&&item.wrong)?(()=>{
+      const picked=q.opts[pick], oi=item.choices.indexOf(picked);
+      const n=oi>=0?item.wrong[String(oi)]:null;
+      return n?`<div class="fb-wrong"><b>고르신 “${picked}”은</b> ${n}</div>`:"";
+    })():"";
+    $("#q-fb").innerHTML=`
+      <div class="feedback">
+        <div class="fb-head ${ok?"ok":"no"}">${ok?"정답입니다":"아쉽습니다"}
+          <span class="fb-xp">${gradeName(item.grade)} 수준</span></div>
+        ${wrongNote}
+        <div class="fb-body"><b style="color:var(--ink)">${strip(item.fact)}</b><br><br>${item.explain}</div>
+        ${deepBlock(item)}
+      </div>`;
+    const nx=$("#q-next");
+    nx.classList.remove("hidden");
+    nx.textContent=L.i===L.items.length-1?"배치 결과 보기":"다음 문제";
+    nx.focus();
+  }));
+}
+function nextPlaceQ(){
+  L.i++;
+  L.i<L.items.length?renderPlaceQ():endPlacement();
+}
+function endPlacement(){
+  const map=["K","E2","E4","E6","M2","H2"];   // 맞힌 개수 0~5
+  S.grade=map[Math.min(L.ok,map.length-1)];
+  for(let i=0;i<idx(S.grade);i++){const c=LADDER[i].c;if(!S.passed.includes(c))S.passed.push(c);}
+  S.started=true;save();
+  $("#s-result").innerHTML=`
+    <div class="topbar"><div class="brand">독도 코리아 <span>스쿨</span></div></div>
+    <div class="promo">
+      <div class="eyebrow">배치고사 결과</div>
+      <div class="big">${gradeName(S.grade)}</div>
+      <div style="font-size:13.5px;color:var(--ink-mid)">${L.items.length}문항 중 ${L.ok}문항 정답</div>
+    </div>
+    <p class="note" style="text-align:center">${gradeName(S.grade)}부터 시작합니다. 아래 학년은 이미 수료 처리했습니다.</p>
+    <div class="btnrow">
+      <button class="btn" id="r-home">입학하기</button>
+      <button class="btn ghost" id="r-share">친구에게 링크 공유하기</button>
+    </div>`;
+  $("#r-home").addEventListener("click",()=>{show("s-home");renderHome();});
+  $("#r-share").addEventListener("click",shareLink);
+  show("s-result");
+}
+
+/* ---------- 국기 선택 ---------- */
+function renderFlags(){
+  $("#flags").innerHTML=FLAGS.map(([c,e,n])=>
+    `<button class="flag ${c===S.flag?"on":""}" data-c="${c}" title="${n}"><i data-f="${c}">${e}</i><span>${n}</span></button>`).join("");
+  /* 이모지 대신 벡터 국기를 끼워 넣습니다. 표에 없는 나라는 이모지를 그대로 둡니다. */
+  $("#flags").querySelectorAll("i[data-f]").forEach(el=>{
+    const im=flagImg(el.dataset.f,26); if(im){el.textContent="";el.appendChild(im);}
+  });
+  $("#flags").querySelectorAll(".flag").forEach(b=>b.addEventListener("click",()=>{
+    S.flag=b.dataset.c;save();
+    $("#flags").querySelectorAll(".flag").forEach(x=>x.classList.toggle("on",x===b));
+  }));
+}
+
+/* ---------- 이벤트 ---------- */
+/* ---------- 처음부터 다시 ---------- */
+/* ---------- 처음부터 다시 ----------
+   샌드박스 환경에서는 confirm()이 차단되므로 두 번 눌러 확인합니다. */
+let resetArm=null;
+function doReset(){
+  try{localStorage.removeItem(KEY);}catch(e){}
+  S=fresh();
+  renderFlags();
+  $("#realname").value="";
+  $("#school").value="";
+  clearTimeout(resetArm);resetArm=null;
+  document.querySelectorAll(".js-reset").forEach(b=>b.textContent=b.dataset.label);
+  show("s-locate");
+  toast("처음부터 다시 시작합니다");
+}
+function armReset(btn){
+  if(resetArm){doReset();return;}
+  btn.textContent="한 번 더 누르면 지워집니다";
+  resetArm=setTimeout(()=>{
+    resetArm=null;
+    document.querySelectorAll(".js-reset").forEach(b=>b.textContent=b.dataset.label);
+  },4000);
+}
+document.querySelectorAll(".js-reset").forEach(b=>{
+  b.dataset.label=b.textContent;
+  b.addEventListener("click",()=>armReset(b));
+});
+
+$("#go-enter").addEventListener("click",()=>{show("s-start");renderFlags();});
+$("#h-notify").addEventListener("click",()=>askNotify($("#h-notify")));
+function grabNames(){S.name=$("#realname").value.trim();
+  S.school=$("#school").value.trim()||"독도초등학교";save();}
+$("#go-placement").addEventListener("click",()=>{grabNames();startPlacement();});
+$("#go-kinder").addEventListener("click",()=>{grabNames();S.grade="K";S.started=true;save();show("s-home");renderHome();});
+$("#go-lesson").addEventListener("click",()=>startLesson("daily"));
+$("#go-review").addEventListener("click",()=>startLesson("review"));
+$("#go-exam").addEventListener("click",()=>startLesson("exam"));
+$("#q-next").addEventListener("click",()=>{L&&L.mode==="place"?nextPlaceQ():nextQ();});
+$("#quit").addEventListener("click",()=>{show("s-home");renderHome();});
+
+/* ---------- 쿨타임 시계 ---------- */
+setInterval(()=>{
+  if(!S)return;
+  const t=coolText();
+  document.querySelectorAll(".js-cool").forEach(el=>el.textContent=t);
+  if(S.cool&&!cooling()){notifyIfOpen();S.cool=0;save();if(!$("#s-home").classList.contains("hidden"))renderHome();}
+},1000);
+
+/* ---------- 시작 ---------- */
+/* 주소 끝에 #reset 을 붙여 열면 기록 없이 시작합니다 (검토용) */
+if(location.hash==="#reset"){try{localStorage.removeItem(KEY);}catch(e){}history.replaceState(null,"",location.pathname);}
+S=load();
+renderFlags();
+$("#realname").value=S.name||"";
+$("#school").value=S.school||"";
+if(S.started){show("s-home");renderHome();}
+else show("s-locate");
+
+/* 화면을 먼저 띄우고 문항 갱신은 뒤에서 확인합니다. 첫 화면이 늦어지지 않습니다. */
+loadRemoteQuestions();
+</script>
+</body>
+</html>
