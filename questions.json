@@ -1,7 +1,7 @@
 {
- "version": "2026-09-06.413",
+ "version": "2026-09-06.603",
  "updated": "2026-09-05",
- "count": 413,
+ "count": 603,
  "note": "판을 올릴 때 version 값을 반드시 바꾸십시오. id는 재사용 금지.",
  "questions": [
   {
@@ -13640,7 +13640,5662 @@
    },
    "gradeNote": "난이도 상 · 얇은 학년을 메우도록 배치",
    "source_batch": "DKC-0201-0300"
+  },
+  {
+   "id": 674,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "독도등대의 불빛은 대략 몇 초에 한 번 깜빡일까요?",
+   "choices": [
+    "1000초",
+    "100초",
+    "10초",
+    "1초"
+   ],
+   "fact": "독도등대가 흰빛을 한 번씩 비추는 주기는 [[10초]]다.",
+   "distractor": "20초",
+   "blankDistractors": [
+    "1000초",
+    "100초",
+    "1초"
+   ],
+   "explain": "공식 등질은 '백섬광 10초에 1섬광'입니다. 불빛이 닿는 거리와 깜빡이는 주기는 서로 다른 정보입니다.",
+   "wrong": {
+    "3": "공식 주기보다 10배 빠르게 깜빡이는 셈입니다."
+   },
+   "group": "n400-301",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 675,
+   "grade": "M2",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "독도등대의 흰빛은 몇 초마다 한 번씩 깜빡이나요?",
+   "choices": [
+    "10초",
+    "40초",
+    "5초",
+    "20초"
+   ],
+   "fact": "독도등대가 흰빛을 한 번씩 비추는 주기는 [[10초]]다.",
+   "distractor": "20초",
+   "blankDistractors": [
+    "40초",
+    "5초",
+    "20초"
+   ],
+   "explain": "공식 등질은 '백섬광 10초에 1섬광'입니다. 불빛이 닿는 거리와 깜빡이는 주기는 서로 다른 정보입니다.",
+   "wrong": {
+    "3": "공식 주기인 10초보다 두 배 긴 간격입니다."
+   },
+   "group": "n400-301",
+   "tierNote": "보통"
+  },
+  {
+   "id": 676,
+   "grade": "PHD1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "독도등대 백섬광의 공식 등질 주기는 정확히 얼마인가요?",
+   "choices": [
+    "9초",
+    "12초",
+    "10초",
+    "8초"
+   ],
+   "fact": "독도등대가 흰빛을 한 번씩 비추는 주기는 [[10초]]다.",
+   "distractor": "20초",
+   "blankDistractors": [
+    "9초",
+    "12초",
+    "8초"
+   ],
+   "explain": "공식 등질은 '백섬광 10초에 1섬광'입니다. 불빛이 닿는 거리와 깜빡이는 주기는 서로 다른 정보입니다.",
+   "group": "n400-301",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 677,
+   "grade": "E4",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "환경부 · 대한민국 정책브리핑 · 울릉도·독도·제주도 첫 국가지질공원 인증(2012-12-27): https://m.korea.kr/news/policyNewsView.do?newsId=148754196",
+   "quiz": 302,
+   "q": "2012년 울릉도·독도가 처음 인증받은 자연유산 관리 제도는 무엇인가요?",
+   "choices": [
+    "국가지질공원",
+    "세계자연유산",
+    "생물권보전지역",
+    "국립공원"
+   ],
+   "fact": "울릉도·독도가 2012년에 인증받은 자연유산 관리 제도는 [[국가지질공원]]이다.",
+   "distractor": "국립공원",
+   "blankDistractors": [
+    "세계자연유산",
+    "생물권보전지역",
+    "국립공원"
+   ],
+   "explain": "2012년 울릉도·독도가 국가지질공원으로 인증됐습니다. 지질유산을 보전하면서 교육과 관광에도 활용하는 제도입니다.",
+   "wrong": {
+    "1": "이 문항은 세계유산 등재가 아니라 국내 국가지질공원 인증을 묻습니다.",
+    "3": "국가지질공원 인증과 국립공원 지정은 서로 다른 제도입니다."
+   }
+  },
+  {
+   "id": 678,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "1해리는 대략 얼마쯤 되는 거리일까요?",
+   "choices": [
+    "18520m",
+    "185.2m",
+    "18.52m",
+    "1852m"
+   ],
+   "fact": "국제해리 1해리의 길이는 [[1852m]]이다.",
+   "distractor": "3704m",
+   "blankDistractors": [
+    "18520m",
+    "185.2m",
+    "18.52m"
+   ],
+   "explain": "바다의 거리에는 해리를 자주 씁니다. 육상에서 쓰는 마일과 길이가 다르므로 구분해야 합니다.",
+   "wrong": {
+    "1": "정확한 길이의 10분의 1입니다."
+   },
+   "group": "n400-401",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 679,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "항해 거리의 단위인 국제해리 1해리는 정확히 몇 미터인가요?",
+   "choices": [
+    "2778m",
+    "1852m",
+    "926m",
+    "3704m"
+   ],
+   "fact": "국제해리 1해리의 길이는 [[1852m]]이다.",
+   "distractor": "3704m",
+   "blankDistractors": [
+    "2778m",
+    "926m",
+    "3704m"
+   ],
+   "explain": "바다의 거리에는 해리를 자주 씁니다. 육상에서 쓰는 마일과 길이가 다르므로 구분해야 합니다.",
+   "wrong": {
+    "3": "1해리가 아니라 2해리의 길이입니다."
+   },
+   "group": "n400-401",
+   "tierNote": "보통"
+  },
+  {
+   "id": 680,
+   "grade": "PHD2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "국제해리의 정의값을 미터 단위로 정확히 고르면?",
+   "choices": [
+    "1852m",
+    "1850m",
+    "1860m",
+    "1800m"
+   ],
+   "fact": "국제해리 1해리의 길이는 [[1852m]]이다.",
+   "distractor": "3704m",
+   "blankDistractors": [
+    "1850m",
+    "1860m",
+    "1800m"
+   ],
+   "explain": "바다의 거리에는 해리를 자주 씁니다. 육상에서 쓰는 마일과 길이가 다르므로 구분해야 합니다.",
+   "group": "n400-401",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 681,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 402,
+   "q": "독도종합정보시스템이 설명하는 독도의 겨울철 주된 바람 방향은 무엇인가요?",
+   "choices": [
+    "남동풍",
+    "남서풍",
+    "북동풍",
+    "북서풍"
+   ],
+   "fact": "독도의 겨울철에 주로 부는 바람은 [[북서풍]]이다.",
+   "distractor": "남동풍",
+   "blankDistractors": [
+    "남동풍",
+    "남서풍",
+    "북동풍"
+   ],
+   "explain": "독도는 겨울에 북서풍의 영향을 많이 받습니다. 주풍향은 모든 순간에 같은 방향으로 분다는 뜻은 아닙니다.",
+   "wrong": {
+    "0": "해당 자료에서는 여름철 바람으로 설명합니다.",
+    "1": "해당 자료의 여름철 풍향과 혼동한 것입니다."
+   }
+  },
+  {
+   "id": 682,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "독도등대에 사람이 상주하게 된 것은 몇 년대일까요?",
+   "choices": [
+    "1698년",
+    "1998년",
+    "1798년",
+    "1898년"
+   ],
+   "fact": "독도등대가 유인등대로 전환된 해는 [[1998년]]이다.",
+   "distractor": "1997년",
+   "blankDistractors": [
+    "1698년",
+    "1798년",
+    "1898년"
+   ],
+   "explain": "처음 불을 켠 시점과 관리원이 상주하게 된 시점은 다릅니다. 포항지방해양수산청은 유인화 시점을 1998년 12월로 안내합니다.",
+   "group": "n400-411",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 683,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "독도등대가 관리원이 상주하는 유인등대로 바뀐 해는 언제인가요?",
+   "choices": [
+    "1998년",
+    "1958년",
+    "2018년",
+    "1978년"
+   ],
+   "fact": "독도등대가 유인등대로 전환된 해는 [[1998년]]이다.",
+   "distractor": "1997년",
+   "blankDistractors": [
+    "1958년",
+    "2018년",
+    "1978년"
+   ],
+   "explain": "처음 불을 켠 시점과 관리원이 상주하게 된 시점은 다릅니다. 포항지방해양수산청은 유인화 시점을 1998년 12월로 안내합니다.",
+   "wrong": {
+    "3": "유인화 연도보다 20년 이릅니다."
+   },
+   "group": "n400-411",
+   "tierNote": "보통"
+  },
+  {
+   "id": 684,
+   "grade": "U1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "독도등대의 유인화가 이루어진 해를 정확히 고르면?",
+   "choices": [
+    "1998년",
+    "1996년",
+    "1997년",
+    "1999년"
+   ],
+   "fact": "독도등대가 유인등대로 전환된 해는 [[1998년]]이다.",
+   "distractor": "1997년",
+   "blankDistractors": [
+    "1996년",
+    "1997년",
+    "1999년"
+   ],
+   "explain": "처음 불을 켠 시점과 관리원이 상주하게 된 시점은 다릅니다. 포항지방해양수산청은 유인화 시점을 1998년 12월로 안내합니다.",
+   "wrong": {
+    "2": "접안시설 준공 시기와 등대 유인화 시기를 혼동하지 마세요."
+   },
+   "group": "n400-411",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 685,
+   "grade": "E1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "'독도의 자연' 우표가 처음 나온 것은 몇 년대일까요?",
+   "choices": [
+    "1704년",
+    "1904년",
+    "2004년",
+    "1804년"
+   ],
+   "fact": "'독도의 자연' 첫 번째 우표 묶음의 발행 연도는 [[2004년]]이다.",
+   "distractor": "2003년",
+   "blankDistractors": [
+    "1704년",
+    "1904년",
+    "1804년"
+   ],
+   "explain": "우정사업본부는 2004년 1월 16일 발행으로 기록합니다. 이전의 독도 도안 우표 전체가 처음 발행된 해를 묻는 것은 아닙니다.",
+   "group": "n400-421",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 686,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "갯메꽃 등 네 도안으로 구성된 '독도의 자연' 첫 번째 우표 묶음은 몇 년에 발행됐나요?",
+   "choices": [
+    "2024년",
+    "1964년",
+    "1984년",
+    "2004년"
+   ],
+   "fact": "'독도의 자연' 첫 번째 우표 묶음의 발행 연도는 [[2004년]]이다.",
+   "distractor": "2003년",
+   "blankDistractors": [
+    "2024년",
+    "1964년",
+    "1984년"
+   ],
+   "explain": "우정사업본부는 2004년 1월 16일 발행으로 기록합니다. 이전의 독도 도안 우표 전체가 처음 발행된 해를 묻는 것은 아닙니다.",
+   "wrong": {
+    "2": "해당 자연 시리즈의 발행 연도보다 20년 이릅니다."
+   },
+   "group": "n400-421",
+   "tierNote": "보통"
+  },
+  {
+   "id": 687,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "갯메꽃 등 네 도안으로 꾸민 첫 묶음의 발행 연도를 정확히 고르면?",
+   "choices": [
+    "2002년",
+    "2004년",
+    "2003년",
+    "2005년"
+   ],
+   "fact": "'독도의 자연' 첫 번째 우표 묶음의 발행 연도는 [[2004년]]이다.",
+   "distractor": "2003년",
+   "blankDistractors": [
+    "2002년",
+    "2003년",
+    "2005년"
+   ],
+   "explain": "우정사업본부는 2004년 1월 16일 발행으로 기록합니다. 이전의 독도 도안 우표 전체가 처음 발행된 해를 묻는 것은 아닙니다.",
+   "wrong": {
+    "3": "해당 묶음의 발행보다 1년 늦습니다."
+   },
+   "group": "n400-421",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 688,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "독도는 지구에서 대략 어디쯤에 있을까요?",
+   "choices": [
+    "북위 70도",
+    "북위 37도",
+    "북위 7도",
+    "남위 37도"
+   ],
+   "fact": "독도는 [[북위 37도]] 부근에 위치한다.",
+   "distractor": "북위 50도",
+   "blankDistractors": [
+    "북위 70도",
+    "북위 7도",
+    "남위 37도"
+   ],
+   "explain": "독도는 북위 37도 14분 부근에 있습니다. 위도와 동서 위치를 나타내는 경도는 다른 좌표입니다.",
+   "wrong": {
+    "2": "독도를 적도에 지나치게 가까이 놓은 값입니다.",
+    "3": "독도는 남반구가 아니라 북반구에 있습니다."
+   },
+   "group": "n400-431",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 689,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "독도의 위도는 북위 몇 도 부근인가요?",
+   "choices": [
+    "북위 60도",
+    "북위 20도",
+    "북위 37도",
+    "북위 50도"
+   ],
+   "fact": "독도는 [[북위 37도]] 부근에 위치한다.",
+   "distractor": "북위 50도",
+   "blankDistractors": [
+    "북위 60도",
+    "북위 20도",
+    "북위 50도"
+   ],
+   "explain": "독도는 북위 37도 14분 부근에 있습니다. 위도와 동서 위치를 나타내는 경도는 다른 좌표입니다.",
+   "group": "n400-431",
+   "tierNote": "보통"
+  },
+  {
+   "id": 690,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "독도의 위도를 북위 도 단위로 정확히 고르면?",
+   "choices": [
+    "북위 35도",
+    "북위 38도",
+    "북위 37도",
+    "북위 36도"
+   ],
+   "fact": "독도는 [[북위 37도]] 부근에 위치한다.",
+   "distractor": "북위 50도",
+   "blankDistractors": [
+    "북위 35도",
+    "북위 38도",
+    "북위 36도"
+   ],
+   "explain": "독도는 북위 37도 14분 부근에 있습니다. 위도와 동서 위치를 나타내는 경도는 다른 좌표입니다.",
+   "group": "n400-431",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 691,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "울릉도에서 가장 높은 곳의 이름은 무엇일까요?",
+   "choices": [
+    "성인봉",
+    "설악산",
+    "지리산",
+    "한라산"
+   ],
+   "fact": "울릉도의 가장 높은 봉우리는 [[성인봉]]이다.",
+   "distractor": "알봉",
+   "blankDistractors": [
+    "설악산",
+    "지리산",
+    "한라산"
+   ],
+   "explain": "성인봉은 울릉도 중앙에 자리합니다. 울릉도의 최고봉과 독도 두 섬의 최고봉을 혼동하지 마세요.",
+   "wrong": {
+    "3": "울릉도가 아니라 제주도에 있습니다."
+   },
+   "group": "n400-441",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 692,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "울릉도에서 가장 높은 봉우리는 무엇인가요?",
+   "choices": [
+    "청량산",
+    "팔공산",
+    "태백산",
+    "성인봉"
+   ],
+   "fact": "울릉도의 가장 높은 봉우리는 [[성인봉]]이다.",
+   "distractor": "알봉",
+   "blankDistractors": [
+    "청량산",
+    "팔공산",
+    "태백산"
+   ],
+   "explain": "성인봉은 울릉도 중앙에 자리합니다. 울릉도의 최고봉과 독도 두 섬의 최고봉을 혼동하지 마세요.",
+   "group": "n400-441",
+   "tierNote": "보통"
+  },
+  {
+   "id": 693,
+   "grade": "MA1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "울릉도 최고봉의 이름을 정확히 고르면?",
+   "choices": [
+    "미륵봉",
+    "송곳봉",
+    "알봉",
+    "성인봉"
+   ],
+   "fact": "울릉도의 가장 높은 봉우리는 [[성인봉]]이다.",
+   "distractor": "알봉",
+   "blankDistractors": [
+    "미륵봉",
+    "송곳봉",
+    "알봉"
+   ],
+   "explain": "성인봉은 울릉도 중앙에 자리합니다. 울릉도의 최고봉과 독도 두 섬의 최고봉을 혼동하지 마세요.",
+   "wrong": {
+    "2": "나리분지 안의 화산 지형으로 울릉도 최고봉은 아닙니다."
+   },
+   "group": "n400-441",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 694,
+   "grade": "E4",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "독도 동도에 일반전화가 놓인 것은 몇 년대일까요?",
+   "choices": [
+    "1797년",
+    "1997년",
+    "1697년",
+    "1897년"
+   ],
+   "fact": "국회도서관의 1966~2000년 연표에 적힌 독도 동도 일반전화 개통 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "1797년",
+    "1697년",
+    "1897년"
+   ],
+   "explain": "국회도서관 연표는 1997년 3월 24일의 일반전화 개통을 기록합니다. 이동전화 시설이나 등대의 설치 시점과는 구분해야 합니다.",
+   "group": "n400-451",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 695,
+   "grade": "M2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "국회도서관의 1966~2000년 연표가 독도 동도 일반전화 개통으로 기록한 해는 언제인가요?",
+   "choices": [
+    "2017년",
+    "1977년",
+    "1957년",
+    "1997년"
+   ],
+   "fact": "국회도서관의 1966~2000년 연표에 적힌 독도 동도 일반전화 개통 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "2017년",
+    "1977년",
+    "1957년"
+   ],
+   "explain": "국회도서관 연표는 1997년 3월 24일의 일반전화 개통을 기록합니다. 이동전화 시설이나 등대의 설치 시점과는 구분해야 합니다.",
+   "group": "n400-451",
+   "tierNote": "보통"
+  },
+  {
+   "id": 696,
+   "grade": "MA2",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "국회도서관 연표가 동도 일반전화 개통으로 적은 해를 정확히 고르면?",
+   "choices": [
+    "1998년",
+    "1997년",
+    "1999년",
+    "1996년"
+   ],
+   "fact": "국회도서관의 1966~2000년 연표에 적힌 독도 동도 일반전화 개통 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "1998년",
+    "1999년",
+    "1996년"
+   ],
+   "explain": "국회도서관 연표는 1997년 3월 24일의 일반전화 개통을 기록합니다. 이동전화 시설이나 등대의 설치 시점과는 구분해야 합니다.",
+   "wrong": {
+    "2": "일반전화 개통보다 2년 뒤입니다.",
+    "3": "해당 연표에 기록된 개통보다 1년 앞선 해입니다."
+   },
+   "group": "n400-451",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 697,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "독도 동쪽 관측 부이가 놓인 바다는 얼마나 깊을까요?",
+   "choices": [
+    "1400m",
+    "14000m",
+    "140m",
+    "14m"
+   ],
+   "fact": "독도 동쪽 3.2km 해양관측 부이 설치 해역의 수심은 약 [[140m]]이다.",
+   "distractor": "280m",
+   "blankDistractors": [
+    "1400m",
+    "14000m",
+    "14m"
+   ],
+   "explain": "해당 관측소는 수심 약 140m 해역에서 층별 수온과 염분 등을 관측합니다. 이 값은 독도 주변 바다 전체의 평균 수심이 아닙니다.",
+   "wrong": {
+    "0": "해당 부이 설치 지점의 수심과 다른 규모입니다."
+   },
+   "group": "n400-461",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 698,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "독도 동쪽 3.2km 해양관측 부이가 설치된 곳의 수심은 약 얼마인가요?",
+   "choices": [
+    "280m",
+    "70m",
+    "560m",
+    "140m"
+   ],
+   "fact": "독도 동쪽 3.2km 해양관측 부이 설치 해역의 수심은 약 [[140m]]이다.",
+   "distractor": "280m",
+   "blankDistractors": [
+    "280m",
+    "70m",
+    "560m"
+   ],
+   "explain": "해당 관측소는 수심 약 140m 해역에서 층별 수온과 염분 등을 관측합니다. 이 값은 독도 주변 바다 전체의 평균 수심이 아닙니다.",
+   "wrong": {
+    "0": "공식 설명에 나온 설치 해역 수심의 두 배입니다."
+   },
+   "group": "n400-461",
+   "tierNote": "보통"
+  },
+  {
+   "id": 699,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "독도 동쪽 3.2km 부이 지점의 수심을 정확히 고르면?",
+   "choices": [
+    "150m",
+    "120m",
+    "130m",
+    "140m"
+   ],
+   "fact": "독도 동쪽 3.2km 해양관측 부이 설치 해역의 수심은 약 [[140m]]이다.",
+   "distractor": "280m",
+   "blankDistractors": [
+    "150m",
+    "120m",
+    "130m"
+   ],
+   "explain": "해당 관측소는 수심 약 140m 해역에서 층별 수온과 염분 등을 관측합니다. 이 값은 독도 주변 바다 전체의 평균 수심이 아닙니다.",
+   "group": "n400-461",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 700,
+   "grade": "E6",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "독도 동도에 자동기상관측장비가 놓인 것은 몇 년대일까요?",
+   "choices": [
+    "1796년",
+    "1996년",
+    "1696년",
+    "1896년"
+   ],
+   "fact": "독도 동도 정상부에 자동기상관측장비를 설치한 해는 [[1996년]]이다.",
+   "distractor": "1995년",
+   "blankDistractors": [
+    "1796년",
+    "1696년",
+    "1896년"
+   ],
+   "explain": "기상청은 1996년 3월 AWS 설치로 자동 관측 방식으로 바꾸었습니다. 사람이 관측하던 시작 시점과 자동화 시점은 다릅니다.",
+   "group": "n400-471",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 701,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "독도 동도 정상부에 자동기상관측장비(AWS)를 설치한 해는 언제인가요?",
+   "choices": [
+    "1996년",
+    "2016년",
+    "1976년",
+    "1956년"
+   ],
+   "fact": "독도 동도 정상부에 자동기상관측장비를 설치한 해는 [[1996년]]이다.",
+   "distractor": "1995년",
+   "blankDistractors": [
+    "2016년",
+    "1976년",
+    "1956년"
+   ],
+   "explain": "기상청은 1996년 3월 AWS 설치로 자동 관측 방식으로 바꾸었습니다. 사람이 관측하던 시작 시점과 자동화 시점은 다릅니다.",
+   "group": "n400-471",
+   "tierNote": "보통"
+  },
+  {
+   "id": 702,
+   "grade": "PHD2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "동도 정상부 AWS 설치 연도를 정확히 고르면?",
+   "choices": [
+    "1995년",
+    "1997년",
+    "1994년",
+    "1996년"
+   ],
+   "fact": "독도 동도 정상부에 자동기상관측장비를 설치한 해는 [[1996년]]이다.",
+   "distractor": "1995년",
+   "blankDistractors": [
+    "1995년",
+    "1997년",
+    "1994년"
+   ],
+   "explain": "기상청은 1996년 3월 AWS 설치로 자동 관측 방식으로 바꾸었습니다. 사람이 관측하던 시작 시점과 자동화 시점은 다릅니다.",
+   "wrong": {
+    "0": "기록된 자동 관측 전환보다 1년 빠릅니다.",
+    "1": "AWS 설치보다 1년 뒤입니다."
+   },
+   "group": "n400-471",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 703,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "김성도 씨 부부가 독도로 주소를 옮긴 것은 몇 년대일까요?",
+   "choices": [
+    "1691년",
+    "1991년",
+    "1791년",
+    "1891년"
+   ],
+   "fact": "김성도 씨 부부가 독도 서도로 주민등록을 옮긴 해는 [[1991년]]이다.",
+   "distractor": "1990년",
+   "blankDistractors": [
+    "1691년",
+    "1791년",
+    "1891년"
+   ],
+   "explain": "국회도서관 연표는 1991년 11월 17일의 전입을 기록합니다. 최종덕 씨의 전입이나 김성도 씨의 국세 납부 시점과는 다른 사건입니다.",
+   "group": "n400-481",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 704,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "김성도 씨 부부가 독도 서도로 주민등록을 옮긴 해는 언제인가요?",
+   "choices": [
+    "1951년",
+    "2011년",
+    "1991년",
+    "1971년"
+   ],
+   "fact": "김성도 씨 부부가 독도 서도로 주민등록을 옮긴 해는 [[1991년]]이다.",
+   "distractor": "1990년",
+   "blankDistractors": [
+    "1951년",
+    "2011년",
+    "1971년"
+   ],
+   "explain": "국회도서관 연표는 1991년 11월 17일의 전입을 기록합니다. 최종덕 씨의 전입이나 김성도 씨의 국세 납부 시점과는 다른 사건입니다.",
+   "group": "n400-481",
+   "tierNote": "보통"
+  },
+  {
+   "id": 705,
+   "grade": "U1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "김성도 씨 부부의 서도 주민등록 이전 연도를 정확히 고르면?",
+   "choices": [
+    "1991년",
+    "1992년",
+    "1989년",
+    "1990년"
+   ],
+   "fact": "김성도 씨 부부가 독도 서도로 주민등록을 옮긴 해는 [[1991년]]이다.",
+   "distractor": "1990년",
+   "blankDistractors": [
+    "1992년",
+    "1989년",
+    "1990년"
+   ],
+   "explain": "국회도서관 연표는 1991년 11월 17일의 전입을 기록합니다. 최종덕 씨의 전입이나 김성도 씨의 국세 납부 시점과는 다른 사건입니다.",
+   "wrong": {
+    "1": "연표에 기록된 전입보다 1년 늦습니다.",
+    "3": "연표에 기록된 전입보다 1년 빠릅니다."
+   },
+   "group": "n400-481",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 706,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 482,
+   "q": "항해에서 쓰는 속력 1노트(kn)는 무엇을 뜻하나요?",
+   "choices": [
+    "하루에 1해리 이동",
+    "한 시간에 1킬로미터 이동",
+    "한 초에 1해리 이동",
+    "한 시간에 1해리 이동"
+   ],
+   "fact": "항해 속력 단위인 1노트의 뜻은 [[한 시간에 1해리 이동]]이다.",
+   "distractor": "한 시간에 1킬로미터 이동",
+   "blankDistractors": [
+    "하루에 1해리 이동",
+    "한 시간에 1킬로미터 이동",
+    "한 초에 1해리 이동"
+   ],
+   "explain": "노트는 속력 단위이고 해리는 거리 단위입니다. ‘몇 해리인가’와 ‘몇 노트인가’는 서로 다른 질문입니다.",
+   "wrong": {
+    "1": "해리와 킬로미터는 같은 길이가 아닙니다.",
+    "2": "기준 시간은 1초가 아니라 1시간입니다."
+   }
+  },
+  {
+   "id": 707,
+   "grade": "E2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "'동해·독도 홍보관'은 육지 어디에 문을 열었을까요?",
+   "choices": [
+    "서울",
+    "광주",
+    "제주",
+    "울진"
+   ],
+   "fact": "2013년 한국해양과학기술원이 동해·독도 홍보관을 개관한 육지 지역은 [[울진]]이다.",
+   "distractor": "포항",
+   "blankDistractors": [
+    "서울",
+    "광주",
+    "제주"
+   ],
+   "explain": "국회도서관 연표는 2013년 1월 24일 울진 동해연구소의 개관식을 기록합니다. 독도 관련 전시시설이 모두 섬에 있는 것은 아닙니다.",
+   "group": "n400-491",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 708,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "2013년 한국해양과학기술원이 ‘동해·독도 홍보관’을 개관한 육지 지역은 어디인가요?",
+   "choices": [
+    "춘천",
+    "울진",
+    "대전",
+    "원주"
+   ],
+   "fact": "2013년 한국해양과학기술원이 동해·독도 홍보관을 개관한 육지 지역은 [[울진]]이다.",
+   "distractor": "포항",
+   "blankDistractors": [
+    "춘천",
+    "대전",
+    "원주"
+   ],
+   "explain": "국회도서관 연표는 2013년 1월 24일 울진 동해연구소의 개관식을 기록합니다. 독도 관련 전시시설이 모두 섬에 있는 것은 아닙니다.",
+   "group": "n400-491",
+   "tierNote": "보통"
+  },
+  {
+   "id": 709,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "2013년 한국해양과학기술원이 홍보관을 연 경상북도의 군은?",
+   "choices": [
+    "울진",
+    "삼척",
+    "영덕",
+    "포항"
+   ],
+   "fact": "2013년 한국해양과학기술원이 동해·독도 홍보관을 개관한 육지 지역은 [[울진]]이다.",
+   "distractor": "포항",
+   "blankDistractors": [
+    "삼척",
+    "영덕",
+    "포항"
+   ],
+   "explain": "국회도서관 연표는 2013년 1월 24일 울진 동해연구소의 개관식을 기록합니다. 독도 관련 전시시설이 모두 섬에 있는 것은 아닙니다.",
+   "wrong": {
+    "2": "해당 연표가 적은 개관 지역은 울진입니다.",
+    "3": "해양 관련 기관이 있는 도시와 이 홍보관의 위치를 혼동한 것입니다."
+   },
+   "group": "n400-491",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 710,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "『세종실록지리지』가 우산·무릉을 적어 둔 고을은 어느 지역일까요?",
+   "choices": [
+    "제주",
+    "개성",
+    "한양",
+    "울진"
+   ],
+   "fact": "『세종실록지리지』에서 우산·무릉 두 섬을 설명하는 개별 고을은 [[울진]]이다.",
+   "distractor": "영덕",
+   "blankDistractors": [
+    "제주",
+    "개성",
+    "한양"
+   ],
+   "explain": "해당 기록은 울진현 항목에 실려 있습니다. 현대의 행정구역을 대입하기보다 원문에서 어느 고을을 기준으로 섬을 설명했는지 확인해야 합니다.",
+   "group": "n400-303",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 711,
+   "grade": "M1",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "『세종실록지리지』에서 우산·무릉 두 섬을 설명하는 개별 고을 항목은 어디인가요?",
+   "choices": [
+    "영월",
+    "울진",
+    "춘천",
+    "원주"
+   ],
+   "fact": "『세종실록지리지』에서 우산·무릉 두 섬을 설명하는 개별 고을은 [[울진]]이다.",
+   "distractor": "영덕",
+   "blankDistractors": [
+    "영월",
+    "춘천",
+    "원주"
+   ],
+   "explain": "해당 기록은 울진현 항목에 실려 있습니다. 현대의 행정구역을 대입하기보다 원문에서 어느 고을을 기준으로 섬을 설명했는지 확인해야 합니다.",
+   "group": "n400-303",
+   "tierNote": "보통"
+  },
+  {
+   "id": 712,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "『세종실록지리지』 강원도 삼척도호부 아래에서 두 섬을 실은 현의 이름은?",
+   "choices": [
+    "영덕",
+    "울진",
+    "평해",
+    "삼척"
+   ],
+   "fact": "『세종실록지리지』에서 우산·무릉 두 섬을 설명하는 개별 고을은 [[울진]]이다.",
+   "distractor": "영덕",
+   "blankDistractors": [
+    "영덕",
+    "평해",
+    "삼척"
+   ],
+   "explain": "해당 기록은 울진현 항목에 실려 있습니다. 현대의 행정구역을 대입하기보다 원문에서 어느 고을을 기준으로 섬을 설명했는지 확인해야 합니다.",
+   "wrong": {
+    "2": "이웃 고을 이름과 혼동하기 쉽지만 해당 원문의 항목명은 울진현입니다.",
+    "3": "상위 분류에 삼척도호부가 나오지만, 두 섬을 설명하는 개별 항목은 울진현입니다."
+   },
+   "group": "n400-303",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 713,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "우산국이 신라에 항복할 때 나라를 다스리던 사람은 누구일까요?",
+   "choices": [
+    "이순신 장군",
+    "허준 의원",
+    "정약용 학자",
+    "지증왕"
+   ],
+   "fact": "『삼국사기』에 기록된 우산국 항복 당시 신라의 왕은 [[지증왕]]이다.",
+   "distractor": "법흥왕",
+   "blankDistractors": [
+    "이순신 장군",
+    "허준 의원",
+    "정약용 학자"
+   ],
+   "explain": "『삼국사기』는 이 사건을 지증왕 13년인 512년에 기록합니다. 원정을 이끈 이사부와 당시 재위한 왕을 구분하는 문제입니다.",
+   "wrong": {
+    "0": "신라 왕이 아니라 훨씬 뒤 시대의 조선 장군입니다."
+   },
+   "group": "n400-304",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 714,
+   "grade": "M2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "『삼국사기』가 우산국의 항복을 기록한 당시 신라 왕은 누구인가요?",
+   "choices": [
+    "선덕여왕",
+    "지증왕",
+    "무열왕",
+    "문무왕"
+   ],
+   "fact": "『삼국사기』에 기록된 우산국 항복 당시 신라의 왕은 [[지증왕]]이다.",
+   "distractor": "법흥왕",
+   "blankDistractors": [
+    "선덕여왕",
+    "무열왕",
+    "문무왕"
+   ],
+   "explain": "『삼국사기』는 이 사건을 지증왕 13년인 512년에 기록합니다. 원정을 이끈 이사부와 당시 재위한 왕을 구분하는 문제입니다.",
+   "group": "n400-304",
+   "tierNote": "보통"
+  },
+  {
+   "id": 715,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "『삼국사기』 권4가 우산국 귀복을 기록한 재위 13년의 왕은?",
+   "choices": [
+    "진흥왕",
+    "법흥왕",
+    "소지왕",
+    "지증왕"
+   ],
+   "fact": "『삼국사기』에 기록된 우산국 항복 당시 신라의 왕은 [[지증왕]]이다.",
+   "distractor": "법흥왕",
+   "blankDistractors": [
+    "진흥왕",
+    "법흥왕",
+    "소지왕"
+   ],
+   "explain": "『삼국사기』는 이 사건을 지증왕 13년인 512년에 기록합니다. 원정을 이끈 이사부와 당시 재위한 왕을 구분하는 문제입니다.",
+   "wrong": {
+    "1": "지증왕의 뒤를 이어 514년에 즉위한 왕입니다."
+   },
+   "group": "n400-304",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 716,
+   "grade": "M3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "유엔 해양법 담당 부서 · United Nations Convention on the Law of the Sea, Part XIII, Article 246(2)-(3): https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 305,
+   "q": "다른 나라의 배타적 경제수역(EEZ)에서 해양과학조사를 하려면 원칙적으로 누구의 동의가 필요한가요?",
+   "choices": [
+    "해당 연안국",
+    "조사선의 기국",
+    "연구비 지원국",
+    "국제해사기구"
+   ],
+   "fact": "유엔해양법협약상 EEZ 해양과학조사에서 동의를 받아야 할 주체는 [[해당 연안국]]이다.",
+   "distractor": "조사선의 기국",
+   "blankDistractors": [
+    "조사선의 기국",
+    "연구비 지원국",
+    "국제해사기구"
+   ],
+   "explain": "제246조는 연안국의 동의를 기본 원칙으로 정합니다. 다만 통상적 상황에서 협약 요건에 맞는 평화적 연구의 동의를 부당하게 지연하거나 거절해서도 안 됩니다.",
+   "wrong": {
+    "1": "배가 어느 나라에 등록됐는지와 조사 해역에 동의권을 가진 나라는 별개의 문제입니다.",
+    "3": "해당 조항은 국제기구의 일괄 허가가 아니라 연안국의 동의를 규정합니다."
+   }
+  },
+  {
+   "id": 717,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "울릉도 떼배는 무엇으로 만들었을까요?",
+   "choices": [
+    "대나무",
+    "오동나무",
+    "왕골",
+    "갈대"
+   ],
+   "fact": "국립국어원의 2012년 울릉도 조사에서 떼배 재료로 기록한 식물은 [[오동나무]]다.",
+   "distractor": "소나무",
+   "blankDistractors": [
+    "대나무",
+    "왕골",
+    "갈대"
+   ],
+   "explain": "도동리 조사 기록은 오동나무 통나무로 만든 소형 작업선을 설명합니다. 다른 지역의 떼배까지 모두 같은 재료라는 뜻은 아닙니다.",
+   "wrong": {
+    "0": "뗏목의 일반적인 재료와 이 조사에서 기록한 재료는 구분해야 합니다."
+   },
+   "group": "n400-306",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 718,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "국립국어원의 2012년 울릉도 조사에서 떼배 재료로 설명한 식물은 무엇인가요?",
+   "choices": [
+    "오동나무",
+    "소나무",
+    "삼나무",
+    "전나무"
+   ],
+   "fact": "국립국어원의 2012년 울릉도 조사에서 떼배 재료로 기록한 식물은 [[오동나무]]다.",
+   "distractor": "소나무",
+   "blankDistractors": [
+    "소나무",
+    "삼나무",
+    "전나무"
+   ],
+   "explain": "도동리 조사 기록은 오동나무 통나무로 만든 소형 작업선을 설명합니다. 다른 지역의 떼배까지 모두 같은 재료라는 뜻은 아닙니다.",
+   "wrong": {
+    "1": "다른 지역의 떼배 재료와 혼동하지 않아야 합니다. 이 문항의 조사 기록에는 오동나무가 나옵니다."
+   },
+   "group": "n400-306",
+   "tierNote": "보통"
+  },
+  {
+   "id": 719,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "2012년 도동리 민족생활어 조사가 떼배 통나무로 적은 나무는?",
+   "choices": [
+    "느티나무",
+    "피나무",
+    "오동나무",
+    "자작나무"
+   ],
+   "fact": "국립국어원의 2012년 울릉도 조사에서 떼배 재료로 기록한 식물은 [[오동나무]]다.",
+   "distractor": "소나무",
+   "blankDistractors": [
+    "느티나무",
+    "피나무",
+    "자작나무"
+   ],
+   "explain": "도동리 조사 기록은 오동나무 통나무로 만든 소형 작업선을 설명합니다. 다른 지역의 떼배까지 모두 같은 재료라는 뜻은 아닙니다.",
+   "group": "n400-306",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 720,
+   "grade": "E6",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "독도박물관은 몇 년대에 문을 열었을까요?",
+   "choices": [
+    "1797년",
+    "1897년",
+    "1997년",
+    "1597년"
+   ],
+   "fact": "독도박물관의 개관 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "1797년",
+    "1897년",
+    "1597년"
+   ],
+   "explain": "독도박물관은 1997년 8월 8일 개관했습니다. 건립을 추진하기 시작한 시점과 관람객에게 문을 연 시점은 구분해야 합니다.",
+   "group": "n400-307",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 721,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "독도박물관이 처음 문을 연 해는 언제인가요?",
+   "choices": [
+    "1997년",
+    "1977년",
+    "1957년",
+    "2017년"
+   ],
+   "fact": "독도박물관의 개관 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "1977년",
+    "1957년",
+    "2017년"
+   ],
+   "explain": "독도박물관은 1997년 8월 8일 개관했습니다. 건립을 추진하기 시작한 시점과 관람객에게 문을 연 시점은 구분해야 합니다.",
+   "group": "n400-307",
+   "tierNote": "보통"
+  },
+  {
+   "id": 722,
+   "grade": "PHD1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "독도박물관이 관람객을 처음 맞은 해를 정확히 고르면?",
+   "choices": [
+    "1997년",
+    "1998년",
+    "1995년",
+    "1996년"
+   ],
+   "fact": "독도박물관의 개관 연도는 [[1997년]]이다.",
+   "distractor": "1996년",
+   "blankDistractors": [
+    "1998년",
+    "1995년",
+    "1996년"
+   ],
+   "explain": "독도박물관은 1997년 8월 8일 개관했습니다. 건립을 추진하기 시작한 시점과 관람객에게 문을 연 시점은 구분해야 합니다.",
+   "wrong": {
+    "1": "박물관이 문을 연 해보다 1년 늦습니다.",
+    "2": "건립을 추진하기 시작한 해이며, 실제 개관은 1997년입니다."
+   },
+   "group": "n400-307",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 723,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "울릉도 도동의 등대는 흔히 뭐라고 부를까요?",
+   "choices": [
+    "가거도등대",
+    "행남등대",
+    "소매물도등대",
+    "마라도등대"
+   ],
+   "fact": "울릉도 도동등대의 다른 이름은 [[행남등대]]이다.",
+   "distractor": "태하등대",
+   "blankDistractors": [
+    "가거도등대",
+    "소매물도등대",
+    "마라도등대"
+   ],
+   "explain": "포항지방해양수산청은 도동등대를 행남등대라고도 소개합니다. 같은 울릉도의 다른 등대와 구별해야 합니다.",
+   "group": "n400-403",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 724,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "울릉도 도동항로표지관리소의 등대는 어떤 이름으로도 불리나요?",
+   "choices": [
+    "죽변등대",
+    "울기등대",
+    "행남등대",
+    "호미곶등대"
+   ],
+   "fact": "울릉도 도동등대의 다른 이름은 [[행남등대]]이다.",
+   "distractor": "태하등대",
+   "blankDistractors": [
+    "죽변등대",
+    "울기등대",
+    "호미곶등대"
+   ],
+   "explain": "포항지방해양수산청은 도동등대를 행남등대라고도 소개합니다. 같은 울릉도의 다른 등대와 구별해야 합니다.",
+   "group": "n400-403",
+   "tierNote": "보통"
+  },
+  {
+   "id": 725,
+   "grade": "PHD2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "도동항로표지관리소 등대의 별칭으로 쓰이는 지명은?",
+   "choices": [
+    "태하등대",
+    "독도등대",
+    "가두봉등대",
+    "행남등대"
+   ],
+   "fact": "울릉도 도동등대의 다른 이름은 [[행남등대]]이다.",
+   "distractor": "태하등대",
+   "blankDistractors": [
+    "태하등대",
+    "독도등대",
+    "가두봉등대"
+   ],
+   "explain": "포항지방해양수산청은 도동등대를 행남등대라고도 소개합니다. 같은 울릉도의 다른 등대와 구별해야 합니다.",
+   "wrong": {
+    "0": "같은 울릉도에 있는 다른 등대 이름입니다.",
+    "1": "도동등대와 독도등대는 서로 다른 시설입니다."
+   },
+   "group": "n400-403",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 726,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "1694년 울릉도를 조사하고 기록을 남긴 사람은 누구일까요?",
+   "choices": [
+    "허준",
+    "신사임당",
+    "장영실",
+    "장한상"
+   ],
+   "fact": "1694년 울릉도 조사 기록인 『울릉도사적』의 저자는 [[장한상]]이다.",
+   "distractor": "이규원",
+   "blankDistractors": [
+    "허준",
+    "신사임당",
+    "장영실"
+   ],
+   "explain": "장한상의 조사 기록에는 섬의 지형과 자원 등이 담겨 있습니다. 후대의 필사 시기와 조사 시기는 구분해야 합니다.",
+   "group": "n400-404",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 727,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "1694년 울릉도 조사 기록인 『울릉도사적』을 남긴 인물은 누구인가요?",
+   "choices": [
+    "박세당",
+    "송시열",
+    "윤증",
+    "장한상"
+   ],
+   "fact": "1694년 울릉도 조사 기록인 『울릉도사적』의 저자는 [[장한상]]이다.",
+   "distractor": "이규원",
+   "blankDistractors": [
+    "박세당",
+    "송시열",
+    "윤증"
+   ],
+   "explain": "장한상의 조사 기록에는 섬의 지형과 자원 등이 담겨 있습니다. 후대의 필사 시기와 조사 시기는 구분해야 합니다.",
+   "group": "n400-404",
+   "tierNote": "보통"
+  },
+  {
+   "id": 728,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "『울릉도사적』을 남긴 조선 후기 수토관의 이름은?",
+   "choices": [
+    "장한상",
+    "김인우",
+    "이규원",
+    "우용정"
+   ],
+   "fact": "1694년 울릉도 조사 기록인 『울릉도사적』의 저자는 [[장한상]]이다.",
+   "distractor": "이규원",
+   "blankDistractors": [
+    "김인우",
+    "이규원",
+    "우용정"
+   ],
+   "explain": "장한상의 조사 기록에는 섬의 지형과 자원 등이 담겨 있습니다. 후대의 필사 시기와 조사 시기는 구분해야 합니다.",
+   "wrong": {
+    "2": "1882년 울릉도 검찰 기록과 혼동한 것입니다.",
+    "3": "1900년 조사와 관련된 인물입니다."
+   },
+   "group": "n400-404",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 729,
+   "grade": "E2",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "『동국여지승람』은 몇 년대에 처음 나왔을까요?",
+   "choices": [
+    "1381년",
+    "1281년",
+    "1181년",
+    "1481년"
+   ],
+   "fact": "『동국여지승람』의 초간 연도는 [[1481년]]이다.",
+   "distractor": "1482년",
+   "blankDistractors": [
+    "1381년",
+    "1281년",
+    "1181년"
+   ],
+   "explain": "초간본과 후대에 증보한 『신증동국여지승람』은 구분해야 합니다. 같은 계열 지리지라도 판본과 편찬 시점이 다릅니다.",
+   "group": "n400-405",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 730,
+   "grade": "M2",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "노사신 등이 편찬한 『동국여지승람』의 초간 연도는 언제인가요?",
+   "choices": [
+    "1441년",
+    "1501년",
+    "1481년",
+    "1461년"
+   ],
+   "fact": "『동국여지승람』의 초간 연도는 [[1481년]]이다.",
+   "distractor": "1482년",
+   "blankDistractors": [
+    "1441년",
+    "1501년",
+    "1461년"
+   ],
+   "explain": "초간본과 후대에 증보한 『신증동국여지승람』은 구분해야 합니다. 같은 계열 지리지라도 판본과 편찬 시점이 다릅니다.",
+   "wrong": {
+    "3": "초간 연도보다 20년 이릅니다."
+   },
+   "group": "n400-405",
+   "tierNote": "보통"
+  },
+  {
+   "id": 731,
+   "grade": "U3",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "노사신 등이 편찬한 『동국여지승람』 초간본의 간행 연도를 정확히 고르면?",
+   "choices": [
+    "1480년",
+    "1481년",
+    "1483년",
+    "1482년"
+   ],
+   "fact": "『동국여지승람』의 초간 연도는 [[1481년]]이다.",
+   "distractor": "1482년",
+   "blankDistractors": [
+    "1480년",
+    "1483년",
+    "1482년"
+   ],
+   "explain": "초간본과 후대에 증보한 『신증동국여지승람』은 구분해야 합니다. 같은 계열 지리지라도 판본과 편찬 시점이 다릅니다.",
+   "wrong": {
+    "3": "초간 연도보다 1년 늦습니다."
+   },
+   "group": "n400-405",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 732,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "울릉도·독도 바위틈에서 여름에 노란 꽃을 피우는 풀은 무엇일까요?",
+   "choices": [
+    "섬기린초",
+    "괭이갈매기",
+    "거북손",
+    "미역"
+   ],
+   "fact": "울릉도·독도에 분포하는 노란 꽃의 돌나물과 특산 식물은 [[섬기린초]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "괭이갈매기",
+    "거북손",
+    "미역"
+   ],
+   "explain": "국가생물종지식정보시스템은 섬기린초의 노란 꽃과 울릉도·독도 분포를 설명합니다. 꽃 색만 보지 말고 분류와 분포를 함께 보세요.",
+   "wrong": {
+    "1": "식물이 아니라 새입니다."
+   },
+   "group": "n400-406",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 733,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "울릉도·독도의 바위 지대에 자라며 여름에 노란 꽃을 피우는 돌나물과 특산 식물은 무엇인가요?",
+   "choices": [
+    "섬기린초",
+    "해국",
+    "참나리",
+    "갯메꽃"
+   ],
+   "fact": "울릉도·독도에 분포하는 노란 꽃의 돌나물과 특산 식물은 [[섬기린초]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "해국",
+    "참나리",
+    "갯메꽃"
+   ],
+   "explain": "국가생물종지식정보시스템은 섬기린초의 노란 꽃과 울릉도·독도 분포를 설명합니다. 꽃 색만 보지 말고 분류와 분포를 함께 보세요.",
+   "wrong": {
+    "1": "돌나물과가 아니라 국화과 식물입니다."
+   },
+   "group": "n400-406",
+   "tierNote": "보통"
+  },
+  {
+   "id": 734,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "울릉도·독도 특산 돌나물과 식물 가운데 노란 꽃이 피는 종은?",
+   "choices": [
+    "기린초",
+    "돌나물",
+    "가는기린초",
+    "섬기린초"
+   ],
+   "fact": "울릉도·독도에 분포하는 노란 꽃의 돌나물과 특산 식물은 [[섬기린초]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "기린초",
+    "돌나물",
+    "가는기린초"
+   ],
+   "explain": "국가생물종지식정보시스템은 섬기린초의 노란 꽃과 울릉도·독도 분포를 설명합니다. 꽃 색만 보지 말고 분류와 분포를 함께 보세요.",
+   "group": "n400-406",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 735,
+   "grade": "E4",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "독도리라는 행정 이름이 생긴 것은 몇 년대일까요?",
+   "choices": [
+    "1700년",
+    "1900년",
+    "2000년",
+    "1800년"
+   ],
+   "fact": "울릉군 조례로 독도리가 신설된 해는 [[2000년]]이다.",
+   "distractor": "2001년",
+   "blankDistractors": [
+    "1700년",
+    "1900년",
+    "1800년"
+   ],
+   "explain": "국회도서관 연표는 2000년 4월 7일을 기록합니다. 새 행정 명칭의 설치와 섬의 영유권 발생은 같은 사건이 아닙니다.",
+   "group": "n400-413",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 736,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "울릉군 조례로 독도리가 신설된 해는 언제인가요?",
+   "choices": [
+    "1960년",
+    "2020년",
+    "2000년",
+    "1980년"
+   ],
+   "fact": "울릉군 조례로 독도리가 신설된 해는 [[2000년]]이다.",
+   "distractor": "2001년",
+   "blankDistractors": [
+    "1960년",
+    "2020년",
+    "1980년"
+   ],
+   "explain": "국회도서관 연표는 2000년 4월 7일을 기록합니다. 새 행정 명칭의 설치와 섬의 영유권 발생은 같은 사건이 아닙니다.",
+   "wrong": {
+    "3": "조례로 독도리가 신설된 때보다 20년 이릅니다."
+   },
+   "group": "n400-413",
+   "tierNote": "보통"
+  },
+  {
+   "id": 737,
+   "grade": "MA1",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "울릉군 조례로 독도리를 신설한 해를 정확히 고르면?",
+   "choices": [
+    "1999년",
+    "2000년",
+    "1998년",
+    "2001년"
+   ],
+   "fact": "울릉군 조례로 독도리가 신설된 해는 [[2000년]]이다.",
+   "distractor": "2001년",
+   "blankDistractors": [
+    "1999년",
+    "1998년",
+    "2001년"
+   ],
+   "explain": "국회도서관 연표는 2000년 4월 7일을 기록합니다. 새 행정 명칭의 설치와 섬의 영유권 발생은 같은 사건이 아닙니다.",
+   "wrong": {
+    "3": "신설 연도보다 1년 늦습니다."
+   },
+   "group": "n400-413",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 738,
+   "grade": "E5",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "930년 고려 태조를 찾아온 울릉도 사신은 누구였을까요?",
+   "choices": [
+    "백길과 토두",
+    "허준과 허난설헌",
+    "세종과 장영실",
+    "이순신과 권율"
+   ],
+   "fact": "930년 우릉도에서 고려에 토산물을 바친 사신은 [[백길과 토두]]이다.",
+   "distractor": "안용복과 박어둔",
+   "blankDistractors": [
+    "허준과 허난설헌",
+    "세종과 장영실",
+    "이순신과 권율"
+   ],
+   "explain": "우릉도와 고려 사이의 교류를 보여주는 인물 기록입니다. 훗날 조선 시대에 활동한 인물과 구별해야 합니다.",
+   "wrong": {
+    "2": "고려 초의 사신 두 사람이 아닙니다."
+   },
+   "group": "n400-414",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 739,
+   "grade": "H2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "930년 우릉도에서 고려 태조에게 토산물을 바친 사신 두 사람은 누구인가요?",
+   "choices": [
+    "강감찬과 윤관",
+    "백길과 토두",
+    "최승로와 서희",
+    "견훤과 궁예"
+   ],
+   "fact": "930년 우릉도에서 고려에 토산물을 바친 사신은 [[백길과 토두]]이다.",
+   "distractor": "안용복과 박어둔",
+   "blankDistractors": [
+    "강감찬과 윤관",
+    "최승로와 서희",
+    "견훤과 궁예"
+   ],
+   "explain": "우릉도와 고려 사이의 교류를 보여주는 인물 기록입니다. 훗날 조선 시대에 활동한 인물과 구별해야 합니다.",
+   "group": "n400-414",
+   "tierNote": "보통"
+  },
+  {
+   "id": 740,
+   "grade": "MA2",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "930년 우릉도에서 고려 조정에 파견된 두 사신의 이름은?",
+   "choices": [
+    "백길과 토두",
+    "장한상과 이규원",
+    "안용복과 박어둔",
+    "김인우와 남호"
+   ],
+   "fact": "930년 우릉도에서 고려에 토산물을 바친 사신은 [[백길과 토두]]이다.",
+   "distractor": "안용복과 박어둔",
+   "blankDistractors": [
+    "장한상과 이규원",
+    "안용복과 박어둔",
+    "김인우와 남호"
+   ],
+   "explain": "우릉도와 고려 사이의 교류를 보여주는 인물 기록입니다. 훗날 조선 시대에 활동한 인물과 구별해야 합니다.",
+   "wrong": {
+    "2": "17세기 울릉도 관련 사건에 등장한 인물들입니다."
+   },
+   "group": "n400-414",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 741,
+   "grade": "H3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 415,
+   "q": "『신증동국여지승람』에 실린 동람도는 어떤 인쇄 방식의 지도인가요?",
+   "choices": [
+    "석판 인쇄",
+    "동판 인쇄",
+    "목판 인쇄",
+    "사진 인쇄"
+   ],
+   "fact": "『신증동국여지승람』에 수록된 동람도의 인쇄 방식은 [[목판 인쇄]]이다.",
+   "distractor": "석판 인쇄",
+   "blankDistractors": [
+    "석판 인쇄",
+    "동판 인쇄",
+    "사진 인쇄"
+   ],
+   "explain": "판에 새겨 찍은 지도입니다. 옛 지도를 볼 때는 지명뿐 아니라 제작·복제 방식도 살펴야 합니다.",
+   "wrong": {
+    "1": "동람도의 해당 인쇄 재료는 동판이 아니라 목판입니다.",
+    "3": "해당 지도는 사진 촬영으로 복제해 처음 제작한 지도가 아닙니다."
+   }
+  },
+  {
+   "id": 742,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "독도의 습한 바위틈에서 자라는 것은 무엇일까요?",
+   "choices": [
+    "도깨비쇠고비",
+    "전복",
+    "미역",
+    "참새"
+   ],
+   "fact": "독도 육상생태 안내가 습한 바위틈의 양치식물로 명시한 것은 [[도깨비쇠고비]]이다.",
+   "distractor": "고사리",
+   "blankDistractors": [
+    "전복",
+    "미역",
+    "참새"
+   ],
+   "explain": "독도종합정보시스템이 바위틈의 습한 환경과 연결해 소개하는 식물입니다. 꽃이 피는 해안 식물들과는 다른 양치식물입니다.",
+   "wrong": {
+    "2": "해조류이며 육상의 바위틈에 사는 양치식물이 아닙니다."
+   },
+   "group": "n400-416",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 743,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "독도종합정보시스템의 육상생태 안내에서 습한 바위틈의 양치식물로 소개한 것은 무엇인가요?",
+   "choices": [
+    "왕김의털",
+    "해국",
+    "도깨비쇠고비",
+    "번행초"
+   ],
+   "fact": "독도 육상생태 안내가 습한 바위틈의 양치식물로 명시한 것은 [[도깨비쇠고비]]이다.",
+   "distractor": "고사리",
+   "blankDistractors": [
+    "왕김의털",
+    "해국",
+    "번행초"
+   ],
+   "explain": "독도종합정보시스템이 바위틈의 습한 환경과 연결해 소개하는 식물입니다. 꽃이 피는 해안 식물들과는 다른 양치식물입니다.",
+   "wrong": {
+    "1": "국화과의 꽃식물로 양치식물이 아닙니다."
+   },
+   "group": "n400-416",
+   "tierNote": "보통"
+  },
+  {
+   "id": 744,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "독도종합정보시스템이 습한 바위틈 양치식물로 든 종은?",
+   "choices": [
+    "도깨비쇠고비",
+    "관중",
+    "고비",
+    "고사리"
+   ],
+   "fact": "독도 육상생태 안내가 습한 바위틈의 양치식물로 명시한 것은 [[도깨비쇠고비]]이다.",
+   "distractor": "고사리",
+   "blankDistractors": [
+    "관중",
+    "고비",
+    "고사리"
+   ],
+   "explain": "독도종합정보시스템이 바위틈의 습한 환경과 연결해 소개하는 식물입니다. 꽃이 피는 해안 식물들과는 다른 양치식물입니다.",
+   "group": "n400-416",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 745,
+   "grade": "K",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "동람도는 지도가 몇 장쯤 되는 묶음일까요?",
+   "choices": [
+    "90장",
+    "9장",
+    "900장",
+    "9000장"
+   ],
+   "fact": "팔도총도와 여덟 도별 지도를 합친 동람도의 지도 수는 [[9장]]이다.",
+   "distractor": "8장",
+   "blankDistractors": [
+    "90장",
+    "900장",
+    "9000장"
+   ],
+   "explain": "도별 지도만 세면 여덟 장입니다. 전국을 나타낸 팔도총도 한 장을 함께 세어야 합니다.",
+   "group": "n400-417",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 746,
+   "grade": "M2",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "『신증동국여지승람』의 지도 묶음인 동람도는 모두 몇 장으로 이루어져 있나요?",
+   "choices": [
+    "15장",
+    "5장",
+    "18장",
+    "9장"
+   ],
+   "fact": "팔도총도와 여덟 도별 지도를 합친 동람도의 지도 수는 [[9장]]이다.",
+   "distractor": "8장",
+   "blankDistractors": [
+    "15장",
+    "5장",
+    "18장"
+   ],
+   "explain": "도별 지도만 세면 여덟 장입니다. 전국을 나타낸 팔도총도 한 장을 함께 세어야 합니다.",
+   "group": "n400-417",
+   "tierNote": "보통"
+  },
+  {
+   "id": 747,
+   "grade": "PHD2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "『신증동국여지승람』 동람도의 수록 지도 장수를 정확히 고르면?",
+   "choices": [
+    "9장",
+    "10장",
+    "8장",
+    "11장"
+   ],
+   "fact": "팔도총도와 여덟 도별 지도를 합친 동람도의 지도 수는 [[9장]]이다.",
+   "distractor": "8장",
+   "blankDistractors": [
+    "10장",
+    "8장",
+    "11장"
+   ],
+   "explain": "도별 지도만 세면 여덟 장입니다. 전국을 나타낸 팔도총도 한 장을 함께 세어야 합니다.",
+   "wrong": {
+    "1": "한 장을 더 센 값입니다.",
+    "2": "도별 지도만 세고 팔도총도를 빠뜨린 값입니다."
+   },
+   "group": "n400-417",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 748,
+   "grade": "M3",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 423,
+   "q": "해안이 없는 내륙국도 유엔해양법협약상 공해에서 항행의 자유를 누리나요?",
+   "choices": [
+    "연안국만 누린다",
+    "내륙국도 누린다",
+    "인접 연안국이 매번 허가해야 누린다",
+    "섬나라만 누린다"
+   ],
+   "fact": "공해 항행의 자유는 [[내륙국도 누린다]]는 원칙이 적용된다.",
+   "distractor": "연안국만 누린다",
+   "blankDistractors": [
+    "연안국만 누린다",
+    "인접 연안국이 매번 허가해야 누린다",
+    "섬나라만 누린다"
+   ],
+   "explain": "제87조는 공해의 자유를 연안국과 내륙국 모두에게 인정합니다. 해안의 유무와 공해에서의 항행권은 별개입니다.",
+   "wrong": {
+    "0": "조문은 내륙국도 명시적으로 포함합니다.",
+    "3": "국가가 섬으로 이루어졌는지를 조건으로 두지 않습니다."
+   }
+  },
+  {
+   "id": 749,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "조선 태종 때 울릉도로 보내진 관리는 누구일까요?",
+   "choices": [
+    "김인우",
+    "신윤복",
+    "이황",
+    "허준"
+   ],
+   "fact": "태종 때 무릉등처안무사로 울릉도에 파견된 인물은 [[김인우]]이다.",
+   "distractor": "장한상",
+   "blankDistractors": [
+    "신윤복",
+    "이황",
+    "허준"
+   ],
+   "explain": "조선 초기의 울릉도 조사·주민 이주 조치에 등장하는 인물입니다. 고려 시대 조사자나 조선 후기 수토관과 구별해야 합니다.",
+   "group": "n400-424",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 750,
+   "grade": "H1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "조선 태종 때 무릉등처안무사로 울릉도에 파견된 인물은 누구인가요?",
+   "choices": [
+    "황희",
+    "하륜",
+    "김인우",
+    "맹사성"
+   ],
+   "fact": "태종 때 무릉등처안무사로 울릉도에 파견된 인물은 [[김인우]]이다.",
+   "distractor": "장한상",
+   "blankDistractors": [
+    "황희",
+    "하륜",
+    "맹사성"
+   ],
+   "explain": "조선 초기의 울릉도 조사·주민 이주 조치에 등장하는 인물입니다. 고려 시대 조사자나 조선 후기 수토관과 구별해야 합니다.",
+   "group": "n400-424",
+   "tierNote": "보통"
+  },
+  {
+   "id": 751,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "무릉등처안무사라는 직함으로 울릉도에 간 인물의 이름은?",
+   "choices": [
+    "장한상",
+    "이규원",
+    "김유립",
+    "김인우"
+   ],
+   "fact": "태종 때 무릉등처안무사로 울릉도에 파견된 인물은 [[김인우]]이다.",
+   "distractor": "장한상",
+   "blankDistractors": [
+    "장한상",
+    "이규원",
+    "김유립"
+   ],
+   "explain": "조선 초기의 울릉도 조사·주민 이주 조치에 등장하는 인물입니다. 고려 시대 조사자나 조선 후기 수토관과 구별해야 합니다.",
+   "wrong": {
+    "0": "조선 후기 울릉도 조사 기록의 인물입니다.",
+    "2": "고려 의종 때 울릉도 거주 가능성을 조사한 인물입니다."
+   },
+   "group": "n400-424",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 752,
+   "grade": "E2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "『울릉도사적』을 보관하고 있는 곳은 어느 지역일까요?",
+   "choices": [
+    "의성군",
+    "해남군",
+    "양양군",
+    "양평군"
+   ],
+   "fact": "『울릉도사적』을 소장한 조문국박물관이 있는 곳은 [[의성군]]이다.",
+   "distractor": "청송군",
+   "blankDistractors": [
+    "해남군",
+    "양양군",
+    "양평군"
+   ],
+   "explain": "해당 사료는 의성 조문국박물관 소장 자료로 소개됩니다. 기록 대상 섬과 사료의 현재 소장처는 다를 수 있습니다.",
+   "group": "n400-425",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 753,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "한국민족문화대백과가 소개한 『울릉도사적』 소장 박물관은 어느 군에 있나요?",
+   "choices": [
+    "의성군",
+    "청도군",
+    "영덕군",
+    "울진군"
+   ],
+   "fact": "『울릉도사적』을 소장한 조문국박물관이 있는 곳은 [[의성군]]이다.",
+   "distractor": "청송군",
+   "blankDistractors": [
+    "청도군",
+    "영덕군",
+    "울진군"
+   ],
+   "explain": "해당 사료는 의성 조문국박물관 소장 자료로 소개됩니다. 기록 대상 섬과 사료의 현재 소장처는 다를 수 있습니다.",
+   "wrong": {
+    "3": "울릉도와 역사적 연결이 있어도 이 소장처의 소재지는 아닙니다."
+   },
+   "group": "n400-425",
+   "tierNote": "보통"
+  },
+  {
+   "id": 754,
+   "grade": "U3",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "한국민족문화대백과가 밝힌 소장 박물관이 속한 경상북도의 군은?",
+   "choices": [
+    "의성군",
+    "영양군",
+    "예천군",
+    "청송군"
+   ],
+   "fact": "『울릉도사적』을 소장한 조문국박물관이 있는 곳은 [[의성군]]이다.",
+   "distractor": "청송군",
+   "blankDistractors": [
+    "영양군",
+    "예천군",
+    "청송군"
+   ],
+   "explain": "해당 사료는 의성 조문국박물관 소장 자료로 소개됩니다. 기록 대상 섬과 사료의 현재 소장처는 다를 수 있습니다.",
+   "wrong": {
+    "3": "소장 박물관의 소재 군은 의성입니다."
+   },
+   "group": "n400-425",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 755,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "『신증동국여지승람』은 대략 몇 권짜리 책일까요?",
+   "choices": [
+    "55권",
+    "5권",
+    "5500권",
+    "550권"
+   ],
+   "fact": "『신증동국여지승람』의 전체 권수는 [[55권]]이다.",
+   "distractor": "25권",
+   "blankDistractors": [
+    "5권",
+    "5500권",
+    "550권"
+   ],
+   "explain": "백과사전은 55권 25책으로 설명합니다. 내용 편제 단위인 '권'과 물리적인 묶음인 '책'을 구분해야 합니다.",
+   "wrong": {
+    "3": "권수를 열 배로 부풀린 값입니다."
+   },
+   "group": "n400-426",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 756,
+   "grade": "H3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "『신증동국여지승람』은 모두 몇 권으로 구성되어 있나요?",
+   "choices": [
+    "75권",
+    "35권",
+    "55권",
+    "25권"
+   ],
+   "fact": "『신증동국여지승람』의 전체 권수는 [[55권]]이다.",
+   "distractor": "25권",
+   "blankDistractors": [
+    "75권",
+    "35권",
+    "25권"
+   ],
+   "explain": "백과사전은 55권 25책으로 설명합니다. 내용 편제 단위인 '권'과 물리적인 묶음인 '책'을 구분해야 합니다.",
+   "wrong": {
+    "3": "책 수인 25책을 권수와 혼동한 것입니다."
+   },
+   "group": "n400-426",
+   "tierNote": "보통"
+  },
+  {
+   "id": 757,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "『신증동국여지승람』의 전체 권수를 정확히 고르면?",
+   "choices": [
+    "54권",
+    "55권",
+    "56권",
+    "53권"
+   ],
+   "fact": "『신증동국여지승람』의 전체 권수는 [[55권]]이다.",
+   "distractor": "25권",
+   "blankDistractors": [
+    "54권",
+    "56권",
+    "53권"
+   ],
+   "explain": "백과사전은 55권 25책으로 설명합니다. 내용 편제 단위인 '권'과 물리적인 묶음인 '책'을 구분해야 합니다.",
+   "group": "n400-426",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 758,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 427,
+   "q": "독도 주변의 냉수성 탄산염 퇴적물은 어떤 설명을 뒷받침하나요?",
+   "choices": [
+    "찬 바다에는 생물 기원 퇴적물이 없다",
+    "탄산염 퇴적은 찬 바다에서도 가능하다",
+    "탄산염은 모두 화산재다",
+    "탄산염은 열대에서만 쌓인다"
+   ],
+   "fact": "독도 주변 냉수성 탄산염은 [[탄산염 퇴적은 찬 바다에서도 가능하다]]는 점을 보여준다.",
+   "distractor": "탄산염은 열대에서만 쌓인다",
+   "blankDistractors": [
+    "찬 바다에는 생물 기원 퇴적물이 없다",
+    "탄산염은 모두 화산재다",
+    "탄산염은 열대에서만 쌓인다"
+   ],
+   "explain": "독도 해저 퇴적물에는 화산암 조각과 냉수성 탄산염이 함께 보고됩니다. 탄산염을 곧바로 열대 바다의 증거로 단정하면 안 됩니다.",
+   "wrong": {
+    "2": "함께 섞여 있을 수 있어도 서로 다른 성분입니다.",
+    "3": "독도의 냉수성 탄산염 사례와 맞지 않습니다."
+   }
+  },
+  {
+   "id": 759,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "1779년 일본 지도 『개정일본여지노정전도』를 만든 사람은 누구일까요?",
+   "choices": [
+    "나가쿠보 세키스이",
+    "가쓰시카 호쿠사이",
+    "도요토미 히데요시",
+    "마쓰오 바쇼"
+   ],
+   "fact": "1779년 『개정일본여지노정전도』를 완성한 지도 제작자는 [[나가쿠보 세키스이]]이다.",
+   "distractor": "하야시 시헤이",
+   "blankDistractors": [
+    "가쓰시카 호쿠사이",
+    "도요토미 히데요시",
+    "마쓰오 바쇼"
+   ],
+   "explain": "해당 지도를 분석한 한국지도학회 논문은 제작자를 나가쿠보 세키스이로 밝힙니다. 다른 일본 고지도의 제작자와 구분해야 합니다.",
+   "group": "n400-434",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 760,
+   "grade": "M2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "1779년 『개정일본여지노정전도』를 완성한 지도 제작자는 누구인가요?",
+   "choices": [
+    "히라가 겐나이",
+    "나가쿠보 세키스이",
+    "모토오리 노리나가",
+    "스기타 겐파쿠"
+   ],
+   "fact": "1779년 『개정일본여지노정전도』를 완성한 지도 제작자는 [[나가쿠보 세키스이]]이다.",
+   "distractor": "하야시 시헤이",
+   "blankDistractors": [
+    "히라가 겐나이",
+    "모토오리 노리나가",
+    "스기타 겐파쿠"
+   ],
+   "explain": "해당 지도를 분석한 한국지도학회 논문은 제작자를 나가쿠보 세키스이로 밝힙니다. 다른 일본 고지도의 제작자와 구분해야 합니다.",
+   "group": "n400-434",
+   "tierNote": "보통"
+  },
+  {
+   "id": 761,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "『개정일본여지노정전도』(1779)의 제작자로 기록된 일본 지도학자는?",
+   "choices": [
+    "하야시 시헤이",
+    "나가쿠보 세키스이",
+    "사이토 호센",
+    "이노 다다타카"
+   ],
+   "fact": "1779년 『개정일본여지노정전도』를 완성한 지도 제작자는 [[나가쿠보 세키스이]]이다.",
+   "distractor": "하야시 시헤이",
+   "blankDistractors": [
+    "하야시 시헤이",
+    "사이토 호센",
+    "이노 다다타카"
+   ],
+   "explain": "해당 지도를 분석한 한국지도학회 논문은 제작자를 나가쿠보 세키스이로 밝힙니다. 다른 일본 고지도의 제작자와 구분해야 합니다.",
+   "wrong": {
+    "0": "『삼국통람도설』과 관련된 인물입니다.",
+    "3": "다른 지도 제작자의 이름으로 바꾼 것입니다."
+   },
+   "group": "n400-434",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 762,
+   "grade": "E5",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "1954년 독도를 두고 성명을 낸 우리 외무부장관은 누구일까요?",
+   "choices": [
+    "최종덕",
+    "홍순칠",
+    "변영태",
+    "김성도"
+   ],
+   "fact": "1954년 10월 28일 해당 독도 성명을 낸 외무부장관은 [[변영태]]이다.",
+   "distractor": "임병직",
+   "blankDistractors": [
+    "최종덕",
+    "홍순칠",
+    "김성도"
+   ],
+   "explain": "외교부 자료실은 이 성명의 발언자를 변영태 제3대 외무부장관으로 표시합니다. 후대의 담화와 혼동하지 않아야 합니다.",
+   "wrong": {
+    "1": "독도의용수비대와 관련된 인물이지 해당 외무부장관이 아닙니다."
+   },
+   "group": "n400-435",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 763,
+   "grade": "M3",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "1954년 10월 독도를 한반도 침탈의 첫 희생물로 설명한 외무부장관은 누구인가요?",
+   "choices": [
+    "조소앙",
+    "김구",
+    "김규식",
+    "변영태"
+   ],
+   "fact": "1954년 10월 28일 해당 독도 성명을 낸 외무부장관은 [[변영태]]이다.",
+   "distractor": "임병직",
+   "blankDistractors": [
+    "조소앙",
+    "김구",
+    "김규식"
+   ],
+   "explain": "외교부 자료실은 이 성명의 발언자를 변영태 제3대 외무부장관으로 표시합니다. 후대의 담화와 혼동하지 않아야 합니다.",
+   "group": "n400-435",
+   "tierNote": "보통"
+  },
+  {
+   "id": 764,
+   "grade": "MA2",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "1954년 10월 독도를 한반도 침탈의 첫 희생물로 규정한 외무부장관의 이름은?",
+   "choices": [
+    "임병직",
+    "조정환",
+    "장택상",
+    "변영태"
+   ],
+   "fact": "1954년 10월 28일 해당 독도 성명을 낸 외무부장관은 [[변영태]]이다.",
+   "distractor": "임병직",
+   "blankDistractors": [
+    "임병직",
+    "조정환",
+    "장택상"
+   ],
+   "explain": "외교부 자료실은 이 성명의 발언자를 변영태 제3대 외무부장관으로 표시합니다. 후대의 담화와 혼동하지 않아야 합니다.",
+   "wrong": {
+    "0": "이 날짜 성명의 발언자는 변영태입니다."
+   },
+   "group": "n400-435",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 765,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "2004년 독도 우표에 나온 연분홍 꽃은 무엇일까요?",
+   "choices": [
+    "홍게",
+    "갯메꽃",
+    "괭이갈매기",
+    "미역"
+   ],
+   "fact": "2004년 '독도의 자연' 우표의 연분홍 나팔 모양 꽃 식물은 [[갯메꽃]]이다.",
+   "distractor": "참나리",
+   "blankDistractors": [
+    "홍게",
+    "괭이갈매기",
+    "미역"
+   ],
+   "explain": "우표 설명은 바닷가에서 자라는 갯메꽃의 꽃을 소개합니다. 도안에 실린 식물의 이름을 정확히 읽는 문제입니다.",
+   "wrong": {
+    "3": "꽃식물이 아니라 바다의 해조류입니다."
+   },
+   "group": "n400-436",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 766,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "2004년 '독도의 자연' 우표에서 연분홍 나팔 모양 꽃으로 소개한 식물은 무엇인가요?",
+   "choices": [
+    "섬기린초",
+    "해국",
+    "갯메꽃",
+    "참나리"
+   ],
+   "fact": "2004년 '독도의 자연' 우표의 연분홍 나팔 모양 꽃 식물은 [[갯메꽃]]이다.",
+   "distractor": "참나리",
+   "blankDistractors": [
+    "섬기린초",
+    "해국",
+    "참나리"
+   ],
+   "explain": "우표 설명은 바닷가에서 자라는 갯메꽃의 꽃을 소개합니다. 도안에 실린 식물의 이름을 정확히 읽는 문제입니다.",
+   "wrong": {
+    "3": "이 문항에서 가리키는 연분홍 나팔 모양 꽃이 아닙니다."
+   },
+   "group": "n400-436",
+   "tierNote": "보통"
+  },
+  {
+   "id": 767,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "'독도의 자연' 첫 묶음에서 나팔 모양 연분홍 꽃으로 그려진 식물은?",
+   "choices": [
+    "애기메꽃",
+    "메꽃",
+    "갯메꽃",
+    "나팔꽃"
+   ],
+   "fact": "2004년 '독도의 자연' 우표의 연분홍 나팔 모양 꽃 식물은 [[갯메꽃]]이다.",
+   "distractor": "참나리",
+   "blankDistractors": [
+    "애기메꽃",
+    "메꽃",
+    "나팔꽃"
+   ],
+   "explain": "우표 설명은 바닷가에서 자라는 갯메꽃의 꽃을 소개합니다. 도안에 실린 식물의 이름을 정확히 읽는 문제입니다.",
+   "group": "n400-436",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 768,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 443,
+   "q": "1018년 고려가 여진의 침입으로 피해를 입은 우산국에 보낸 것으로 기록된 것은 무엇인가요?",
+   "choices": [
+    "농기구",
+    "기상관측기",
+    "금속활자",
+    "화포"
+   ],
+   "fact": "1018년 고려가 피해를 입은 우산국에 보낸 물품으로 기록된 것은 [[농기구]]이다.",
+   "distractor": "화포",
+   "blankDistractors": [
+    "기상관측기",
+    "금속활자",
+    "화포"
+   ],
+   "explain": "우산국 사람들의 생업 회복과 연결되는 기록입니다. 군사적 정복 이야기와 생활을 지원한 기록을 구분해서 읽어야 합니다.",
+   "wrong": {
+    "1": "해당 시대·기록의 지원 물품과 맞지 않습니다.",
+    "3": "이 기록이 전하는 생업 지원 물품이 아닙니다."
+   }
+  },
+  {
+   "id": 769,
+   "grade": "K",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "『유하집』이라는 조선 후기 문집을 남긴 사람은 누구일까요?",
+   "choices": [
+    "이순신",
+    "장영실",
+    "허준",
+    "홍세태"
+   ],
+   "fact": "조선 후기 시문집 『유하집』의 저자는 [[홍세태]]이다.",
+   "distractor": "김천택",
+   "blankDistractors": [
+    "이순신",
+    "장영실",
+    "허준"
+   ],
+   "explain": "장서각 서지는 저자를 홍세태로 기록합니다. 책의 저자와 사후 편집·간행을 맡은 사람을 구분해야 합니다.",
+   "wrong": {
+    "2": "의학자이며 이 시문집의 저자가 아닙니다."
+   },
+   "group": "n400-444",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 770,
+   "grade": "H3",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "조선 후기 시문집 『유하집』의 글을 쓴 문인은 누구인가요?",
+   "choices": [
+    "홍세태",
+    "김만중",
+    "정약용",
+    "박지원"
+   ],
+   "fact": "조선 후기 시문집 『유하집』의 저자는 [[홍세태]]이다.",
+   "distractor": "김천택",
+   "blankDistractors": [
+    "김만중",
+    "정약용",
+    "박지원"
+   ],
+   "explain": "장서각 서지는 저자를 홍세태로 기록합니다. 책의 저자와 사후 편집·간행을 맡은 사람을 구분해야 합니다.",
+   "group": "n400-444",
+   "tierNote": "보통"
+  },
+  {
+   "id": 771,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "안용복 이야기를 전한 시문집 『유하집』의 저자는?",
+   "choices": [
+    "김수장",
+    "홍세태",
+    "김천택",
+    "정내교"
+   ],
+   "fact": "조선 후기 시문집 『유하집』의 저자는 [[홍세태]]이다.",
+   "distractor": "김천택",
+   "blankDistractors": [
+    "김수장",
+    "김천택",
+    "정내교"
+   ],
+   "explain": "장서각 서지는 저자를 홍세태로 기록합니다. 책의 저자와 사후 편집·간행을 맡은 사람을 구분해야 합니다.",
+   "wrong": {
+    "3": "관련 문인과 이 책의 저자를 혼동한 것입니다."
+   },
+   "group": "n400-444",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 772,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "1785년 삼국접양지도를 만든 일본 사람은 누구일까요?",
+   "choices": [
+    "도쿠가와 이에야스",
+    "가쓰시카 호쿠사이",
+    "하야시 시헤이",
+    "마쓰오 바쇼"
+   ],
+   "fact": "1785년 『삼국통람도설』과 삼국접양지도를 만든 인물은 [[하야시 시헤이]]이다.",
+   "distractor": "나가쿠보 세키스이",
+   "blankDistractors": [
+    "도쿠가와 이에야스",
+    "가쓰시카 호쿠사이",
+    "마쓰오 바쇼"
+   ],
+   "explain": "국회도서관의 지도 설명은 하야시 시헤이를 제작자로 밝힙니다. 삼국접양지도는 독립된 지도만이 아니라 책의 부도이기도 합니다.",
+   "wrong": {
+    "3": "해당 지도·지리서의 제작자가 아닙니다."
+   },
+   "group": "n400-445",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 773,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "1785년 『삼국통람도설』과 그 부도인 삼국접양지도를 만든 사람은 누구인가요?",
+   "choices": [
+    "스기타 겐파쿠",
+    "모토오리 노리나가",
+    "하야시 시헤이",
+    "히라가 겐나이"
+   ],
+   "fact": "1785년 『삼국통람도설』과 삼국접양지도를 만든 인물은 [[하야시 시헤이]]이다.",
+   "distractor": "나가쿠보 세키스이",
+   "blankDistractors": [
+    "스기타 겐파쿠",
+    "모토오리 노리나가",
+    "히라가 겐나이"
+   ],
+   "explain": "국회도서관의 지도 설명은 하야시 시헤이를 제작자로 밝힙니다. 삼국접양지도는 독립된 지도만이 아니라 책의 부도이기도 합니다.",
+   "group": "n400-445",
+   "tierNote": "보통"
+  },
+  {
+   "id": 774,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "『삼국통람도설』과 삼국접양지도를 함께 펴낸 일본 학자의 이름은?",
+   "choices": [
+    "이노 다다타카",
+    "하야시 시헤이",
+    "사이토 호센",
+    "나가쿠보 세키스이"
+   ],
+   "fact": "1785년 『삼국통람도설』과 삼국접양지도를 만든 인물은 [[하야시 시헤이]]이다.",
+   "distractor": "나가쿠보 세키스이",
+   "blankDistractors": [
+    "이노 다다타카",
+    "사이토 호센",
+    "나가쿠보 세키스이"
+   ],
+   "explain": "국회도서관의 지도 설명은 하야시 시헤이를 제작자로 밝힙니다. 삼국접양지도는 독립된 지도만이 아니라 책의 부도이기도 합니다.",
+   "wrong": {
+    "3": "1779년의 다른 일본 지도 제작자와 혼동한 것입니다."
+   },
+   "group": "n400-445",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 775,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "독도 바다에서 이마가 불룩한 큰 물고기는 무엇일까요?",
+   "choices": [
+    "혹돔",
+    "붉은박쥐",
+    "괭이갈매기",
+    "대왕오징어"
+   ],
+   "fact": "독도에서 관찰되는 큰 놀래기류 중 성장한 수컷의 이마가 불룩해지는 종은 [[혹돔]]이다.",
+   "distractor": "고등어",
+   "blankDistractors": [
+    "붉은박쥐",
+    "괭이갈매기",
+    "대왕오징어"
+   ],
+   "explain": "독도종합정보시스템은 혹돔의 이마와 강한 이빨을 설명합니다. 이름에 '돔'이 들어가지만 놀래기류에 속합니다.",
+   "wrong": {
+    "3": "어류가 아니라 두족류입니다."
+   },
+   "group": "n400-446",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 776,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "독도에서 관찰되는 큰 놀래기류 중 수컷의 이마가 불룩하고 단단한 패류를 깨 먹는 물고기는 무엇인가요?",
+   "choices": [
+    "꽁치",
+    "혹돔",
+    "대구",
+    "고등어"
+   ],
+   "fact": "독도에서 관찰되는 큰 놀래기류 중 성장한 수컷의 이마가 불룩해지는 종은 [[혹돔]]이다.",
+   "distractor": "고등어",
+   "blankDistractors": [
+    "꽁치",
+    "대구",
+    "고등어"
+   ],
+   "explain": "독도종합정보시스템은 혹돔의 이마와 강한 이빨을 설명합니다. 이름에 '돔'이 들어가지만 놀래기류에 속합니다.",
+   "wrong": {
+    "3": "설명된 큰 놀래기류가 아닙니다."
+   },
+   "group": "n400-446",
+   "tierNote": "보통"
+  },
+  {
+   "id": 777,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "독도 연안 대형 놀래기류 가운데 단단한 패류를 깨 먹는 종은?",
+   "choices": [
+    "황놀래기",
+    "혹돔",
+    "용치놀래기",
+    "놀래기"
+   ],
+   "fact": "독도에서 관찰되는 큰 놀래기류 중 성장한 수컷의 이마가 불룩해지는 종은 [[혹돔]]이다.",
+   "distractor": "고등어",
+   "blankDistractors": [
+    "황놀래기",
+    "용치놀래기",
+    "놀래기"
+   ],
+   "explain": "독도종합정보시스템은 혹돔의 이마와 강한 이빨을 설명합니다. 이름에 '돔'이 들어가지만 놀래기류에 속합니다.",
+   "group": "n400-446",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 778,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "김정호가 지도와 함께 쓰려고 만든 책은 무엇일까요?",
+   "choices": [
+    "동의보감",
+    "삼국사기",
+    "훈민정음",
+    "대동지지"
+   ],
+   "fact": "김정호가 『대동여지도』와 함께 이용하도록 편찬한 마지막 지리지는 [[대동지지]]이다.",
+   "distractor": "동여도지",
+   "blankDistractors": [
+    "동의보감",
+    "삼국사기",
+    "훈민정음"
+   ],
+   "explain": "『대동지지』는 지도와 글로 된 지리 정보를 함께 이용하려는 작업의 결과입니다. 지도에 담기 어려운 상세 정보를 지리지가 보완합니다.",
+   "group": "n400-453",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 779,
+   "grade": "M3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "김정호가 『대동여지도』와 함께 이용하도록 편찬한 마지막 지리지는 무엇인가요?",
+   "choices": [
+    "택리지",
+    "열하일기",
+    "대동지지",
+    "성호사설"
+   ],
+   "fact": "김정호가 『대동여지도』와 함께 이용하도록 편찬한 마지막 지리지는 [[대동지지]]이다.",
+   "distractor": "동여도지",
+   "blankDistractors": [
+    "택리지",
+    "열하일기",
+    "성호사설"
+   ],
+   "explain": "『대동지지』는 지도와 글로 된 지리 정보를 함께 이용하려는 작업의 결과입니다. 지도에 담기 어려운 상세 정보를 지리지가 보완합니다.",
+   "group": "n400-453",
+   "tierNote": "보통"
+  },
+  {
+   "id": 780,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "김정호가 마지막으로 편찬한 지리지의 이름은?",
+   "choices": [
+    "동여편고",
+    "대동지지",
+    "동여도지",
+    "여도비지"
+   ],
+   "fact": "김정호가 『대동여지도』와 함께 이용하도록 편찬한 마지막 지리지는 [[대동지지]]이다.",
+   "distractor": "동여도지",
+   "blankDistractors": [
+    "동여편고",
+    "동여도지",
+    "여도비지"
+   ],
+   "explain": "『대동지지』는 지도와 글로 된 지리 정보를 함께 이용하려는 작업의 결과입니다. 지도에 담기 어려운 상세 정보를 지리지가 보완합니다.",
+   "wrong": {
+    "2": "김정호의 다른 지리지와 혼동한 것입니다.",
+    "3": "마지막 지리지의 제목은 『대동지지』입니다."
+   },
+   "group": "n400-453",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 781,
+   "grade": "E4",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "1947년 독도 기사를 실은 것은 무엇일까요?",
+   "choices": [
+    "난중일기",
+    "삼국유사",
+    "대구시보",
+    "동의보감"
+   ],
+   "fact": "외교부 자료실이 제공하는 1947년 6월 20일 독도 관련 기사의 신문명은 [[대구시보]]이다.",
+   "distractor": "동아일보",
+   "blankDistractors": [
+    "난중일기",
+    "삼국유사",
+    "동의보감"
+   ],
+   "explain": "외교부는 당시 기사의 원문과 역문을 제공합니다. 이 문제는 기사 속 모든 사건의 진위가 아니라 해당 보도의 신문명을 묻습니다.",
+   "group": "n400-454",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 782,
+   "grade": "H1",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "외교부 자료실의 1947년 6월 20일 독도 관련 기사를 실은 신문은 무엇인가요?",
+   "choices": [
+    "독립신문",
+    "대한매일신보",
+    "황성신문",
+    "대구시보"
+   ],
+   "fact": "외교부 자료실이 제공하는 1947년 6월 20일 독도 관련 기사의 신문명은 [[대구시보]]이다.",
+   "distractor": "동아일보",
+   "blankDistractors": [
+    "독립신문",
+    "대한매일신보",
+    "황성신문"
+   ],
+   "explain": "외교부는 당시 기사의 원문과 역문을 제공합니다. 이 문제는 기사 속 모든 사건의 진위가 아니라 해당 보도의 신문명을 묻습니다.",
+   "wrong": {
+    "1": "1906년의 독도 관련 보도와 이 기사의 발행처를 구분해야 합니다."
+   },
+   "group": "n400-454",
+   "tierNote": "보통"
+  },
+  {
+   "id": 783,
+   "grade": "MA1",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "외교부 자료실이 수록한 1947년 6월 20일자 독도 기사의 신문 제호는?",
+   "choices": [
+    "동아일보",
+    "조선일보",
+    "경향신문",
+    "대구시보"
+   ],
+   "fact": "외교부 자료실이 제공하는 1947년 6월 20일 독도 관련 기사의 신문명은 [[대구시보]]이다.",
+   "distractor": "동아일보",
+   "blankDistractors": [
+    "동아일보",
+    "조선일보",
+    "경향신문"
+   ],
+   "explain": "외교부는 당시 기사의 원문과 역문을 제공합니다. 이 문제는 기사 속 모든 사건의 진위가 아니라 해당 보도의 신문명을 묻습니다.",
+   "wrong": {
+    "0": "자료실에 명시된 이 기사의 출처는 『대구시보』입니다."
+   },
+   "group": "n400-454",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 784,
+   "grade": "E5",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "칙령 제41호는 울도군을 몇 등급 군으로 정했을까요?",
+   "choices": [
+    "500등",
+    "50등",
+    "100등",
+    "5등"
+   ],
+   "fact": "칙령 제41호 제1조가 정한 울도군의 군등은 [[5등]]이다.",
+   "distractor": "4등",
+   "blankDistractors": [
+    "500등",
+    "50등",
+    "100등"
+   ],
+   "explain": "칙령은 군등을 5등으로 정하고 제4조에서도 5등군 경비를 언급합니다. 여기서 등급은 당시 행정 분류이지 학교 학년이 아닙니다.",
+   "group": "n400-455",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 785,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "칙령 제41호 제1조는 울도군의 군등을 몇 등으로 정했나요?",
+   "choices": [
+    "1등",
+    "5등",
+    "10등",
+    "2등"
+   ],
+   "fact": "칙령 제41호 제1조가 정한 울도군의 군등은 [[5등]]이다.",
+   "distractor": "4등",
+   "blankDistractors": [
+    "1등",
+    "10등",
+    "2등"
+   ],
+   "explain": "칙령은 군등을 5등으로 정하고 제4조에서도 5등군 경비를 언급합니다. 여기서 등급은 당시 행정 분류이지 학교 학년이 아닙니다.",
+   "wrong": {
+    "2": "칙령에 적힌 군등과 다른 수치입니다."
+   },
+   "group": "n400-455",
+   "tierNote": "보통"
+  },
+  {
+   "id": 786,
+   "grade": "MA2",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "칙령 제41호 제1조가 명시한 울도군의 군등을 정확히 고르면?",
+   "choices": [
+    "3등",
+    "4등",
+    "5등",
+    "6등"
+   ],
+   "fact": "칙령 제41호 제1조가 정한 울도군의 군등은 [[5등]]이다.",
+   "distractor": "4등",
+   "blankDistractors": [
+    "3등",
+    "4등",
+    "6등"
+   ],
+   "explain": "칙령은 군등을 5등으로 정하고 제4조에서도 5등군 경비를 언급합니다. 여기서 등급은 당시 행정 분류이지 학교 학년이 아닙니다.",
+   "wrong": {
+    "1": "제1조의 수치는 4등이 아니라 5등입니다."
+   },
+   "group": "n400-455",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 787,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "독도에서 다른 식물에 붙어사는 풀은 무엇일까요?",
+   "choices": [
+    "초종용",
+    "돌김",
+    "다시마",
+    "미역"
+   ],
+   "fact": "독도에 분포하는 기생식물 가운데 이 문항이 가리키는 풀은 [[초종용]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "돌김",
+    "다시마",
+    "미역"
+   ],
+   "explain": "경북대학교 연구소는 초종용을 울릉도·독도에 분포하는 기생식물로 설명합니다. 함께 자라는 식물과 그 식물에 의존하는 종을 구분해야 합니다.",
+   "group": "n400-456",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 788,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "독도에 분포하며 다른 식물에 기생하는 풀은 무엇인가요?",
+   "choices": [
+    "해국",
+    "초종용",
+    "참나리",
+    "갯메꽃"
+   ],
+   "fact": "독도에 분포하는 기생식물 가운데 이 문항이 가리키는 풀은 [[초종용]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "해국",
+    "참나리",
+    "갯메꽃"
+   ],
+   "explain": "경북대학교 연구소는 초종용을 울릉도·독도에 분포하는 기생식물로 설명합니다. 함께 자라는 식물과 그 식물에 의존하는 종을 구분해야 합니다.",
+   "wrong": {
+    "0": "이 자료에서 기생식물로 설명하는 대상은 초종용입니다."
+   },
+   "group": "n400-456",
+   "tierNote": "보통"
+  },
+  {
+   "id": 789,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "독도 분포 기록이 있는 기생식물의 이름은?",
+   "choices": [
+    "사철쑥",
+    "땅채송화",
+    "초종용",
+    "갯제비쑥"
+   ],
+   "fact": "독도에 분포하는 기생식물 가운데 이 문항이 가리키는 풀은 [[초종용]]이다.",
+   "distractor": "해국",
+   "blankDistractors": [
+    "사철쑥",
+    "땅채송화",
+    "갯제비쑥"
+   ],
+   "explain": "경북대학교 연구소는 초종용을 울릉도·독도에 분포하는 기생식물로 설명합니다. 함께 자라는 식물과 그 식물에 의존하는 종을 구분해야 합니다.",
+   "wrong": {
+    "3": "연구에서는 초종용과 그 기주식물을 구분합니다."
+   },
+   "group": "n400-456",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 790,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 457,
+   "q": "독도 모래의 ‘간극생물’은 주로 어떤 공간을 이용하나요?",
+   "choices": [
+    "퇴적물 알갱이 사이의 틈",
+    "물고기의 아가미 안쪽",
+    "갈매기 깃털 사이",
+    "해수면 위의 물방울"
+   ],
+   "fact": "모래 속 간극생물이 이용하는 미세한 생활 공간은 [[퇴적물 알갱이 사이의 틈]]이다.",
+   "distractor": "물고기의 아가미 안쪽",
+   "blankDistractors": [
+    "물고기의 아가미 안쪽",
+    "갈매기 깃털 사이",
+    "해수면 위의 물방울"
+   ],
+   "explain": "모래는 빈틈없는 고체 덩어리가 아닙니다. 입자 사이의 작은 공간에도 해양 동물이 살아갑니다.",
+   "wrong": {
+    "1": "이 문항은 다른 동물의 몸이 아니라 퇴적물 속 공간을 묻습니다.",
+    "2": "해저 모래의 입자 사이와는 다른 환경입니다."
+   }
+  },
+  {
+   "id": 791,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 463,
+   "q": "독도 부이 관측에서 2~3월 상층 수온이 깊이에 따라 비슷해지는 이유는 무엇인가요?",
+   "choices": [
+    "해저 지열만의 균일한 가열",
+    "밀물 때의 염분 완전 소멸",
+    "해수 전체의 담수 전환",
+    "활발한 수직 혼합"
+   ],
+   "fact": "독도 관측에서 늦겨울 상층 수온을 고르게 하는 주요 과정은 [[활발한 수직 혼합]]이다.",
+   "distractor": "해저 지열만의 균일한 가열",
+   "blankDistractors": [
+    "해저 지열만의 균일한 가열",
+    "밀물 때의 염분 완전 소멸",
+    "해수 전체의 담수 전환"
+   ],
+   "explain": "공식 설명은 2~3월 활발한 수직 혼합으로 상층 수온이 일정해지는 양상을 제시합니다. 수직 혼합은 깊이가 다른 물을 섞는 과정입니다.",
+   "wrong": {
+    "0": "해당 관측 설명이 제시한 원인은 수직 혼합입니다.",
+    "2": "수온이 비슷해졌다는 것은 소금기가 없어졌다는 뜻이 아닙니다."
+   }
+  },
+  {
+   "id": 792,
+   "grade": "K",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "1948년 『울릉도』라는 시집을 낸 사람은 누구일까요?",
+   "choices": [
+    "유치환",
+    "허준",
+    "이순신",
+    "장영실"
+   ],
+   "fact": "1948년 시집 『울릉도』를 펴낸 시인은 [[유치환]]이다.",
+   "distractor": "박목월",
+   "blankDistractors": [
+    "허준",
+    "이순신",
+    "장영실"
+   ],
+   "explain": "『울릉도』는 유치환의 세 번째 시집입니다. 섬은 지리 자료뿐 아니라 광복 이후의 문학에도 이름을 남겼습니다.",
+   "wrong": {
+    "3": "이 문항은 조선의 과학기술자가 아니라 현대 시인을 묻습니다."
+   },
+   "group": "n400-464",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 793,
+   "grade": "M3",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "1948년에 시집 『울릉도』를 펴낸 시인은 누구인가요?",
+   "choices": [
+    "조만식",
+    "김성수",
+    "유치환",
+    "김구"
+   ],
+   "fact": "1948년 시집 『울릉도』를 펴낸 시인은 [[유치환]]이다.",
+   "distractor": "박목월",
+   "blankDistractors": [
+    "조만식",
+    "김성수",
+    "김구"
+   ],
+   "explain": "『울릉도』는 유치환의 세 번째 시집입니다. 섬은 지리 자료뿐 아니라 광복 이후의 문학에도 이름을 남겼습니다.",
+   "group": "n400-464",
+   "tierNote": "보통"
+  },
+  {
+   "id": 794,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "시집 『울릉도』(1948)를 펴낸 시인의 이름은?",
+   "choices": [
+    "김영랑",
+    "유치환",
+    "박목월",
+    "정지용"
+   ],
+   "fact": "1948년 시집 『울릉도』를 펴낸 시인은 [[유치환]]이다.",
+   "distractor": "박목월",
+   "blankDistractors": [
+    "김영랑",
+    "박목월",
+    "정지용"
+   ],
+   "explain": "『울릉도』는 유치환의 세 번째 시집입니다. 섬은 지리 자료뿐 아니라 광복 이후의 문학에도 이름을 남겼습니다.",
+   "wrong": {
+    "2": "이 시집의 저자로 기록된 시인은 유치환입니다."
+   },
+   "group": "n400-464",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 795,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "중형저서동물을 거르는 체의 눈은 얼마나 작을까요?",
+   "choices": [
+    "3.2μm",
+    "32μm",
+    "3200μm",
+    "0.32μm"
+   ],
+   "fact": "독도 간극동물 안내의 중형저서동물 크기 정의에서 작은 체의 눈금은 [[32μm]]이다.",
+   "distractor": "64μm",
+   "blankDistractors": [
+    "3.2μm",
+    "3200μm",
+    "0.32μm"
+   ],
+   "explain": "이 안내는 1mm 체를 통과하고 32μm 체에 남는 크기 범주를 사용합니다. 모든 연구가 동일한 체눈 기준을 쓴다는 뜻은 아닙니다.",
+   "wrong": {
+    "0": "32μm보다 열 배 작은 눈금입니다."
+   },
+   "group": "n400-465",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 796,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "독도 간극동물 안내에서 중형저서동물을 걸러 남기는 작은 체의 눈금은 얼마인가요?",
+   "choices": [
+    "32μm",
+    "64μm",
+    "16μm",
+    "128μm"
+   ],
+   "fact": "독도 간극동물 안내의 중형저서동물 크기 정의에서 작은 체의 눈금은 [[32μm]]이다.",
+   "distractor": "64μm",
+   "blankDistractors": [
+    "64μm",
+    "16μm",
+    "128μm"
+   ],
+   "explain": "이 안내는 1mm 체를 통과하고 32μm 체에 남는 크기 범주를 사용합니다. 모든 연구가 동일한 체눈 기준을 쓴다는 뜻은 아닙니다.",
+   "wrong": {
+    "1": "이 자료가 제시한 작은 체눈의 두 배입니다."
+   },
+   "group": "n400-465",
+   "tierNote": "보통"
+  },
+  {
+   "id": 797,
+   "grade": "U1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "독도 간극동물 안내가 중형저서동물 하한으로 든 체의 눈금은?",
+   "choices": [
+    "40μm",
+    "32μm",
+    "30μm",
+    "35μm"
+   ],
+   "fact": "독도 간극동물 안내의 중형저서동물 크기 정의에서 작은 체의 눈금은 [[32μm]]이다.",
+   "distractor": "64μm",
+   "blankDistractors": [
+    "40μm",
+    "30μm",
+    "35μm"
+   ],
+   "explain": "이 안내는 1mm 체를 통과하고 32μm 체에 남는 크기 범주를 사용합니다. 모든 연구가 동일한 체눈 기준을 쓴다는 뜻은 아닙니다.",
+   "group": "n400-465",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 798,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "독도 모래 틈에 가장 많이 사는 것은 무엇일까요?",
+   "choices": [
+    "해조류",
+    "선형동물",
+    "바닷새",
+    "포유류"
+   ],
+   "fact": "2006~2010년 독도 주변 간극동물 조사에서 가장 많이 서식한 분류군은 [[선형동물]]이다.",
+   "distractor": "저서유공충류",
+   "blankDistractors": [
+    "해조류",
+    "바닷새",
+    "포유류"
+   ],
+   "explain": "해당 조사에서는 선형동물이 모든 조사정점에 나타났습니다. 특정 조사 결과를 전 세계 모든 해저의 순위로 확대해서는 안 됩니다.",
+   "group": "n400-466",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 799,
+   "grade": "H2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "2006~2010년 독도 주변 간극동물 조사에서 가장 우세했던 분류군은 무엇인가요?",
+   "choices": [
+    "자포동물",
+    "선형동물",
+    "연체동물",
+    "극피동물"
+   ],
+   "fact": "2006~2010년 독도 주변 간극동물 조사에서 가장 많이 서식한 분류군은 [[선형동물]]이다.",
+   "distractor": "저서유공충류",
+   "blankDistractors": [
+    "자포동물",
+    "연체동물",
+    "극피동물"
+   ],
+   "explain": "해당 조사에서는 선형동물이 모든 조사정점에 나타났습니다. 특정 조사 결과를 전 세계 모든 해저의 순위로 확대해서는 안 됩니다.",
+   "group": "n400-466",
+   "tierNote": "보통"
+  },
+  {
+   "id": 800,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "2006~2010년 독도 간극동물 조사에서 가장 우세한 분류군은?",
+   "choices": [
+    "복모동물",
+    "선형동물",
+    "저서성 요각류",
+    "저서유공충류"
+   ],
+   "fact": "2006~2010년 독도 주변 간극동물 조사에서 가장 많이 서식한 분류군은 [[선형동물]]이다.",
+   "distractor": "저서유공충류",
+   "blankDistractors": [
+    "복모동물",
+    "저서성 요각류",
+    "저서유공충류"
+   ],
+   "explain": "해당 조사에서는 선형동물이 모든 조사정점에 나타났습니다. 특정 조사 결과를 전 세계 모든 해저의 순위로 확대해서는 안 됩니다.",
+   "wrong": {
+    "2": "실제로 조사된 무리이지만 가장 우세한 분류군은 아니었습니다.",
+    "3": "자료에서는 선형동물 다음으로 많이 서식한 무리입니다."
+   },
+   "group": "n400-466",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 801,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "1:5,000 독도 해도가 처음 나온 것은 몇 년대일까요?",
+   "choices": [
+    "1801년",
+    "2001년",
+    "1901년",
+    "1701년"
+   ],
+   "fact": "국회도서관 연표에 기록된 1:5,000 독도 해도의 첫 간행 연도는 [[2001년]]이다.",
+   "distractor": "2000년",
+   "blankDistractors": [
+    "1801년",
+    "1901년",
+    "1701년"
+   ],
+   "explain": "연표는 2001년 7월 26일의 해도 간행을 기록합니다. 앞서 제작된 육상 지형도와 항해용 해도는 구별해야 합니다.",
+   "group": "n400-473",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 802,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "국회도서관 연표에 따르면 1:5,000 독도 해도가 처음 간행된 해는 언제인가요?",
+   "choices": [
+    "1981년",
+    "2001년",
+    "1961년",
+    "2021년"
+   ],
+   "fact": "국회도서관 연표에 기록된 1:5,000 독도 해도의 첫 간행 연도는 [[2001년]]이다.",
+   "distractor": "2000년",
+   "blankDistractors": [
+    "1981년",
+    "1961년",
+    "2021년"
+   ],
+   "explain": "연표는 2001년 7월 26일의 해도 간행을 기록합니다. 앞서 제작된 육상 지형도와 항해용 해도는 구별해야 합니다.",
+   "group": "n400-473",
+   "tierNote": "보통"
+  },
+  {
+   "id": 803,
+   "grade": "U4",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "국회도서관 연표가 1:5,000 독도 해도 초판으로 적은 해를 정확히 고르면?",
+   "choices": [
+    "1999년",
+    "2001년",
+    "2002년",
+    "2000년"
+   ],
+   "fact": "국회도서관 연표에 기록된 1:5,000 독도 해도의 첫 간행 연도는 [[2001년]]이다.",
+   "distractor": "2000년",
+   "blankDistractors": [
+    "1999년",
+    "2002년",
+    "2000년"
+   ],
+   "explain": "연표는 2001년 7월 26일의 해도 간행을 기록합니다. 앞서 제작된 육상 지형도와 항해용 해도는 구별해야 합니다.",
+   "wrong": {
+    "0": "이 문항은 특정 축척의 독도 해도 간행을 묻습니다.",
+    "3": "해도 간행 연도보다 1년 빠릅니다."
+   },
+   "group": "n400-473",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 804,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "『신증동국여지승람』을 새로 엮은 사람들은 누구일까요?",
+   "choices": [
+    "이행·윤은보",
+    "허준·이제마",
+    "장영실·최무선",
+    "이순신·권율"
+   ],
+   "fact": "『신증동국여지승람』의 증보 편찬을 맡은 인물 조합은 [[이행·윤은보]]이다.",
+   "distractor": "노사신·서거정",
+   "blankDistractors": [
+    "허준·이제마",
+    "장영실·최무선",
+    "이순신·권율"
+   ],
+   "explain": "이행과 윤은보 등은 앞선 『동국여지승람』을 증보했습니다. 처음 편찬한 사람, 앞선 수정 참여자, 신증본 편찬자를 구분하는 문제입니다.",
+   "group": "n400-474",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 805,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "『신증동국여지승람』의 증보 편찬을 맡은 인물로 맞는 조합은 무엇인가요?",
+   "choices": [
+    "이행·윤은보",
+    "박지원·박제가",
+    "김정호·최한기",
+    "정약용·정약전"
+   ],
+   "fact": "『신증동국여지승람』의 증보 편찬을 맡은 인물 조합은 [[이행·윤은보]]이다.",
+   "distractor": "노사신·서거정",
+   "blankDistractors": [
+    "박지원·박제가",
+    "김정호·최한기",
+    "정약용·정약전"
+   ],
+   "explain": "이행과 윤은보 등은 앞선 『동국여지승람』을 증보했습니다. 처음 편찬한 사람, 앞선 수정 참여자, 신증본 편찬자를 구분하는 문제입니다.",
+   "group": "n400-474",
+   "tierNote": "보통"
+  },
+  {
+   "id": 806,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "『신증동국여지승람』 증보 편찬자로 함께 기록된 두 사람은?",
+   "choices": [
+    "노사신·서거정",
+    "이행·윤은보",
+    "임사홍·김종직",
+    "김종직·성현"
+   ],
+   "fact": "『신증동국여지승람』의 증보 편찬을 맡은 인물 조합은 [[이행·윤은보]]이다.",
+   "distractor": "노사신·서거정",
+   "blankDistractors": [
+    "노사신·서거정",
+    "임사홍·김종직",
+    "김종직·성현"
+   ],
+   "explain": "이행과 윤은보 등은 앞선 『동국여지승람』을 증보했습니다. 처음 편찬한 사람, 앞선 수정 참여자, 신증본 편찬자를 구분하는 문제입니다.",
+   "wrong": {
+    "0": "구본의 편찬 과정과 관련된 인물들을 신증본 편찬자와 혼동한 것입니다.",
+    "3": "앞선 수정 과정의 참여자들과 신증본 편찬자를 구분해야 합니다."
+   },
+   "group": "n400-474",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 807,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "독도 가지초의 해송 곁에 무리 지어 사는 물고기는 무엇일까요?",
+   "choices": [
+    "괭이갈매기",
+    "해국",
+    "미역",
+    "도화볼락"
+   ],
+   "fact": "독도 가지초 조사에서 대형 해송 주변의 무리로 소개된 물고기는 [[도화볼락]]이다.",
+   "distractor": "조피볼락",
+   "blankDistractors": [
+    "괭이갈매기",
+    "해국",
+    "미역"
+   ],
+   "explain": "공식 조사 소개는 가지초의 대형 해송 주변에 도화볼락 무리가 있다고 설명합니다. 특정 서식지의 관찰 기록을 묻는 문제입니다.",
+   "group": "n400-475",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 808,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "독도 가지초 조사에서 대형 해송 주변에 무리를 이룬다고 소개된 물고기는 무엇인가요?",
+   "choices": [
+    "전복",
+    "문어",
+    "도화볼락",
+    "성게"
+   ],
+   "fact": "독도 가지초 조사에서 대형 해송 주변의 무리로 소개된 물고기는 [[도화볼락]]이다.",
+   "distractor": "조피볼락",
+   "blankDistractors": [
+    "전복",
+    "문어",
+    "성게"
+   ],
+   "explain": "공식 조사 소개는 가지초의 대형 해송 주변에 도화볼락 무리가 있다고 설명합니다. 특정 서식지의 관찰 기록을 묻는 문제입니다.",
+   "wrong": {
+    "1": "문항은 이 지점에서 무리로 소개한 물고기를 묻습니다."
+   },
+   "group": "n400-475",
+   "tierNote": "보통"
+  },
+  {
+   "id": 809,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "가지초 조사가 대형 해송 주변 군집으로 기록한 볼락류는?",
+   "choices": [
+    "조피볼락",
+    "불볼락",
+    "볼락",
+    "도화볼락"
+   ],
+   "fact": "독도 가지초 조사에서 대형 해송 주변의 무리로 소개된 물고기는 [[도화볼락]]이다.",
+   "distractor": "조피볼락",
+   "blankDistractors": [
+    "조피볼락",
+    "불볼락",
+    "볼락"
+   ],
+   "explain": "공식 조사 소개는 가지초의 대형 해송 주변에 도화볼락 무리가 있다고 설명합니다. 특정 서식지의 관찰 기록을 묻는 문제입니다.",
+   "wrong": {
+    "0": "같은 볼락류 이름이지만 해당 관찰 설명의 종과 다릅니다."
+   },
+   "group": "n400-475",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 810,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 476,
+   "q": "독도 해저 퇴적물 코어를 X선으로 촬영하는 중요한 이유는 무엇인가요?",
+   "choices": [
+    "살아 있는 어류의 울음 듣기",
+    "구름의 이동 경로를 지도화하기",
+    "내부 퇴적 구조를 살피기",
+    "해수면 위 풍속을 직접 측정하기"
+   ],
+   "fact": "퇴적물 코어의 X선 촬영은 [[내부 퇴적 구조를 살피기]] 위한 분석 방법이다.",
+   "distractor": "구름의 이동 경로를 지도화하기",
+   "blankDistractors": [
+    "살아 있는 어류의 울음 듣기",
+    "구름의 이동 경로를 지도화하기",
+    "해수면 위 풍속을 직접 측정하기"
+   ],
+   "explain": "겉면만 보면 놓치기 쉬운 층이나 내부 구조를 X선 영상으로 조사할 수 있습니다. 영상 자체만으로 모든 층의 절대 연대가 정해지는 것은 아닙니다.",
+   "wrong": {
+    "0": "X선 영상은 물고기 소리를 녹음하는 방법이 아닙니다.",
+    "3": "이 분석의 대상은 해저 퇴적물 코어입니다."
+   }
+  },
+  {
+   "id": 811,
+   "grade": "H1",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XII · https://static.un.org/Depts/los/convention_agreements/texts/unclos/part12.htm",
+   "quiz": 477,
+   "q": "협약 제196조는 외래종·신종의 도입 중 어떤 경우의 방지·감소·통제를 요구하나요?",
+   "choices": [
+    "어떤 변화도 일으키지 않는 모든 이동",
+    "종 이름을 다른 언어로 번역하는 행위",
+    "해양환경에 중대하고 유해한 변화를 일으킬 수 있는 도입",
+    "이미 서식하던 종의 자연 번식"
+   ],
+   "fact": "제196조가 규정한 도입 관리 대상은 [[해양환경에 중대하고 유해한 변화를 일으킬 수 있는 도입]]이다.",
+   "distractor": "이미 서식하던 종의 자연 번식",
+   "blankDistractors": [
+    "어떤 변화도 일으키지 않는 모든 이동",
+    "종 이름을 다른 언어로 번역하는 행위",
+    "이미 서식하던 종의 자연 번식"
+   ],
+   "explain": "조문은 특정 해양환경에 낯설거나 새로운 종을 고의 또는 우연히 들여오는 경우를 다룹니다. 모든 종 이동을 똑같이 금지하는 규정으로 읽으면 안 됩니다.",
+   "wrong": {
+    "1": "생물의 도입과 명칭 번역은 전혀 다른 행위입니다.",
+    "3": "조문이 말하는 유해한 종 도입과는 구별됩니다."
+   }
+  },
+  {
+   "id": 812,
+   "grade": "E6",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "『삼국통람도설』에는 지도가 몇 장쯤 실려 있을까요?",
+   "choices": [
+    "5000장",
+    "5장",
+    "50장",
+    "500장"
+   ],
+   "fact": "국회도서관 해제가 설명하는 『삼국통람도설』 수록 지도 수는 [[5장]]이다.",
+   "distractor": "4장",
+   "blankDistractors": [
+    "5000장",
+    "50장",
+    "500장"
+   ],
+   "explain": "독도 관련 지도로 알려진 삼국접양지도는 수록 지도 다섯 장 중 하나입니다. 유명한 한 장을 지도책 전체와 혼동하지 않아야 합니다.",
+   "wrong": {
+    "2": "해제에서 밝힌 수량보다 열 배 많습니다."
+   },
+   "group": "n400-483",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 813,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "국회도서관 해제에 따르면 『삼국통람도설』에는 지도가 모두 몇 장 실려 있나요?",
+   "choices": [
+    "5장",
+    "20장",
+    "10장",
+    "2장"
+   ],
+   "fact": "국회도서관 해제가 설명하는 『삼국통람도설』 수록 지도 수는 [[5장]]이다.",
+   "distractor": "4장",
+   "blankDistractors": [
+    "20장",
+    "10장",
+    "2장"
+   ],
+   "explain": "독도 관련 지도로 알려진 삼국접양지도는 수록 지도 다섯 장 중 하나입니다. 유명한 한 장을 지도책 전체와 혼동하지 않아야 합니다.",
+   "group": "n400-483",
+   "tierNote": "보통"
+  },
+  {
+   "id": 814,
+   "grade": "PHD1",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "국회도서관 해제가 밝힌 『삼국통람도설』 수록 지도 장수는?",
+   "choices": [
+    "5장",
+    "6장",
+    "7장",
+    "4장"
+   ],
+   "fact": "국회도서관 해제가 설명하는 『삼국통람도설』 수록 지도 수는 [[5장]]이다.",
+   "distractor": "4장",
+   "blankDistractors": [
+    "6장",
+    "7장",
+    "4장"
+   ],
+   "explain": "독도 관련 지도로 알려진 삼국접양지도는 수록 지도 다섯 장 중 하나입니다. 유명한 한 장을 지도책 전체와 혼동하지 않아야 합니다.",
+   "wrong": {
+    "3": "유명한 한 장 외에 나머지 네 장만 센 값입니다."
+   },
+   "group": "n400-483",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 815,
+   "grade": "K",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "1157년 울릉도에 사람이 살 수 있는지 살펴본 관리는 누구일까요?",
+   "choices": [
+    "신윤복",
+    "김유립",
+    "허준",
+    "이순신"
+   ],
+   "fact": "1157년 고려 의종의 명으로 울릉도의 거주 가능성을 조사한 관리는 [[김유립]]이다.",
+   "distractor": "김인우",
+   "blankDistractors": [
+    "신윤복",
+    "허준",
+    "이순신"
+   ],
+   "explain": "김유립은 섬의 지형과 촌락 흔적 등을 조사해 보고했습니다. 울릉도를 조사한 관리라고 해서 모두 같은 시대의 인물은 아닙니다.",
+   "group": "n400-484",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 816,
+   "grade": "H3",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "1157년 고려 의종의 명으로 울릉도의 거주 가능성을 조사한 관리는 누구인가요?",
+   "choices": [
+    "김유립",
+    "김부식",
+    "묘청",
+    "이자겸"
+   ],
+   "fact": "1157년 고려 의종의 명으로 울릉도의 거주 가능성을 조사한 관리는 [[김유립]]이다.",
+   "distractor": "김인우",
+   "blankDistractors": [
+    "김부식",
+    "묘청",
+    "이자겸"
+   ],
+   "explain": "김유립은 섬의 지형과 촌락 흔적 등을 조사해 보고했습니다. 울릉도를 조사한 관리라고 해서 모두 같은 시대의 인물은 아닙니다.",
+   "group": "n400-484",
+   "tierNote": "보통"
+  },
+  {
+   "id": 817,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "고려 의종의 명으로 울릉도 거주 가능성을 조사한 인물의 이름은?",
+   "choices": [
+    "장한상",
+    "김인우",
+    "이규원",
+    "김유립"
+   ],
+   "fact": "1157년 고려 의종의 명으로 울릉도의 거주 가능성을 조사한 관리는 [[김유립]]이다.",
+   "distractor": "김인우",
+   "blankDistractors": [
+    "장한상",
+    "김인우",
+    "이규원"
+   ],
+   "explain": "김유립은 섬의 지형과 촌락 흔적 등을 조사해 보고했습니다. 울릉도를 조사한 관리라고 해서 모두 같은 시대의 인물은 아닙니다.",
+   "wrong": {
+    "1": "김인우의 울릉도 관련 활동은 조선시대의 일입니다.",
+    "2": "1882년 조사로 알려진 인물과 고려시대 관리를 구분해야 합니다."
+   },
+   "group": "n400-484",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 818,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "2015년 독도에서 잡힌 망둑어에 붙은 우리말 이름은 무엇일까요?",
+   "choices": [
+    "괭이갈매기",
+    "큰홍합",
+    "섬기린초",
+    "독도얼룩망둑"
+   ],
+   "fact": "2015년 독도 표본 논문이 Astrabe fasciata에 제안한 국명은 [[독도얼룩망둑]]이다.",
+   "distractor": "흰줄망둑",
+   "blankDistractors": [
+    "괭이갈매기",
+    "큰홍합",
+    "섬기린초"
+   ],
+   "explain": "논문은 독도에서 채집한 표본을 한국 미기록종으로 보고하며 국명을 제안했습니다. 세계 최초 신종 발표와 국내 첫 기록은 구별해야 합니다.",
+   "group": "n400-485",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 819,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "2015년 독도 채집 표본 논문이 Astrabe fasciata에 제안한 한국 이름은 무엇인가요?",
+   "choices": [
+    "참돔",
+    "고등어",
+    "말쥐치",
+    "독도얼룩망둑"
+   ],
+   "fact": "2015년 독도 표본 논문이 Astrabe fasciata에 제안한 국명은 [[독도얼룩망둑]]이다.",
+   "distractor": "흰줄망둑",
+   "blankDistractors": [
+    "참돔",
+    "고등어",
+    "말쥐치"
+   ],
+   "explain": "논문은 독도에서 채집한 표본을 한국 미기록종으로 보고하며 국명을 제안했습니다. 세계 최초 신종 발표와 국내 첫 기록은 구별해야 합니다.",
+   "group": "n400-485",
+   "tierNote": "보통"
+  },
+  {
+   "id": 820,
+   "grade": "U1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "Astrabe fasciata 에 2015년 논문이 제안한 국명은?",
+   "choices": [
+    "독도얼룩망둑",
+    "흰줄망둑",
+    "꼬마청황",
+    "풀망둑"
+   ],
+   "fact": "2015년 독도 표본 논문이 Astrabe fasciata에 제안한 국명은 [[독도얼룩망둑]]이다.",
+   "distractor": "흰줄망둑",
+   "blankDistractors": [
+    "흰줄망둑",
+    "꼬마청황",
+    "풀망둑"
+   ],
+   "explain": "논문은 독도에서 채집한 표본을 한국 미기록종으로 보고하며 국명을 제안했습니다. 세계 최초 신종 발표와 국내 첫 기록은 구별해야 합니다.",
+   "wrong": {
+    "1": "해당 논문이 제안한 국명은 독도얼룩망둑입니다.",
+    "3": "같은 망둑어류라도 이 논문이 제안한 국명과는 다릅니다."
+   },
+   "group": "n400-485",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 821,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "울릉도 성인봉 원시림을 대표하는 나무는 무엇일까요?",
+   "choices": [
+    "참깨",
+    "보리",
+    "벼",
+    "너도밤나무"
+   ],
+   "fact": "성인봉 원시림의 대표적인 참나무과 수종은 [[너도밤나무]]이다.",
+   "distractor": "나도밤나무",
+   "blankDistractors": [
+    "참깨",
+    "보리",
+    "벼"
+   ],
+   "explain": "성인봉 원시림에는 너도밤나무 숲이 있습니다. 이름이 비슷하다는 이유만으로 나도밤나무와 같은 나무라고 생각하면 안 됩니다.",
+   "group": "n400-487",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 822,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "울릉도 성인봉 원시림의 대표 수종으로 소개되는 참나무과 나무는 무엇인가요?",
+   "choices": [
+    "소나무",
+    "은행나무",
+    "너도밤나무",
+    "동백나무"
+   ],
+   "fact": "성인봉 원시림의 대표적인 참나무과 수종은 [[너도밤나무]]이다.",
+   "distractor": "나도밤나무",
+   "blankDistractors": [
+    "소나무",
+    "은행나무",
+    "동백나무"
+   ],
+   "explain": "성인봉 원시림에는 너도밤나무 숲이 있습니다. 이름이 비슷하다는 이유만으로 나도밤나무와 같은 나무라고 생각하면 안 됩니다.",
+   "group": "n400-487",
+   "tierNote": "보통"
+  },
+  {
+   "id": 823,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "성인봉 원시림의 대표 수종으로 꼽히는 참나무과 나무는?",
+   "choices": [
+    "서어나무",
+    "밤나무",
+    "너도밤나무",
+    "나도밤나무"
+   ],
+   "fact": "성인봉 원시림의 대표적인 참나무과 수종은 [[너도밤나무]]이다.",
+   "distractor": "나도밤나무",
+   "blankDistractors": [
+    "서어나무",
+    "밤나무",
+    "나도밤나무"
+   ],
+   "explain": "성인봉 원시림에는 너도밤나무 숲이 있습니다. 이름이 비슷하다는 이유만으로 나도밤나무와 같은 나무라고 생각하면 안 됩니다.",
+   "wrong": {
+    "1": "너도밤나무라는 이름과 일반적인 밤나무를 구분해야 합니다.",
+    "3": "한 글자만 다른 이름이지만 다른 나무입니다."
+   },
+   "group": "n400-487",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 824,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "독도 서도 동쪽 바닷속에 기둥처럼 솟은 곳의 이름은 무엇일까요?",
+   "choices": [
+    "가거도",
+    "마라도",
+    "가지초",
+    "홍도"
+   ],
+   "fact": "서도 동쪽에서 수심 약 40m부터 8m까지 기둥처럼 솟은 수중암초의 이름은 [[가지초]]이다.",
+   "distractor": "전차바위",
+   "blankDistractors": [
+    "가거도",
+    "마라도",
+    "홍도"
+   ],
+   "explain": "독도의 중요한 지형은 물 위에 보이는 바위에만 한정되지 않습니다. 공식 어류 조사 소개는 가지초를 기둥형 수중암초로 설명합니다.",
+   "group": "n400-493",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 825,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "독도 서도 동쪽에서 수심 약 40m부터 8m까지 기둥처럼 솟은 수중암초는 무엇인가요?",
+   "choices": [
+    "가지초",
+    "공암",
+    "관음도",
+    "죽도"
+   ],
+   "fact": "서도 동쪽에서 수심 약 40m부터 8m까지 기둥처럼 솟은 수중암초의 이름은 [[가지초]]이다.",
+   "distractor": "전차바위",
+   "blankDistractors": [
+    "공암",
+    "관음도",
+    "죽도"
+   ],
+   "explain": "독도의 중요한 지형은 물 위에 보이는 바위에만 한정되지 않습니다. 공식 어류 조사 소개는 가지초를 기둥형 수중암초로 설명합니다.",
+   "wrong": {
+    "2": "울릉도 주변의 섬과 독도 수중암초를 혼동한 것입니다."
+   },
+   "group": "n400-493",
+   "tierNote": "보통"
+  },
+  {
+   "id": 826,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "수심 40m에서 8m까지 솟은 독도 서도 동쪽 수중암초의 이름은?",
+   "choices": [
+    "가지초",
+    "부채바위",
+    "전차바위",
+    "숫돌바위"
+   ],
+   "fact": "서도 동쪽에서 수심 약 40m부터 8m까지 기둥처럼 솟은 수중암초의 이름은 [[가지초]]이다.",
+   "distractor": "전차바위",
+   "blankDistractors": [
+    "부채바위",
+    "전차바위",
+    "숫돌바위"
+   ],
+   "explain": "독도의 중요한 지형은 물 위에 보이는 바위에만 한정되지 않습니다. 공식 어류 조사 소개는 가지초를 기둥형 수중암초로 설명합니다.",
+   "wrong": {
+    "2": "공식 설명에서 이 수중암초에 붙인 이름은 가지초입니다."
+   },
+   "group": "n400-493",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 827,
+   "grade": "E4",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "울릉도 칼데라 안에 다시 솟은 봉우리의 이름은 무엇일까요?",
+   "choices": [
+    "지리산",
+    "설악산",
+    "한라산",
+    "알봉"
+   ],
+   "fact": "울릉도 칼데라 형성 이후 내부 분출로 만들어진 중앙화구구는 [[알봉]]이다.",
+   "distractor": "성인봉",
+   "blankDistractors": [
+    "지리산",
+    "설악산",
+    "한라산"
+   ],
+   "explain": "알봉은 칼데라 형성 이후 그 안에서 생긴 화산체입니다. 섬의 최고봉과 칼데라 내부의 중앙화구구는 같은 지형이 아닙니다.",
+   "group": "n400-495",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 828,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "울릉도 칼데라 내부에서 다시 분출해 형성된 중앙화구구는 무엇인가요?",
+   "choices": [
+    "알봉",
+    "소백산",
+    "금오산",
+    "태백산"
+   ],
+   "fact": "울릉도 칼데라 형성 이후 내부 분출로 만들어진 중앙화구구는 [[알봉]]이다.",
+   "distractor": "성인봉",
+   "blankDistractors": [
+    "소백산",
+    "금오산",
+    "태백산"
+   ],
+   "explain": "알봉은 칼데라 형성 이후 그 안에서 생긴 화산체입니다. 섬의 최고봉과 칼데라 내부의 중앙화구구는 같은 지형이 아닙니다.",
+   "group": "n400-495",
+   "tierNote": "보통"
+  },
+  {
+   "id": 829,
+   "grade": "MA1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "울릉도 나리분지 안에 형성된 중앙화구구의 이름은?",
+   "choices": [
+    "송곳봉",
+    "성인봉",
+    "가두봉",
+    "알봉"
+   ],
+   "fact": "울릉도 칼데라 형성 이후 내부 분출로 만들어진 중앙화구구는 [[알봉]]이다.",
+   "distractor": "성인봉",
+   "blankDistractors": [
+    "송곳봉",
+    "성인봉",
+    "가두봉"
+   ],
+   "explain": "알봉은 칼데라 형성 이후 그 안에서 생긴 화산체입니다. 섬의 최고봉과 칼데라 내부의 중앙화구구는 같은 지형이 아닙니다.",
+   "wrong": {
+    "0": "해당 자료가 중앙화구구로 설명하는 봉우리는 알봉입니다.",
+    "1": "울릉도의 최고봉을 칼데라 내부의 알봉과 혼동한 것입니다."
+   },
+   "group": "n400-495",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 830,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "독도 바다 밑에 숲처럼 자라는 갈조류는 무엇일까요?",
+   "choices": [
+    "괭이갈매기",
+    "해국",
+    "참새",
+    "감태"
+   ],
+   "fact": "독도 해조 군락 자료의 Ecklonia cava에 해당하는 국명은 [[감태]]이다.",
+   "distractor": "대황",
+   "blankDistractors": [
+    "괭이갈매기",
+    "해국",
+    "참새"
+   ],
+   "explain": "국립수산과학원은 Ecklonia cava의 국명을 감태로 제시합니다. 여기서는 같은 이름으로 유통되기도 하는 녹조류가 아니라 이 학명의 갈조류를 뜻합니다.",
+   "group": "n400-496",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 831,
+   "grade": "H2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "독도 해조 군락 자료의 Ecklonia cava라는 학명에 해당하는 갈조류는 무엇인가요?",
+   "choices": [
+    "돌김",
+    "감태",
+    "우뭇가사리",
+    "파래"
+   ],
+   "fact": "독도 해조 군락 자료의 Ecklonia cava에 해당하는 국명은 [[감태]]이다.",
+   "distractor": "대황",
+   "blankDistractors": [
+    "돌김",
+    "우뭇가사리",
+    "파래"
+   ],
+   "explain": "국립수산과학원은 Ecklonia cava의 국명을 감태로 제시합니다. 여기서는 같은 이름으로 유통되기도 하는 녹조류가 아니라 이 학명의 갈조류를 뜻합니다.",
+   "group": "n400-496",
+   "tierNote": "보통"
+  },
+  {
+   "id": 832,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "독도 해조 군락 자료에서 Ecklonia cava 로 적힌 종의 우리말 이름은?",
+   "choices": [
+    "감태",
+    "미역",
+    "대황",
+    "다시마"
+   ],
+   "fact": "독도 해조 군락 자료의 Ecklonia cava에 해당하는 국명은 [[감태]]이다.",
+   "distractor": "대황",
+   "blankDistractors": [
+    "미역",
+    "대황",
+    "다시마"
+   ],
+   "explain": "국립수산과학원은 Ecklonia cava의 국명을 감태로 제시합니다. 여기서는 같은 이름으로 유통되기도 하는 녹조류가 아니라 이 학명의 갈조류를 뜻합니다.",
+   "wrong": {
+    "1": "갈조류라는 큰 분류가 같아도 같은 종은 아닙니다.",
+    "2": "독도 군락 자료에 함께 나올 수 있지만 학명이 다른 해조류입니다."
+   },
+   "group": "n400-496",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 833,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 497,
+   "q": "독도 해저 유공충 중 ‘집사지각’을 가진 종류는 껍질을 어떻게 만드나요?",
+   "choices": [
+    "해파리 촉수를 굳혀 붙임",
+    "물고기 뼈를 그대로 물려받음",
+    "햇빛을 직접 고체로 바꿈",
+    "퇴적물 입자를 모아 붙임"
+   ],
+   "fact": "집사지각을 가진 유공충의 껍질 형성 방식은 [[퇴적물 입자를 모아 붙임]]이다.",
+   "distractor": "해파리 촉수를 굳혀 붙임",
+   "blankDistractors": [
+    "해파리 촉수를 굳혀 붙임",
+    "물고기 뼈를 그대로 물려받음",
+    "햇빛을 직접 고체로 바꿈"
+   ],
+   "explain": "공식 간극동물 설명에는 석회질 껍질과 퇴적물이 엉겨 붙은 껍질이 구분되어 나옵니다. 모든 유공충이 같은 재료와 방식으로 껍질을 만드는 것은 아닙니다.",
+   "wrong": {
+    "0": "자료에서 말하는 재료는 퇴적물 입자입니다.",
+    "1": "다른 동물의 골격을 그대로 받는 방식이 아닙니다."
+   }
+  },
+  {
+   "id": 834,
+   "grade": "E6",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "「무변불유」는 어디에 실린 글일까요?",
+   "choices": [
+    "동의보감",
+    "훈민정음",
+    "대한매일신보",
+    "삼국사기"
+   ],
+   "fact": "독도 관련 기사 「무변불유」는 1906년 5월 1일 [[대한매일신보]]에 실려 있다.",
+   "distractor": "황성신문",
+   "blankDistractors": [
+    "동의보감",
+    "훈민정음",
+    "삼국사기"
+   ],
+   "explain": "대한매일신보는 「무변불유」에서 심흥택의 보고와 내부의 반응을 전했습니다. 비슷한 시기의 다른 신문 기사와 제목·발행일을 함께 대조해야 합니다.",
+   "group": "n400-308",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 835,
+   "grade": "M1",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "1906년 5월 1일 독도 관련 기사 「무변불유」를 실은 신문은 무엇인가요?",
+   "choices": [
+    "대한매일신보",
+    "한성순보",
+    "한성주보",
+    "독립신문"
+   ],
+   "fact": "독도 관련 기사 「무변불유」는 1906년 5월 1일 [[대한매일신보]]에 실려 있다.",
+   "distractor": "황성신문",
+   "blankDistractors": [
+    "한성순보",
+    "한성주보",
+    "독립신문"
+   ],
+   "explain": "대한매일신보는 「무변불유」에서 심흥택의 보고와 내부의 반응을 전했습니다. 비슷한 시기의 다른 신문 기사와 제목·발행일을 함께 대조해야 합니다.",
+   "group": "n400-308",
+   "tierNote": "보통"
+  },
+  {
+   "id": 836,
+   "grade": "PHD1",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "1906년 5월 1일자로 「무변불유」를 게재한 신문의 제호는?",
+   "choices": [
+    "만세보",
+    "대한매일신보",
+    "황성신문",
+    "제국신문"
+   ],
+   "fact": "독도 관련 기사 「무변불유」는 1906년 5월 1일 [[대한매일신보]]에 실려 있다.",
+   "distractor": "황성신문",
+   "blankDistractors": [
+    "만세보",
+    "황성신문",
+    "제국신문"
+   ],
+   "explain": "대한매일신보는 「무변불유」에서 심흥택의 보고와 내부의 반응을 전했습니다. 비슷한 시기의 다른 신문 기사와 제목·발행일을 함께 대조해야 합니다.",
+   "wrong": {
+    "2": "외교부 자료실에 실린 관련 기사는 1906년 5월 9일자로, 이 문항의 기사와 다릅니다.",
+    "3": "같은 1906년 5월 1일의 관련 보도가 있지만 「무변불유」와는 다른 기사입니다."
+   },
+   "group": "n400-308",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 837,
+   "grade": "PHD2",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "유엔 해양법 담당 부서 · United Nations Convention on the Law of the Sea, Part VI, Article 77(1)-(3): https://static.un.org/Depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 309,
+   "q": "유엔해양법협약상 연안국의 대륙붕 권리를 점유·선언과의 관계로 설명하면 무엇인가요?",
+   "choices": [
+    "공식 선언을 해야 생기는 권리",
+    "자원 개발을 해야 생기는 권리",
+    "실제 점유를 해야 생기는 권리",
+    "점유·선언에 의존하지 않는 권리"
+   ],
+   "fact": "유엔해양법협약상 연안국의 대륙붕 권리는 [[점유·선언에 의존하지 않는 권리]]다.",
+   "distractor": "실제 점유를 해야 생기는 권리",
+   "blankDistractors": [
+    "공식 선언을 해야 생기는 권리",
+    "자원 개발을 해야 생기는 권리",
+    "실제 점유를 해야 생기는 권리"
+   ],
+   "explain": "제77조 제3항은 대륙붕 권리가 실효적·관념적 점유나 명시적 선언에 의존하지 않는다고 정합니다. 이는 대륙붕 권리에 관한 원칙이지 섬의 영유권 취득 방법을 정한 조항은 아닙니다.",
+   "wrong": {
+    "0": "조문은 명시적 선언에도 의존하지 않는다고 규정합니다.",
+    "1": "연안국이 개발하지 않아도 그 권리가 없어지거나 누구나 개발할 수 있게 되지는 않습니다.",
+    "2": "대륙붕의 실효적 점유는 해당 권리가 성립하는 필수 조건이 아닙니다."
+   }
+  },
+  {
+   "id": 838,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "국제사법재판소 · Statute of the International Court of Justice, Article 41: https://icj-web.leman.un-icc.cloud/statute",
+   "quiz": 310,
+   "q": "국제사법재판소의 잠정조치는 최종 판결 전에 무엇을 하기 위한 조치인가요?",
+   "choices": [
+    "당사자 권리의 보전",
+    "국제조약 내용의 변경",
+    "소송 관할권의 자동 창설",
+    "당사국 책임의 최종 확정"
+   ],
+   "fact": "국제사법재판소 규정 제41조의 잠정조치는 [[당사자 권리의 보전]]을 목적으로 한다.",
+   "distractor": "당사국 책임의 최종 확정",
+   "blankDistractors": [
+    "국제조약 내용의 변경",
+    "소송 관할권의 자동 창설",
+    "당사국 책임의 최종 확정"
+   ],
+   "explain": "잠정조치는 최종 판결 전에 당사자의 권리가 훼손되는 것을 막기 위한 조치입니다. 잠정조치가 내려졌다는 사실만으로 본안의 승패가 확정되지는 않습니다.",
+   "wrong": {
+    "2": "잠정조치가 재판 권한을 자동으로 만들어 주는 것은 아닙니다.",
+    "3": "권리를 임시로 보호하는 절차와 본안의 최종 판단은 구분해야 합니다."
+   }
+  },
+  {
+   "id": 839,
+   "grade": "K",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "인공섬 둘레의 안전수역은 대략 어느 정도까지 둘 수 있을까요?",
+   "choices": [
+    "5000m",
+    "50m",
+    "500m",
+    "5m"
+   ],
+   "fact": "국제기준상 예외가 없을 때 인공섬 안전수역의 통상적인 거리 상한은 바깥 가장자리에서 [[500m]]이다.",
+   "distractor": "1000m",
+   "blankDistractors": [
+    "5000m",
+    "50m",
+    "5m"
+   ],
+   "explain": "제60조 제5항의 거리이며 시설 바깥 가장자리부터 잽니다. 국제적으로 허용된 예외와 개별 안전수역의 실제 폭은 별도입니다.",
+   "wrong": {
+    "1": "통상 상한의 10분의 1입니다."
+   },
+   "group": "n400-408",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 840,
+   "grade": "M2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "유엔해양법협약 제60조에서 특별한 국제기준 예외가 없을 때 인공섬 안전수역의 최대 거리는 얼마인가요?",
+   "choices": [
+    "2000m",
+    "500m",
+    "1000m",
+    "250m"
+   ],
+   "fact": "국제기준상 예외가 없을 때 인공섬 안전수역의 통상적인 거리 상한은 바깥 가장자리에서 [[500m]]이다.",
+   "distractor": "1000m",
+   "blankDistractors": [
+    "2000m",
+    "1000m",
+    "250m"
+   ],
+   "explain": "제60조 제5항의 거리이며 시설 바깥 가장자리부터 잽니다. 국제적으로 허용된 예외와 개별 안전수역의 실제 폭은 별도입니다.",
+   "wrong": {
+    "2": "통상 상한의 두 배입니다."
+   },
+   "group": "n400-408",
+   "tierNote": "보통"
+  },
+  {
+   "id": 841,
+   "grade": "U3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "협약 제60조가 정한 안전수역의 통상 상한 거리는?",
+   "choices": [
+    "500m",
+    "550m",
+    "450m",
+    "600m"
+   ],
+   "fact": "국제기준상 예외가 없을 때 인공섬 안전수역의 통상적인 거리 상한은 바깥 가장자리에서 [[500m]]이다.",
+   "distractor": "1000m",
+   "blankDistractors": [
+    "550m",
+    "450m",
+    "600m"
+   ],
+   "explain": "제60조 제5항의 거리이며 시설 바깥 가장자리부터 잽니다. 국제적으로 허용된 예외와 개별 안전수역의 실제 폭은 별도입니다.",
+   "group": "n400-408",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 842,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 409,
+   "q": "유엔해양법협약상 적법하게 시작한 추적권은 피추적선이 어디에 들어가면 종료되나요?",
+   "choices": [
+    "추적국의 접속수역",
+    "공해의 첫 구간",
+    "추적국의 배타적 경제수역",
+    "피추적선의 기국 또는 제3국의 영해"
+   ],
+   "fact": "피추적선이 [[피추적선의 기국 또는 제3국의 영해]]에 들어가면 협약상 추적권이 종료된다.",
+   "distractor": "추적국의 배타적 경제수역",
+   "blankDistractors": [
+    "추적국의 접속수역",
+    "공해의 첫 구간",
+    "추적국의 배타적 경제수역"
+   ],
+   "explain": "제111조 제3항의 종료 조건입니다. 공해에 나왔다는 이유만으로 적법한 추적이 곧바로 끝나는 것은 아닙니다.",
+   "wrong": {
+    "0": "조문에 적힌 종료 지점이 아닙니다.",
+    "1": "적법한 추적은 요건을 지키면 공해에서도 이어질 수 있습니다."
+   }
+  },
+  {
+   "id": 843,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 410,
+   "q": "유엔해양법협약에서 선박의 국적을 정하는 '기국'은 어떤 나라인가요?",
+   "choices": [
+    "그 선박에 자국 국기 게양권을 부여한 나라",
+    "화물을 구입한 나라",
+    "선장이 태어난 나라",
+    "가장 가까운 항구가 있는 나라"
+   ],
+   "fact": "선박의 기국은 [[그 선박에 자국 국기 게양권을 부여한 나라]]이다.",
+   "distractor": "선장이 태어난 나라",
+   "blankDistractors": [
+    "화물을 구입한 나라",
+    "선장이 태어난 나라",
+    "가장 가까운 항구가 있는 나라"
+   ],
+   "explain": "제91조는 국기 게양권을 부여한 국가의 국적을 선박이 가진다고 정합니다. 선장 국적이나 항해 목적지와는 구분됩니다.",
+   "wrong": {
+    "2": "선박과 선장은 국적이 다를 수 있습니다.",
+    "3": "항구와의 거리는 선박 국적의 기준이 아닙니다."
+   }
+  },
+  {
+   "id": 844,
+   "grade": "MA2",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XVI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+   "quiz": 419,
+   "q": "유엔해양법협약 제303조는 바다에서 발견한 고고학·역사적 물건에 관해 국가에 어떤 의무를 두나요?",
+   "choices": [
+    "현재 이용 가치만 평가할 의무",
+    "발견자에게 무조건 소유권을 줄 의무",
+    "보호하고 이를 위해 협력할 의무",
+    "즉시 경매로 처분할 의무"
+   ],
+   "fact": "해양의 고고학·역사적 물건에 관해 제303조가 정하는 것은 [[보호하고 이를 위해 협력할 의무]]이다.",
+   "distractor": "즉시 경매로 처분할 의무",
+   "blankDistractors": [
+    "현재 이용 가치만 평가할 의무",
+    "발견자에게 무조건 소유권을 줄 의무",
+    "즉시 경매로 처분할 의무"
+   ],
+   "explain": "조문은 보호와 협력을 강조합니다. 발견 사실만으로 누구에게나 무제한 처분권이 생긴다는 뜻은 아닙니다.",
+   "wrong": {
+    "1": "조문은 발견자의 무조건적인 취득을 규정하지 않습니다.",
+    "3": "보호 의무를 즉시 판매 의무로 바꾼 오답입니다."
+   }
+  },
+  {
+   "id": 845,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 420,
+   "q": "독도 주변 퇴적물을 기둥 모양으로 채취하는 코어 조사가 특히 유용한 목적은 무엇인가요?",
+   "choices": [
+    "층별 기록으로 과거 환경 변화 살피기",
+    "하늘의 구름 높이만 재기",
+    "현재 바람의 방향만 재기",
+    "표면 파도의 주기만 재기"
+   ],
+   "fact": "퇴적물 코어를 층별로 분석하는 주요 목적은 [[층별 기록으로 과거 환경 변화 살피기]]이다.",
+   "distractor": "현재 바람의 방향만 재기",
+   "blankDistractors": [
+    "하늘의 구름 높이만 재기",
+    "현재 바람의 방향만 재기",
+    "표면 파도의 주기만 재기"
+   ],
+   "explain": "퇴적층은 서로 다른 시기의 기록을 담을 수 있습니다. 코어는 해저 표면만 보는 조사와 다른 시간 정보를 제공합니다.",
+   "wrong": {
+    "1": "대기 관측과 해저 퇴적층 분석을 혼동한 것입니다.",
+    "3": "파도 주기는 퇴적물 코어의 층별 분석 대상과 다릅니다."
+   }
+  },
+  {
+   "id": 846,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "독도긴털용선충이 새 종으로 보고된 것은 몇 년대일까요?",
+   "choices": [
+    "2010년",
+    "1810년",
+    "1710년",
+    "1910년"
+   ],
+   "fact": "독도긴털용선충이 신종으로 보고된 연구의 발표 연도는 [[2010년]]이다.",
+   "distractor": "2009년",
+   "blankDistractors": [
+    "1810년",
+    "1710년",
+    "1910년"
+   ],
+   "explain": "독도종합정보시스템은 2010년 3월 논문 발표를 소개합니다. 논문 발표 연도와 생물이 처음 생겨난 시기는 전혀 다른 것입니다.",
+   "group": "n400-429",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 847,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "독도긴털용선충이 신종으로 보고된 연구의 발표 연도는 언제인가요?",
+   "choices": [
+    "1970년",
+    "1990년",
+    "2030년",
+    "2010년"
+   ],
+   "fact": "독도긴털용선충이 신종으로 보고된 연구의 발표 연도는 [[2010년]]이다.",
+   "distractor": "2009년",
+   "blankDistractors": [
+    "1970년",
+    "1990년",
+    "2030년"
+   ],
+   "explain": "독도종합정보시스템은 2010년 3월 논문 발표를 소개합니다. 논문 발표 연도와 생물이 처음 생겨난 시기는 전혀 다른 것입니다.",
+   "wrong": {
+    "1": "보고된 발표 시점보다 20년 이릅니다."
+   },
+   "group": "n400-429",
+   "tierNote": "보통"
+  },
+  {
+   "id": 848,
+   "grade": "PHD2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "Prochaetosoma dokdoense 신종 기재 논문의 발표 연도를 정확히 고르면?",
+   "choices": [
+    "2011년",
+    "2008년",
+    "2009년",
+    "2010년"
+   ],
+   "fact": "독도긴털용선충이 신종으로 보고된 연구의 발표 연도는 [[2010년]]이다.",
+   "distractor": "2009년",
+   "blankDistractors": [
+    "2011년",
+    "2008년",
+    "2009년"
+   ],
+   "explain": "독도종합정보시스템은 2010년 3월 논문 발표를 소개합니다. 논문 발표 연도와 생물이 처음 생겨난 시기는 전혀 다른 것입니다.",
+   "wrong": {
+    "2": "소개된 논문의 발표 연도보다 1년 이릅니다."
+   },
+   "group": "n400-429",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 849,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XII · https://static.un.org/Depts/los/convention_agreements/texts/unclos/part12.htm",
+   "quiz": 430,
+   "q": "해양오염이 다른 나라에 피해를 줄 급박한 위험을 알게 된 국가는 제198조상 무엇을 해야 하나요?",
+   "choices": [
+    "정화가 끝난 뒤에만 통보",
+    "자국 선박에만 비공개 통보",
+    "피해 배상이 끝난 뒤 통보",
+    "영향받을 나라와 관련 국제기구에 즉시 통보"
+   ],
+   "fact": "제198조가 요구하는 대응은 [[영향받을 나라와 관련 국제기구에 즉시 통보]]하는 것이다.",
+   "distractor": "정화가 끝난 뒤에만 통보",
+   "blankDistractors": [
+    "정화가 끝난 뒤에만 통보",
+    "자국 선박에만 비공개 통보",
+    "피해 배상이 끝난 뒤 통보"
+   ],
+   "explain": "위험을 알게 된 때 신속한 정보 공유가 필요합니다. 정화나 배상 완료를 통보의 선행 조건으로 두지 않습니다.",
+   "wrong": {
+    "0": "즉시 통보 원칙을 불필요하게 늦춘 것입니다.",
+    "1": "영향받을 다른 국가와 관련 국제기구가 빠져 있습니다."
+   }
+  },
+  {
+   "id": 850,
+   "grade": "U3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 440,
+   "q": "대륙붕에 해저 파이프라인을 놓을 때 경로 획정은 제79조상 누구의 동의를 받아야 하나요?",
+   "choices": [
+    "연안국",
+    "모든 유엔 회원국",
+    "선원들의 출신국",
+    "배관 제작국"
+   ],
+   "fact": "대륙붕 해저 파이프라인의 경로 획정에 동의권을 가진 주체는 [[연안국]]이다.",
+   "distractor": "배관 제작국",
+   "blankDistractors": [
+    "모든 유엔 회원국",
+    "선원들의 출신국",
+    "배관 제작국"
+   ],
+   "explain": "제79조 제3항은 파이프라인의 경로 획정에 관한 조항입니다. 이를 모든 해저 케이블에 같은 방식으로 적용한다고 단정하면 안 됩니다.",
+   "wrong": {
+    "1": "모든 회원국의 만장일치가 필요한 절차가 아닙니다.",
+    "3": "제조 장소는 조문상의 동의권 기준이 아닙니다."
+   }
+  },
+  {
+   "id": 851,
+   "grade": "E2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "유엔해양법협약은 몇 년대에 만들어졌을까요?",
+   "choices": [
+    "1782년",
+    "1982년",
+    "1882년",
+    "1682년"
+   ],
+   "fact": "몬테고베이에서 유엔해양법협약이 체결된 해는 [[1982년]]이다.",
+   "distractor": "1983년",
+   "blankDistractors": [
+    "1782년",
+    "1882년",
+    "1682년"
+   ],
+   "explain": "체결일은 1982년 12월 10일입니다. 국제 발효나 특정 국가에 대한 발효 시점과는 구분해야 합니다.",
+   "group": "n400-450",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 852,
+   "grade": "H1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "현재의 유엔해양법협약이 몬테고베이에서 체결된 해는 언제인가요?",
+   "choices": [
+    "1982년",
+    "1942년",
+    "2002년",
+    "1962년"
+   ],
+   "fact": "몬테고베이에서 유엔해양법협약이 체결된 해는 [[1982년]]이다.",
+   "distractor": "1983년",
+   "blankDistractors": [
+    "1942년",
+    "2002년",
+    "1962년"
+   ],
+   "explain": "체결일은 1982년 12월 10일입니다. 국제 발효나 특정 국가에 대한 발효 시점과는 구분해야 합니다.",
+   "wrong": {
+    "3": "체결 연도보다 20년 이릅니다."
+   },
+   "group": "n400-450",
+   "tierNote": "보통"
+  },
+  {
+   "id": 853,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "몬테고베이에서 협약이 채택·서명된 해를 정확히 고르면?",
+   "choices": [
+    "1981년",
+    "1980년",
+    "1983년",
+    "1982년"
+   ],
+   "fact": "몬테고베이에서 유엔해양법협약이 체결된 해는 [[1982년]]이다.",
+   "distractor": "1983년",
+   "blankDistractors": [
+    "1981년",
+    "1980년",
+    "1983년"
+   ],
+   "explain": "체결일은 1982년 12월 10일입니다. 국제 발효나 특정 국가에 대한 발효 시점과는 구분해야 합니다.",
+   "wrong": {
+    "2": "체결 연도보다 1년 늦습니다."
+   },
+   "group": "n400-450",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 854,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "ITLOS · M/V Saiga, dissenting opinion reproducing UNCLOS Article 73 in paragraph 4 · https://itlos.org/fileadmin/itlos/documents/cases/1/C1-J-4_Dec_97-DO_PNCVN.pdf",
+   "quiz": 459,
+   "q": "유엔해양법협약 제73조상 EEZ 어업 단속으로 나포한 선박·선원의 신속한 석방과 연결되는 조건은?",
+   "choices": [
+    "모든 어획물을 국제기구에 기부",
+    "선원의 영구 이민 신청",
+    "선박의 연안국 국적 취득",
+    "합리적 보증금 또는 다른 보증의 제공"
+   ],
+   "fact": "제73조가 나포 선박·선원의 신속한 석방과 연결하는 조건은 [[합리적 보증금 또는 다른 보증의 제공]]이다.",
+   "distractor": "선박의 연안국 국적 취득",
+   "blankDistractors": [
+    "모든 어획물을 국제기구에 기부",
+    "선원의 영구 이민 신청",
+    "선박의 연안국 국적 취득"
+   ],
+   "explain": "제73조 제2항은 합리적인 보증금이나 다른 보증을 제공하면 신속히 석방하도록 정합니다. 이는 위반 혐의가 자동으로 사라진다는 뜻은 아닙니다.",
+   "wrong": {
+    "1": "이민 신청이 아니라 보증금 또는 다른 보증에 관한 규정입니다.",
+    "2": "선박 국적의 변경을 석방 조건으로 정한 조항이 아닙니다."
+   }
+  },
+  {
+   "id": 855,
+   "grade": "MA2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XIII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 460,
+   "q": "협약 제261조상 해양과학조사 장비는 기존 국제항로에서 무엇을 일으켜서는 안 되나요?",
+   "choices": [
+    "연구 자료의 기록",
+    "항행에 대한 장애",
+    "장비 위치의 공개",
+    "수온 자료의 관측"
+   ],
+   "fact": "해양과학조사 장비가 기존 국제항로에서 일으켜서는 안 되는 것은 [[항행에 대한 장애]]이다.",
+   "distractor": "수온 자료의 관측",
+   "blankDistractors": [
+    "연구 자료의 기록",
+    "장비 위치의 공개",
+    "수온 자료의 관측"
+   ],
+   "explain": "연구 목적이라고 해서 항로를 막아도 되는 것은 아닙니다. 제261조는 장비 설치·이용과 항행의 관계를 규정합니다.",
+   "wrong": {
+    "2": "위치를 알리는 행위를 금지한 조문이 아닙니다.",
+    "3": "관측 자체가 아니라 항행을 방해하는 배치·이용을 문제 삼는 조항입니다."
+   }
+  },
+  {
+   "id": 856,
+   "grade": "PHD1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 470,
+   "q": "협약 제81조상 대륙붕 시추의 허가·규제에 관한 배타적 권리는 누구에게 있나요?",
+   "choices": [
+    "해당 연안국",
+    "해저 지도를 먼저 만든 기관",
+    "시추선을 먼저 보낸 국가",
+    "시추 장비를 판매한 기업"
+   ],
+   "fact": "대륙붕에서 모든 목적의 시추를 허가·규제하는 배타적 권리의 주체는 [[해당 연안국]]이다.",
+   "distractor": "시추선을 먼저 보낸 국가",
+   "blankDistractors": [
+    "해저 지도를 먼저 만든 기관",
+    "시추선을 먼저 보낸 국가",
+    "시추 장비를 판매한 기업"
+   ],
+   "explain": "제81조는 시추 목적에 관계없이 연안국의 배타적 허가·규제권을 정합니다. 먼저 배를 보냈다는 사실이 그 권리를 대체하지 않습니다.",
+   "wrong": {
+    "2": "선착순으로 시추 허가권을 배정하는 규칙이 아닙니다.",
+    "3": "장비 판매자와 법적 권한을 가진 주체는 다릅니다."
+   }
+  },
+  {
+   "id": 857,
+   "grade": "PHD2",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XIII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 479,
+   "q": "협약 제241조상 해양과학조사 활동 자체가 될 수 없는 것은 무엇인가요?",
+   "choices": [
+    "해양 현상을 설명하는 관측 자료",
+    "수온 변화를 비교하는 과학 자료",
+    "해양환경·자원에 대한 권리 주장의 법적 근거",
+    "후속 연구를 설계하는 참고 자료"
+   ],
+   "fact": "제241조상 해양과학조사 자체는 [[해양환경·자원에 대한 권리 주장의 법적 근거]]가 될 수 없다.",
+   "distractor": "수온 변화를 비교하는 과학 자료",
+   "blankDistractors": [
+    "해양 현상을 설명하는 관측 자료",
+    "수온 변화를 비교하는 과학 자료",
+    "후속 연구를 설계하는 참고 자료"
+   ],
+   "explain": "과학조사와 그 장소·자원에 대한 법적 권리의 취득은 구분됩니다. 조사선이 먼저 갔다는 사실만으로 해당 권리를 얻는 것은 아닙니다.",
+   "wrong": {
+    "0": "과학 자료를 만드는 것과 법적 권리의 근거를 만드는 것은 다릅니다.",
+    "1": "수온 비교 자료의 과학적 이용을 금지하는 조항이 아닙니다."
+   }
+  },
+  {
+   "id": 858,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 489,
+   "q": "협약 제92조상 편의에 따라 둘 이상의 국기를 번갈아 쓰는 선박은 어떻게 취급될 수 있나요?",
+   "choices": [
+    "유엔 소속 선박으로 자동 등록",
+    "모든 해역에서 면책 보장",
+    "모든 국적의 동시 보장",
+    "무국적 선박과 같은 취급"
+   ],
+   "fact": "편의에 따라 둘 이상의 국기를 번갈아 쓰는 선박에 가능한 제92조상 처리는 [[무국적 선박과 같은 취급]]이다.",
+   "distractor": "모든 국적의 동시 보장",
+   "blankDistractors": [
+    "유엔 소속 선박으로 자동 등록",
+    "모든 해역에서 면책 보장",
+    "모든 국적의 동시 보장"
+   ],
+   "explain": "제92조 제2항은 이런 선박이 다른 국가에 대해 그 국적을 주장하지 못하며 무국적선처럼 취급될 수 있다고 정합니다. 합법적인 국적 변경과는 구분해야 합니다.",
+   "wrong": {
+    "0": "유엔 선박으로 자동 전환되는 제도가 아닙니다.",
+    "2": "조문은 여러 국적의 동시 보장을 규정하지 않습니다."
+   }
+  },
+  {
+   "id": 859,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "독도 기상장비가 ASOS로 바뀐 것은 몇 년대일까요?",
+   "choices": [
+    "1709년",
+    "1909년",
+    "1809년",
+    "2009년"
+   ],
+   "fact": "독도의 AWS를 종관기상관측장비인 ASOS로 교체한 해는 [[2009년]]이다.",
+   "distractor": "2008년",
+   "blankDistractors": [
+    "1709년",
+    "1909년",
+    "1809년"
+   ],
+   "explain": "공식 기상관측 설명은 2009년 12월 ASOS 교체를 기록합니다. 최초 자동 관측 시작과 이후 장비 교체를 구분하는 문제입니다.",
+   "group": "n400-498",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 860,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "독도 기상관측장비를 AWS에서 ASOS로 교체한 해는 언제인가요?",
+   "choices": [
+    "1969년",
+    "1989년",
+    "2029년",
+    "2009년"
+   ],
+   "fact": "독도의 AWS를 종관기상관측장비인 ASOS로 교체한 해는 [[2009년]]이다.",
+   "distractor": "2008년",
+   "blankDistractors": [
+    "1969년",
+    "1989년",
+    "2029년"
+   ],
+   "explain": "공식 기상관측 설명은 2009년 12월 ASOS 교체를 기록합니다. 최초 자동 관측 시작과 이후 장비 교체를 구분하는 문제입니다.",
+   "group": "n400-498",
+   "tierNote": "보통"
+  },
+  {
+   "id": 861,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "독도 관측장비를 AWS에서 ASOS로 교체한 해를 정확히 고르면?",
+   "choices": [
+    "2008년",
+    "2010년",
+    "2009년",
+    "2007년"
+   ],
+   "fact": "독도의 AWS를 종관기상관측장비인 ASOS로 교체한 해는 [[2009년]]이다.",
+   "distractor": "2008년",
+   "blankDistractors": [
+    "2008년",
+    "2010년",
+    "2007년"
+   ],
+   "explain": "공식 기상관측 설명은 2009년 12월 ASOS 교체를 기록합니다. 최초 자동 관측 시작과 이후 장비 교체를 구분하는 문제입니다.",
+   "wrong": {
+    "0": "기록된 교체보다 1년 빠릅니다.",
+    "1": "ASOS 교체보다 1년 뒤입니다."
+   },
+   "group": "n400-498",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 862,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XVI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+   "quiz": 499,
+   "q": "유엔해양법협약 제300조가 권리 행사와 의무 이행에 함께 요구하는 태도는 무엇인가요?",
+   "choices": [
+    "모든 권리의 무조건적 포기",
+    "국익을 이유로 모든 의무 면제",
+    "선착순에 따른 무제한 권리 행사",
+    "신의성실한 이행과 권리남용 방지"
+   ],
+   "fact": "유엔해양법협약 제300조가 요구하는 원칙은 [[신의성실한 이행과 권리남용 방지]]이다.",
+   "distractor": "선착순에 따른 무제한 권리 행사",
+   "blankDistractors": [
+    "모든 권리의 무조건적 포기",
+    "국익을 이유로 모든 의무 면제",
+    "선착순에 따른 무제한 권리 행사"
+   ],
+   "explain": "권리가 있다는 것과 그 권리를 아무 방식으로나 행사해도 된다는 것은 다릅니다. 협약은 의무의 성실한 이행과 남용 없는 권리 행사를 요구합니다.",
+   "wrong": {
+    "0": "권리를 없애는 것이 아니라 행사 방식을 규율하는 원칙입니다.",
+    "1": "국익을 내세워 모든 의무를 면제하는 조항이 아닙니다."
+   }
+  },
+  {
+   "id": 863,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 500,
+   "q": "협약 제77조의 대륙붕 자원에 포함되는 ‘정착성 생물’의 판단 기준은 무엇인가요?",
+   "choices": [
+    "표층에서 해저 접촉 없이 자유로운 유영",
+    "일생 동안 반드시 바다 위를 날아다님",
+    "채취 단계의 부동성 또는 이동 중 지속적인 해저 접촉",
+    "번식 때마다 육지 하천으로 이동"
+   ],
+   "fact": "제77조가 정한 정착성 생물의 기준은 [[채취 단계의 부동성 또는 이동 중 지속적인 해저 접촉]]이다.",
+   "distractor": "표층에서 해저 접촉 없이 자유로운 유영",
+   "blankDistractors": [
+    "표층에서 해저 접촉 없이 자유로운 유영",
+    "일생 동안 반드시 바다 위를 날아다님",
+    "번식 때마다 육지 하천으로 이동"
+   ],
+   "explain": "조문은 채취 가능한 단계에서 해저에 붙어 있거나 접촉 없이 움직일 수 없는 생물을 말합니다. 대륙붕 위의 모든 물고기를 포함한다는 뜻은 아닙니다.",
+   "wrong": {
+    "0": "해저와의 지속 접촉을 요구하는 정착성 기준과 다릅니다.",
+    "3": "번식 이동이 아니라 채취 가능 단계의 해저 접촉·이동 특성을 봅니다."
+   }
   }
  ],
- "dataset_id": "dokdo-school-413-20260906"
+ "dataset_id": "dokdo-school-603-20260906"
 }

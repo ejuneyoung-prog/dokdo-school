@@ -1,9 +1,9 @@
 {
- "version": "2026-09-06.413-en",
+ "version": "2026-09-06.603",
  "updated": "2026-09-06",
  "language": "en",
- "source_version": "2026-09-06.327.1",
- "count": 413,
+ "source_version": "2026-09-06.603",
+ "count": 603,
  "note": "English counterpart of the requested 227+100 merge. Same app IDs, grades, answer indices, and scoring seeds as the Korean edition. Publication numbers remain separate. No question has been removed from the requested inputs.",
  "questions": [
   {
@@ -13709,9 +13709,5664 @@
    },
    "gradeNote": "App placement retained from the previous English expansion: Easy=M1, Medium=H1, Hard=U1. Editorial mapping, not a measured age level.",
    "source_batch": "DKC-0201-0300"
+  },
+  {
+   "id": 674,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "Roughly how often does the light at Dokdo Lighthouse flash?",
+   "choices": [
+    "1000 seconds",
+    "100 seconds",
+    "10 seconds",
+    "1 second"
+   ],
+   "fact": "At Dokdo Lighthouse, [[10 seconds]] separate successive white flashes.",
+   "distractor": "20 seconds",
+   "blankDistractors": [
+    "1000 seconds",
+    "100 seconds",
+    "1 second"
+   ],
+   "explain": "The official light characteristic is one white flash every 10 seconds. Flash timing and the distance the light reaches are different measurements.",
+   "wrong": {
+    "3": "This would make the flashes ten times as frequent as specified."
+   },
+   "group": "n400-301",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 675,
+   "grade": "M2",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "How many seconds apart are the white flashes of Dokdo Lighthouse?",
+   "choices": [
+    "10 seconds",
+    "40 seconds",
+    "5 seconds",
+    "20 seconds"
+   ],
+   "fact": "At Dokdo Lighthouse, [[10 seconds]] separate successive white flashes.",
+   "distractor": "20 seconds",
+   "blankDistractors": [
+    "40 seconds",
+    "5 seconds",
+    "20 seconds"
+   ],
+   "explain": "The official light characteristic is one white flash every 10 seconds. Flash timing and the distance the light reaches are different measurements.",
+   "wrong": {
+    "3": "This interval is twice the official 10-second period."
+   },
+   "group": "n400-301",
+   "tierNote": "보통"
+  },
+  {
+   "id": 676,
+   "grade": "PHD1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부 포항지방해양수산청 · 독도항로표지관리소 · 등대기능의 등질 항목: https://pohang.mof.go.kr/ko/page.do?menuIdx=2931",
+   "quiz": 301,
+   "q": "What is the exact official flash period of Dokdo Lighthouse's white light?",
+   "choices": [
+    "9 seconds",
+    "12 seconds",
+    "10 seconds",
+    "8 seconds"
+   ],
+   "fact": "At Dokdo Lighthouse, [[10 seconds]] separate successive white flashes.",
+   "distractor": "20 seconds",
+   "blankDistractors": [
+    "9 seconds",
+    "12 seconds",
+    "8 seconds"
+   ],
+   "explain": "The official light characteristic is one white flash every 10 seconds. Flash timing and the distance the light reaches are different measurements.",
+   "group": "n400-301",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 677,
+   "grade": "E4",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "환경부 · 대한민국 정책브리핑 · 울릉도·독도·제주도 첫 국가지질공원 인증(2012-12-27): https://m.korea.kr/news/policyNewsView.do?newsId=148754196",
+   "quiz": 302,
+   "q": "Which natural-heritage program first certified Ulleungdo and Dokdo in 2012?",
+   "choices": [
+    "National Geopark",
+    "Natural World Heritage Site",
+    "Biosphere Reserve",
+    "National Park"
+   ],
+   "fact": "Ulleungdo and Dokdo received [[National Geopark]] certification in 2012.",
+   "distractor": "National Park",
+   "blankDistractors": [
+    "Natural World Heritage Site",
+    "Biosphere Reserve",
+    "National Park"
+   ],
+   "explain": "Ulleungdo and Dokdo became a National Geopark in 2012. The program combines geological conservation with education and tourism.",
+   "wrong": {
+    "1": "The question concerns a national geopark certification, not World Heritage inscription.",
+    "3": "National Park designation is different from National Geopark certification."
+   }
+  },
+  {
+   "id": 678,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "About how long is one nautical mile?",
+   "choices": [
+    "18520 m",
+    "185.2 m",
+    "18.52 m",
+    "1852 m"
+   ],
+   "fact": "One international nautical mile is defined as [[1852 m]] in length.",
+   "distractor": "3704 m",
+   "blankDistractors": [
+    "18520 m",
+    "185.2 m",
+    "18.52 m"
+   ],
+   "explain": "Nautical miles measure distances at sea. A nautical mile is not the same length as a land mile.",
+   "wrong": {
+    "1": "This is one tenth of the correct length."
+   },
+   "group": "n400-401",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 679,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "Exactly how many meters are in one international nautical mile?",
+   "choices": [
+    "2778 m",
+    "1852 m",
+    "926 m",
+    "3704 m"
+   ],
+   "fact": "One international nautical mile is defined as [[1852 m]] in length.",
+   "distractor": "3704 m",
+   "blankDistractors": [
+    "2778 m",
+    "926 m",
+    "3704 m"
+   ],
+   "explain": "Nautical miles measure distances at sea. A nautical mile is not the same length as a land mile.",
+   "wrong": {
+    "3": "This is the length of two nautical miles."
+   },
+   "group": "n400-401",
+   "tierNote": "보통"
+  },
+  {
+   "id": 680,
+   "grade": "PHD2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 401,
+   "q": "Give the defined length of the international nautical mile in meters.",
+   "choices": [
+    "1852 m",
+    "1850 m",
+    "1860 m",
+    "1800 m"
+   ],
+   "fact": "One international nautical mile is defined as [[1852 m]] in length.",
+   "distractor": "3704 m",
+   "blankDistractors": [
+    "1850 m",
+    "1860 m",
+    "1800 m"
+   ],
+   "explain": "Nautical miles measure distances at sea. A nautical mile is not the same length as a land mile.",
+   "group": "n400-401",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 681,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 402,
+   "q": "Which wind direction is typical of winter on Dokdo, according to the Dokdo information system?",
+   "choices": [
+    "southeasterly winds",
+    "southwesterly winds",
+    "northeasterly winds",
+    "northwesterly winds"
+   ],
+   "fact": "[[Northwesterly winds]] are the prevailing winter winds on Dokdo.",
+   "distractor": "Southeasterly winds",
+   "blankDistractors": [
+    "southeasterly winds",
+    "southwesterly winds",
+    "northeasterly winds"
+   ],
+   "explain": "Northwesterly winds prevail in winter. A prevailing direction does not describe every gust.",
+   "wrong": {
+    "0": "The source associates this direction with summer.",
+    "1": "This confuses a summer wind direction with the winter pattern."
+   }
+  },
+  {
+   "id": 682,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "Roughly when did people begin living at Dokdo Lighthouse?",
+   "choices": [
+    "1698",
+    "1998",
+    "1798",
+    "1898"
+   ],
+   "fact": "Dokdo Lighthouse became a staffed lighthouse in [[1998]] with resident keepers.",
+   "distractor": "1997",
+   "blankDistractors": [
+    "1698",
+    "1798",
+    "1898"
+   ],
+   "explain": "Its first lighting and its conversion to staffed operation are different events. The maritime office dates the latter to December 1998.",
+   "group": "n400-411",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 683,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "In which year did Dokdo Lighthouse become a staffed lighthouse?",
+   "choices": [
+    "1998",
+    "1958",
+    "2018",
+    "1978"
+   ],
+   "fact": "Dokdo Lighthouse became a staffed lighthouse in [[1998]] with resident keepers.",
+   "distractor": "1997",
+   "blankDistractors": [
+    "1958",
+    "2018",
+    "1978"
+   ],
+   "explain": "Its first lighting and its conversion to staffed operation are different events. The maritime office dates the latter to December 1998.",
+   "wrong": {
+    "3": "This is twenty years before staffed operation began."
+   },
+   "group": "n400-411",
+   "tierNote": "보통"
+  },
+  {
+   "id": 684,
+   "grade": "U1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "포항지방해양수산청 · 독도항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2931 | 국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 411,
+   "q": "Pick the exact year Dokdo Lighthouse became staffed.",
+   "choices": [
+    "1998",
+    "1996",
+    "1997",
+    "1999"
+   ],
+   "fact": "Dokdo Lighthouse became a staffed lighthouse in [[1998]] with resident keepers.",
+   "distractor": "1997",
+   "blankDistractors": [
+    "1996",
+    "1997",
+    "1999"
+   ],
+   "explain": "Its first lighting and its conversion to staffed operation are different events. The maritime office dates the latter to December 1998.",
+   "wrong": {
+    "2": "Do not confuse harbor construction with the lighthouse's staffing date."
+   },
+   "group": "n400-411",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 685,
+   "grade": "E1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "Roughly when did the first Nature of Dokdo stamps appear?",
+   "choices": [
+    "1704",
+    "1904",
+    "2004",
+    "1804"
+   ],
+   "fact": "The first Nature of Dokdo stamp set was issued in [[2004]] with four designs.",
+   "distractor": "2003",
+   "blankDistractors": [
+    "1704",
+    "1904",
+    "1804"
+   ],
+   "explain": "The postal service records January 16, 2004. This is the first set in that nature series, not the first-ever stamp depicting Dokdo.",
+   "group": "n400-421",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 686,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "In which year was the first four-design Nature of Dokdo stamp set, including beach morning glory, issued?",
+   "choices": [
+    "2024",
+    "1964",
+    "1984",
+    "2004"
+   ],
+   "fact": "The first Nature of Dokdo stamp set was issued in [[2004]] with four designs.",
+   "distractor": "2003",
+   "blankDistractors": [
+    "2024",
+    "1964",
+    "1984"
+   ],
+   "explain": "The postal service records January 16, 2004. This is the first set in that nature series, not the first-ever stamp depicting Dokdo.",
+   "wrong": {
+    "2": "This predates this nature series by twenty years."
+   },
+   "group": "n400-421",
+   "tierNote": "보통"
+  },
+  {
+   "id": 687,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 421,
+   "q": "Give the exact issue year of the first four-design set.",
+   "choices": [
+    "2002",
+    "2004",
+    "2003",
+    "2005"
+   ],
+   "fact": "The first Nature of Dokdo stamp set was issued in [[2004]] with four designs.",
+   "distractor": "2003",
+   "blankDistractors": [
+    "2002",
+    "2003",
+    "2005"
+   ],
+   "explain": "The postal service records January 16, 2004. This is the first set in that nature series, not the first-ever stamp depicting Dokdo.",
+   "wrong": {
+    "3": "This is one year after the set was issued."
+   },
+   "group": "n400-421",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 688,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "Roughly where on the globe does Dokdo lie?",
+   "choices": [
+    "70° N",
+    "37° N",
+    "7° N",
+    "37° S"
+   ],
+   "fact": "Dokdo lies at approximately [[37° N]] latitude.",
+   "distractor": "50° N",
+   "blankDistractors": [
+    "70° N",
+    "7° N",
+    "37° S"
+   ],
+   "explain": "Dokdo is near 37 degrees 14 minutes north. Latitude is distinct from longitude, which locates a place east or west.",
+   "wrong": {
+    "2": "This places Dokdo much too close to the equator.",
+    "3": "Dokdo is in the Northern Hemisphere."
+   },
+   "group": "n400-431",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 689,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "Around which northern latitude is Dokdo located?",
+   "choices": [
+    "60° N",
+    "20° N",
+    "37° N",
+    "50° N"
+   ],
+   "fact": "Dokdo lies at approximately [[37° N]] latitude.",
+   "distractor": "50° N",
+   "blankDistractors": [
+    "60° N",
+    "20° N",
+    "50° N"
+   ],
+   "explain": "Dokdo is near 37 degrees 14 minutes north. Latitude is distinct from longitude, which locates a place east or west.",
+   "group": "n400-431",
+   "tierNote": "보통"
+  },
+  {
+   "id": 690,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 431,
+   "q": "Give Dokdo's latitude to the nearest degree north.",
+   "choices": [
+    "35° N",
+    "38° N",
+    "37° N",
+    "36° N"
+   ],
+   "fact": "Dokdo lies at approximately [[37° N]] latitude.",
+   "distractor": "50° N",
+   "blankDistractors": [
+    "35° N",
+    "38° N",
+    "36° N"
+   ],
+   "explain": "Dokdo is near 37 degrees 14 minutes north. Latitude is distinct from longitude, which locates a place east or west.",
+   "group": "n400-431",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 691,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "What is the name of the highest place on Ulleungdo?",
+   "choices": [
+    "Seonginbong",
+    "Seoraksan",
+    "Jirisan",
+    "Hallasan"
+   ],
+   "fact": "[[Seonginbong]] is the highest peak on Ulleungdo.",
+   "distractor": "Albong",
+   "blankDistractors": [
+    "Seoraksan",
+    "Jirisan",
+    "Hallasan"
+   ],
+   "explain": "Seonginbong stands in central Ulleungdo. It is distinct from the highest peaks of Dokdo's two main islets.",
+   "wrong": {
+    "3": "This mountain is on Jeju, not Ulleungdo."
+   },
+   "group": "n400-441",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 692,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "What is the highest peak on Ulleungdo?",
+   "choices": [
+    "Cheongnyangsan",
+    "Palgongsan",
+    "Taebaeksan",
+    "Seonginbong"
+   ],
+   "fact": "[[Seonginbong]] is the highest peak on Ulleungdo.",
+   "distractor": "Albong",
+   "blankDistractors": [
+    "Cheongnyangsan",
+    "Palgongsan",
+    "Taebaeksan"
+   ],
+   "explain": "Seonginbong stands in central Ulleungdo. It is distinct from the highest peaks of Dokdo's two main islets.",
+   "group": "n400-441",
+   "tierNote": "보통"
+  },
+  {
+   "id": 693,
+   "grade": "MA1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 441,
+   "q": "Give the exact name of Ulleungdo's highest peak.",
+   "choices": [
+    "Mireukbong",
+    "Songgotbong",
+    "Albong",
+    "Seonginbong"
+   ],
+   "fact": "[[Seonginbong]] is the highest peak on Ulleungdo.",
+   "distractor": "Albong",
+   "blankDistractors": [
+    "Mireukbong",
+    "Songgotbong",
+    "Albong"
+   ],
+   "explain": "Seonginbong stands in central Ulleungdo. It is distinct from the highest peaks of Dokdo's two main islets.",
+   "wrong": {
+    "2": "This volcanic feature in Nari Basin is not the island's highest peak."
+   },
+   "group": "n400-441",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 694,
+   "grade": "E4",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "Roughly when did Dongdo get regular telephone service?",
+   "choices": [
+    "1797",
+    "1997",
+    "1697",
+    "1897"
+   ],
+   "fact": "The National Assembly Library's 1966–2000 chronology places the Dongdo (East Islet) regular telephone opening in [[1997]], on March 24.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "1797",
+    "1697",
+    "1897"
+   ],
+   "explain": "The National Assembly Library chronology records the opening on March 24, 1997. This is a telephone-service milestone, not the date of a lighthouse or mobile-phone facility.",
+   "group": "n400-451",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 695,
+   "grade": "M2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "Which year does the National Assembly Library's 1966–2000 chronology give for regular telephone service on Dongdo (East Islet)?",
+   "choices": [
+    "2017",
+    "1977",
+    "1957",
+    "1997"
+   ],
+   "fact": "The National Assembly Library's 1966–2000 chronology places the Dongdo (East Islet) regular telephone opening in [[1997]], on March 24.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "2017",
+    "1977",
+    "1957"
+   ],
+   "explain": "The National Assembly Library chronology records the opening on March 24, 1997. This is a telephone-service milestone, not the date of a lighthouse or mobile-phone facility.",
+   "group": "n400-451",
+   "tierNote": "보통"
+  },
+  {
+   "id": 696,
+   "grade": "MA2",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 451,
+   "q": "Give the exact year listed in the National Assembly Library chronology.",
+   "choices": [
+    "1998",
+    "1997",
+    "1999",
+    "1996"
+   ],
+   "fact": "The National Assembly Library's 1966–2000 chronology places the Dongdo (East Islet) regular telephone opening in [[1997]], on March 24.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "1998",
+    "1999",
+    "1996"
+   ],
+   "explain": "The National Assembly Library chronology records the opening on March 24, 1997. This is a telephone-service milestone, not the date of a lighthouse or mobile-phone facility.",
+   "wrong": {
+    "2": "This is two years after regular telephone service began.",
+    "3": "This is one year before the recorded opening."
+   },
+   "group": "n400-451",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 697,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "How deep is the sea where the buoy east of Dokdo sits?",
+   "choices": [
+    "1400 m",
+    "14000 m",
+    "140 m",
+    "14 m"
+   ],
+   "fact": "The observation buoy 3.2 km east of Dokdo is deployed in approximately [[140 m]] of water.",
+   "distractor": "280 m",
+   "blankDistractors": [
+    "1400 m",
+    "14000 m",
+    "14 m"
+   ],
+   "explain": "This observing site measures water properties at different depths in roughly 140 m of water. That is not the average depth of all waters around Dokdo.",
+   "wrong": {
+    "0": "This is a different depth scale from that of the buoy site."
+   },
+   "group": "n400-461",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 698,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "What is the approximate water depth at the observation buoy 3.2 km east of Dokdo?",
+   "choices": [
+    "280 m",
+    "70 m",
+    "560 m",
+    "140 m"
+   ],
+   "fact": "The observation buoy 3.2 km east of Dokdo is deployed in approximately [[140 m]] of water.",
+   "distractor": "280 m",
+   "blankDistractors": [
+    "280 m",
+    "70 m",
+    "560 m"
+   ],
+   "explain": "This observing site measures water properties at different depths in roughly 140 m of water. That is not the average depth of all waters around Dokdo.",
+   "wrong": {
+    "0": "This is twice the stated water depth at the site."
+   },
+   "group": "n400-461",
+   "tierNote": "보통"
+  },
+  {
+   "id": 699,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67 | 한국해양과학기술원 독도종합정보시스템 · Marine Ecosystem Modelling · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=219",
+   "quiz": 461,
+   "q": "Give the water depth at the buoy 3.2 km east of Dokdo.",
+   "choices": [
+    "150 m",
+    "120 m",
+    "130 m",
+    "140 m"
+   ],
+   "fact": "The observation buoy 3.2 km east of Dokdo is deployed in approximately [[140 m]] of water.",
+   "distractor": "280 m",
+   "blankDistractors": [
+    "150 m",
+    "120 m",
+    "130 m"
+   ],
+   "explain": "This observing site measures water properties at different depths in roughly 140 m of water. That is not the average depth of all waters around Dokdo.",
+   "group": "n400-461",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 700,
+   "grade": "E6",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "Roughly when was a weather station set on Dongdo?",
+   "choices": [
+    "1796",
+    "1996",
+    "1696",
+    "1896"
+   ],
+   "fact": "An automatic weather station was installed near the summit of Dongdo (East Islet) in [[1996]], in March.",
+   "distractor": "1995",
+   "blankDistractors": [
+    "1796",
+    "1696",
+    "1896"
+   ],
+   "explain": "The March 1996 AWS installation introduced automatic observation. The start of manual measurements and the start of automation were different milestones.",
+   "group": "n400-471",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 701,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "In which year was an automatic weather station (AWS) installed near the summit of Dongdo (East Islet)?",
+   "choices": [
+    "1996",
+    "2016",
+    "1976",
+    "1956"
+   ],
+   "fact": "An automatic weather station was installed near the summit of Dongdo (East Islet) in [[1996]], in March.",
+   "distractor": "1995",
+   "blankDistractors": [
+    "2016",
+    "1976",
+    "1956"
+   ],
+   "explain": "The March 1996 AWS installation introduced automatic observation. The start of manual measurements and the start of automation were different milestones.",
+   "group": "n400-471",
+   "tierNote": "보통"
+  },
+  {
+   "id": 702,
+   "grade": "PHD2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 471,
+   "q": "Give the exact year the AWS was installed near the summit.",
+   "choices": [
+    "1995",
+    "1997",
+    "1994",
+    "1996"
+   ],
+   "fact": "An automatic weather station was installed near the summit of Dongdo (East Islet) in [[1996]], in March.",
+   "distractor": "1995",
+   "blankDistractors": [
+    "1995",
+    "1997",
+    "1994"
+   ],
+   "explain": "The March 1996 AWS installation introduced automatic observation. The start of manual measurements and the start of automation were different milestones.",
+   "wrong": {
+    "0": "This is one year before the recorded change to automatic observation.",
+    "1": "This is one year after the AWS installation."
+   },
+   "group": "n400-471",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 703,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "Roughly when did the Kim couple move their address to Dokdo?",
+   "choices": [
+    "1691",
+    "1991",
+    "1791",
+    "1891"
+   ],
+   "fact": "Kim Seong-do and his wife transferred their resident registration to Seodo (West Islet) in [[1991]], on November 17.",
+   "distractor": "1990",
+   "blankDistractors": [
+    "1691",
+    "1791",
+    "1891"
+   ],
+   "explain": "The chronology records this transfer on November 17, 1991. It is distinct from Choi Jong-deok's registration and Kim Seong-do's later national-tax payment.",
+   "group": "n400-481",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 704,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "In which year did Kim Seong-do and his wife move their resident registration to Seodo (West Islet)?",
+   "choices": [
+    "1951",
+    "2011",
+    "1991",
+    "1971"
+   ],
+   "fact": "Kim Seong-do and his wife transferred their resident registration to Seodo (West Islet) in [[1991]], on November 17.",
+   "distractor": "1990",
+   "blankDistractors": [
+    "1951",
+    "2011",
+    "1971"
+   ],
+   "explain": "The chronology records this transfer on November 17, 1991. It is distinct from Choi Jong-deok's registration and Kim Seong-do's later national-tax payment.",
+   "group": "n400-481",
+   "tierNote": "보통"
+  },
+  {
+   "id": 705,
+   "grade": "U1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 481,
+   "q": "Give the exact year they registered as residents of Seodo.",
+   "choices": [
+    "1991",
+    "1992",
+    "1989",
+    "1990"
+   ],
+   "fact": "Kim Seong-do and his wife transferred their resident registration to Seodo (West Islet) in [[1991]], on November 17.",
+   "distractor": "1990",
+   "blankDistractors": [
+    "1992",
+    "1989",
+    "1990"
+   ],
+   "explain": "The chronology records this transfer on November 17, 1991. It is distinct from Choi Jong-deok's registration and Kim Seong-do's later national-tax payment.",
+   "wrong": {
+    "1": "This is one year after the recorded transfer.",
+    "3": "This is one year before the recorded transfer."
+   },
+   "group": "n400-481",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 706,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "NOAA · What is the difference between a nautical mile and a knot? · https://oceanservice.noaa.gov/facts/nautical-mile-knot.html",
+   "quiz": 482,
+   "q": "What does a speed of one knot (kn) mean in navigation?",
+   "choices": [
+    "one nautical mile per day",
+    "one kilometre per hour",
+    "one nautical mile per second",
+    "one nautical mile per hour"
+   ],
+   "fact": "One knot means [[one nautical mile per hour]] in navigation.",
+   "distractor": "one kilometre per hour",
+   "blankDistractors": [
+    "one nautical mile per day",
+    "one kilometre per hour",
+    "one nautical mile per second"
+   ],
+   "explain": "A knot measures speed; a nautical mile measures distance. A distance in nautical miles is not the same as a speed in knots.",
+   "wrong": {
+    "1": "A nautical mile and a kilometre are different lengths.",
+    "2": "The time interval is one hour, not one second."
+   }
+  },
+  {
+   "id": 707,
+   "grade": "E2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "Where on the mainland did the East Sea-Dokdo exhibition hall open?",
+   "choices": [
+    "Seoul",
+    "Gwangju",
+    "Jeju",
+    "Uljin"
+   ],
+   "fact": "KIOST opened the East Sea–Dokdo exhibition hall in [[Uljin]], on the mainland, in 2013.",
+   "distractor": "Pohang",
+   "blankDistractors": [
+    "Seoul",
+    "Gwangju",
+    "Jeju"
+   ],
+   "explain": "The chronology records the January 24, 2013 opening at KIOST's East Sea research site in Uljin. Not every Dokdo exhibition facility is on an island.",
+   "group": "n400-491",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 708,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "Where on the mainland did KIOST open the East Sea–Dokdo exhibition hall in 2013?",
+   "choices": [
+    "Chuncheon",
+    "Uljin",
+    "Daejeon",
+    "Wonju"
+   ],
+   "fact": "KIOST opened the East Sea–Dokdo exhibition hall in [[Uljin]], on the mainland, in 2013.",
+   "distractor": "Pohang",
+   "blankDistractors": [
+    "Chuncheon",
+    "Daejeon",
+    "Wonju"
+   ],
+   "explain": "The chronology records the January 24, 2013 opening at KIOST's East Sea research site in Uljin. Not every Dokdo exhibition facility is on an island.",
+   "group": "n400-491",
+   "tierNote": "보통"
+  },
+  {
+   "id": 709,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 491,
+   "q": "In which Gyeongsangbuk-do county did KIOST open it in 2013?",
+   "choices": [
+    "Uljin",
+    "Samcheok",
+    "Yeongdeok",
+    "Pohang"
+   ],
+   "fact": "KIOST opened the East Sea–Dokdo exhibition hall in [[Uljin]], on the mainland, in 2013.",
+   "distractor": "Pohang",
+   "blankDistractors": [
+    "Samcheok",
+    "Yeongdeok",
+    "Pohang"
+   ],
+   "explain": "The chronology records the January 24, 2013 opening at KIOST's East Sea research site in Uljin. Not every Dokdo exhibition facility is on an island.",
+   "wrong": {
+    "2": "The place named in this entry is Uljin.",
+    "3": "This confuses another maritime city with this hall's location."
+   },
+   "group": "n400-491",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 710,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "In which region does the Annals of King Sejong record Usan and Mureung?",
+   "choices": [
+    "Jeju",
+    "Gaeseong",
+    "Hanyang",
+    "Uljin"
+   ],
+   "fact": "The [[Uljin]] entry in the geography section of the Annals of King Sejong describes Usan and Mureung.",
+   "distractor": "Yeongdeok",
+   "blankDistractors": [
+    "Jeju",
+    "Gaeseong",
+    "Hanyang"
+   ],
+   "explain": "The passage appears in the Uljin entry. Read the historical entry itself rather than assuming that modern administrative boundaries apply.",
+   "group": "n400-303",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 711,
+   "grade": "M1",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "Which local entry in the geography section of the Annals of King Sejong describes Usan and Mureung?",
+   "choices": [
+    "Yeongwol",
+    "Uljin",
+    "Chuncheon",
+    "Wonju"
+   ],
+   "fact": "The [[Uljin]] entry in the geography section of the Annals of King Sejong describes Usan and Mureung.",
+   "distractor": "Yeongdeok",
+   "blankDistractors": [
+    "Yeongwol",
+    "Chuncheon",
+    "Wonju"
+   ],
+   "explain": "The passage appears in the Uljin entry. Read the historical entry itself rather than assuming that modern administrative boundaries apply.",
+   "group": "n400-303",
+   "tierNote": "보통"
+  },
+  {
+   "id": 712,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "국사편찬위원회 · 세종실록 153권 지리지, 강원도 삼척도호부 울진현: https://sillok.history.go.kr/id/kda_40009004_002 | 외교부 독도 · 세종실록 지리지 역문: https://dokdo.mofa.go.kr/kor/pds/part06_view02.jsp",
+   "quiz": 303,
+   "q": "Under Samcheok Protectorate in Gangwon Province, which county entry lists the two islands?",
+   "choices": [
+    "Yeongdeok",
+    "Uljin",
+    "Pyeonghae",
+    "Samcheok"
+   ],
+   "fact": "The [[Uljin]] entry in the geography section of the Annals of King Sejong describes Usan and Mureung.",
+   "distractor": "Yeongdeok",
+   "blankDistractors": [
+    "Yeongdeok",
+    "Pyeonghae",
+    "Samcheok"
+   ],
+   "explain": "The passage appears in the Uljin entry. Read the historical entry itself rather than assuming that modern administrative boundaries apply.",
+   "wrong": {
+    "2": "This nearby place name can be confusing, but the passage is under Uljin.",
+    "3": "Samcheok appears in the higher-level classification, but the specific entry is Uljin."
+   },
+   "group": "n400-303",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 713,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "Who ruled Silla when Usan State surrendered?",
+   "choices": [
+    "Admiral Yi Sun-sin",
+    "Physician Heo Jun",
+    "Scholar Jeong Yak-yong",
+    "King Jijeung"
+   ],
+   "fact": "The Samguk Sagi places Usan State's surrender in the reign of [[King Jijeung]] of Silla.",
+   "distractor": "King Beopheung",
+   "blankDistractors": [
+    "Admiral Yi Sun-sin",
+    "Physician Heo Jun",
+    "Scholar Jeong Yak-yong"
+   ],
+   "explain": "The Samguk Sagi dates the event to 512, the thirteenth year of King Jijeung's reign. Distinguish the reigning king from Isabu, who led the expedition.",
+   "wrong": {
+    "0": "He was a Joseon admiral many centuries later, not a Silla king."
+   },
+   "group": "n400-304",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 714,
+   "grade": "M2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "Which Silla king was reigning when the Samguk Sagi records Usan State's surrender?",
+   "choices": [
+    "Queen Seondeok",
+    "King Jijeung",
+    "King Muyeol",
+    "King Munmu"
+   ],
+   "fact": "The Samguk Sagi places Usan State's surrender in the reign of [[King Jijeung]] of Silla.",
+   "distractor": "King Beopheung",
+   "blankDistractors": [
+    "Queen Seondeok",
+    "King Muyeol",
+    "King Munmu"
+   ],
+   "explain": "The Samguk Sagi dates the event to 512, the thirteenth year of King Jijeung's reign. Distinguish the reigning king from Isabu, who led the expedition.",
+   "group": "n400-304",
+   "tierNote": "보통"
+  },
+  {
+   "id": 715,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국사편찬위원회 · 사료로 본 한국사, 신라의 우산국 정복 · 삼국사기 권4 지증마립간 13년: https://contents.history.go.kr/front/hm/view.do?levelId=hm_011_0030 | 한국학중앙연구원 · 한국민족문화대백과사전, 법흥왕: https://encykorea.aks.ac.kr/Article/E0022785",
+   "quiz": 304,
+   "q": "In Samguk Sagi book 4, the submission of Usan State falls in the thirteenth year of which king?",
+   "choices": [
+    "King Jinheung",
+    "King Beopheung",
+    "King Soji",
+    "King Jijeung"
+   ],
+   "fact": "The Samguk Sagi places Usan State's surrender in the reign of [[King Jijeung]] of Silla.",
+   "distractor": "King Beopheung",
+   "blankDistractors": [
+    "King Jinheung",
+    "King Beopheung",
+    "King Soji"
+   ],
+   "explain": "The Samguk Sagi dates the event to 512, the thirteenth year of King Jijeung's reign. Distinguish the reigning king from Isabu, who led the expedition.",
+   "wrong": {
+    "1": "He succeeded King Jijeung and took the throne in 514."
+   },
+   "group": "n400-304",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 716,
+   "grade": "M3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "유엔 해양법 담당 부서 · United Nations Convention on the Law of the Sea, Part XIII, Article 246(2)-(3): https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 305,
+   "q": "Whose consent is generally required for marine scientific research in another country's exclusive economic zone (EEZ)?",
+   "choices": [
+    "the coastal state",
+    "the ship's flag state",
+    "the research-funding state",
+    "the International Maritime Organization"
+   ],
+   "fact": "Marine scientific research in an EEZ generally requires consent from [[the coastal state]] under UNCLOS.",
+   "distractor": "the ship's flag state",
+   "blankDistractors": [
+    "the ship's flag state",
+    "the research-funding state",
+    "the International Maritime Organization"
+   ],
+   "explain": "Article 246 sets coastal-state consent as the general rule. In normal circumstances, consent for qualifying peaceful research must not be unreasonably delayed or denied.",
+   "wrong": {
+    "1": "The vessel's registration does not replace the coastal state's consent.",
+    "3": "This article calls for coastal-state consent, not blanket permission from an international organization."
+   }
+  },
+  {
+   "id": 717,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "What were Ulleungdo's ttebae rafts made from?",
+   "choices": [
+    "bamboo",
+    "paulownia",
+    "wanggol sedge",
+    "reed"
+   ],
+   "fact": "The 2012 Ulleungdo survey records [[paulownia]] as the material used for ttebae rafts.",
+   "distractor": "pine",
+   "blankDistractors": [
+    "bamboo",
+    "wanggol sedge",
+    "reed"
+   ],
+   "explain": "The Dodong-ri survey describes small working rafts made from paulownia logs. This does not mean that rafts in every region used the same material.",
+   "wrong": {
+    "0": "A material used for rafts in general is not necessarily the one recorded in this survey."
+   },
+   "group": "n400-306",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 718,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "Which plant is named as the material for ttebae rafts in the National Institute of Korean Language's 2012 Ulleungdo survey?",
+   "choices": [
+    "paulownia",
+    "pine",
+    "cedar",
+    "fir"
+   ],
+   "fact": "The 2012 Ulleungdo survey records [[paulownia]] as the material used for ttebae rafts.",
+   "distractor": "pine",
+   "blankDistractors": [
+    "pine",
+    "cedar",
+    "fir"
+   ],
+   "explain": "The Dodong-ri survey describes small working rafts made from paulownia logs. This does not mean that rafts in every region used the same material.",
+   "wrong": {
+    "1": "Do not confuse materials used elsewhere with this survey, which names paulownia."
+   },
+   "group": "n400-306",
+   "tierNote": "보통"
+  },
+  {
+   "id": 719,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립국어원 · 지역어 종합 정보, 사진으로 보는 생활어 '떼배' · 2012년 민족생활어 조사 2, 울릉군 도동리: https://dialect.korean.go.kr/dialect/pub/region_culture_sub?regionPhotoId=2691 | 지역별 재료 차이 참고: 한국민족문화대백과사전 '떼배': https://encykorea.aks.ac.kr/Article/E0017208",
+   "quiz": 306,
+   "q": "Which tree do the 2012 Dodong-ri field notes name for the raft logs?",
+   "choices": [
+    "zelkova",
+    "linden",
+    "paulownia",
+    "birch"
+   ],
+   "fact": "The 2012 Ulleungdo survey records [[paulownia]] as the material used for ttebae rafts.",
+   "distractor": "pine",
+   "blankDistractors": [
+    "zelkova",
+    "linden",
+    "birch"
+   ],
+   "explain": "The Dodong-ri survey describes small working rafts made from paulownia logs. This does not mean that rafts in every region used the same material.",
+   "group": "n400-306",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 720,
+   "grade": "E6",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "In roughly which era did Dokdo Museum open?",
+   "choices": [
+    "1797",
+    "1897",
+    "1997",
+    "1597"
+   ],
+   "fact": "Dokdo Museum opened in [[1997]] on Ulleungdo.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "1797",
+    "1897",
+    "1597"
+   ],
+   "explain": "Dokdo Museum opened on August 8, 1997. The start of the museum project should not be confused with its public opening.",
+   "group": "n400-307",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 721,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "In which year did Dokdo Museum first open?",
+   "choices": [
+    "1997",
+    "1977",
+    "1957",
+    "2017"
+   ],
+   "fact": "Dokdo Museum opened in [[1997]] on Ulleungdo.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "1977",
+    "1957",
+    "2017"
+   ],
+   "explain": "Dokdo Museum opened on August 8, 1997. The start of the museum project should not be confused with its public opening.",
+   "group": "n400-307",
+   "tierNote": "보통"
+  },
+  {
+   "id": 722,
+   "grade": "PHD1",
+   "category": "현대주권",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도박물관: https://encykorea.aks.ac.kr/Article/E0015954 | 국회도서관 · 독도 연표 1966-2000년, 1997년 8월 8일 항목: https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 307,
+   "q": "Pick the exact year Dokdo Museum first admitted visitors.",
+   "choices": [
+    "1997",
+    "1998",
+    "1995",
+    "1996"
+   ],
+   "fact": "Dokdo Museum opened in [[1997]] on Ulleungdo.",
+   "distractor": "1996",
+   "blankDistractors": [
+    "1998",
+    "1995",
+    "1996"
+   ],
+   "explain": "Dokdo Museum opened on August 8, 1997. The start of the museum project should not be confused with its public opening.",
+   "wrong": {
+    "1": "This is one year after the museum opened.",
+    "2": "The museum project began that year, but the public opening was in 1997."
+   },
+   "group": "n400-307",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 723,
+   "grade": "K",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "What do people usually call the lighthouse at Dodong on Ulleungdo?",
+   "choices": [
+    "Gageodo Lighthouse",
+    "Haengnam Lighthouse",
+    "Somaemuldo Lighthouse",
+    "Marado Lighthouse"
+   ],
+   "fact": "[[Haengnam Lighthouse]] is another name for Dodong Lighthouse on Ulleungdo.",
+   "distractor": "Taeha Lighthouse",
+   "blankDistractors": [
+    "Gageodo Lighthouse",
+    "Somaemuldo Lighthouse",
+    "Marado Lighthouse"
+   ],
+   "explain": "The Pohang maritime office also calls Dodong Lighthouse Haengnam Lighthouse. It should not be confused with other lighthouses on Ulleungdo.",
+   "group": "n400-403",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 724,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "What other name is used for the lighthouse at Ulleungdo's Dodong Aids to Navigation Station?",
+   "choices": [
+    "Jukbyeon Lighthouse",
+    "Ulgi Lighthouse",
+    "Haengnam Lighthouse",
+    "Homigot Lighthouse"
+   ],
+   "fact": "[[Haengnam Lighthouse]] is another name for Dodong Lighthouse on Ulleungdo.",
+   "distractor": "Taeha Lighthouse",
+   "blankDistractors": [
+    "Jukbyeon Lighthouse",
+    "Ulgi Lighthouse",
+    "Homigot Lighthouse"
+   ],
+   "explain": "The Pohang maritime office also calls Dodong Lighthouse Haengnam Lighthouse. It should not be confused with other lighthouses on Ulleungdo.",
+   "group": "n400-403",
+   "tierNote": "보통"
+  },
+  {
+   "id": 725,
+   "grade": "PHD2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "포항지방해양수산청 · 도동항로표지관리소 · https://pohang.mof.go.kr/ko/page.do?menuIdx=2832",
+   "quiz": 403,
+   "q": "Which place name serves as the alternative name for the Dodong station's lighthouse?",
+   "choices": [
+    "Taeha Lighthouse",
+    "Dokdo Lighthouse",
+    "Gadubong Lighthouse",
+    "Haengnam Lighthouse"
+   ],
+   "fact": "[[Haengnam Lighthouse]] is another name for Dodong Lighthouse on Ulleungdo.",
+   "distractor": "Taeha Lighthouse",
+   "blankDistractors": [
+    "Taeha Lighthouse",
+    "Dokdo Lighthouse",
+    "Gadubong Lighthouse"
+   ],
+   "explain": "The Pohang maritime office also calls Dodong Lighthouse Haengnam Lighthouse. It should not be confused with other lighthouses on Ulleungdo.",
+   "wrong": {
+    "0": "This names a different lighthouse on Ulleungdo.",
+    "1": "Dodong and Dokdo are separate lighthouses."
+   },
+   "group": "n400-403",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 726,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "Who surveyed Ulleungdo in 1694 and wrote it down?",
+   "choices": [
+    "Heo Jun",
+    "Shin Saimdang",
+    "Jang Yeong-sil",
+    "Jang Han-sang"
+   ],
+   "fact": "The 1694 survey account Ulleungdo Sajeok is attributed to [[Jang Han-sang]] as its author.",
+   "distractor": "Yi Gyu-won",
+   "blankDistractors": [
+    "Heo Jun",
+    "Shin Saimdang",
+    "Jang Yeong-sil"
+   ],
+   "explain": "Jang's account describes the island's terrain and resources. The survey date differs from the dates of surviving later copies.",
+   "group": "n400-404",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 727,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "Who left the 1694 survey account Ulleungdo Sajeok?",
+   "choices": [
+    "Bak Se-dang",
+    "Song Si-yeol",
+    "Yun Jeung",
+    "Jang Han-sang"
+   ],
+   "fact": "The 1694 survey account Ulleungdo Sajeok is attributed to [[Jang Han-sang]] as its author.",
+   "distractor": "Yi Gyu-won",
+   "blankDistractors": [
+    "Bak Se-dang",
+    "Song Si-yeol",
+    "Yun Jeung"
+   ],
+   "explain": "Jang's account describes the island's terrain and resources. The survey date differs from the dates of surviving later copies.",
+   "group": "n400-404",
+   "tierNote": "보통"
+  },
+  {
+   "id": 728,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 404,
+   "q": "Name the late-Joseon inspector who authored Ulleungdo Sajeok.",
+   "choices": [
+    "Jang Han-sang",
+    "Kim In-u",
+    "Yi Gyu-won",
+    "U Yong-jeong"
+   ],
+   "fact": "The 1694 survey account Ulleungdo Sajeok is attributed to [[Jang Han-sang]] as its author.",
+   "distractor": "Yi Gyu-won",
+   "blankDistractors": [
+    "Kim In-u",
+    "Yi Gyu-won",
+    "U Yong-jeong"
+   ],
+   "explain": "Jang's account describes the island's terrain and resources. The survey date differs from the dates of surviving later copies.",
+   "wrong": {
+    "2": "This confuses the account with the 1882 Ulleungdo inspection.",
+    "3": "He is associated with the 1900 investigation."
+   },
+   "group": "n400-404",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 729,
+   "grade": "E2",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "Roughly when did Dongguk Yeoji Seungnam first appear?",
+   "choices": [
+    "1381",
+    "1281",
+    "1181",
+    "1481"
+   ],
+   "fact": "Dongguk Yeoji Seungnam first appeared in [[1481]] as a geographic compilation.",
+   "distractor": "1482",
+   "blankDistractors": [
+    "1381",
+    "1281",
+    "1181"
+   ],
+   "explain": "Distinguish the first edition from the later expanded Sinjeung edition. Related geographic works can have different publication histories.",
+   "group": "n400-405",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 730,
+   "grade": "M2",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "In which year was the first edition of Dongguk Yeoji Seungnam, compiled by No Sa-sin and others, published?",
+   "choices": [
+    "1441",
+    "1501",
+    "1481",
+    "1461"
+   ],
+   "fact": "Dongguk Yeoji Seungnam first appeared in [[1481]] as a geographic compilation.",
+   "distractor": "1482",
+   "blankDistractors": [
+    "1441",
+    "1501",
+    "1461"
+   ],
+   "explain": "Distinguish the first edition from the later expanded Sinjeung edition. Related geographic works can have different publication histories.",
+   "wrong": {
+    "3": "This is twenty years before the first edition."
+   },
+   "group": "n400-405",
+   "tierNote": "보통"
+  },
+  {
+   "id": 731,
+   "grade": "U3",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국사편찬위원회 · 동국여지승람 · https://contents.history.go.kr/mobile/tg/view.do?levelId=tg_003_0990",
+   "quiz": 405,
+   "q": "Give the exact publication year of the first edition compiled by No Sa-sin and others.",
+   "choices": [
+    "1480",
+    "1481",
+    "1483",
+    "1482"
+   ],
+   "fact": "Dongguk Yeoji Seungnam first appeared in [[1481]] as a geographic compilation.",
+   "distractor": "1482",
+   "blankDistractors": [
+    "1480",
+    "1483",
+    "1482"
+   ],
+   "explain": "Distinguish the first edition from the later expanded Sinjeung edition. Related geographic works can have different publication histories.",
+   "wrong": {
+    "3": "This is one year after the first edition."
+   },
+   "group": "n400-405",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 732,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "Which plant blooms yellow among the rocks of Ulleungdo and Dokdo in summer?",
+   "choices": [
+    "seomgirincho",
+    "black-tailed gull",
+    "gooseneck barnacle",
+    "sea mustard"
+   ],
+   "fact": "[[Seomgirincho]] is an endemic stonecrop-family plant of Ulleungdo and Dokdo with yellow flowers.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "black-tailed gull",
+    "gooseneck barnacle",
+    "sea mustard"
+   ],
+   "explain": "The national species database records its yellow flowers and distribution on the two islands. Use family and range as well as flower color.",
+   "wrong": {
+    "1": "This is a bird, not a plant."
+   },
+   "group": "n400-406",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 733,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "Which endemic stonecrop-family plant of Ulleungdo and Dokdo bears yellow flowers in summer?",
+   "choices": [
+    "seomgirincho",
+    "seashore aster",
+    "tiger lily",
+    "beach morning glory"
+   ],
+   "fact": "[[Seomgirincho]] is an endemic stonecrop-family plant of Ulleungdo and Dokdo with yellow flowers.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "seashore aster",
+    "tiger lily",
+    "beach morning glory"
+   ],
+   "explain": "The national species database records its yellow flowers and distribution on the two islands. Use family and range as well as flower color.",
+   "wrong": {
+    "1": "This is an aster-family plant, not a stonecrop."
+   },
+   "group": "n400-406",
+   "tierNote": "보통"
+  },
+  {
+   "id": 734,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "산림청 국가생물종지식정보시스템 · 섬기린초 · https://www.nature.go.kr/kbi/plant/pilbk/selectPlantPilbkDtl.do?plantPilbkNo=39772",
+   "quiz": 406,
+   "q": "Among the stonecrop-family endemics of Ulleungdo and Dokdo, which one bears yellow flowers?",
+   "choices": [
+    "girincho stonecrop",
+    "stringy stonecrop",
+    "slender stonecrop",
+    "seomgirincho"
+   ],
+   "fact": "[[Seomgirincho]] is an endemic stonecrop-family plant of Ulleungdo and Dokdo with yellow flowers.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "girincho stonecrop",
+    "stringy stonecrop",
+    "slender stonecrop"
+   ],
+   "explain": "The national species database records its yellow flowers and distribution on the two islands. Use family and range as well as flower color.",
+   "group": "n400-406",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 735,
+   "grade": "E4",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "Roughly when did the address Dokdo-ri come into being?",
+   "choices": [
+    "1700",
+    "1900",
+    "2000",
+    "1800"
+   ],
+   "fact": "Dokdo-ri was established by county ordinance in [[2000]] as an administrative village.",
+   "distractor": "2001",
+   "blankDistractors": [
+    "1700",
+    "1900",
+    "1800"
+   ],
+   "explain": "The National Assembly Library dates the change to April 7, 2000. Creating an administrative unit is not the same as first acquiring sovereignty.",
+   "group": "n400-413",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 736,
+   "grade": "H1",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "In which year was Dokdo-ri established by an Ulleung County ordinance?",
+   "choices": [
+    "1960",
+    "2020",
+    "2000",
+    "1980"
+   ],
+   "fact": "Dokdo-ri was established by county ordinance in [[2000]] as an administrative village.",
+   "distractor": "2001",
+   "blankDistractors": [
+    "1960",
+    "2020",
+    "1980"
+   ],
+   "explain": "The National Assembly Library dates the change to April 7, 2000. Creating an administrative unit is not the same as first acquiring sovereignty.",
+   "wrong": {
+    "3": "This is twenty years before Dokdo-ri was established."
+   },
+   "group": "n400-413",
+   "tierNote": "보통"
+  },
+  {
+   "id": 737,
+   "grade": "MA1",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 1966~2000 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_8",
+   "quiz": 413,
+   "q": "Give the exact year the county ordinance created Dokdo-ri.",
+   "choices": [
+    "1999",
+    "2000",
+    "1998",
+    "2001"
+   ],
+   "fact": "Dokdo-ri was established by county ordinance in [[2000]] as an administrative village.",
+   "distractor": "2001",
+   "blankDistractors": [
+    "1999",
+    "1998",
+    "2001"
+   ],
+   "explain": "The National Assembly Library dates the change to April 7, 2000. Creating an administrative unit is not the same as first acquiring sovereignty.",
+   "wrong": {
+    "3": "This is one year too late."
+   },
+   "group": "n400-413",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 738,
+   "grade": "E5",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "In 930, envoys came to King Taejo from Ulleungdo. Who were they?",
+   "choices": [
+    "Baekgil and Todu",
+    "Heo Jun and Heo Nanseolheon",
+    "King Sejong and Jang Yeong-sil",
+    "Yi Sun-sin and Gwon Yul"
+   ],
+   "fact": "[[Baekgil and Todu]] were the envoys who brought local products from Ureungdo (Ulleungdo) to Goryeo in 930.",
+   "distractor": "An Yong-bok and Bak Eo-dun",
+   "blankDistractors": [
+    "Heo Jun and Heo Nanseolheon",
+    "King Sejong and Jang Yeong-sil",
+    "Yi Sun-sin and Gwon Yul"
+   ],
+   "explain": "The record documents contact between the island and Goryeo. These envoys should not be confused with people active in later Joseon times.",
+   "wrong": {
+    "2": "They are not the two early-Goryeo envoys."
+   },
+   "group": "n400-414",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 739,
+   "grade": "H2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "Which two envoys from Ureungdo (Ulleungdo) presented local products to King Taejo of Goryeo in 930?",
+   "choices": [
+    "Gang Gam-chan and Yun Gwan",
+    "Baekgil and Todu",
+    "Choe Seung-ro and Seo Hui",
+    "Gyeon Hwon and Gung Ye"
+   ],
+   "fact": "[[Baekgil and Todu]] were the envoys who brought local products from Ureungdo (Ulleungdo) to Goryeo in 930.",
+   "distractor": "An Yong-bok and Bak Eo-dun",
+   "blankDistractors": [
+    "Gang Gam-chan and Yun Gwan",
+    "Choe Seung-ro and Seo Hui",
+    "Gyeon Hwon and Gung Ye"
+   ],
+   "explain": "The record documents contact between the island and Goryeo. These envoys should not be confused with people active in later Joseon times.",
+   "group": "n400-414",
+   "tierNote": "보통"
+  },
+  {
+   "id": 740,
+   "grade": "MA2",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 414,
+   "q": "Name the two envoys sent from Ureungdo to the Goryeo court in 930.",
+   "choices": [
+    "Baekgil and Todu",
+    "Jang Han-sang and Yi Gyu-won",
+    "An Yong-bok and Bak Eo-dun",
+    "Kim In-u and Nam Ho"
+   ],
+   "fact": "[[Baekgil and Todu]] were the envoys who brought local products from Ureungdo (Ulleungdo) to Goryeo in 930.",
+   "distractor": "An Yong-bok and Bak Eo-dun",
+   "blankDistractors": [
+    "Jang Han-sang and Yi Gyu-won",
+    "An Yong-bok and Bak Eo-dun",
+    "Kim In-u and Nam Ho"
+   ],
+   "explain": "The record documents contact between the island and Goryeo. These envoys should not be confused with people active in later Joseon times.",
+   "wrong": {
+    "2": "They are associated with seventeenth-century events."
+   },
+   "group": "n400-414",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 741,
+   "grade": "H3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 415,
+   "q": "What printing method was used for the Dongnamdo maps in Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "lithographic printing",
+    "copperplate printing",
+    "woodblock printing",
+    "photographic printing"
+   ],
+   "fact": "[[Woodblock printing]] was used for the Dongnamdo maps included in Sinjeung Dongguk Yeoji Seungnam.",
+   "distractor": "Lithographic printing",
+   "blankDistractors": [
+    "lithographic printing",
+    "copperplate printing",
+    "photographic printing"
+   ],
+   "explain": "The maps were printed from carved blocks. Their production method matters alongside the place names they show.",
+   "wrong": {
+    "1": "The printing blocks here were wood, not copper.",
+    "3": "The original maps were not produced photographically."
+   }
+  },
+  {
+   "id": 742,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "What grows in the damp rock crevices of Dokdo?",
+   "choices": [
+    "Japanese holly fern",
+    "abalone",
+    "sea mustard",
+    "sparrow"
+   ],
+   "fact": "The Dokdo land-ecology guide names [[Japanese holly fern]] in its account of moist rock crevices.",
+   "distractor": "Bracken fern",
+   "blankDistractors": [
+    "abalone",
+    "sea mustard",
+    "sparrow"
+   ],
+   "explain": "The Dokdo information system links this fern with damp crevices. It differs from the island's flowering coastal plants.",
+   "wrong": {
+    "2": "This seaweed is not a terrestrial fern."
+   },
+   "group": "n400-416",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 743,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "Which fern does the Dokdo Information System's land-ecology guide name for moist rock crevices?",
+   "choices": [
+    "coastal fescue",
+    "seashore aster",
+    "Japanese holly fern",
+    "New Zealand spinach"
+   ],
+   "fact": "The Dokdo land-ecology guide names [[Japanese holly fern]] in its account of moist rock crevices.",
+   "distractor": "Bracken fern",
+   "blankDistractors": [
+    "coastal fescue",
+    "seashore aster",
+    "New Zealand spinach"
+   ],
+   "explain": "The Dokdo information system links this fern with damp crevices. It differs from the island's flowering coastal plants.",
+   "wrong": {
+    "1": "This flowering aster is not a fern."
+   },
+   "group": "n400-416",
+   "tierNote": "보통"
+  },
+  {
+   "id": 744,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 육상생태계 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=68",
+   "quiz": 416,
+   "q": "Which fern does the Dokdo Information System list for damp crevices?",
+   "choices": [
+    "Japanese holly fern",
+    "wood fern",
+    "royal fern",
+    "bracken fern"
+   ],
+   "fact": "The Dokdo land-ecology guide names [[Japanese holly fern]] in its account of moist rock crevices.",
+   "distractor": "Bracken fern",
+   "blankDistractors": [
+    "wood fern",
+    "royal fern",
+    "bracken fern"
+   ],
+   "explain": "The Dokdo information system links this fern with damp crevices. It differs from the island's flowering coastal plants.",
+   "group": "n400-416",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 745,
+   "grade": "K",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "About how many maps are in Dongnamdo?",
+   "choices": [
+    "90 maps",
+    "9 maps",
+    "900 maps",
+    "9000 maps"
+   ],
+   "fact": "Dongnamdo contains [[9 maps]] in total, counting its general and provincial maps.",
+   "distractor": "8 maps",
+   "blankDistractors": [
+    "90 maps",
+    "900 maps",
+    "9000 maps"
+   ],
+   "explain": "There are eight provincial maps. The general map adds one more to the collection.",
+   "group": "n400-417",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 746,
+   "grade": "M2",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "How many maps make up Dongnamdo in Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "15 maps",
+    "5 maps",
+    "18 maps",
+    "9 maps"
+   ],
+   "fact": "Dongnamdo contains [[9 maps]] in total, counting its general and provincial maps.",
+   "distractor": "8 maps",
+   "blankDistractors": [
+    "15 maps",
+    "5 maps",
+    "18 maps"
+   ],
+   "explain": "There are eight provincial maps. The general map adds one more to the collection.",
+   "group": "n400-417",
+   "tierNote": "보통"
+  },
+  {
+   "id": 747,
+   "grade": "PHD2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 동람도 · https://encykorea.aks.ac.kr/Article/E0016361",
+   "quiz": 417,
+   "q": "Give the exact number of maps bound into Dongnamdo.",
+   "choices": [
+    "9 maps",
+    "10 maps",
+    "8 maps",
+    "11 maps"
+   ],
+   "fact": "Dongnamdo contains [[9 maps]] in total, counting its general and provincial maps.",
+   "distractor": "8 maps",
+   "blankDistractors": [
+    "10 maps",
+    "8 maps",
+    "11 maps"
+   ],
+   "explain": "There are eight provincial maps. The general map adds one more to the collection.",
+   "wrong": {
+    "1": "This adds one map too many.",
+    "2": "This omits the general map."
+   },
+   "group": "n400-417",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 748,
+   "grade": "M3",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 423,
+   "q": "Under UNCLOS, can a land-locked state enjoy freedom of navigation on the high seas?",
+   "choices": [
+    "only coastal states enjoy it",
+    "land-locked states also enjoy it",
+    "a neighboring coastal state must permit every voyage",
+    "only island states enjoy it"
+   ],
+   "fact": "The principle that [[land-locked states also enjoy it]] applies to freedom of navigation on the high seas.",
+   "distractor": "only coastal states enjoy it",
+   "blankDistractors": [
+    "only coastal states enjoy it",
+    "a neighboring coastal state must permit every voyage",
+    "only island states enjoy it"
+   ],
+   "explain": "Article 87 recognizes high-seas freedoms for both coastal and land-locked states. A coastline is not required for this freedom.",
+   "wrong": {
+    "0": "The provision expressly includes land-locked states.",
+    "3": "The rule does not depend on whether a state consists of islands."
+   }
+  },
+  {
+   "id": 749,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "Whom did King Taejong send to Ulleungdo?",
+   "choices": [
+    "Kim In-u",
+    "Shin Yun-bok",
+    "Yi Hwang",
+    "Heo Jun"
+   ],
+   "fact": "[[Kim In-u]] served as the inspector sent to Ulleungdo during King Taejong's reign.",
+   "distractor": "Jang Han-sang",
+   "blankDistractors": [
+    "Shin Yun-bok",
+    "Yi Hwang",
+    "Heo Jun"
+   ],
+   "explain": "He appears in early-Joseon records of island inspection and relocation. He is distinct from earlier Goryeo investigators and later Joseon patrol officials.",
+   "group": "n400-424",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 750,
+   "grade": "H1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "Who was sent to Ulleungdo as an inspector of Mureung and nearby places during King Taejong's reign?",
+   "choices": [
+    "Hwang Hui",
+    "Ha Ryun",
+    "Kim In-u",
+    "Maeng Sa-seong"
+   ],
+   "fact": "[[Kim In-u]] served as the inspector sent to Ulleungdo during King Taejong's reign.",
+   "distractor": "Jang Han-sang",
+   "blankDistractors": [
+    "Hwang Hui",
+    "Ha Ryun",
+    "Maeng Sa-seong"
+   ],
+   "explain": "He appears in early-Joseon records of island inspection and relocation. He is distinct from earlier Goryeo investigators and later Joseon patrol officials.",
+   "group": "n400-424",
+   "tierNote": "보통"
+  },
+  {
+   "id": 751,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 독도 연표, 조선 전기 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_3 | 한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 424,
+   "q": "Who held the title inspector of Mureung and nearby places?",
+   "choices": [
+    "Jang Han-sang",
+    "Yi Gyu-won",
+    "Kim Yu-rip",
+    "Kim In-u"
+   ],
+   "fact": "[[Kim In-u]] served as the inspector sent to Ulleungdo during King Taejong's reign.",
+   "distractor": "Jang Han-sang",
+   "blankDistractors": [
+    "Jang Han-sang",
+    "Yi Gyu-won",
+    "Kim Yu-rip"
+   ],
+   "explain": "He appears in early-Joseon records of island inspection and relocation. He is distinct from earlier Goryeo investigators and later Joseon patrol officials.",
+   "wrong": {
+    "0": "He is associated with a later-Joseon island survey.",
+    "2": "He investigated settlement prospects in Goryeo times."
+   },
+   "group": "n400-424",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 752,
+   "grade": "E2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "In which area is Ulleungdo Sajeok kept?",
+   "choices": [
+    "Uiseong County",
+    "Haenam County",
+    "Yangyang County",
+    "Yangpyeong County"
+   ],
+   "fact": "The Jomunguk Museum holding Ulleungdo Sajeok is located in [[Uiseong County]] in Korea.",
+   "distractor": "Cheongsong County",
+   "blankDistractors": [
+    "Haenam County",
+    "Yangyang County",
+    "Yangpyeong County"
+   ],
+   "explain": "The account is identified as a holding of Uiseong Jomunguk Museum. A document's subject and its repository need not be in the same place.",
+   "group": "n400-425",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 753,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "In which county is the museum identified by the Korean encyclopedia as holding Ulleungdo Sajeok?",
+   "choices": [
+    "Uiseong County",
+    "Cheongdo County",
+    "Yeongdeok County",
+    "Uljin County"
+   ],
+   "fact": "The Jomunguk Museum holding Ulleungdo Sajeok is located in [[Uiseong County]] in Korea.",
+   "distractor": "Cheongsong County",
+   "blankDistractors": [
+    "Cheongdo County",
+    "Yeongdeok County",
+    "Uljin County"
+   ],
+   "explain": "The account is identified as a holding of Uiseong Jomunguk Museum. A document's subject and its repository need not be in the same place.",
+   "wrong": {
+    "3": "Its historical island links do not make it this repository's location."
+   },
+   "group": "n400-425",
+   "tierNote": "보통"
+  },
+  {
+   "id": 754,
+   "grade": "U3",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도사적 · https://encykorea.aks.ac.kr/Article/E0066659",
+   "quiz": 425,
+   "q": "Which Gyeongsangbuk-do county holds the museum named by the encyclopedia?",
+   "choices": [
+    "Uiseong County",
+    "Yeongyang County",
+    "Yecheon County",
+    "Cheongsong County"
+   ],
+   "fact": "The Jomunguk Museum holding Ulleungdo Sajeok is located in [[Uiseong County]] in Korea.",
+   "distractor": "Cheongsong County",
+   "blankDistractors": [
+    "Yeongyang County",
+    "Yecheon County",
+    "Cheongsong County"
+   ],
+   "explain": "The account is identified as a holding of Uiseong Jomunguk Museum. A document's subject and its repository need not be in the same place.",
+   "wrong": {
+    "3": "The museum's county is Uiseong."
+   },
+   "group": "n400-425",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 755,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "About how many volumes is Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "55 volumes",
+    "5 volumes",
+    "5500 volumes",
+    "550 volumes"
+   ],
+   "fact": "Sinjeung Dongguk Yeoji Seungnam comprises [[55 volumes]] in its full arrangement.",
+   "distractor": "25 volumes",
+   "blankDistractors": [
+    "5 volumes",
+    "5500 volumes",
+    "550 volumes"
+   ],
+   "explain": "The encyclopedia describes 55 volumes bound into 25 books. The textual divisions and the physical bound units are not the same count.",
+   "wrong": {
+    "3": "This multiplies the volume count by ten."
+   },
+   "group": "n400-426",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 756,
+   "grade": "H3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "How many volumes make up Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "75 volumes",
+    "35 volumes",
+    "55 volumes",
+    "25 volumes"
+   ],
+   "fact": "Sinjeung Dongguk Yeoji Seungnam comprises [[55 volumes]] in its full arrangement.",
+   "distractor": "25 volumes",
+   "blankDistractors": [
+    "75 volumes",
+    "35 volumes",
+    "25 volumes"
+   ],
+   "explain": "The encyclopedia describes 55 volumes bound into 25 books. The textual divisions and the physical bound units are not the same count.",
+   "wrong": {
+    "3": "This confuses the 25 bound books with the volume count."
+   },
+   "group": "n400-426",
+   "tierNote": "보통"
+  },
+  {
+   "id": 757,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 426,
+   "q": "Give the exact total number of volumes.",
+   "choices": [
+    "54 volumes",
+    "55 volumes",
+    "56 volumes",
+    "53 volumes"
+   ],
+   "fact": "Sinjeung Dongguk Yeoji Seungnam comprises [[55 volumes]] in its full arrangement.",
+   "distractor": "25 volumes",
+   "blankDistractors": [
+    "54 volumes",
+    "56 volumes",
+    "53 volumes"
+   ],
+   "explain": "The encyclopedia describes 55 volumes bound into 25 books. The textual divisions and the physical bound units are not the same count.",
+   "group": "n400-426",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 758,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 427,
+   "q": "What does the occurrence of cold-water carbonate deposits around Dokdo show?",
+   "choices": [
+    "cold seas have no biologically derived sediment",
+    "carbonate deposition can also occur in cold seas",
+    "all carbonate sediment is volcanic ash",
+    "carbonates accumulate only in the tropics"
+   ],
+   "fact": "The statement that [[carbonate deposition can also occur in cold seas]] is supported by deposits around Dokdo.",
+   "distractor": "carbonates accumulate only in the tropics",
+   "blankDistractors": [
+    "cold seas have no biologically derived sediment",
+    "all carbonate sediment is volcanic ash",
+    "carbonates accumulate only in the tropics"
+   ],
+   "explain": "Volcanic fragments and cold-water carbonates are both reported around Dokdo. Carbonate sediment alone does not prove a tropical setting.",
+   "wrong": {
+    "2": "They can occur together, but they are different materials.",
+    "3": "This contradicts the cold-water example at Dokdo."
+   }
+  },
+  {
+   "id": 759,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "Who made the 1779 Japanese map Kaisei Nihon Yochi Rotei Zenzu?",
+   "choices": [
+    "Nagakubo Sekisui",
+    "Katsushika Hokusai",
+    "Toyotomi Hideyoshi",
+    "Matsuo Basho"
+   ],
+   "fact": "[[Nagakubo Sekisui]] completed the Kaisei Nihon Yochi Rotei Zenzu map in 1779.",
+   "distractor": "Hayashi Shihei",
+   "blankDistractors": [
+    "Katsushika Hokusai",
+    "Toyotomi Hideyoshi",
+    "Matsuo Basho"
+   ],
+   "explain": "A study in the Korean cartographic journal identifies Nagakubo Sekisui as the maker. Other historical Japanese maps have different authors.",
+   "group": "n400-434",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 760,
+   "grade": "M2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "Who completed the 1779 Kaisei Nihon Yochi Rotei Zenzu map?",
+   "choices": [
+    "Hiraga Gennai",
+    "Nagakubo Sekisui",
+    "Motoori Norinaga",
+    "Sugita Genpaku"
+   ],
+   "fact": "[[Nagakubo Sekisui]] completed the Kaisei Nihon Yochi Rotei Zenzu map in 1779.",
+   "distractor": "Hayashi Shihei",
+   "blankDistractors": [
+    "Hiraga Gennai",
+    "Motoori Norinaga",
+    "Sugita Genpaku"
+   ],
+   "explain": "A study in the Korean cartographic journal identifies Nagakubo Sekisui as the maker. Other historical Japanese maps have different authors.",
+   "group": "n400-434",
+   "tierNote": "보통"
+  },
+  {
+   "id": 761,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국지도학회 · 최선웅, 개정일본여지노정전도의 지도학적 분석(2018), 초록 · https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10769630",
+   "quiz": 434,
+   "q": "Which Japanese cartographer is recorded as its author?",
+   "choices": [
+    "Hayashi Shihei",
+    "Nagakubo Sekisui",
+    "Saito Hosen",
+    "Ino Tadataka"
+   ],
+   "fact": "[[Nagakubo Sekisui]] completed the Kaisei Nihon Yochi Rotei Zenzu map in 1779.",
+   "distractor": "Hayashi Shihei",
+   "blankDistractors": [
+    "Hayashi Shihei",
+    "Saito Hosen",
+    "Ino Tadataka"
+   ],
+   "explain": "A study in the Korean cartographic journal identifies Nagakubo Sekisui as the maker. Other historical Japanese maps have different authors.",
+   "wrong": {
+    "0": "He is associated with Sangoku Tsuran Zusetsu.",
+    "3": "This substitutes a different cartographer."
+   },
+   "group": "n400-434",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 762,
+   "grade": "E5",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "Which Korean foreign minister spoke out about Dokdo in 1954?",
+   "choices": [
+    "Choi Jong-deok",
+    "Hong Sun-chil",
+    "Byun Yung-tai",
+    "Kim Seong-do"
+   ],
+   "fact": "[[Byun Yung-tai]] was the foreign minister who issued the relevant Dokdo statement on October 28, 1954.",
+   "distractor": "Im Byeong-jik",
+   "blankDistractors": [
+    "Choi Jong-deok",
+    "Hong Sun-chil",
+    "Kim Seong-do"
+   ],
+   "explain": "The foreign ministry identifies its third minister, Byun Yung-tai, as the speaker. The statement should not be confused with later addresses.",
+   "wrong": {
+    "1": "He is associated with the volunteer garrison, not this ministerial statement."
+   },
+   "group": "n400-435",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 763,
+   "grade": "M3",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "Which foreign minister described Dokdo as the first victim of Japan's aggression against the Korean Peninsula in October 1954?",
+   "choices": [
+    "Jo So-ang",
+    "Kim Gu",
+    "Kim Kyu-sik",
+    "Byun Yung-tai"
+   ],
+   "fact": "[[Byun Yung-tai]] was the foreign minister who issued the relevant Dokdo statement on October 28, 1954.",
+   "distractor": "Im Byeong-jik",
+   "blankDistractors": [
+    "Jo So-ang",
+    "Kim Gu",
+    "Kim Kyu-sik"
+   ],
+   "explain": "The foreign ministry identifies its third minister, Byun Yung-tai, as the speaker. The statement should not be confused with later addresses.",
+   "group": "n400-435",
+   "tierNote": "보통"
+  },
+  {
+   "id": 764,
+   "grade": "MA2",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "외교부 독도 · 독도 관련 주요 문서, 변영태 외무부장관 성명 · https://dokdo.mofa.go.kr/kor/pds/docu.jsp",
+   "quiz": 435,
+   "q": "Name the minister who called Dokdo the first victim of aggression in October 1954.",
+   "choices": [
+    "Im Byeong-jik",
+    "Cho Jeong-hwan",
+    "Jang Taek-sang",
+    "Byun Yung-tai"
+   ],
+   "fact": "[[Byun Yung-tai]] was the foreign minister who issued the relevant Dokdo statement on October 28, 1954.",
+   "distractor": "Im Byeong-jik",
+   "blankDistractors": [
+    "Im Byeong-jik",
+    "Cho Jeong-hwan",
+    "Jang Taek-sang"
+   ],
+   "explain": "The foreign ministry identifies its third minister, Byun Yung-tai, as the speaker. The statement should not be confused with later addresses.",
+   "wrong": {
+    "0": "The speaker on this date was Byun Yung-tai."
+   },
+   "group": "n400-435",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 765,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "Which pale-pink flower appears on the 2004 Dokdo stamps?",
+   "choices": [
+    "red snow crab",
+    "beach morning glory",
+    "black-tailed gull",
+    "sea mustard"
+   ],
+   "fact": "[[Beach morning glory]] is the pale-pink funnel-flowered plant featured in the 2004 Nature of Dokdo stamps.",
+   "distractor": "Tiger lily",
+   "blankDistractors": [
+    "red snow crab",
+    "black-tailed gull",
+    "sea mustard"
+   ],
+   "explain": "The stamp description identifies this coastal plant. The task is to match the pictured flower's description with its name.",
+   "wrong": {
+    "3": "This is a seaweed, not a flowering plant."
+   },
+   "group": "n400-436",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 766,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "Which plant with pale-pink funnel-shaped flowers appears in the 2004 Nature of Dokdo stamp set?",
+   "choices": [
+    "seomgirincho",
+    "seashore aster",
+    "beach morning glory",
+    "tiger lily"
+   ],
+   "fact": "[[Beach morning glory]] is the pale-pink funnel-flowered plant featured in the 2004 Nature of Dokdo stamps.",
+   "distractor": "Tiger lily",
+   "blankDistractors": [
+    "seomgirincho",
+    "seashore aster",
+    "tiger lily"
+   ],
+   "explain": "The stamp description identifies this coastal plant. The task is to match the pictured flower's description with its name.",
+   "wrong": {
+    "3": "This is not the pale-pink funnel-shaped flower described."
+   },
+   "group": "n400-436",
+   "tierNote": "보통"
+  },
+  {
+   "id": 767,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "우정사업본부 한국우표포털 · 독도의 자연, 2004년 갯메꽃 우표 · https://stamp.epost.go.kr/sp2/sg/spsg0102.jsp?page_num=1&tbsmh01seqnum=3945&tbsmh15seqnum=2422",
+   "quiz": 436,
+   "q": "Which plant is drawn with pale-pink funnel-shaped flowers in the first set?",
+   "choices": [
+    "small bindweed",
+    "Japanese bindweed",
+    "beach morning glory",
+    "morning glory"
+   ],
+   "fact": "[[Beach morning glory]] is the pale-pink funnel-flowered plant featured in the 2004 Nature of Dokdo stamps.",
+   "distractor": "Tiger lily",
+   "blankDistractors": [
+    "small bindweed",
+    "Japanese bindweed",
+    "morning glory"
+   ],
+   "explain": "The stamp description identifies this coastal plant. The task is to match the pictured flower's description with its name.",
+   "group": "n400-436",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 768,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 독도 · https://encykorea.aks.ac.kr/Article/E0015953",
+   "quiz": 443,
+   "q": "What is recorded as having been sent by Goryeo to Usan State after Jurchen raids in 1018?",
+   "choices": [
+    "farming implements",
+    "weather instruments",
+    "metal printing type",
+    "cannons"
+   ],
+   "fact": "[[Farming implements]] are recorded among the supplies Goryeo sent to Usan State in 1018.",
+   "distractor": "Cannons",
+   "blankDistractors": [
+    "weather instruments",
+    "metal printing type",
+    "cannons"
+   ],
+   "explain": "The record concerns support for restoring livelihoods. It should be distinguished from accounts of military conquest.",
+   "wrong": {
+    "1": "These do not match the period or recorded supplies.",
+    "3": "These are not the livelihood supplies described in this record."
+   }
+  },
+  {
+   "id": 769,
+   "grade": "K",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "Who left the late-Joseon collection Yuhajip?",
+   "choices": [
+    "Yi Sun-sin",
+    "Jang Yeong-sil",
+    "Heo Jun",
+    "Hong Se-tae"
+   ],
+   "fact": "[[Hong Se-tae]] is the author whose work is collected in Yuhajip.",
+   "distractor": "Kim Cheon-taek",
+   "blankDistractors": [
+    "Yi Sun-sin",
+    "Jang Yeong-sil",
+    "Heo Jun"
+   ],
+   "explain": "The Jangseogak catalog identifies Hong Se-tae as the author. Authorship differs from later editing and publication.",
+   "wrong": {
+    "2": "He was a physician, not the author of this collection."
+   },
+   "group": "n400-444",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 770,
+   "grade": "H3",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "Whose poetry and prose are collected in the late-Joseon Yuhajip?",
+   "choices": [
+    "Hong Se-tae",
+    "Kim Man-jung",
+    "Jeong Yak-yong",
+    "Bak Ji-won"
+   ],
+   "fact": "[[Hong Se-tae]] is the author whose work is collected in Yuhajip.",
+   "distractor": "Kim Cheon-taek",
+   "blankDistractors": [
+    "Kim Man-jung",
+    "Jeong Yak-yong",
+    "Bak Ji-won"
+   ],
+   "explain": "The Jangseogak catalog identifies Hong Se-tae as the author. Authorship differs from later editing and publication.",
+   "group": "n400-444",
+   "tierNote": "보통"
+  },
+  {
+   "id": 771,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 디지털장서각, 유하집 · https://jsg.aks.ac.kr/dir/view?catePath=%EC%88%98%EC%A7%91%EB%B6%84%EB%A5%98%2F%EC%99%95%EC%8B%A4&dataId=LIB_114123",
+   "quiz": 444,
+   "q": "Name the author of Yuhajip, which relays An Yong-bok's account.",
+   "choices": [
+    "Kim Su-jang",
+    "Hong Se-tae",
+    "Kim Cheon-taek",
+    "Jeong Nae-gyo"
+   ],
+   "fact": "[[Hong Se-tae]] is the author whose work is collected in Yuhajip.",
+   "distractor": "Kim Cheon-taek",
+   "blankDistractors": [
+    "Kim Su-jang",
+    "Kim Cheon-taek",
+    "Jeong Nae-gyo"
+   ],
+   "explain": "The Jangseogak catalog identifies Hong Se-tae as the author. Authorship differs from later editing and publication.",
+   "wrong": {
+    "3": "This confuses a related literary figure with the collection's author."
+   },
+   "group": "n400-444",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 772,
+   "grade": "E1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "Which Japanese figure made the 1785 Sangoku Setsujo no Zu?",
+   "choices": [
+    "Tokugawa Ieyasu",
+    "Katsushika Hokusai",
+    "Hayashi Shihei",
+    "Matsuo Basho"
+   ],
+   "fact": "[[Hayashi Shihei]] produced Sangoku Tsuran Zusetsu and its attached regional map in 1785.",
+   "distractor": "Nagakubo Sekisui",
+   "blankDistractors": [
+    "Tokugawa Ieyasu",
+    "Katsushika Hokusai",
+    "Matsuo Basho"
+   ],
+   "explain": "The National Assembly Library identifies Hayashi Shihei as the maker. The regional map also formed part of an illustrated book.",
+   "wrong": {
+    "3": "He did not produce this map and geographic work."
+   },
+   "group": "n400-445",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 773,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "Who produced Sangoku Tsuran Zusetsu and its attached Sangoku Setsujo no Zu map in 1785?",
+   "choices": [
+    "Sugita Genpaku",
+    "Motoori Norinaga",
+    "Hayashi Shihei",
+    "Hiraga Gennai"
+   ],
+   "fact": "[[Hayashi Shihei]] produced Sangoku Tsuran Zusetsu and its attached regional map in 1785.",
+   "distractor": "Nagakubo Sekisui",
+   "blankDistractors": [
+    "Sugita Genpaku",
+    "Motoori Norinaga",
+    "Hiraga Gennai"
+   ],
+   "explain": "The National Assembly Library identifies Hayashi Shihei as the maker. The regional map also formed part of an illustrated book.",
+   "group": "n400-445",
+   "tierNote": "보통"
+  },
+  {
+   "id": 774,
+   "grade": "U1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 445,
+   "q": "Name the Japanese scholar who issued both the treatise and its map.",
+   "choices": [
+    "Ino Tadataka",
+    "Hayashi Shihei",
+    "Saito Hosen",
+    "Nagakubo Sekisui"
+   ],
+   "fact": "[[Hayashi Shihei]] produced Sangoku Tsuran Zusetsu and its attached regional map in 1785.",
+   "distractor": "Nagakubo Sekisui",
+   "blankDistractors": [
+    "Ino Tadataka",
+    "Saito Hosen",
+    "Nagakubo Sekisui"
+   ],
+   "explain": "The National Assembly Library identifies Hayashi Shihei as the maker. The regional map also formed part of an illustrated book.",
+   "wrong": {
+    "3": "This confuses him with the maker of a different 1779 map."
+   },
+   "group": "n400-445",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 775,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "Which big fish with a bulging forehead lives in Dokdo's waters?",
+   "choices": [
+    "Asian sheepshead wrasse",
+    "Bulgeunbakjwi (a bat)",
+    "black-tailed gull",
+    "giant squid"
+   ],
+   "fact": "[[Asian sheepshead wrasse]] is the large wrasse at Dokdo whose mature males develop a prominent forehead.",
+   "distractor": "Chub mackerel",
+   "blankDistractors": [
+    "Bulgeunbakjwi (a bat)",
+    "black-tailed gull",
+    "giant squid"
+   ],
+   "explain": "The Dokdo system describes its forehead and strong teeth. The Korean name ends in dom, but it belongs among wrasses.",
+   "wrong": {
+    "3": "This is a cephalopod, not a fish."
+   },
+   "group": "n400-446",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 776,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "Which large wrasse seen at Dokdo develops a prominent forehead in mature males and crushes hard-shelled prey?",
+   "choices": [
+    "Pacific saury",
+    "Asian sheepshead wrasse",
+    "Pacific cod",
+    "chub mackerel"
+   ],
+   "fact": "[[Asian sheepshead wrasse]] is the large wrasse at Dokdo whose mature males develop a prominent forehead.",
+   "distractor": "Chub mackerel",
+   "blankDistractors": [
+    "Pacific saury",
+    "Pacific cod",
+    "chub mackerel"
+   ],
+   "explain": "The Dokdo system describes its forehead and strong teeth. The Korean name ends in dom, but it belongs among wrasses.",
+   "wrong": {
+    "3": "This is not the large wrasse described."
+   },
+   "group": "n400-446",
+   "tierNote": "보통"
+  },
+  {
+   "id": 777,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89 | 국립생태원 · 붉은박쥐 Myotis rufoniger · https://www.nie.re.kr/nie/pgm/edSpecies/view.do?menuNo=200127&speciesSn=4 | 국립해양생물자원관 MBRIS · 놀래기 Halichoeres tenuispinis · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000007742 | 국립해양생물자원관 MBRIS · 황놀래기 Pseudolabrus sieboldi · https://www.mbris.kr/pub/marine/tsearch/tsearchDetail.do?spcTxnId=270000014823",
+   "quiz": 446,
+   "q": "Among Dokdo's large wrasses, which one crushes hard-shelled prey?",
+   "choices": [
+    "Hwangnollaegi (a wrasse)",
+    "Asian sheepshead wrasse",
+    "Yongchinollaegi (a wrasse)",
+    "Nollaegi (a wrasse)"
+   ],
+   "fact": "[[Asian sheepshead wrasse]] is the large wrasse at Dokdo whose mature males develop a prominent forehead.",
+   "distractor": "Chub mackerel",
+   "blankDistractors": [
+    "Hwangnollaegi (a wrasse)",
+    "Yongchinollaegi (a wrasse)",
+    "Nollaegi (a wrasse)"
+   ],
+   "explain": "The Dokdo system describes its forehead and strong teeth. The Korean name ends in dom, but it belongs among wrasses.",
+   "group": "n400-446",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 778,
+   "grade": "E3",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "Which book did Kim Jeong-ho prepare to go with his map?",
+   "choices": [
+    "Donguibogam",
+    "Samguk Sagi",
+    "Hunminjeongeum",
+    "Daedongjiji"
+   ],
+   "fact": "Kim Jeong-ho compiled [[Daedongjiji]] as his final geographical work, intended to accompany Daedongyeojido.",
+   "distractor": "Dongyeodoji",
+   "blankDistractors": [
+    "Donguibogam",
+    "Samguk Sagi",
+    "Hunminjeongeum"
+   ],
+   "explain": "Daedongjiji was designed for use alongside a map. A geographical text can supply details that are difficult to show on a map.",
+   "group": "n400-453",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 779,
+   "grade": "M3",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "Which final geographical work did Kim Jeong-ho compile to accompany his Daedongyeojido map?",
+   "choices": [
+    "Taengniji",
+    "Yeolha Ilgi",
+    "Daedongjiji",
+    "Seongho Saseol"
+   ],
+   "fact": "Kim Jeong-ho compiled [[Daedongjiji]] as his final geographical work, intended to accompany Daedongyeojido.",
+   "distractor": "Dongyeodoji",
+   "blankDistractors": [
+    "Taengniji",
+    "Yeolha Ilgi",
+    "Seongho Saseol"
+   ],
+   "explain": "Daedongjiji was designed for use alongside a map. A geographical text can supply details that are difficult to show on a map.",
+   "group": "n400-453",
+   "tierNote": "보통"
+  },
+  {
+   "id": 780,
+   "grade": "U4",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 대동지지 · https://encykorea.aks.ac.kr/Article/E0014282",
+   "quiz": 453,
+   "q": "Name the last geographical treatise Kim Jeong-ho compiled.",
+   "choices": [
+    "Dongyeopyeongo",
+    "Daedongjiji",
+    "Dongyeodoji",
+    "Yeodobiji"
+   ],
+   "fact": "Kim Jeong-ho compiled [[Daedongjiji]] as his final geographical work, intended to accompany Daedongyeojido.",
+   "distractor": "Dongyeodoji",
+   "blankDistractors": [
+    "Dongyeopyeongo",
+    "Dongyeodoji",
+    "Yeodobiji"
+   ],
+   "explain": "Daedongjiji was designed for use alongside a map. A geographical text can supply details that are difficult to show on a map.",
+   "wrong": {
+    "2": "This confuses it with another geographical work by Kim Jeong-ho.",
+    "3": "The final work asked about is Daedongjiji."
+   },
+   "group": "n400-453",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 781,
+   "grade": "E4",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "What carried the 1947 Dokdo article?",
+   "choices": [
+    "Nanjung Ilgi",
+    "Samguk Yusa",
+    "Daegu Sibo",
+    "Donguibogam"
+   ],
+   "fact": "The June 20, 1947 Dokdo article reproduced by the foreign ministry appeared in [[Daegu Sibo]], a newspaper.",
+   "distractor": "Dong-A Ilbo",
+   "blankDistractors": [
+    "Nanjung Ilgi",
+    "Samguk Yusa",
+    "Donguibogam"
+   ],
+   "explain": "The ministry provides the original article and a modern Korean rendering. This question identifies the newspaper, rather than independently proving every event reported in it.",
+   "group": "n400-454",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 782,
+   "grade": "H1",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "Which newspaper carried the June 20, 1947 Dokdo article reproduced in the foreign ministry's collection?",
+   "choices": [
+    "Dongnip Sinmun",
+    "Daehan Maeil Shinbo",
+    "Hwangseong Sinmun",
+    "Daegu Sibo"
+   ],
+   "fact": "The June 20, 1947 Dokdo article reproduced by the foreign ministry appeared in [[Daegu Sibo]], a newspaper.",
+   "distractor": "Dong-A Ilbo",
+   "blankDistractors": [
+    "Dongnip Sinmun",
+    "Daehan Maeil Shinbo",
+    "Hwangseong Sinmun"
+   ],
+   "explain": "The ministry provides the original article and a modern Korean rendering. This question identifies the newspaper, rather than independently proving every event reported in it.",
+   "wrong": {
+    "1": "Do not confuse this publication with Dokdo reporting from 1906."
+   },
+   "group": "n400-454",
+   "tierNote": "보통"
+  },
+  {
+   "id": 783,
+   "grade": "MA1",
+   "category": "역사문헌",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 대구시보 1947년 6월 20일 기사 역문 · https://dokdo.mofa.go.kr/m/kor/pds/part03_view09.jsp",
+   "quiz": 454,
+   "q": "Name the newspaper of the June 20, 1947 article in the ministry's collection.",
+   "choices": [
+    "Dong-A Ilbo",
+    "Chosun Ilbo",
+    "Kyunghyang Sinmun",
+    "Daegu Sibo"
+   ],
+   "fact": "The June 20, 1947 Dokdo article reproduced by the foreign ministry appeared in [[Daegu Sibo]], a newspaper.",
+   "distractor": "Dong-A Ilbo",
+   "blankDistractors": [
+    "Dong-A Ilbo",
+    "Chosun Ilbo",
+    "Kyunghyang Sinmun"
+   ],
+   "explain": "The ministry provides the original article and a modern Korean rendering. This question identifies the newspaper, rather than independently proving every event reported in it.",
+   "wrong": {
+    "0": "The collection attributes this particular article to Daegu Sibo."
+   },
+   "group": "n400-454",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 784,
+   "grade": "E5",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "What rank did Imperial Edict No. 41 give Uldo County?",
+   "choices": [
+    "rank 500",
+    "rank 50",
+    "rank 100",
+    "rank 5"
+   ],
+   "fact": "Article 1 of Imperial Edict No. 41 assigned Uldo County [[rank 5]] within the county classification.",
+   "distractor": "rank 4",
+   "blankDistractors": [
+    "rank 500",
+    "rank 50",
+    "rank 100"
+   ],
+   "explain": "The edict sets rank 5 and refers to expenses for that rank in Article 4. This was an administrative classification, not a school grade.",
+   "group": "n400-455",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 785,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "What county rank did Article 1 of Imperial Edict No. 41 assign to Uldo County?",
+   "choices": [
+    "rank 1",
+    "rank 5",
+    "rank 10",
+    "rank 2"
+   ],
+   "fact": "Article 1 of Imperial Edict No. 41 assigned Uldo County [[rank 5]] within the county classification.",
+   "distractor": "rank 4",
+   "blankDistractors": [
+    "rank 1",
+    "rank 10",
+    "rank 2"
+   ],
+   "explain": "The edict sets rank 5 and refers to expenses for that rank in Article 4. This was an administrative classification, not a school grade.",
+   "wrong": {
+    "2": "This does not match the rank written in the edict."
+   },
+   "group": "n400-455",
+   "tierNote": "보통"
+  },
+  {
+   "id": 786,
+   "grade": "MA2",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "외교부 독도 · 관보 1900년 10월 27일, 칙령 제41호 역문 · https://dokdo.mofa.go.kr/kor/pds/part02_view03.jsp",
+   "quiz": 455,
+   "q": "Give the exact county rank stated in Article 1.",
+   "choices": [
+    "rank 3",
+    "rank 4",
+    "rank 5",
+    "rank 6"
+   ],
+   "fact": "Article 1 of Imperial Edict No. 41 assigned Uldo County [[rank 5]] within the county classification.",
+   "distractor": "rank 4",
+   "blankDistractors": [
+    "rank 3",
+    "rank 4",
+    "rank 6"
+   ],
+   "explain": "The edict sets rank 5 and refers to expenses for that rank in Article 4. This was an administrative classification, not a school grade.",
+   "wrong": {
+    "1": "Article 1 specifies rank 5, not rank 4."
+   },
+   "group": "n400-455",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 787,
+   "grade": "E6",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "Which plant on Dokdo lives off other plants?",
+   "choices": [
+    "Chojongyong (broomrape)",
+    "laver",
+    "kelp",
+    "sea mustard"
+   ],
+   "fact": "[[Chojongyong (broomrape)]] is a parasitic herb recorded on Dokdo.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "laver",
+    "kelp",
+    "sea mustard"
+   ],
+   "explain": "Kyungpook National University's institute describes Chojongyong as a parasitic plant of Ulleungdo and Dokdo. A parasite and the plants growing beside it are not the same.",
+   "group": "n400-456",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 788,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "Which herb recorded on Dokdo is parasitic on other plants?",
+   "choices": [
+    "seashore aster",
+    "Chojongyong (broomrape)",
+    "tiger lily",
+    "beach morning glory"
+   ],
+   "fact": "[[Chojongyong (broomrape)]] is a parasitic herb recorded on Dokdo.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "seashore aster",
+    "tiger lily",
+    "beach morning glory"
+   ],
+   "explain": "Kyungpook National University's institute describes Chojongyong as a parasitic plant of Ulleungdo and Dokdo. A parasite and the plants growing beside it are not the same.",
+   "wrong": {
+    "0": "The parasitic plant identified in this source is Chojongyong."
+   },
+   "group": "n400-456",
+   "tierNote": "보통"
+  },
+  {
+   "id": 789,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "경북대학교 울릉도·독도연구소 · 초종용 · https://dokdoknu.com/wp/?p=2727 | KISTI ScienceON · 울릉도, 독도 초종용에서 형태 변이와 지리적 분포 양상 · https://scienceon.kisti.re.kr/srch/selectPORSrchArticle.do?cn=JAKO201609633506561",
+   "quiz": 456,
+   "q": "Name the parasitic plant recorded from Dokdo.",
+   "choices": [
+    "Sacheolssuk (wormwood)",
+    "Ttangchaesonghwa (stonecrop)",
+    "Chojongyong (broomrape)",
+    "Gaetjebissuk (coastal wormwood)"
+   ],
+   "fact": "[[Chojongyong (broomrape)]] is a parasitic herb recorded on Dokdo.",
+   "distractor": "Seashore aster",
+   "blankDistractors": [
+    "Sacheolssuk (wormwood)",
+    "Ttangchaesonghwa (stonecrop)",
+    "Gaetjebissuk (coastal wormwood)"
+   ],
+   "explain": "Kyungpook National University's institute describes Chojongyong as a parasitic plant of Ulleungdo and Dokdo. A parasite and the plants growing beside it are not the same.",
+   "wrong": {
+    "3": "The study distinguishes broomrape from its host plant."
+   },
+   "group": "n400-456",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 790,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 457,
+   "q": "Which spaces do interstitial animals in Dokdo's sandy sediments mainly occupy?",
+   "choices": [
+    "spaces between sediment grains",
+    "the insides of fish gills",
+    "spaces between gull feathers",
+    "droplets above the sea surface"
+   ],
+   "fact": "Interstitial animals occupy [[spaces between sediment grains]] within sandy sediments.",
+   "distractor": "the insides of fish gills",
+   "blankDistractors": [
+    "the insides of fish gills",
+    "spaces between gull feathers",
+    "droplets above the sea surface"
+   ],
+   "explain": "Sand is not a solid block without gaps. Tiny marine animals can live in the spaces between its grains.",
+   "wrong": {
+    "1": "The question concerns sediment spaces, not another animal's body.",
+    "2": "This is not the space between grains of seabed sand."
+   }
+  },
+  {
+   "id": 791,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 463,
+   "q": "Why do upper-layer temperatures near Dokdo become more uniform with depth in February and March?",
+   "choices": [
+    "uniform warming solely from seabed heat",
+    "complete removal of salt at high tide",
+    "conversion of the entire water column to fresh water",
+    "active vertical mixing"
+   ],
+   "fact": "Near Dokdo, [[active vertical mixing]] helps make upper-layer temperatures more uniform in late winter.",
+   "distractor": "uniform warming solely from seabed heat",
+   "blankDistractors": [
+    "uniform warming solely from seabed heat",
+    "complete removal of salt at high tide",
+    "conversion of the entire water column to fresh water"
+   ],
+   "explain": "The official account links uniform upper-layer temperatures in February and March to vertical mixing. This process mixes water from different depths.",
+   "wrong": {
+    "0": "The stated explanation is vertical mixing.",
+    "2": "Similar temperatures do not mean that seawater has lost its salt."
+   }
+  },
+  {
+   "id": 792,
+   "grade": "K",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "Who published a poetry book called Ulleungdo in 1948?",
+   "choices": [
+    "Yu Chi-hwan",
+    "Heo Jun",
+    "Yi Sun-sin",
+    "Jang Yeong-sil"
+   ],
+   "fact": "[[Yu Chi-hwan]] published the poetry collection Ulleungdo in 1948.",
+   "distractor": "Park Mok-wol",
+   "blankDistractors": [
+    "Heo Jun",
+    "Yi Sun-sin",
+    "Jang Yeong-sil"
+   ],
+   "explain": "Ulleungdo was Yu Chi-hwan's third poetry collection. The island's name appears in post-liberation literature as well as geographical records.",
+   "wrong": {
+    "3": "The question asks about a modern poet, not a Joseon scientific inventor."
+   },
+   "group": "n400-464",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 793,
+   "grade": "M3",
+   "category": "인물",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "Which poet published the poetry collection Ulleungdo in 1948?",
+   "choices": [
+    "Jo Man-sik",
+    "Kim Seong-su",
+    "Yu Chi-hwan",
+    "Kim Gu"
+   ],
+   "fact": "[[Yu Chi-hwan]] published the poetry collection Ulleungdo in 1948.",
+   "distractor": "Park Mok-wol",
+   "blankDistractors": [
+    "Jo Man-sik",
+    "Kim Seong-su",
+    "Kim Gu"
+   ],
+   "explain": "Ulleungdo was Yu Chi-hwan's third poetry collection. The island's name appears in post-liberation literature as well as geographical records.",
+   "group": "n400-464",
+   "tierNote": "보통"
+  },
+  {
+   "id": 794,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉도(유치환 시집) · https://encykorea.aks.ac.kr/Article/E0040444",
+   "quiz": 464,
+   "q": "Name the poet behind the 1948 collection Ulleungdo.",
+   "choices": [
+    "Kim Yeong-rang",
+    "Yu Chi-hwan",
+    "Park Mok-wol",
+    "Jeong Ji-yong"
+   ],
+   "fact": "[[Yu Chi-hwan]] published the poetry collection Ulleungdo in 1948.",
+   "distractor": "Park Mok-wol",
+   "blankDistractors": [
+    "Kim Yeong-rang",
+    "Park Mok-wol",
+    "Jeong Ji-yong"
+   ],
+   "explain": "Ulleungdo was Yu Chi-hwan's third poetry collection. The island's name appears in post-liberation literature as well as geographical records.",
+   "wrong": {
+    "2": "The poet credited with this collection is Yu Chi-hwan."
+   },
+   "group": "n400-464",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 795,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "How fine is the sieve used to catch meiofauna?",
+   "choices": [
+    "3.2 µm",
+    "32 µm",
+    "3200 µm",
+    "0.32 µm"
+   ],
+   "fact": "The guide's meiofauna size definition uses a fine mesh of [[32 µm]] to retain animals passing through a 1 mm sieve.",
+   "distractor": "64 µm",
+   "blankDistractors": [
+    "3.2 µm",
+    "3200 µm",
+    "0.32 µm"
+   ],
+   "explain": "This guide uses animals passing a 1 mm sieve but retained by a 32 µm sieve. Not every study uses the same mesh-size convention.",
+   "wrong": {
+    "0": "This mesh is ten times finer than 32 µm."
+   },
+   "group": "n400-465",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 796,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "What fine mesh retains meiofauna in the size definition used by Dokdo's interstitial-fauna guide?",
+   "choices": [
+    "32 µm",
+    "64 µm",
+    "16 µm",
+    "128 µm"
+   ],
+   "fact": "The guide's meiofauna size definition uses a fine mesh of [[32 µm]] to retain animals passing through a 1 mm sieve.",
+   "distractor": "64 µm",
+   "blankDistractors": [
+    "64 µm",
+    "16 µm",
+    "128 µm"
+   ],
+   "explain": "This guide uses animals passing a 1 mm sieve but retained by a 32 µm sieve. Not every study uses the same mesh-size convention.",
+   "wrong": {
+    "1": "This is twice the fine-mesh size specified here."
+   },
+   "group": "n400-465",
+   "tierNote": "보통"
+  },
+  {
+   "id": 797,
+   "grade": "U1",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 465,
+   "q": "Which mesh size marks the lower bound in Dokdo's interstitial-fauna guide?",
+   "choices": [
+    "40 µm",
+    "32 µm",
+    "30 µm",
+    "35 µm"
+   ],
+   "fact": "The guide's meiofauna size definition uses a fine mesh of [[32 µm]] to retain animals passing through a 1 mm sieve.",
+   "distractor": "64 µm",
+   "blankDistractors": [
+    "40 µm",
+    "30 µm",
+    "35 µm"
+   ],
+   "explain": "This guide uses animals passing a 1 mm sieve but retained by a 32 µm sieve. Not every study uses the same mesh-size convention.",
+   "group": "n400-465",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 798,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "What lives most abundantly in the sand grains around Dokdo?",
+   "choices": [
+    "seaweeds",
+    "nematodes",
+    "seabirds",
+    "mammals"
+   ],
+   "fact": "[[Nematodes]] were the most abundant group in the 2006–2010 survey of interstitial fauna around Dokdo.",
+   "distractor": "Benthic foraminiferans",
+   "blankDistractors": [
+    "seaweeds",
+    "seabirds",
+    "mammals"
+   ],
+   "explain": "Nematodes occurred at every station in that survey. A result from this survey should not be turned into a ranking for every seabed worldwide.",
+   "group": "n400-466",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 799,
+   "grade": "H2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "Which group dominated the 2006–2010 survey of interstitial fauna around Dokdo?",
+   "choices": [
+    "cnidarians",
+    "nematodes",
+    "molluscs",
+    "echinoderms"
+   ],
+   "fact": "[[Nematodes]] were the most abundant group in the 2006–2010 survey of interstitial fauna around Dokdo.",
+   "distractor": "Benthic foraminiferans",
+   "blankDistractors": [
+    "cnidarians",
+    "molluscs",
+    "echinoderms"
+   ],
+   "explain": "Nematodes occurred at every station in that survey. A result from this survey should not be turned into a ranking for every seabed worldwide.",
+   "group": "n400-466",
+   "tierNote": "보통"
+  },
+  {
+   "id": 800,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 466,
+   "q": "Which taxon dominated the 2006-2010 interstitial survey?",
+   "choices": [
+    "gastrotrichs",
+    "nematodes",
+    "benthic harpacticoid copepods",
+    "benthic foraminiferans"
+   ],
+   "fact": "[[Nematodes]] were the most abundant group in the 2006–2010 survey of interstitial fauna around Dokdo.",
+   "distractor": "Benthic foraminiferans",
+   "blankDistractors": [
+    "gastrotrichs",
+    "benthic harpacticoid copepods",
+    "benthic foraminiferans"
+   ],
+   "explain": "Nematodes occurred at every station in that survey. A result from this survey should not be turned into a ranking for every seabed worldwide.",
+   "wrong": {
+    "2": "They were recorded, but were not the dominant group.",
+    "3": "The source lists this group after nematodes in abundance."
+   },
+   "group": "n400-466",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 801,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "Roughly when did the first 1:5,000 Dokdo chart appear?",
+   "choices": [
+    "1801",
+    "2001",
+    "1901",
+    "1701"
+   ],
+   "fact": "The chronology dates the first 1:5,000 Dokdo nautical chart to [[2001]], on July 26.",
+   "distractor": "2000",
+   "blankDistractors": [
+    "1801",
+    "1901",
+    "1701"
+   ],
+   "explain": "The chronology records publication on July 26, 2001. Distinguish this nautical chart from earlier land topographic maps.",
+   "group": "n400-473",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 802,
+   "grade": "H3",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "According to the National Assembly Library chronology, when was the first 1:5,000 Dokdo nautical chart published?",
+   "choices": [
+    "1981",
+    "2001",
+    "1961",
+    "2021"
+   ],
+   "fact": "The chronology dates the first 1:5,000 Dokdo nautical chart to [[2001]], on July 26.",
+   "distractor": "2000",
+   "blankDistractors": [
+    "1981",
+    "1961",
+    "2021"
+   ],
+   "explain": "The chronology records publication on July 26, 2001. Distinguish this nautical chart from earlier land topographic maps.",
+   "group": "n400-473",
+   "tierNote": "보통"
+  },
+  {
+   "id": 803,
+   "grade": "U4",
+   "category": "현대주권",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "국회도서관 독도 · 독도 연표 2001년 이후 · https://dokdo.nanet.go.kr/dokdo/front.dokdo?menu=chronology_9",
+   "quiz": 473,
+   "q": "Give the exact year recorded for the first 1:5,000 chart.",
+   "choices": [
+    "1999",
+    "2001",
+    "2002",
+    "2000"
+   ],
+   "fact": "The chronology dates the first 1:5,000 Dokdo nautical chart to [[2001]], on July 26.",
+   "distractor": "2000",
+   "blankDistractors": [
+    "1999",
+    "2002",
+    "2000"
+   ],
+   "explain": "The chronology records publication on July 26, 2001. Distinguish this nautical chart from earlier land topographic maps.",
+   "wrong": {
+    "0": "The question asks about publication of the Dokdo chart at this specific scale.",
+    "3": "This is one year before the recorded chart publication."
+   },
+   "group": "n400-473",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 804,
+   "grade": "E4",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "Who put together the expanded Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "Yi Haeng and Yun Eun-bo",
+    "Heo Jun and Yi Je-ma",
+    "Jang Yeong-sil and Choe Mu-seon",
+    "Yi Sun-sin and Gwon Yul"
+   ],
+   "fact": "[[Yi Haeng and Yun Eun-bo]] were among the officials responsible for compiling Sinjeung Dongguk Yeoji Seungnam.",
+   "distractor": "No Sa-sin and Seo Geo-jeong",
+   "blankDistractors": [
+    "Heo Jun and Yi Je-ma",
+    "Jang Yeong-sil and Choe Mu-seon",
+    "Yi Sun-sin and Gwon Yul"
+   ],
+   "explain": "Yi Haeng, Yun Eun-bo and others expanded the earlier work. Distinguish this team from those involved in the original work and earlier revisions.",
+   "group": "n400-474",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 805,
+   "grade": "M1",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "Which pair is associated with compiling the expanded Sinjeung Dongguk Yeoji Seungnam?",
+   "choices": [
+    "Yi Haeng and Yun Eun-bo",
+    "Park Ji-won and Park Je-ga",
+    "Kim Jeong-ho and Choe Han-gi",
+    "Jeong Yak-yong and Jeong Yak-jeon"
+   ],
+   "fact": "[[Yi Haeng and Yun Eun-bo]] were among the officials responsible for compiling Sinjeung Dongguk Yeoji Seungnam.",
+   "distractor": "No Sa-sin and Seo Geo-jeong",
+   "blankDistractors": [
+    "Park Ji-won and Park Je-ga",
+    "Kim Jeong-ho and Choe Han-gi",
+    "Jeong Yak-yong and Jeong Yak-jeon"
+   ],
+   "explain": "Yi Haeng, Yun Eun-bo and others expanded the earlier work. Distinguish this team from those involved in the original work and earlier revisions.",
+   "group": "n400-474",
+   "tierNote": "보통"
+  },
+  {
+   "id": 806,
+   "grade": "MA1",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 신증동국여지승람 · https://encykorea.aks.ac.kr/Article/E0033401",
+   "quiz": 474,
+   "q": "Which two names are recorded together as its compilers?",
+   "choices": [
+    "No Sa-sin and Seo Geo-jeong",
+    "Yi Haeng and Yun Eun-bo",
+    "Im Sa-hong and Kim Jong-jik",
+    "Kim Jong-jik and Seong Hyeon"
+   ],
+   "fact": "[[Yi Haeng and Yun Eun-bo]] were among the officials responsible for compiling Sinjeung Dongguk Yeoji Seungnam.",
+   "distractor": "No Sa-sin and Seo Geo-jeong",
+   "blankDistractors": [
+    "No Sa-sin and Seo Geo-jeong",
+    "Im Sa-hong and Kim Jong-jik",
+    "Kim Jong-jik and Seong Hyeon"
+   ],
+   "explain": "Yi Haeng, Yun Eun-bo and others expanded the earlier work. Distinguish this team from those involved in the original work and earlier revisions.",
+   "wrong": {
+    "0": "This confuses figures connected with the original work with the expanded edition's compilers.",
+    "3": "Distinguish participants in earlier revisions from the expanded edition's compilers."
+   },
+   "group": "n400-474",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 807,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "Which fish gathers around the black corals at Gajicho?",
+   "choices": [
+    "black-tailed gull",
+    "seashore aster",
+    "sea mustard",
+    "Dohwabolrak rockfish"
+   ],
+   "fact": "The Gajicho survey describes [[Dohwabolrak rockfish]] schooling around large black corals near Dokdo.",
+   "distractor": "Jopibollak rockfish",
+   "blankDistractors": [
+    "black-tailed gull",
+    "seashore aster",
+    "sea mustard"
+   ],
+   "explain": "The survey account describes schools of Dohwabolrak around large black corals at Gajicho. This asks about a particular habitat observation.",
+   "group": "n400-475",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 808,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "Which fish does the Gajicho survey describe schooling around large black corals near Dokdo?",
+   "choices": [
+    "abalone",
+    "octopus",
+    "Dohwabolrak rockfish",
+    "sea urchin"
+   ],
+   "fact": "The Gajicho survey describes [[Dohwabolrak rockfish]] schooling around large black corals near Dokdo.",
+   "distractor": "Jopibollak rockfish",
+   "blankDistractors": [
+    "abalone",
+    "octopus",
+    "sea urchin"
+   ],
+   "explain": "The survey account describes schools of Dohwabolrak around large black corals at Gajicho. This asks about a particular habitat observation.",
+   "wrong": {
+    "1": "The question asks which fish is described schooling at this site."
+   },
+   "group": "n400-475",
+   "tierNote": "보통"
+  },
+  {
+   "id": 809,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 475,
+   "q": "Which rockfish does the Gajicho survey record schooling there?",
+   "choices": [
+    "Jopibollak rockfish",
+    "Bulbollak rockfish",
+    "Bollak rockfish",
+    "Dohwabolrak rockfish"
+   ],
+   "fact": "The Gajicho survey describes [[Dohwabolrak rockfish]] schooling around large black corals near Dokdo.",
+   "distractor": "Jopibollak rockfish",
+   "blankDistractors": [
+    "Jopibollak rockfish",
+    "Bulbollak rockfish",
+    "Bollak rockfish"
+   ],
+   "explain": "The survey account describes schools of Dohwabolrak around large black corals at Gajicho. This asks about a particular habitat observation.",
+   "wrong": {
+    "0": "This is another rockfish name, not the one in this observation."
+   },
+   "group": "n400-475",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 810,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 476,
+   "q": "Why are X-ray images useful when examining sediment cores from the seabed around Dokdo?",
+   "choices": [
+    "listening to living fish calls",
+    "mapping the movement of clouds",
+    "examining internal sediment structures",
+    "directly measuring wind above the sea"
+   ],
+   "fact": "X-ray images of sediment cores are useful for [[examining internal sediment structures]] without relying only on the outer surface.",
+   "distractor": "mapping the movement of clouds",
+   "blankDistractors": [
+    "listening to living fish calls",
+    "mapping the movement of clouds",
+    "directly measuring wind above the sea"
+   ],
+   "explain": "X-rays reveal layering and structures that may be missed from the outside. An image alone does not establish the absolute age of every layer.",
+   "wrong": {
+    "0": "X-ray imaging is not a method of recording fish sounds.",
+    "3": "The object being examined is a seabed sediment core."
+   }
+  },
+  {
+   "id": 811,
+   "grade": "H1",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XII · https://static.un.org/Depts/los/convention_agreements/texts/unclos/part12.htm",
+   "quiz": 477,
+   "q": "Which introduction of alien or new species is addressed by UNCLOS Article 196?",
+   "choices": [
+    "all movements with no environmental effects",
+    "translation of species names into another language",
+    "introductions risking significant and harmful marine changes",
+    "natural reproduction of established species"
+   ],
+   "fact": "Article 196 addresses [[introductions risking significant and harmful marine changes]] under its marine-environment provisions.",
+   "distractor": "natural reproduction of established species",
+   "blankDistractors": [
+    "all movements with no environmental effects",
+    "translation of species names into another language",
+    "natural reproduction of established species"
+   ],
+   "explain": "The article covers intentional or accidental introduction of alien or new species to a marine environment. It is not a blanket ban on every movement of every species.",
+   "wrong": {
+    "1": "Introducing organisms is different from translating their names.",
+    "3": "This differs from the harmful introductions addressed by the article."
+   }
+  },
+  {
+   "id": 812,
+   "grade": "E6",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "About how many maps come with Sangoku Tsuran Zusetsu?",
+   "choices": [
+    "5000 maps",
+    "5 maps",
+    "50 maps",
+    "500 maps"
+   ],
+   "fact": "The National Assembly Library describes [[5 maps]] accompanying Sangoku Tsuran Zusetsu.",
+   "distractor": "4 maps",
+   "blankDistractors": [
+    "5000 maps",
+    "50 maps",
+    "500 maps"
+   ],
+   "explain": "The well-known regional map associated with Dokdo is one of five accompanying maps. A famous individual sheet is not the entire map set.",
+   "wrong": {
+    "2": "This is ten times the number given in the description."
+   },
+   "group": "n400-483",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 813,
+   "grade": "H2",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "According to the National Assembly Library's description, how many maps accompany Sangoku Tsuran Zusetsu?",
+   "choices": [
+    "5 maps",
+    "20 maps",
+    "10 maps",
+    "2 maps"
+   ],
+   "fact": "The National Assembly Library describes [[5 maps]] accompanying Sangoku Tsuran Zusetsu.",
+   "distractor": "4 maps",
+   "blankDistractors": [
+    "20 maps",
+    "10 maps",
+    "2 maps"
+   ],
+   "explain": "The well-known regional map associated with Dokdo is one of five accompanying maps. A famous individual sheet is not the entire map set.",
+   "group": "n400-483",
+   "tierNote": "보통"
+  },
+  {
+   "id": 814,
+   "grade": "PHD1",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "국회도서관 독도 · 삼국접양지도 · https://dokdo.nanet.go.kr/dokdo/collection/collectionDetail.dokdo?collection_sid=1",
+   "quiz": 483,
+   "q": "Give the map count stated in the library's description.",
+   "choices": [
+    "5 maps",
+    "6 maps",
+    "7 maps",
+    "4 maps"
+   ],
+   "fact": "The National Assembly Library describes [[5 maps]] accompanying Sangoku Tsuran Zusetsu.",
+   "distractor": "4 maps",
+   "blankDistractors": [
+    "6 maps",
+    "7 maps",
+    "4 maps"
+   ],
+   "explain": "The well-known regional map associated with Dokdo is one of five accompanying maps. A famous individual sheet is not the entire map set.",
+   "wrong": {
+    "3": "This counts only the other four maps, leaving out the familiar sheet."
+   },
+   "group": "n400-483",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 815,
+   "grade": "K",
+   "category": "인물",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "Who checked in 1157 whether people could live on Ulleungdo?",
+   "choices": [
+    "Sin Yun-bok",
+    "Kim Yu-rip",
+    "Heo Jun",
+    "Yi Sun-sin"
+   ],
+   "fact": "[[Kim Yu-rip]] investigated settlement prospects on Ulleungdo in 1157 under King Uijong's orders.",
+   "distractor": "Kim In-u",
+   "blankDistractors": [
+    "Sin Yun-bok",
+    "Heo Jun",
+    "Yi Sun-sin"
+   ],
+   "explain": "Kim Yu-rip reported on the island's terrain and traces of settlements. Officials who surveyed Ulleungdo belonged to different historical periods.",
+   "group": "n400-484",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 816,
+   "grade": "H3",
+   "category": "인물",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "Which official investigated the possibility of settlement on Ulleungdo under King Uijong's orders in 1157?",
+   "choices": [
+    "Kim Yu-rip",
+    "Kim Bu-sik",
+    "Myo Cheong",
+    "Yi Ja-gyeom"
+   ],
+   "fact": "[[Kim Yu-rip]] investigated settlement prospects on Ulleungdo in 1157 under King Uijong's orders.",
+   "distractor": "Kim In-u",
+   "blankDistractors": [
+    "Kim Bu-sik",
+    "Myo Cheong",
+    "Yi Ja-gyeom"
+   ],
+   "explain": "Kim Yu-rip reported on the island's terrain and traces of settlements. Officials who surveyed Ulleungdo belonged to different historical periods.",
+   "group": "n400-484",
+   "tierNote": "보통"
+  },
+  {
+   "id": 817,
+   "grade": "PHD2",
+   "category": "인물",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "인명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 김유립 · https://encykorea.aks.ac.kr/Article/E0010079",
+   "quiz": 484,
+   "q": "Name the official sent by King Uijong to assess settlement.",
+   "choices": [
+    "Jang Han-sang",
+    "Kim In-u",
+    "Yi Gyu-won",
+    "Kim Yu-rip"
+   ],
+   "fact": "[[Kim Yu-rip]] investigated settlement prospects on Ulleungdo in 1157 under King Uijong's orders.",
+   "distractor": "Kim In-u",
+   "blankDistractors": [
+    "Jang Han-sang",
+    "Kim In-u",
+    "Yi Gyu-won"
+   ],
+   "explain": "Kim Yu-rip reported on the island's terrain and traces of settlements. Officials who surveyed Ulleungdo belonged to different historical periods.",
+   "wrong": {
+    "1": "Kim In-u's activities concerning Ulleungdo belong to the Joseon period.",
+    "2": "Distinguish the official associated with the 1882 survey from this Goryeo official."
+   },
+   "group": "n400-484",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 818,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "What Korean name was given to a goby caught at Dokdo in 2015?",
+   "choices": [
+    "black-tailed gull",
+    "large mussel",
+    "Seomgirincho (stonecrop)",
+    "Dokdo-eolluk-mangduk (mottled goby)"
+   ],
+   "fact": "The 2015 paper proposed [[Dokdo-eolluk-mangduk (mottled goby)]] as the Korean name for Astrabe fasciata.",
+   "distractor": "Huinjul-mangduk",
+   "blankDistractors": [
+    "black-tailed gull",
+    "large mussel",
+    "Seomgirincho (stonecrop)"
+   ],
+   "explain": "The paper reported a specimen from Dokdo as a first Korean record and proposed a Korean name. A first national record is not the description of a species new to science.",
+   "group": "n400-485",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 819,
+   "grade": "M1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "What Korean name did a 2015 paper propose for Astrabe fasciata collected at Dokdo?",
+   "choices": [
+    "red seabream",
+    "chub mackerel",
+    "filefish",
+    "Dokdo-eolluk-mangduk (mottled goby)"
+   ],
+   "fact": "The 2015 paper proposed [[Dokdo-eolluk-mangduk (mottled goby)]] as the Korean name for Astrabe fasciata.",
+   "distractor": "Huinjul-mangduk",
+   "blankDistractors": [
+    "red seabream",
+    "chub mackerel",
+    "filefish"
+   ],
+   "explain": "The paper reported a specimen from Dokdo as a first Korean record and proposed a Korean name. A first national record is not the description of a species new to science.",
+   "group": "n400-485",
+   "tierNote": "보통"
+  },
+  {
+   "id": 820,
+   "grade": "U1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국어류학회지 · First Record of Gobiid Fish, Astrabe fasciata from Dokdo, Korea (2015) · https://koreascience.or.kr/article/JAKO201511059258467.page",
+   "quiz": 485,
+   "q": "Which Korean name did the 2015 paper propose for Astrabe fasciata?",
+   "choices": [
+    "Dokdo-eolluk-mangduk (mottled goby)",
+    "Huinjul-mangduk",
+    "Kkoma-cheonghwang",
+    "Pulmangduk"
+   ],
+   "fact": "The 2015 paper proposed [[Dokdo-eolluk-mangduk (mottled goby)]] as the Korean name for Astrabe fasciata.",
+   "distractor": "Huinjul-mangduk",
+   "blankDistractors": [
+    "Huinjul-mangduk",
+    "Kkoma-cheonghwang",
+    "Pulmangduk"
+   ],
+   "explain": "The paper reported a specimen from Dokdo as a first Korean record and proposed a Korean name. A first national record is not the description of a species new to science.",
+   "wrong": {
+    "1": "The name proposed in this paper was Dokdo-eolluk-mangduk.",
+    "3": "This is another goby name, not the one proposed in this paper."
+   },
+   "group": "n400-485",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 821,
+   "grade": "E2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "Which tree stands for the primeval forest on Seonginbong?",
+   "choices": [
+    "sesame",
+    "barley",
+    "rice",
+    "Neodobamnamu (Ulleungdo beech)"
+   ],
+   "fact": "[[Neodobamnamu (Ulleungdo beech)]] is a characteristic Fagaceae tree of Seonginbong's primeval forest.",
+   "distractor": "Nadobamnamu",
+   "blankDistractors": [
+    "sesame",
+    "barley",
+    "rice"
+   ],
+   "explain": "Seonginbong's forest includes stands of Neodobamnamu. A similar Korean name does not make it the same tree as Nadobamnamu.",
+   "group": "n400-487",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 822,
+   "grade": "M2",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "Which Fagaceae tree is a characteristic species of the primeval forest on Seonginbong, Ulleungdo?",
+   "choices": [
+    "pine",
+    "ginkgo",
+    "Neodobamnamu (Ulleungdo beech)",
+    "camellia"
+   ],
+   "fact": "[[Neodobamnamu (Ulleungdo beech)]] is a characteristic Fagaceae tree of Seonginbong's primeval forest.",
+   "distractor": "Nadobamnamu",
+   "blankDistractors": [
+    "pine",
+    "ginkgo",
+    "camellia"
+   ],
+   "explain": "Seonginbong's forest includes stands of Neodobamnamu. A similar Korean name does not make it the same tree as Nadobamnamu.",
+   "group": "n400-487",
+   "tierNote": "보통"
+  },
+  {
+   "id": 823,
+   "grade": "U3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 울릉 성인봉 원시림 · https://encykorea.aks.ac.kr/Article/E0029505 | 한국학중앙연구원 · 한국민족문화대백과사전, 너도밤나무 · https://encykorea.aks.ac.kr/Article/E0012604",
+   "quiz": 487,
+   "q": "Which Fagaceae species characterizes that forest?",
+   "choices": [
+    "hornbeam",
+    "chestnut",
+    "Neodobamnamu (Ulleungdo beech)",
+    "Nadobamnamu"
+   ],
+   "fact": "[[Neodobamnamu (Ulleungdo beech)]] is a characteristic Fagaceae tree of Seonginbong's primeval forest.",
+   "distractor": "Nadobamnamu",
+   "blankDistractors": [
+    "hornbeam",
+    "chestnut",
+    "Nadobamnamu"
+   ],
+   "explain": "Seonginbong's forest includes stands of Neodobamnamu. A similar Korean name does not make it the same tree as Nadobamnamu.",
+   "wrong": {
+    "1": "Distinguish the named beech from an ordinary chestnut tree.",
+    "3": "Despite the similar Korean name, this is a different tree."
+   },
+   "group": "n400-487",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 824,
+   "grade": "E3",
+   "category": "자연생태",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "What is the name of the column-like rock under the sea east of Seodo?",
+   "choices": [
+    "Gageodo",
+    "Marado",
+    "Gajicho",
+    "Hongdo"
+   ],
+   "fact": "[[Gajicho]] is the submerged reef east of Seodo (West Islet) that rises from about 40 m to 8 m below the surface.",
+   "distractor": "Jeonchabawi Rock",
+   "blankDistractors": [
+    "Gageodo",
+    "Marado",
+    "Hongdo"
+   ],
+   "explain": "Important Dokdo landforms are not limited to rocks visible above water. The official fish-survey account describes Gajicho as a column-like submerged reef.",
+   "group": "n400-493",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 825,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "Which submerged reef east of Seodo (West Islet) rises like a column from about 40 m to 8 m below the surface?",
+   "choices": [
+    "Gajicho",
+    "Gongam",
+    "Gwaneumdo",
+    "Jukdo"
+   ],
+   "fact": "[[Gajicho]] is the submerged reef east of Seodo (West Islet) that rises from about 40 m to 8 m below the surface.",
+   "distractor": "Jeonchabawi Rock",
+   "blankDistractors": [
+    "Gongam",
+    "Gwaneumdo",
+    "Jukdo"
+   ],
+   "explain": "Important Dokdo landforms are not limited to rocks visible above water. The official fish-survey account describes Gajicho as a column-like submerged reef.",
+   "wrong": {
+    "2": "This confuses an island near Ulleungdo with a submerged Dokdo reef."
+   },
+   "group": "n400-493",
+   "tierNote": "보통"
+  },
+  {
+   "id": 826,
+   "grade": "U4",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 어류 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=89",
+   "quiz": 493,
+   "q": "Name the reef rising from about 40 m to 8 m east of Seodo.",
+   "choices": [
+    "Gajicho",
+    "Buchaebawi Rock",
+    "Jeonchabawi Rock",
+    "Sutdolbawi Rock"
+   ],
+   "fact": "[[Gajicho]] is the submerged reef east of Seodo (West Islet) that rises from about 40 m to 8 m below the surface.",
+   "distractor": "Jeonchabawi Rock",
+   "blankDistractors": [
+    "Buchaebawi Rock",
+    "Jeonchabawi Rock",
+    "Sutdolbawi Rock"
+   ],
+   "explain": "Important Dokdo landforms are not limited to rocks visible above water. The official fish-survey account describes Gajicho as a column-like submerged reef.",
+   "wrong": {
+    "2": "The official account names this submerged reef Gajicho."
+   },
+   "group": "n400-493",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 827,
+   "grade": "E4",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "What is the peak that rose again inside Ulleungdo's caldera?",
+   "choices": [
+    "Jirisan",
+    "Seoraksan",
+    "Hallasan",
+    "Albong"
+   ],
+   "fact": "[[Albong]] is the central cone formed by renewed volcanic activity inside Ulleungdo's caldera.",
+   "distractor": "Seonginbong",
+   "blankDistractors": [
+    "Jirisan",
+    "Seoraksan",
+    "Hallasan"
+   ],
+   "explain": "Albong formed inside the caldera after its formation. The island's highest peak and its central cone are not the same landform.",
+   "group": "n400-495",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 828,
+   "grade": "H1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "Which central volcanic cone formed through renewed eruption inside Ulleungdo's caldera?",
+   "choices": [
+    "Albong",
+    "Sobaeksan",
+    "Geumosan",
+    "Taebaeksan"
+   ],
+   "fact": "[[Albong]] is the central cone formed by renewed volcanic activity inside Ulleungdo's caldera.",
+   "distractor": "Seonginbong",
+   "blankDistractors": [
+    "Sobaeksan",
+    "Geumosan",
+    "Taebaeksan"
+   ],
+   "explain": "Albong formed inside the caldera after its formation. The island's highest peak and its central cone are not the same landform.",
+   "group": "n400-495",
+   "tierNote": "보통"
+  },
+  {
+   "id": 829,
+   "grade": "MA1",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "지명",
+   "src": "한국학중앙연구원 · 한국민족문화대백과사전, 성인봉 · https://encykorea.aks.ac.kr/Article/E0029504",
+   "quiz": 495,
+   "q": "Name the central cone formed within the Nari basin.",
+   "choices": [
+    "Songgotbong",
+    "Seonginbong",
+    "Gadubong",
+    "Albong"
+   ],
+   "fact": "[[Albong]] is the central cone formed by renewed volcanic activity inside Ulleungdo's caldera.",
+   "distractor": "Seonginbong",
+   "blankDistractors": [
+    "Songgotbong",
+    "Seonginbong",
+    "Gadubong"
+   ],
+   "explain": "Albong formed inside the caldera after its formation. The island's highest peak and its central cone are not the same landform.",
+   "wrong": {
+    "0": "The source identifies Albong as the central cone.",
+    "1": "This confuses Ulleungdo's highest peak with Albong inside the caldera."
+   },
+   "group": "n400-495",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 830,
+   "grade": "E5",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "Which brown seaweed grows like a forest on Dokdo's seabed?",
+   "choices": [
+    "black-tailed gull",
+    "seashore aster",
+    "sparrow",
+    "Gamtae (a brown kelp)"
+   ],
+   "fact": "[[Gamtae (a brown kelp)]] is the Korean name for Ecklonia cava recorded in Dokdo's seaweed communities.",
+   "distractor": "Daehwang (a kelp)",
+   "blankDistractors": [
+    "black-tailed gull",
+    "seashore aster",
+    "sparrow"
+   ],
+   "explain": "The National Institute of Fisheries Science identifies Ecklonia cava as Gamtae. Here the name refers to this brown kelp, not a green seaweed sometimes sold under the same name.",
+   "group": "n400-496",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 831,
+   "grade": "H2",
+   "category": "자연생태",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "Which brown seaweed is identified as Ecklonia cava in accounts of Dokdo's seaweed communities?",
+   "choices": [
+    "laver",
+    "Gamtae (a brown kelp)",
+    "agar weed",
+    "green laver"
+   ],
+   "fact": "[[Gamtae (a brown kelp)]] is the Korean name for Ecklonia cava recorded in Dokdo's seaweed communities.",
+   "distractor": "Daehwang (a kelp)",
+   "blankDistractors": [
+    "laver",
+    "agar weed",
+    "green laver"
+   ],
+   "explain": "The National Institute of Fisheries Science identifies Ecklonia cava as Gamtae. Here the name refers to this brown kelp, not a green seaweed sometimes sold under the same name.",
+   "group": "n400-496",
+   "tierNote": "보통"
+  },
+  {
+   "id": 832,
+   "grade": "MA2",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "생물",
+   "src": "국립수산과학원 수산생명자원정보센터 · Ecklonia cava(감태) · https://www.nifs.go.kr/portal/bt/frctA/actionSpeciesSearchView.do?taxonId=10241 | KIOST Dokdo Research · Rocky-bottom ecosystem · https://www.dokdo.re.kr/eng/cms/cmsCont.do?cntnts_sn=225",
+   "quiz": 496,
+   "q": "Which species is recorded as Ecklonia cava in Dokdo seaweed accounts?",
+   "choices": [
+    "Gamtae (a brown kelp)",
+    "sea mustard",
+    "Daehwang (a kelp)",
+    "Dasima (a kelp)"
+   ],
+   "fact": "[[Gamtae (a brown kelp)]] is the Korean name for Ecklonia cava recorded in Dokdo's seaweed communities.",
+   "distractor": "Daehwang (a kelp)",
+   "blankDistractors": [
+    "sea mustard",
+    "Daehwang (a kelp)",
+    "Dasima (a kelp)"
+   ],
+   "explain": "The National Institute of Fisheries Science identifies Ecklonia cava as Gamtae. Here the name refers to this brown kelp, not a green seaweed sometimes sold under the same name.",
+   "wrong": {
+    "1": "Sharing the broad brown-algae group does not make them the same species.",
+    "2": "It can occur in the same community descriptions, but is a different seaweed."
+   },
+   "group": "n400-496",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 833,
+   "grade": "H3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 497,
+   "q": "How do agglutinated foraminiferans found in seabed studies form their shells?",
+   "choices": [
+    "hardening jellyfish tentacles",
+    "inheriting an intact fish skeleton",
+    "turning sunlight directly into a solid",
+    "collecting and binding sediment grains"
+   ],
+   "fact": "Agglutinated foraminiferans build their shells by [[collecting and binding sediment grains]] from their surroundings.",
+   "distractor": "hardening jellyfish tentacles",
+   "blankDistractors": [
+    "hardening jellyfish tentacles",
+    "inheriting an intact fish skeleton",
+    "turning sunlight directly into a solid"
+   ],
+   "explain": "The official guide distinguishes calcareous shells from those made of bound sediment particles. Foraminiferans do not all use the same shell-building material.",
+   "wrong": {
+    "0": "The material described is sediment grains.",
+    "1": "This does not mean inheriting another animal's skeleton."
+   }
+  },
+  {
+   "id": 834,
+   "grade": "E6",
+   "category": "역사문헌",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "Where was 'Mubyeonbulyu' published?",
+   "choices": [
+    "Donguibogam",
+    "Hunminjeongeum",
+    "Daehan Maeil Shinbo",
+    "Samguk Sagi"
+   ],
+   "fact": "[[Daehan Maeil Shinbo]] published the Dokdo-related article 'Mubyeonbulyu' on May 1, 1906.",
+   "distractor": "Hwangseong Sinmun",
+   "blankDistractors": [
+    "Donguibogam",
+    "Hunminjeongeum",
+    "Samguk Sagi"
+   ],
+   "explain": "The article in Daehan Maeil Shinbo reported Sim Heung-taek's account and the Interior Ministry's response. Compare the article title and date, not just the general topic.",
+   "group": "n400-308",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 835,
+   "grade": "M1",
+   "category": "역사문헌",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "Which newspaper published the Dokdo-related article 'Mubyeonbulyu' on May 1, 1906?",
+   "choices": [
+    "Daehan Maeil Shinbo",
+    "Hanseong Sunbo",
+    "Hanseong Jubo",
+    "Dongnip Sinmun"
+   ],
+   "fact": "[[Daehan Maeil Shinbo]] published the Dokdo-related article 'Mubyeonbulyu' on May 1, 1906.",
+   "distractor": "Hwangseong Sinmun",
+   "blankDistractors": [
+    "Hanseong Sunbo",
+    "Hanseong Jubo",
+    "Dongnip Sinmun"
+   ],
+   "explain": "The article in Daehan Maeil Shinbo reported Sim Heung-taek's account and the Interior Ministry's response. Compare the article title and date, not just the general topic.",
+   "group": "n400-308",
+   "tierNote": "보통"
+  },
+  {
+   "id": 836,
+   "grade": "PHD1",
+   "category": "역사문헌",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "문헌",
+   "src": "외교부 독도 · 무변불유, 대한매일신보(1906-05-01): https://dokdo.mofa.go.kr/kor/pds/part02_view06.jsp | 관련 신문 대조: 대한제국의 독도 관할 자료 목록: https://dokdo.mofa.go.kr/kor/pds/part_list02.jsp",
+   "quiz": 308,
+   "q": "Name the newspaper whose May 1, 1906 issue carried 'Mubyeonbulyu'.",
+   "choices": [
+    "Mansebo",
+    "Daehan Maeil Shinbo",
+    "Hwangseong Sinmun",
+    "Jeguk Sinmun"
+   ],
+   "fact": "[[Daehan Maeil Shinbo]] published the Dokdo-related article 'Mubyeonbulyu' on May 1, 1906.",
+   "distractor": "Hwangseong Sinmun",
+   "blankDistractors": [
+    "Mansebo",
+    "Hwangseong Sinmun",
+    "Jeguk Sinmun"
+   ],
+   "explain": "The article in Daehan Maeil Shinbo reported Sim Heung-taek's account and the Interior Ministry's response. Compare the article title and date, not just the general topic.",
+   "wrong": {
+    "2": "Its related article in the foreign ministry's collection is dated May 9, 1906, not the article asked about.",
+    "3": "It also carried a related report on May 1, 1906, but that was a different article."
+   },
+   "group": "n400-308",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 837,
+   "grade": "PHD2",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "유엔 해양법 담당 부서 · United Nations Convention on the Law of the Sea, Part VI, Article 77(1)-(3): https://static.un.org/Depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 309,
+   "q": "How does UNCLOS describe a coastal state's continental-shelf rights in relation to occupation and proclamation?",
+   "choices": [
+    "rights created only by a formal proclamation",
+    "rights created only by resource extraction",
+    "rights created only by actual occupation",
+    "rights independent of occupation or proclamation"
+   ],
+   "fact": "The coastal state holds [[rights independent of occupation or proclamation]] over its continental shelf under UNCLOS.",
+   "distractor": "rights created only by actual occupation",
+   "blankDistractors": [
+    "rights created only by a formal proclamation",
+    "rights created only by resource extraction",
+    "rights created only by actual occupation"
+   ],
+   "explain": "Article 77(3) does not make these rights depend on occupation or a proclamation. This concerns continental-shelf rights, not a method of acquiring sovereignty over an island.",
+   "wrong": {
+    "0": "The article expressly makes the rights independent of a proclamation.",
+    "1": "Leaving resources undeveloped does not remove the coastal state's rights or allow anyone to exploit them.",
+    "2": "Actual occupation is not a prerequisite for these continental-shelf rights."
+   }
+  },
+  {
+   "id": 838,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "국제사법재판소 · Statute of the International Court of Justice, Article 41: https://icj-web.leman.un-icc.cloud/statute",
+   "quiz": 310,
+   "q": "What is the purpose of provisional measures at the International Court of Justice before a final decision?",
+   "choices": [
+    "preserving the parties' rights",
+    "changing the terms of a treaty",
+    "automatically creating jurisdiction",
+    "finally determining state responsibility"
+   ],
+   "fact": "Under Article 41 of the ICJ Statute, [[preserving the parties' rights]] is the purpose of provisional measures.",
+   "distractor": "finally determining state responsibility",
+   "blankDistractors": [
+    "changing the terms of a treaty",
+    "automatically creating jurisdiction",
+    "finally determining state responsibility"
+   ],
+   "explain": "Provisional measures protect the parties' rights while the case remains undecided. Their indication does not itself settle who wins the case on its merits.",
+   "wrong": {
+    "2": "Provisional measures do not automatically create the Court's authority to decide a dispute.",
+    "3": "Interim protection of rights is different from a final decision on the merits."
+   }
+  },
+  {
+   "id": 839,
+   "grade": "K",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "Roughly how far can a safety zone extend around an artificial island?",
+   "choices": [
+    "5000 m",
+    "50 m",
+    "500 m",
+    "5 m"
+   ],
+   "fact": "Absent an international-standard exception, the safety zone normally extends at most [[500 m]] from the artificial island's outer edge.",
+   "distractor": "1000 m",
+   "blankDistractors": [
+    "5000 m",
+    "50 m",
+    "5 m"
+   ],
+   "explain": "Article 60(5) measures this distance from the outer edge. Internationally authorized exceptions and the actual zone width are separate matters.",
+   "wrong": {
+    "1": "This is one tenth of the usual maximum."
+   },
+   "group": "n400-408",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 840,
+   "grade": "M2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "Under UNCLOS Article 60, what is the usual maximum distance for an artificial island's safety zone, absent an international-standard exception?",
+   "choices": [
+    "2000 m",
+    "500 m",
+    "1000 m",
+    "250 m"
+   ],
+   "fact": "Absent an international-standard exception, the safety zone normally extends at most [[500 m]] from the artificial island's outer edge.",
+   "distractor": "1000 m",
+   "blankDistractors": [
+    "2000 m",
+    "1000 m",
+    "250 m"
+   ],
+   "explain": "Article 60(5) measures this distance from the outer edge. Internationally authorized exceptions and the actual zone width are separate matters.",
+   "wrong": {
+    "2": "This doubles the usual maximum."
+   },
+   "group": "n400-408",
+   "tierNote": "보통"
+  },
+  {
+   "id": 841,
+   "grade": "U3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "수치",
+   "src": "UN DOALOS · UNCLOS, Part V · https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm",
+   "quiz": 408,
+   "q": "What upper limit does Article 60 set for such a safety zone?",
+   "choices": [
+    "500 m",
+    "550 m",
+    "450 m",
+    "600 m"
+   ],
+   "fact": "Absent an international-standard exception, the safety zone normally extends at most [[500 m]] from the artificial island's outer edge.",
+   "distractor": "1000 m",
+   "blankDistractors": [
+    "550 m",
+    "450 m",
+    "600 m"
+   ],
+   "explain": "Article 60(5) measures this distance from the outer edge. Internationally authorized exceptions and the actual zone width are separate matters.",
+   "group": "n400-408",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 842,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 409,
+   "q": "Under UNCLOS, where does a pursued ship's entry end a lawfully begun right of hot pursuit?",
+   "choices": [
+    "the pursuing state's contiguous zone",
+    "the first stretch of high seas",
+    "the pursuing state's exclusive economic zone",
+    "the territorial sea of its flag state or a third state"
+   ],
+   "fact": "The right of hot pursuit ends when the pursued ship enters [[the territorial sea of its flag state or a third state]] under UNCLOS.",
+   "distractor": "the pursuing state's exclusive economic zone",
+   "blankDistractors": [
+    "the pursuing state's contiguous zone",
+    "the first stretch of high seas",
+    "the pursuing state's exclusive economic zone"
+   ],
+   "explain": "Article 111(3) sets this stopping point. Simply reaching the high seas does not necessarily end a lawful pursuit.",
+   "wrong": {
+    "0": "This is not the stopping point specified in the article.",
+    "1": "A lawful pursuit can continue onto the high seas when its conditions are met."
+   }
+  },
+  {
+   "id": 843,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 410,
+   "q": "In UNCLOS, what does a ship's flag state mean?",
+   "choices": [
+    "the state granting the ship the right to fly its flag",
+    "the state that bought the cargo",
+    "the state where the captain was born",
+    "the state with the nearest port"
+   ],
+   "fact": "[[The state granting the ship the right to fly its flag]] is its flag state under UNCLOS.",
+   "distractor": "The state where the captain was born",
+   "blankDistractors": [
+    "the state that bought the cargo",
+    "the state where the captain was born",
+    "the state with the nearest port"
+   ],
+   "explain": "Article 91 links a ship's nationality to its entitlement to fly a state's flag. The captain's birthplace or destination does not determine that nationality.",
+   "wrong": {
+    "2": "A ship and its captain need not have the same nationality.",
+    "3": "Distance to a port does not determine a ship's nationality."
+   }
+  },
+  {
+   "id": 844,
+   "grade": "MA2",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XVI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+   "quiz": 419,
+   "q": "What duty does UNCLOS Article 303 impose on states regarding archaeological and historical objects found at sea?",
+   "choices": [
+    "a duty to assess only their present utility",
+    "a duty to grant unconditional ownership to the finder",
+    "a duty to protect them and cooperate",
+    "a duty to auction them immediately"
+   ],
+   "fact": "[[A duty to protect them and cooperate]] applies to states under Article 303 for archaeological and historical objects found at sea.",
+   "distractor": "A duty to auction them immediately",
+   "blankDistractors": [
+    "a duty to assess only their present utility",
+    "a duty to grant unconditional ownership to the finder",
+    "a duty to auction them immediately"
+   ],
+   "explain": "The article emphasizes protection and cooperation. Finding an object does not automatically grant unrestricted disposal rights.",
+   "wrong": {
+    "1": "The article does not grant unconditional ownership to finders.",
+    "3": "This replaces protection with an unsupported requirement to sell."
+   }
+  },
+  {
+   "id": 845,
+   "grade": "PHD1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 해저퇴적물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=96",
+   "quiz": 420,
+   "q": "What is a particular advantage of collecting sediment cores around Dokdo?",
+   "choices": [
+    "examining past environmental change through layers",
+    "measuring only cloud height",
+    "measuring only current wind direction",
+    "measuring only surface-wave periods"
+   ],
+   "fact": "[[Examining past environmental change through layers]] is a major purpose of sediment-core analysis.",
+   "distractor": "Measuring only current wind direction",
+   "blankDistractors": [
+    "measuring only cloud height",
+    "measuring only current wind direction",
+    "measuring only surface-wave periods"
+   ],
+   "explain": "Sediment layers can preserve records from different times. A core can reveal a history that a surface sample alone cannot show.",
+   "wrong": {
+    "1": "This confuses atmospheric measurements with seabed analysis.",
+    "3": "Wave periods are not obtained by reading sediment layers."
+   }
+  },
+  {
+   "id": 846,
+   "grade": "E1",
+   "category": "자연생태",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "Roughly when was Prochaetosoma dokdoense reported as new?",
+   "choices": [
+    "2010",
+    "1810",
+    "1710",
+    "1910"
+   ],
+   "fact": "The study describing Prochaetosoma dokdoense as a new species was published in [[2010]] in Marine Biology Research.",
+   "distractor": "2009",
+   "blankDistractors": [
+    "1810",
+    "1710",
+    "1910"
+   ],
+   "explain": "The Dokdo system identifies a March 2010 publication. A species-description date is not the date when the organism first evolved.",
+   "group": "n400-429",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 847,
+   "grade": "M3",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "In which year was the new species Prochaetosoma dokdoense reported?",
+   "choices": [
+    "1970",
+    "1990",
+    "2030",
+    "2010"
+   ],
+   "fact": "The study describing Prochaetosoma dokdoense as a new species was published in [[2010]] in Marine Biology Research.",
+   "distractor": "2009",
+   "blankDistractors": [
+    "1970",
+    "1990",
+    "2030"
+   ],
+   "explain": "The Dokdo system identifies a March 2010 publication. A species-description date is not the date when the organism first evolved.",
+   "wrong": {
+    "1": "This is twenty years too early."
+   },
+   "group": "n400-429",
+   "tierNote": "보통"
+  },
+  {
+   "id": 848,
+   "grade": "PHD2",
+   "category": "자연생태",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 중형저서동물 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=83",
+   "quiz": 429,
+   "q": "Give the exact publication year of the species description.",
+   "choices": [
+    "2011",
+    "2008",
+    "2009",
+    "2010"
+   ],
+   "fact": "The study describing Prochaetosoma dokdoense as a new species was published in [[2010]] in Marine Biology Research.",
+   "distractor": "2009",
+   "blankDistractors": [
+    "2011",
+    "2008",
+    "2009"
+   ],
+   "explain": "The Dokdo system identifies a March 2010 publication. A species-description date is not the date when the organism first evolved.",
+   "wrong": {
+    "2": "This is one year before the reported publication."
+   },
+   "group": "n400-429",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 849,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XII · https://static.un.org/Depts/los/convention_agreements/texts/unclos/part12.htm",
+   "quiz": 430,
+   "q": "Under UNCLOS Article 198, what should a state do upon learning of an imminent pollution threat to other states?",
+   "choices": [
+    "notify only after cleanup is complete",
+    "privately notify only its own ships",
+    "notify after compensation is settled",
+    "immediate notice to affected states and competent organizations"
+   ],
+   "fact": "Article 198 requires [[immediate notice to affected states and competent organizations]] when such a pollution threat becomes known.",
+   "distractor": "notice only after cleanup is complete",
+   "blankDistractors": [
+    "notify only after cleanup is complete",
+    "privately notify only its own ships",
+    "notify after compensation is settled"
+   ],
+   "explain": "The duty concerns timely warning when the threat becomes known. Cleanup or compensation need not finish before notification.",
+   "wrong": {
+    "0": "This improperly delays immediate notification.",
+    "1": "This omits affected states and competent organizations."
+   }
+  },
+  {
+   "id": 850,
+   "grade": "U3",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 440,
+   "q": "Under UNCLOS Article 79, whose consent is needed to delineate a pipeline route on the continental shelf?",
+   "choices": [
+    "the coastal state",
+    "every UN member state",
+    "the crew members' home states",
+    "the pipe-manufacturing state"
+   ],
+   "fact": "Delineating a pipeline route on a coastal state's continental shelf requires consent from [[the coastal state]] under UNCLOS.",
+   "distractor": "The pipe-manufacturing state",
+   "blankDistractors": [
+    "every UN member state",
+    "the crew members' home states",
+    "the pipe-manufacturing state"
+   ],
+   "explain": "Article 79(3) addresses the route of pipelines. Its wording should not be treated as an identical rule for every submarine cable.",
+   "wrong": {
+    "1": "This does not require unanimous approval by all UN members.",
+    "3": "The manufacturing location does not determine this consent right."
+   }
+  },
+  {
+   "id": 851,
+   "grade": "E2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "Roughly when was UNCLOS drawn up?",
+   "choices": [
+    "1782",
+    "1982",
+    "1882",
+    "1682"
+   ],
+   "fact": "UNCLOS was concluded in [[1982]] at Montego Bay.",
+   "distractor": "1983",
+   "blankDistractors": [
+    "1782",
+    "1882",
+    "1682"
+   ],
+   "explain": "It was concluded on December 10, 1982. Conclusion, global entry into force and entry into force for a particular state are different dates.",
+   "group": "n400-450",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 852,
+   "grade": "H1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "In which year was UNCLOS concluded at Montego Bay?",
+   "choices": [
+    "1982",
+    "1942",
+    "2002",
+    "1962"
+   ],
+   "fact": "UNCLOS was concluded in [[1982]] at Montego Bay.",
+   "distractor": "1983",
+   "blankDistractors": [
+    "1942",
+    "2002",
+    "1962"
+   ],
+   "explain": "It was concluded on December 10, 1982. Conclusion, global entry into force and entry into force for a particular state are different dates.",
+   "wrong": {
+    "3": "This is twenty years before conclusion."
+   },
+   "group": "n400-450",
+   "tierNote": "보통"
+  },
+  {
+   "id": 853,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "UN Treaty Series · UNCLOS, authentic texts and conclusion date · https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_f.pdf",
+   "quiz": 450,
+   "q": "Give the exact year the convention was signed at Montego Bay.",
+   "choices": [
+    "1981",
+    "1980",
+    "1983",
+    "1982"
+   ],
+   "fact": "UNCLOS was concluded in [[1982]] at Montego Bay.",
+   "distractor": "1983",
+   "blankDistractors": [
+    "1981",
+    "1980",
+    "1983"
+   ],
+   "explain": "It was concluded on December 10, 1982. Conclusion, global entry into force and entry into force for a particular state are different dates.",
+   "wrong": {
+    "2": "This is one year after conclusion."
+   },
+   "group": "n400-450",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 854,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "ITLOS · M/V Saiga, dissenting opinion reproducing UNCLOS Article 73 in paragraph 4 · https://itlos.org/fileadmin/itlos/documents/cases/1/C1-J-4_Dec_97-DO_PNCVN.pdf",
+   "quiz": 459,
+   "q": "Under UNCLOS Article 73, what condition is linked to prompt release after an EEZ fisheries arrest?",
+   "choices": [
+    "donation of all catches to an international body",
+    "permanent immigration applications by the crew",
+    "a change to the coastal state's nationality",
+    "provision of a reasonable bond or other security"
+   ],
+   "fact": "Article 73 links prompt release of arrested vessels and crews to [[provision of a reasonable bond or other security]] under its fisheries rules.",
+   "distractor": "a change to the coastal state's nationality",
+   "blankDistractors": [
+    "donation of all catches to an international body",
+    "permanent immigration applications by the crew",
+    "a change to the coastal state's nationality"
+   ],
+   "explain": "Article 73(2) requires prompt release upon a reasonable bond or other security. Release does not itself erase the alleged violation.",
+   "wrong": {
+    "1": "The rule concerns bond or other security, not immigration.",
+    "2": "The article does not make a change of nationality the release condition."
+   }
+  },
+  {
+   "id": 855,
+   "grade": "MA2",
+   "category": "국제법",
+   "answer": 1,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XIII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 460,
+   "q": "Under UNCLOS Article 261, what must research equipment avoid causing on established international shipping routes?",
+   "choices": [
+    "recording of research data",
+    "an obstruction to navigation",
+    "disclosure of the equipment's location",
+    "measurement of water temperature"
+   ],
+   "fact": "Article 261 prohibits [[an obstruction to navigation]] arising from research equipment on established international shipping routes.",
+   "distractor": "measurement of water temperature",
+   "blankDistractors": [
+    "recording of research data",
+    "disclosure of the equipment's location",
+    "measurement of water temperature"
+   ],
+   "explain": "A scientific purpose does not authorize blocking shipping routes. Article 261 addresses navigation when research equipment is deployed or used.",
+   "wrong": {
+    "2": "The provision does not prohibit disclosing equipment locations.",
+    "3": "The article targets obstruction of navigation, not temperature measurement itself."
+   }
+  },
+  {
+   "id": 856,
+   "grade": "PHD1",
+   "category": "국제법",
+   "answer": 0,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 470,
+   "q": "Under UNCLOS Article 81, who has the exclusive right to authorize and regulate drilling on a continental shelf?",
+   "choices": [
+    "the coastal state",
+    "the first institution to map the seabed",
+    "the first state to send a drilling vessel",
+    "the company selling the drilling equipment"
+   ],
+   "fact": "Under Article 81, [[the coastal state]] has the exclusive right to authorize and regulate drilling on the continental shelf for all purposes.",
+   "distractor": "The first state to send a drilling vessel",
+   "blankDistractors": [
+    "the first institution to map the seabed",
+    "the first state to send a drilling vessel",
+    "the company selling the drilling equipment"
+   ],
+   "explain": "Article 81 covers coastal-state authorization and regulation of drilling for all purposes. Arriving first with a vessel does not replace that right.",
+   "wrong": {
+    "2": "The rule does not allocate drilling authority on a first-arrival basis.",
+    "3": "Selling equipment does not confer the legal authority."
+   }
+  },
+  {
+   "id": 857,
+   "grade": "PHD2",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XIII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part13.htm",
+   "quiz": 479,
+   "q": "Under UNCLOS Article 241, what cannot be based on marine scientific research activities themselves?",
+   "choices": [
+    "observations used to explain marine processes",
+    "scientific records comparing temperature changes",
+    "a legal basis for claims to the marine environment or resources",
+    "information used to design further studies"
+   ],
+   "fact": "Marine scientific research activities cannot themselves form [[a legal basis for claims to the marine environment or resources]] under Article 241.",
+   "distractor": "scientific records comparing temperature changes",
+   "blankDistractors": [
+    "observations used to explain marine processes",
+    "scientific records comparing temperature changes",
+    "information used to design further studies"
+   ],
+   "explain": "Scientific research and acquisition of legal rights are different matters. A research vessel's first visit does not itself confer those rights.",
+   "wrong": {
+    "0": "Producing scientific observations is different from creating a legal basis for claims.",
+    "1": "The article does not prohibit scientific use of temperature records."
+   }
+  },
+  {
+   "id": 858,
+   "grade": "U1",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VII · https://www.un.org/depts/los/convention_agreements/texts/unclos/part7.htm",
+   "quiz": 489,
+   "q": "Under UNCLOS Article 92, how may a ship using multiple national flags according to convenience be treated?",
+   "choices": [
+    "as automatically registered to the UN",
+    "as immune from responsibility in all waters",
+    "as guaranteed all those nationalities",
+    "as a ship without nationality"
+   ],
+   "fact": "A ship using multiple flags according to convenience may be treated [[as a ship without nationality]] under Article 92.",
+   "distractor": "as guaranteed all those nationalities",
+   "blankDistractors": [
+    "as automatically registered to the UN",
+    "as immune from responsibility in all waters",
+    "as guaranteed all those nationalities"
+   ],
+   "explain": "Article 92(2) denies such a ship the ability to claim those nationalities against another state and permits treatment as stateless. This differs from a genuine lawful change of registry.",
+   "wrong": {
+    "0": "This does not automatically turn the vessel into a UN ship.",
+    "2": "The article does not guarantee simultaneous nationalities."
+   }
+  },
+  {
+   "id": 859,
+   "grade": "E3",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "Roughly when did Dokdo's weather gear change to ASOS?",
+   "choices": [
+    "1709",
+    "1909",
+    "1809",
+    "2009"
+   ],
+   "fact": "Dokdo's AWS was replaced by an ASOS in [[2009]], in December.",
+   "distractor": "2008",
+   "blankDistractors": [
+    "1709",
+    "1909",
+    "1809"
+   ],
+   "explain": "The official account dates the ASOS replacement to December 2009. Distinguish the initial automation from a later equipment replacement.",
+   "group": "n400-498",
+   "tierNote": "쉬움"
+  },
+  {
+   "id": 860,
+   "grade": "H2",
+   "category": "현대주권",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "In which year was Dokdo's AWS replaced by an automated synoptic observing system (ASOS)?",
+   "choices": [
+    "1969",
+    "1989",
+    "2029",
+    "2009"
+   ],
+   "fact": "Dokdo's AWS was replaced by an ASOS in [[2009]], in December.",
+   "distractor": "2008",
+   "blankDistractors": [
+    "1969",
+    "1989",
+    "2029"
+   ],
+   "explain": "The official account dates the ASOS replacement to December 2009. Distinguish the initial automation from a later equipment replacement.",
+   "group": "n400-498",
+   "tierNote": "보통"
+  },
+  {
+   "id": 861,
+   "grade": "U3",
+   "category": "현대주권",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "연도",
+   "src": "해양수산부·한국해양과학기술원 독도종합정보시스템 · 독도의 자연환경 · https://www.dokdo.re.kr/home/cms/cmsCont.do?cntnts_sn=67",
+   "quiz": 498,
+   "q": "Give the exact year the AWS was replaced by ASOS.",
+   "choices": [
+    "2008",
+    "2010",
+    "2009",
+    "2007"
+   ],
+   "fact": "Dokdo's AWS was replaced by an ASOS in [[2009]], in December.",
+   "distractor": "2008",
+   "blankDistractors": [
+    "2008",
+    "2010",
+    "2007"
+   ],
+   "explain": "The official account dates the ASOS replacement to December 2009. Distinguish the initial automation from a later equipment replacement.",
+   "wrong": {
+    "0": "This is one year before the recorded replacement.",
+    "1": "This is one year after the ASOS replacement."
+   },
+   "group": "n400-498",
+   "tierNote": "어려움"
+  },
+  {
+   "id": 862,
+   "grade": "U4",
+   "category": "국제법",
+   "answer": 3,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part XVI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part16.htm",
+   "quiz": 499,
+   "q": "What does UNCLOS Article 300 require when states fulfil obligations and exercise rights?",
+   "choices": [
+    "unconditional abandonment of every right",
+    "exemption from all duties on national-interest grounds",
+    "unlimited rights for the first state to act",
+    "good-faith fulfilment and avoidance of abuse of rights"
+   ],
+   "fact": "Article 300 requires [[good-faith fulfilment and avoidance of abuse of rights]] under UNCLOS.",
+   "distractor": "unlimited rights for the first state to act",
+   "blankDistractors": [
+    "unconditional abandonment of every right",
+    "exemption from all duties on national-interest grounds",
+    "unlimited rights for the first state to act"
+   ],
+   "explain": "Possessing a right does not mean it may be exercised in any manner. The Convention requires good faith and rules out abuse of rights.",
+   "wrong": {
+    "0": "The principle regulates the exercise of rights rather than abolishing them.",
+    "1": "The article does not waive every obligation on national-interest grounds."
+   }
+  },
+  {
+   "id": 863,
+   "grade": "MA1",
+   "category": "국제법",
+   "answer": 2,
+   "rate": null,
+   "asOf": null,
+   "atype": "개별보기_교차추출금지",
+   "src": "UN DOALOS · UNCLOS, Part VI · https://www.un.org/depts/los/convention_agreements/texts/unclos/part6.htm",
+   "quiz": 500,
+   "q": "What defines sedentary species included in continental-shelf resources under UNCLOS Article 77?",
+   "choices": [
+    "free surface swimming without seabed contact",
+    "flying above the sea throughout life",
+    "immobility or movement requiring constant seabed contact",
+    "migration into land rivers for every breeding season"
+   ],
+   "fact": "Article 77 defines sedentary species by [[immobility or movement requiring constant seabed contact]] at the harvestable stage.",
+   "distractor": "free surface swimming without seabed contact",
+   "blankDistractors": [
+    "free surface swimming without seabed contact",
+    "flying above the sea throughout life",
+    "migration into land rivers for every breeding season"
+   ],
+   "explain": "The definition concerns organisms immobile on or under the seabed, or unable to move without constant contact at the harvestable stage. It does not include every fish above the shelf.",
+   "wrong": {
+    "0": "This does not match the constant-contact criterion for sedentary species.",
+    "3": "The test concerns mobility and seabed contact at the harvestable stage, not breeding migration."
+   }
   }
  ],
- "dataset_id": "dokdo-school-413-20260906",
+ "dataset_id": "dokdo-school-603-20260906",
  "merge": {
   "base_version": "2026-09-05.4",
   "base_count": 227,
