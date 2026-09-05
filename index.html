@@ -17,9 +17,25 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <title>독도 코리아 스쿨 · Dokdo Korea School</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%AB%3C/text%3E%3C/svg%3E">
 <style>
+  /* ---------- 글꼴 ----------
+     아이들이 읽는 화면이라 명조를 걷어내고 둥근 고딕으로 바꿨습니다.
+     제목·문항·버튼은 지마켓산스, 본문·해설은 에스코어드림입니다.
+     한글 웹폰트는 파일이 커서 두 벌만 씁니다. 강조는 지마켓산스와 색이 맡고,
+     본문 글꼴은 전 굵기를 한 벌로 덮어 합성 볼드가 생기지 않게 했습니다.
+     한글에서 합성 볼드는 획이 뭉개져 지저분해집니다.
+     내려받기 전에는 기기 기본 글꼴로 먼저 보입니다(font-display:swap). */
+  @font-face{
+    font-family:"GmarketSans";font-style:normal;font-weight:400 900;font-display:swap;
+    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  }
+  @font-face{
+    font-family:"SCDream";font-style:normal;font-weight:100 900;font-display:swap;
+    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  }
   :root{
     --sea-deep:#060D17;
     --sea:#0B1524;
@@ -45,13 +61,19 @@
     margin:0;
     background:var(--sea-deep);
     color:var(--ink);
-    font-family:"IBM Plex Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+    font-family:"SCDream","Apple SD Gothic Neo",system-ui,sans-serif;
     font-weight:400;
+    letter-spacing:-.005em;
     -webkit-font-smoothing:antialiased;
     line-height:1.6;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 18px 64px;min-height:100vh}
-  h1,h2,h3{font-family:"Gowun Batang",serif;font-weight:700;text-wrap:balance;margin:0;letter-spacing:-.01em}
+  h1,h2,h3{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-weight:700;
+    text-wrap:balance;margin:0;letter-spacing:-.02em}
+  /* 지마켓산스를 쓰는 자리 — 눈에 먼저 들어와야 하는 것들 */
+  .brand,.btn,.cap-grade,.score-num,.big,.stage-h b,.modal-h,
+  .qtext,.eyebrow,.bdg i,.kpi b,.cap-right b{
+    font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif}
   .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
   button{font-family:inherit;font-size:inherit;cursor:pointer;border:0;background:none;color:inherit}
   button:focus-visible,input:focus-visible{outline:2px solid var(--light);outline-offset:2px}
@@ -70,11 +92,13 @@
     .topbar .brand{font-size:15px}
     .topbar .stat{padding:5px 8px;font-size:11.5px}
   }
-  .brand{font-family:"Gowun Batang",serif;font-weight:700;font-size:17px;letter-spacing:.02em;margin-right:auto}
+  .brand{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;margin-right:auto}
   .brand span{color:var(--light)}
   .stat{
     display:flex;align-items:center;gap:5px;
-    background:var(--panel);border:1px solid var(--line-soft);
+    background:linear-gradient(180deg,#17293F,#101E30);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 1px 0 rgba(0,0,0,.3);
+    border:1px solid var(--line-soft);
     border-radius:999px;padding:5px 11px;font-size:12.5px;color:var(--ink-mid);
   }
   .stat b{color:var(--ink);font-family:"IBM Plex Mono",monospace;font-weight:600;font-variant-numeric:tabular-nums}
@@ -84,21 +108,38 @@
   /* ---------- 섬 ---------- */
   .island-card{
     position:relative;overflow:hidden;
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.07),
+               0 18px 38px -26px rgba(0,0,0,.95);
     background:linear-gradient(180deg,#040A13 0%,#08111D 46%,#0B1929 100%);
     border:1px solid var(--line-soft);border-radius:var(--r);
     margin-bottom:14px;
   }
   .island-card svg{display:block;width:100%;height:auto}
+  .sound-btn{position:absolute;top:11px;right:11px;z-index:2;
+    display:flex;align-items:center;gap:5px;cursor:pointer;
+    background:rgba(6,13,23,.62);border:1px solid rgba(255,255,255,.14);
+    border-radius:999px;padding:6px 11px 6px 9px;color:#A9BCD0;
+    font:inherit;font-size:11.5px;backdrop-filter:blur(6px)}
+  .sound-btn .sb-i{font-size:13px;line-height:1}
+  .sound-btn.on{border-color:var(--light-deep);color:var(--light-soft);
+    background:rgba(247,183,51,.14)}
+  .sound-btn.on .sb-t{font-weight:600}
   .stars circle{fill:#CFE0F0}
   .rockface{fill:var(--rock)}
-  .rockedge{fill:none;stroke:var(--rock-lit);stroke-width:1.1}
+  .rockedge{fill:none;stroke:#4A6C90;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
+  /* 능선 아래쪽에 한 겹 더. 각진 면이 살아납니다. */
+  .rockrim{fill:none;stroke:#5A82AB;stroke-width:.7;opacity:.32;stroke-linejoin:round}
+  .refl{opacity:.26}
+  .refls{mix-blend-mode:screen}
   .lamp{fill:var(--light-soft)}
   .lamp-halo{fill:var(--light)}
   /* 불빛 단계별 색. 주광색에서 시작해 에메랄드로 끝납니다. */
-  .lv1 .lamp{fill:#FFD57E} .lv1 .lamp-halo{fill:#F7B733}
-  .lv2 .lamp{fill:#F4F8FF} .lv2 .lamp-halo{fill:#CFE0F0}
-  .lv3 .lamp{fill:#C6F573} .lv3 .lamp-halo{fill:#8FD93A}
-  .lv4 .lamp{fill:#5CF0C0} .lv4 .lamp-halo{fill:#20C99A}
+  .lamp-aura{fill:url(#glow)}
+  .lamp-core{fill:#FFFFFF;opacity:.9}
+  .lv1 .lamp{fill:#FFD57E} .lv1 .lamp-halo,.lv1.refl{fill:#F7B733}
+  .lv2 .lamp{fill:#F4F8FF} .lv2 .lamp-halo,.lv2.refl{fill:#CFE0F0}
+  .lv3 .lamp{fill:#C6F573} .lv3 .lamp-halo,.lv3.refl{fill:#8FD93A}
+  .lv4 .lamp{fill:#5CF0C0} .lv4 .lamp-halo,.lv4.refl{fill:#20C99A}
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin:-6px 0 14px;padding:0 2px}
   .legend i{display:inline-flex;align-items:center;gap:5px;font-style:normal;
     font-size:11px;color:var(--ink-dim)}
@@ -110,7 +151,7 @@
     display:flex;align-items:flex-end;gap:10px;
     background:linear-gradient(180deg,rgba(6,13,23,0) 0%,rgba(6,13,23,.9) 62%);
   }
-  .cap-grade{font-family:"Gowun Batang",serif;font-size:23px;font-weight:700;line-height:1.15}
+  .cap-grade{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:23px;font-weight:700;line-height:1.18;letter-spacing:-.02em}
   .cap-sub{font-size:12px;color:var(--ink-dim);margin-top:1px}
   .cap-right{margin-left:auto;text-align:right;font-size:12px;color:var(--ink-dim)}
   .cap-right b{display:block;font-family:"IBM Plex Mono",monospace;font-size:19px;color:var(--light);font-weight:600}
@@ -119,20 +160,35 @@
   .prog{margin:14px 0 6px}
   .prog-head{display:flex;justify-content:space-between;align-items:baseline;font-size:12.5px;color:var(--ink-dim);margin-bottom:7px}
   .prog-head b{color:var(--ink-mid);font-weight:500}
-  .bar{height:7px;border-radius:99px;background:var(--panel-2);overflow:hidden}
-  .bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--light-deep),var(--light));transition:width .5s cubic-bezier(.2,.8,.3,1)}
+  .bar{height:9px;border-radius:99px;background:#0C1727;overflow:hidden;
+    box-shadow:inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.04)}
+  .bar i{display:block;height:100%;border-radius:99px;
+    background:linear-gradient(180deg,#FFD57E,#F7B733 55%,#D9930F);
+    box-shadow:0 0 12px -2px rgba(247,183,51,.75), inset 0 1px 0 rgba(255,255,255,.4);
+    transition:width .5s cubic-bezier(.2,.8,.3,1)}
 
   /* ---------- 버튼 ---------- */
+  /* 눌리는 버튼. 아래쪽에 어두운 테두리를 한 줄 깔아 두께를 만들고,
+     누르면 그만큼 내려앉아 실제로 눌린 것처럼 보이게 합니다. */
   .btn{
     display:block;width:100%;text-align:center;
-    padding:15px 18px;border-radius:12px;
-    background:var(--light);color:#241703;font-weight:600;font-size:15.5px;
-    letter-spacing:-.01em;transition:transform .12s ease,filter .12s ease;
+    padding:15px 18px;border-radius:13px;
+    background:linear-gradient(180deg,#FFD264 0%,#F7B733 52%,#E9A31C 100%);
+    color:#2A1A02;font-weight:700;font-size:16px;letter-spacing:-.02em;
+    box-shadow:0 3px 0 #9C6608, 0 10px 22px -12px rgba(247,183,51,.75),
+               inset 0 1px 0 rgba(255,255,255,.45);
+    transition:transform .1s ease,box-shadow .1s ease,filter .12s ease;
   }
-  .btn:hover{filter:brightness(1.07)}
-  .btn:active{transform:translateY(1px)}
-  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink-mid);font-weight:500}
+  .btn:hover{filter:brightness(1.05)}
+  .btn:active{transform:translateY(3px);
+    box-shadow:0 0 0 #9C6608, 0 4px 10px -8px rgba(247,183,51,.6),
+               inset 0 1px 0 rgba(255,255,255,.3)}
+  .btn.ghost{
+    background:linear-gradient(180deg,#1A2C42 0%,#132135 100%);
+    border:1px solid var(--line);color:var(--ink-mid);font-weight:500;
+    box-shadow:0 2px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05)}
   .btn.ghost:hover{border-color:var(--ink-dim);color:var(--ink)}
+  .btn.ghost:active{transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.35)}
   .btn.exam{background:linear-gradient(100deg,#F7B733,#FFD57E);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
   .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none;transform:none}
   .btnrow{display:flex;flex-direction:column;gap:9px;margin-top:14px}
@@ -176,27 +232,33 @@
   .quit{font-size:13px;color:var(--ink-dim)}
   .quit:hover{color:var(--ink)}
   .qtype{display:inline-block;font-size:11px;letter-spacing:.1em;font-weight:600;color:var(--light);border:1px solid var(--light-deep);border-radius:99px;padding:3px 10px;margin-bottom:14px}
-  .qtext{font-family:"Gowun Batang",serif;font-size:21px;line-height:1.5;font-weight:700;margin-bottom:20px;white-space:pre-wrap}
+  .qtext{font-size:21.5px;line-height:1.52;font-weight:700;margin-bottom:20px;
+    white-space:pre-wrap;letter-spacing:-.02em;word-break:keep-all}
   /* 자료제시형 문항의 자료 부분. 발문과 글꼴·크기를 다르게 해 읽는 순서를 분리합니다. */
-  .matbox{white-space:pre-wrap;font-size:14.5px;line-height:1.62;color:var(--ink-mid);
+  .matbox{white-space:pre-wrap;font-size:14.5px;line-height:1.66;color:var(--ink-mid);
     background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
     border-left:3px solid var(--light-deep);border-radius:10px;
     padding:13px 15px;margin:2px 0 16px;max-height:46vh;overflow-y:auto;
-    font-family:"IBM Plex Sans KR",-apple-system,sans-serif;word-break:keep-all}
+    font-family:"SCDream",-apple-system,sans-serif;word-break:keep-all}
   .matbox b{color:var(--light);font-weight:600}
   .qtext em{font-style:normal;color:var(--light);border-bottom:2px dotted var(--light-deep);padding-bottom:1px}
   .opts{display:flex;flex-direction:column;gap:9px}
   .opt{
     display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
-    padding:14px 15px;border-radius:11px;
-    background:var(--panel);border:1px solid var(--line-soft);
-    font-size:14.5px;line-height:1.5;transition:border-color .14s,background .14s;
+    padding:15px 15px;border-radius:12px;
+    background:linear-gradient(180deg,#17293F 0%,#101E30 100%);
+    border:1px solid var(--line-soft);
+    box-shadow:0 2px 0 rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.05);
+    font-size:15px;line-height:1.5;
+    transition:border-color .14s,background .14s,transform .09s,box-shadow .09s;
   }
-  .opt:hover:not(:disabled){border-color:var(--ink-dim);background:var(--panel-2)}
+  .opt:hover:not(:disabled){border-color:var(--ink-dim)}
+  .opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.32)}
   .opt .num{
     flex:none;width:21px;height:21px;border-radius:6px;margin-top:1px;
-    background:var(--panel-2);border:1px solid var(--line);
-    font-size:11.5px;display:grid;place-items:center;color:var(--ink-dim);
+    background:linear-gradient(180deg,#22374F,#16273D);border:1px solid var(--line);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+    font-size:11.5px;display:grid;place-items:center;color:var(--ink-mid);
     font-family:"IBM Plex Mono",monospace;font-weight:600;
   }
   .opt.pick-ok{border-color:var(--ok);background:rgba(72,199,158,.11)}
@@ -222,7 +284,7 @@
   .score-hero{text-align:center;padding:34px 0 26px}
   .score-num{font-family:"IBM Plex Mono",monospace;font-size:56px;font-weight:600;color:var(--light);line-height:1;font-variant-numeric:tabular-nums}
   .score-lab{font-size:13px;color:var(--ink-dim);margin-top:9px}
-  .score-title{font-family:"Gowun Batang",serif;font-size:26px;font-weight:700;margin-bottom:8px}
+  .score-title{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:26px;font-weight:700;margin-bottom:8px;letter-spacing:-.02em}
   .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:18px 0}
   .kpi{background:var(--panel);border:1px solid var(--line-soft);border-radius:11px;padding:13px 10px;text-align:center}
   .kpi b{display:block;font-family:"IBM Plex Mono",monospace;font-size:21px;color:var(--ink);font-weight:600}
@@ -232,7 +294,7 @@
     background:linear-gradient(160deg,rgba(247,183,51,.14),rgba(247,183,51,.03));
     border:1px solid var(--light-deep);margin-bottom:14px;
   }
-  .promo .big{font-family:"Gowun Batang",serif;font-size:28px;font-weight:700;color:var(--light-soft);margin:6px 0}
+  .promo .big{font-size:28px;font-weight:700;color:var(--light-soft);margin:6px 0}
 
   /* ---------- 시작 화면 ---------- */
   .intro{padding:44px 0 26px;text-align:center}
@@ -326,7 +388,7 @@
   .loc-legend .near b{color:var(--light)}
   .mapname{font-family:"IBM Plex Sans KR",sans-serif;font-size:9px;fill:var(--ink-dim);letter-spacing:.04em}
   .mapname.ko{fill:var(--ink-mid);font-size:10px}
-  .mapsea{font-family:"Gowun Batang",serif;font-size:13px;fill:#3D6180;letter-spacing:.22em}
+  .mapsea{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:13px;fill:#3D6180;letter-spacing:.22em}
 
   /* ---------- 성취 뱃지 ---------- */
   .badgerow{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:8px;margin-top:10px}
@@ -335,7 +397,9 @@
   .bdg i{display:block;font-style:normal;font-family:"IBM Plex Mono",ui-monospace,monospace;
     font-weight:600;font-size:16px;letter-spacing:.02em;line-height:1.45;color:var(--ink-dim)}
   .bdg span{display:block;font-size:9.5px;color:var(--ink-dim);letter-spacing:-.03em;margin-top:3px}
-  .bdg.on{opacity:1;border-color:var(--light-deep);background:rgba(247,183,51,.10)}
+  .bdg.on{opacity:1;border-color:var(--light-deep);
+    background:linear-gradient(180deg,rgba(247,183,51,.19),rgba(247,183,51,.06));
+    box-shadow:0 0 18px -6px rgba(247,183,51,.55), inset 0 1px 0 rgba(255,255,255,.12)}
   .bdg.on i{color:var(--light)}
   .bdg.on span{color:var(--light-soft)}
 
@@ -382,6 +446,19 @@
   .sheet-i i{font-style:normal;font-size:18px;width:24px;text-align:center;flex:none}
   .sheet-i small{display:block;font-size:11.5px;color:var(--ink-dim);margin-top:2px}
   .sheet-i span{flex:1}
+  .modal{position:fixed;inset:0;z-index:60;background:rgba(4,10,19,.72);
+    display:flex;align-items:flex-end;justify-content:center;padding:16px;
+    animation:fadein .18s ease both}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  .modal-in{width:100%;max-width:460px;background:var(--panel);
+    border:1px solid var(--line);border-radius:var(--r);padding:18px 17px 16px;
+    animation:slideup .22s cubic-bezier(.2,.9,.3,1) both}
+  @keyframes slideup{from{transform:translateY(16px)}to{transform:translateY(0)}}
+  .modal-h{font-size:16px;font-weight:600;color:var(--light-soft);margin-bottom:6px}
+  .modal-p{font-size:13px;color:var(--ink-mid);line-height:1.6;margin-bottom:11px}
+  .modal-p b{color:var(--ink)}
+  .modal-b{display:flex;gap:8px;margin-top:13px}
+  .modal-b .btn{flex:1}
   .copybox{margin:0 15px 14px;padding:11px 13px;border-radius:9px;background:var(--sea);
     border:1px solid var(--line);font-size:13px;color:var(--ink-mid);line-height:1.6;
     white-space:pre-wrap;word-break:break-all;user-select:all;-webkit-user-select:all}
@@ -405,7 +482,7 @@
     </div>
     <div class="videobox"><div id="intro-slot"></div></div>
     <div class="btnrow"><button class="btn" id="intro-go">건너뛰고 시작하기</button></div>
-    <p class="note">소리는 영상 오른쪽 아래 스피커 표시를 눌러 켜실 수 있습니다.</p>
+    <p class="note">소리는 영상 오른쪽 아래 스피커 표시를 눌러 켜실 수 있습니다. 하루에 한 번만 나옵니다.</p>
   </section>
 
   <section id="s-locate">
@@ -441,7 +518,7 @@
         <circle class="dokdo-glow" cx="243" cy="126" r="17" fill="var(--light)"/>
         <circle class="dokdo-ring" cx="243" cy="126" r="9" fill="var(--light)"/>
         <circle class="dokdo-core" cx="243" cy="126" r="4" fill="var(--light-soft)"/>
-        <text x="243" y="106" text-anchor="middle" style="font-family:'Gowun Batang',serif;font-size:15px;font-weight:700;fill:var(--light-soft)">독도 <tspan style="font-size:12px;fill:var(--light-deep)">獨島</tspan></text>
+        <text x="243" y="106" text-anchor="middle" style="font-family:'GmarketSans',sans-serif;font-size:15px;font-weight:700;fill:var(--light-soft)">독도 <tspan style="font-size:12px;fill:var(--light-deep)">獨島</tspan></text>
       </svg>
       <div class="loc-legend">
         <div class="near"><b>87.4km</b>울릉도에서</div>
@@ -486,12 +563,14 @@
       <div class="brand">독도 코리아 <span>스쿨</span></div>
       <div class="stat on" id="st-streak">🔥 개근 <b>0</b>일</div>
       <div class="stat" id="st-xp">XP <b>0</b></div>
-      <button class="stat" id="h-sound" title="배경음악 켜기">🔇</button>
       <button class="stat js-reset" id="h-reset" title="기록을 지우고 처음부터 다시 시작합니다">↺ 처음부터</button>
     </div>
 
     <div class="island-card">
       <div id="island-holder"></div>
+      <!-- 상단 줄에 두면 다른 표시에 묻힙니다. 섬 그림 위가 가장 잘 보입니다. -->
+      <button class="sound-btn" id="h-sound" title="배경음악 켜기">
+        <span class="sb-i">🔇</span><span class="sb-t">음악</span></button>
       <div class="island-cap">
         <div>
           <div class="cap-grade" id="cap-grade">유치원</div>
@@ -521,7 +600,10 @@
       <button class="btn" id="go-lesson">오늘 수업 듣기</button>
       <button class="btn exam hidden" id="go-exam">진급 시험 보기</button>
       <button class="btn ghost" id="go-review">복습할 항목 <span id="review-n">0</span>개</button>
+      <button class="btn ghost" id="go-brag">나의 결과 자랑하기</button>
     </div>
+    <!-- 공유 시트가 열리는 자리. 결과 화면과 같은 함수를 씁니다. -->
+    <div id="sheet-box-home"></div>
 
     <div class="ladder">
       <div class="eyebrow">성취 뱃지 <span id="badge-n">0</span>/12</div>
@@ -873,11 +955,13 @@ function bgmArm(){
 }
 function bgmBtn(on){
   const b=document.getElementById("h-sound"); if(!b)return;
-  b.textContent=on?"🔊":"🔇";
-  b.title=on?(BGM[(S.track||0)%BGM.length].t+" 재생 중 · 눌러서 끄기"):"배경음악 켜기";
-  b.classList.toggle('on',!!on);
+  const cur=BGM[(S.track||0)%BGM.length];
+  b.querySelector(".sb-i").textContent=on?"🔊":"🔇";
+  b.querySelector(".sb-t").textContent=on?cur.t.split(" · ")[0]:"음악";
+  b.title=on?(cur.t+" 재생 중 · 눌러서 끄기"):"배경음악 켜기";
+  b.classList.toggle("on",!!on);
 }
-function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,seenIntro:false,recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false};}
+function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false};}
 const who=()=>S.name||S.nick||"이름 없음";
 
 /* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
@@ -1182,28 +1266,62 @@ function island(n){
   const lamps=ids.map((id,i)=>{
     const p=SPOTS[i%SPOTS.length], lv=litLv(id), z=SZ[lv]||SZ[1];
     const x=p.x.toFixed(1), y=p.y.toFixed(1);
+    /* 바깥 발광 → 중간 후광 → 심지. 세 겹이라야 점이 아니라 불로 보입니다. */
     const halo2=lv>=LIT_MAX
-      ?`<circle class="lamp-halo" cx="${x}" cy="${y}" r="6" opacity=".3"/>`:"";
+      ?`<circle class="lamp-halo" cx="${x}" cy="${y}" r="6" opacity=".34"/>`:"";
+    const aura=`<circle class="lamp-aura" cx="${x}" cy="${y}" r="${(z.h*1.25).toFixed(1)}" opacity="${(z.ho*.42).toFixed(2)}"/>`;
     /* 한꺼번에 켜면 그냥 화면이 바뀐 것처럼 보입니다.
        아래에서 위로 한 개씩 번지게 해야 '내가 켰다'는 느낌이 남습니다.
        불빛이 많아져도 전체 3초를 넘지 않도록 간격을 줄입니다. */
     const gap=Math.min(.09,2.6/Math.max(1,ids.length));
     return`<g class="lv${lv}" style="animation:lampin .85s cubic-bezier(.2,1.1,.4,1) ${(i*gap).toFixed(2)}s both;transform-origin:${x}px ${y}px">
-       <circle class="lamp-halo" cx="${x}" cy="${y}" r="${z.h}" opacity="${z.ho}"/>${halo2}
+       ${aura}<circle class="lamp-halo" cx="${x}" cy="${y}" r="${z.h}" opacity="${z.ho}"/>${halo2}
        <circle class="lamp" cx="${x}" cy="${y}" r="${z.r}"/>
+       <circle class="lamp-core" cx="${x}" cy="${(+y-z.r*.3).toFixed(1)}" r="${(z.r*.42).toFixed(2)}"/>
      </g>`;}).join("");
+  /* 물에 비친 불빛. 섬 위 불빛마다 바다 쪽으로 길게 늘어진 그림자를 하나씩 둡니다.
+     이것만 있어도 평면 그림이 물 위에 떠 있는 것처럼 보입니다. */
+  const refl=ids.map((id,i)=>{
+    const p=SPOTS[i%SPOTS.length], lv=litLv(id);
+    if(p.y>168)return"";
+    const x=p.x.toFixed(1), w=(0.9+lv*.45).toFixed(1), h=(7+lv*3.4).toFixed(1);
+    return`<ellipse class="lv${lv} refl" cx="${x}" cy="${(178+lv*1.6).toFixed(1)}" rx="${w}" ry="${h}"/>`;
+  }).join("");
   return `<svg viewBox="0 0 400 210" role="img" aria-label="독도 위에 ${n}개의 불빛이 켜진 그림">
+    <defs>
+      <!-- 두 섬에 서로 다른 방향의 빛을 줘서 덩어리로 보이게 합니다. -->
+      <linearGradient id="rkL" x1="0" y1="0" x2=".85" y2=".5">
+        <stop offset="0" stop-color="#33506F"/><stop offset=".42" stop-color="#22364B"/>
+        <stop offset="1" stop-color="#0E1926"/></linearGradient>
+      <linearGradient id="rkR" x1="1" y1="0" x2=".1" y2=".6">
+        <stop offset="0" stop-color="#2E4863"/><stop offset=".46" stop-color="#1E3145"/>
+        <stop offset="1" stop-color="#0D1825"/></linearGradient>
+      <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#10293F"/><stop offset=".45" stop-color="#0A1B2B"/>
+        <stop offset="1" stop-color="#050F1A"/></linearGradient>
+      <radialGradient id="glow">
+        <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
+        <stop offset=".45" stop-color="#fff" stop-opacity=".22"/>
+        <stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+      <filter id="blur3" x="-60%" y="-60%" width="220%" height="220%">
+        <feGaussianBlur stdDeviation="2.6"/></filter>
+    </defs>
     <g class="stars">${stars}</g>
-    <path class="rockface" d="M30,172 L44,148 L53,153 L64,120 L73,126 L83,90 L92,97 L101,55 L108,44 L115,63 L123,59 L131,87 L141,105 L149,101 L159,133 L169,148 L179,172 Z"/>
+    <path class="rockface" fill="url(#rkL)" d="M30,172 L44,148 L53,153 L64,120 L73,126 L83,90 L92,97 L101,55 L108,44 L115,63 L123,59 L131,87 L141,105 L149,101 L159,133 L169,148 L179,172 Z"/>
     <path class="rockedge" d="M101,55 L108,44 L115,63"/>
-    <path class="rockface" d="M202,172 L214,151 L223,155 L233,129 L243,117 L253,111 L263,101 L277,96 L289,97 L301,105 L309,117 L319,129 L327,149 L337,153 L350,172 Z"/>
+    <path class="rockrim" d="M108,44 L115,63 L123,59 L131,87 L141,105"/>
+    <path class="rockface" fill="url(#rkR)" d="M202,172 L214,151 L223,155 L233,129 L243,117 L253,111 L263,101 L277,96 L289,97 L301,105 L309,117 L319,129 L327,149 L337,153 L350,172 Z"/>
     <path class="rockedge" d="M263,101 L277,96 L289,97"/>
-    <rect x="286" y="80" width="3" height="18" fill="#31485E"/>
-    <circle cx="287.5" cy="78" r="2.6" fill="var(--light)" opacity=".9"/>
-    <circle cx="287.5" cy="78" r="8" fill="var(--light)" opacity=".13"/>
+    <path class="rockrim" d="M277,96 L289,97 L301,105 L309,117 L319,129"/>
+    <rect x="286" y="80" width="3" height="18" fill="#3D5876"/>
+    <circle cx="287.5" cy="78" r="9" fill="url(#glow)" opacity=".55"/>
+    <circle cx="287.5" cy="78" r="2.6" fill="var(--light-soft)"/>
     ${lamps}
-    <rect x="0" y="172" width="400" height="38" fill="#081726"/>
+    <rect x="0" y="172" width="400" height="38" fill="url(#seaG)"/>
+    <g class="refls" filter="url(#blur3)">${refl}</g>
     ${bands}
+    <!-- 물가 경계에 얇은 빛. 섬과 바다가 붙어 보이지 않게 갈라 줍니다. -->
+    <line x1="0" y1="172" x2="400" y2="172" stroke="#2A4A6B" stroke-width="1" opacity=".55"/>
   </svg>`;
 }
 
@@ -1640,11 +1758,11 @@ const shareText=()=>[
 
 /* 라이브 채팅은 글자 수 제한이 있고 링크가 걸러질 수 있습니다. 한 줄로 짧게. */
 /* 라이브 채팅용 — 처음부터 한 줄. 링크는 채팅에서 걸러질 수 있어 넣지 않습니다. */
-/* 유튜브 라이브 채팅은 링크가 포함된 메시지를 지우는 경우가 있습니다.
-   https:// 없이 도메인만 적어 삭제 위험을 줄이면서도 찾아올 길은 남깁니다. */
+/* 도메인만 적으면 채팅에서 글자로만 보이고 눌리지 않습니다.
+   실제로 붙여 보니 아무도 못 들어오는 문구가 됐습니다. 전체 주소를 넣습니다. */
 const DOMAIN=()=>APP_URL.replace(/^https?:\/\//,"").replace(/\/$/,"");
 const liveText=()=>`${who()}(${S.school||"독도초등학교"})의 독도 학력은 ${gradeName(S.grade)}! `
-  +`Lv.${levelOf(S.xp)} · ${lightLine()} · ${APP_NAME} ${DOMAIN()}`;
+  +`Lv.${levelOf(S.xp)} · ${lightLine()} · ${APP_URL}`;
 
 /* 복사 성공을 확인한 뒤에만 성공이라고 말합니다.
    유튜브 인앱 브라우저(특히 iOS)에서는 클립보드가 막히는 경우가 있어 실패 시 직접 복사 상자를 띄웁니다. */
@@ -1657,7 +1775,7 @@ async function copyOrShow(txt,okMsg){
   }
 }
 function showCopyBox(txt){
-  const box=$("#sheet-box"); if(!box)return;
+  const box=sheetBox(); if(!box)return;
   const el=document.createElement("div");
   el.className="copybox"; el.textContent=txt;
   const old=box.querySelector(".copybox"); if(old)old.remove();
@@ -1665,8 +1783,14 @@ function showCopyBox(txt){
   el.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
+/* 결과 화면과 홈 화면 두 곳에서 열립니다. 지금 보이는 쪽 상자를 씁니다. */
+function sheetBox(){
+  const home=$("#sheet-box-home"), res=$("#sheet-box");
+  if(home&&!$("#s-home").classList.contains("hidden"))return home;
+  return res||home;
+}
 function toggleSheet(){
-  const box=$("#sheet-box"); if(!box)return;
+  const box=sheetBox(); if(!box)return;
   if(box.innerHTML){box.innerHTML="";return;}
   box.innerHTML=`
     <div class="sheet">
@@ -1683,11 +1807,38 @@ function toggleSheet(){
   box.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
-/* 유튜브는 URL만으로 댓글창을 미리 채우는 공식 방법이 없습니다.
-   복사 → 방송 열기 → 사용자가 붙여넣기, 두 단계를 정직하게 안내합니다. */
+/* 유튜브는 URL만으로 채팅창을 미리 채우는 공식 방법이 없습니다.
+   복사 → 안내 → 사용자가 방송을 열고 붙여넣기. 이 세 단계를 정직하게 보여줍니다.
+   자동으로 넘겨 버리면 무엇이 복사됐는지 모른 채 방송으로 끌려가고,
+   시간을 두고 여는 창은 팝업 차단에 걸립니다. 버튼을 누르게 하는 편이 확실합니다. */
 async function shareLive(){
-  const ok=await copyOrShow(liveText(),"복사했습니다 · 채팅창에 붙여넣으세요");
-  setTimeout(()=>{try{window.open(LIVE_URL,"_blank","noopener");}catch(e){location.href=LIVE_URL;}},ok?450:1600);
+  const txt=liveText();
+  let ok=false;
+  try{ await navigator.clipboard.writeText(txt); ok=true; }catch(e){}
+  liveModal(txt,ok);
+}
+function liveModal(txt,ok){
+  const old=$("#live-modal"); if(old)old.remove();
+  const el=document.createElement("div");
+  el.className="modal"; el.id="live-modal";
+  el.innerHTML=`<div class="modal-in">
+    <div class="modal-h">${ok?"결과를 복사했습니다":"아래 글을 길게 눌러 복사하세요"}</div>
+    <p class="modal-p">${ok
+      ?"라이브를 열고 채팅창에 <b>붙여넣기</b> 하시면 됩니다."
+      :"이 브라우저에서는 자동 복사가 막혀 있습니다. 글을 길게 눌러 복사한 뒤 라이브를 열어 주세요."}</p>
+    <div class="copybox">${txt.replace(/</g,"&lt;")}</div>
+    <div class="modal-b">
+      <button class="btn" id="lm-go">라이브 열기</button>
+      <button class="btn ghost" id="lm-close">닫기</button>
+    </div>
+  </div>`;
+  document.body.appendChild(el);
+  $("#lm-close").addEventListener("click",()=>el.remove());
+  $("#lm-go").addEventListener("click",()=>{
+    el.remove();
+    try{window.open(LIVE_URL,"_blank","noopener");}catch(e){location.href=LIVE_URL;}
+  });
+  el.addEventListener("click",e=>{if(e.target===el)el.remove();});
 }
 
 /* 카톡 전용 API는 없습니다. 기기 공유 시트를 열고, 없으면 복사로 내려갑니다. */
@@ -1933,7 +2084,7 @@ function drawIdentity(x,W,y){
   const nick=who(), school=S.school||"독도초등학교", nation=countryOf(S.flag), code=S.flag;
   /* 긴 닉네임이 카드 밖으로 나가지 않도록 폭에 맞춰 줄입니다. */
   let size=62;
-  do{ x.font=`700 ${size}px "Gowun Batang",serif`; size-=2; }
+  do{ x.font=`700 ${size}px "GmarketSans","Apple SD Gothic Neo",sans-serif`; size-=2; }
   while(x.measureText(nick).width>W-260&&size>30);
   x.textAlign="center";x.fillStyle="#E8EFF7";x.fillText(nick,W/2,y);
 
@@ -1972,7 +2123,7 @@ function makeCard(){
     x.beginPath();x.arc(sx,sy,r,0,7);x.fill();}
   x.globalAlpha=1;
 
-  const F=(s,w,sz,col,al)=>{x.font=`${w} ${sz}px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif`;
+  const F=(s,w,sz,col,al)=>{x.font=`${w} ${sz}px "GmarketSans","Apple SD Gothic Neo",sans-serif`;
     x.fillStyle=col;x.textAlign=al||"center";};
 
   /* 머리말 */
@@ -2264,6 +2415,7 @@ $("#go-placement").addEventListener("click",()=>{grabNames();startPlacement();})
 $("#go-kinder").addEventListener("click",()=>{grabNames();S.grade="K";S.started=true;save();show("s-home");renderHome();});
 $("#go-lesson").addEventListener("click",()=>startLesson("daily"));
 $("#go-review").addEventListener("click",()=>startLesson("review"));
+$("#go-brag").addEventListener("click",()=>toggleSheet());
 $("#go-exam").addEventListener("click",()=>startLesson("exam"));
 $("#q-next").addEventListener("click",()=>{L&&L.mode==="place"?nextPlaceQ():nextQ();});
 $("#q-hint").addEventListener("click",useHint);
@@ -2285,11 +2437,27 @@ renderFlags();
 $("#realname").value=S.name||"";
 $("#school").value=S.school||"";
 if(S.started){show("s-home");renderHome();}
-else if(!S.seenIntro){S.seenIntro=true;save();show("s-intro");playIntro();}
+else if(S.introDay!==today()){S.introDay=today();save();show("s-intro");playIntro();}
 else show("s-locate");
 $("#h-sound").addEventListener("click",bgmToggle);
 /* 소리를 켜 두셨던 분만 첫 터치에 음악이 이어집니다. */
 bgmArm();bgmBtn(false);
+
+/* ---------- 미세 시차 ----------
+   화면을 내릴 때 별이 섬보다 아주 조금 느리게 따라옵니다.
+   0.06배라 눈에 띄지 않지만, 평면 그림에 깊이가 생깁니다.
+   requestAnimationFrame으로 묶어 스크롤이 끊기지 않게 합니다. */
+(function(){
+  let tick=false;
+  const move=()=>{
+    tick=false;
+    const g=document.querySelector("#island-holder .stars");
+    if(!g)return;
+    const y=Math.min(160,window.scrollY);
+    g.setAttribute("transform","translate(0 "+(y*.06).toFixed(2)+")");
+  };
+  addEventListener("scroll",()=>{ if(!tick){tick=true;requestAnimationFrame(move);} },{passive:true});
+})();
 
 /* 화면을 먼저 띄우고 문항 갱신은 뒤에서 확인합니다. 첫 화면이 늦어지지 않습니다. */
 loadRemoteQuestions();
