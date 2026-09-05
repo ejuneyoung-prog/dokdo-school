@@ -31,6 +31,7 @@ body.bg{background:#07131F}
 .row{display:flex;align-items:center;gap:1.8vw;padding:1.1vw 0;border-top:1px solid var(--line)}
 .sec .row:first-of-type{border-top:none}
 .m{font-size:clamp(18px,5.2vw,52px);width:7.5vw;min-width:26px;text-align:center;flex:none}
+.n .fg{margin-right:.35em}
 .n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(17px,5vw,50px);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   text-shadow:0 2px 8px rgba(0,0,0,.7)}
@@ -59,13 +60,21 @@ var ONLY=Q.get("only")||"";
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
 
+/* 'KR' 두 글자를 국기 그림으로 바꿉니다. 유니코드 지역 표시 문자를 씁니다.
+   글꼴이 국기를 못 그리는 컴퓨터에서는 아무것도 안 보이므로 자리만 비웁니다. */
+function flag(c){
+  c=String(c||'').trim().toUpperCase();
+  if(!/^[A-Z]{2}$/.test(c))return '';
+  return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65, 0x1F1E6+c.charCodeAt(1)-65);
+}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,
   function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 
 function rows(list,fmt){
   return list.map(function(x,i){
     return '<div class="row'+(i===0?' first':'')+'"><span class="m">'+MEDAL[i]+'</span>'
-      +'<span class="n">'+esc(x.name||x.nick)+'</span>'
+      +'<span class="n">'+(x.flag?'<span class="fg">'+flag(x.flag)+'</span>':'')
+        +esc(x.name||x.nick)+'</span>'
       +'<span class="v">'+fmt(x)+'</span></div>';
   }).join("");
 }

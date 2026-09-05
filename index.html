@@ -687,7 +687,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <div class="brand"><span class="bi-ko" lang="ko">독도 코리아 스쿨</span><span class="bi-en" lang="en">Dokdo Korea School</span></div>
 <div class="stat on" id="st-streak">🔥 개근 <b>0</b>일</div>
 <div class="stat" id="st-xp">XP <b>0</b></div>
-<button class="stat js-reset" id="h-reset" title="기록을 지우고 처음부터 / Reset this language’s progress"><span class="bi-ko" lang="ko">↺ 처음부터</span><span class="bi-en" lang="en">Reset</span></button>
+<button class="stat js-reset" id="h-reset" title="기록을 지우고 처음부터"><span class="bi-ko" lang="ko">↺ 처음부터</span><span class="bi-en" lang="en">Reset</span></button>
 </div>
 <!-- 오늘의 소식. 시트가 연결돼 있으면 전체 기록, 없으면 내 기록을 보여 줍니다. -->
 <div class="ticker" hidden="" id="ticker"><div class="ticker-in" id="ticker-in"></div></div>
@@ -1014,8 +1014,8 @@ function bgmBtn(on){
   const b=document.getElementById('h-sound');if(!b)return;
   const cur=BGM[(S.track||0)%BGM.length];
   b.querySelector('.sb-i').textContent=on?'🔊':'🔇';
-  b.querySelector('.sb-t').textContent=on?'BGM 켜짐 · BGM on':'BGM · BGM';
-  b.title=on?cur.t+' · 눌러서 끄기 / Click to mute':'BGM 켜기 / Play background music';
+  b.querySelector('.sb-t').textContent=on?'BGM 켜짐':'BGM';
+  b.title=on?cur.t+' · 눌러서 끄기':'BGM 켜기';
   b.setAttribute('aria-pressed',String(!!on));b.classList.toggle('on',!!on);
 }
 function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[],code:"",schoolCode:"",schoolCat:""};}
@@ -1121,8 +1121,9 @@ function tickerLinesEN(){
   return out;
 }
 function tickerLines(){
- const ko=tickerLinesKO(),en=tickerLinesEN();
- return ko.map((s,i)=>s+(en[i]?' / '+en[i]:''));
+ /* 한국어판에서는 한국어만 흐릅니다. 두 벌을 이어 붙이면 띠가 두 배로 길어져
+    같은 문장을 두 번 읽게 됩니다. 영어는 index-en.html 이 따로 맡습니다. */
+ return tickerLinesKO();
 }
 
 
@@ -1207,7 +1208,7 @@ function renderHall(){
     if(wk.length){
       h+='<div class="hall-sec"><div class="hall-t">개인</div>';
       wk.forEach((p,i)=>{ h+='<div class="hall-row"><span class="hall-m">'+medal[i]+'</span>'
-        +'<span class="hall-n">'+escHtml(p.nick)+'</span>'
+        +'<span class="hall-n">'+(p.flag?flagOf(p.flag)+' ':'')+escHtml(p.nick)+'</span>'
         +'<span class="hall-v">'+(p.correct!=null?p.correct:p.run)+'문제</span></div>'; });
       h+='</div>';
     }
@@ -1634,7 +1635,7 @@ function applyQuestions(list){
 /* 수업 도중에 문항이 바뀌면 남은 점수가 흔들리므로, 수업이 끝난 뒤에 적용합니다. */
 let PENDING=null;
 function show(id){
-  if(id!=="s-lesson"&&PENDING){applyQuestions(PENDING.list);QVER=PENDING.ver;PENDING=null;setDataStatus("external","대기 중 갱신 적용 / Queued update applied");}
+  if(id!=="s-lesson"&&PENDING){applyQuestions(PENDING.list);QVER=PENDING.ver;PENDING=null;setDataStatus("external","대기 중 갱신 적용");}
   SCREENS.forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));window.scrollTo(0,0);
 }
 /* 받은 문항이 쓸 만한지 최소한만 확인합니다. 형식이 깨졌으면 내장 사본을 지킵니다. */
@@ -1655,7 +1656,7 @@ async function loadRemoteQuestions(){
   if(!/^https?:$/.test(location.protocol)){
     setDataStatus('embedded','내장 327문항으로 학습 가능 / Ready: 327 embedded questions');return;
   }
-  setDataStatus('loading','문항 파일 확인 중 / Checking question file');
+  setDataStatus('loading','문항 파일 확인 중');
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),8000);
   try{
     const r=await fetch(QSRC+'?v='+encodeURIComponent(QVER),{cache:'no-store',signal:controller.signal});
@@ -1670,16 +1671,16 @@ async function loadRemoteQuestions(){
     for(const q of j.questions){if(q.id>=574&&q.id<=673&&q.publication_number!==q.id-373)throw new Error('Publication-to-app ID mapping mismatch');}
     if(typeof j.version!=='string'||!j.version)throw new Error('Missing version');
     if(j.version===QVER&&JSON.stringify(j.questions)===JSON.stringify(DATA.questions)){
-      setDataStatus('external','외부 파일 확인 완료 / External file verified');return;
+      setDataStatus('external','외부 파일 확인 완료');return;
     }
     if(!document.getElementById('s-lesson').classList.contains('hidden')){
-      PENDING={list:j.questions,ver:j.version};setDataStatus('pending','수업 종료 후 갱신 / Update queued until lesson ends');return;
+      PENDING={list:j.questions,ver:j.version};setDataStatus('pending','수업 종료 후 갱신');return;
     }
     applyQuestions(j.questions);QVER=j.version;
-    setDataStatus('external','외부 파일 확인 완료 / External file verified');
+    setDataStatus('external','외부 파일 확인 완료');
     if(!document.getElementById('s-home').classList.contains('hidden'))renderHome();
   }catch(e){
-    setDataStatus('embedded','외부 연결 없이 내장 문항으로 학습 가능 / Ready: using embedded questions',e.name==='AbortError'?'Request timeout':String(e.message||e));
+    setDataStatus('embedded','외부 연결 없이 내장 문항으로 학습 가능',e.name==='AbortError'?'Request timeout':String(e.message||e));
     console.warn('[Dokdo question file]',e);
   }finally{clearTimeout(timeout);}
 }
@@ -1699,7 +1700,7 @@ function biLabel(s){const p=LABEL_PAIRS[s];return p?biHTML(p[0],p[1]):escHtml(s)
 function gradeBi(c){return biHTML(KO_GRADES[c]||c,EN_GRADES[c]||c);}
 function updateBilingualHome(){
   const t=toNext(S.grade),due=dueList().length,cool=cooling(),next=LADDER[idx(S.grade)+1];
-  $('#st-streak').innerHTML='🔥 '+S.streak+' <span>일 · days</span>';
+  $('#st-streak').innerHTML='🔥 개근 <b>'+S.streak+'</b>일';
   $('#cap-grade').innerHTML=gradeBi(S.grade);
   $('#prog-label').innerHTML=t.grad?biHTML('전 학년 복습','Review all levels'):t.open?biHTML('진급 시험이 열렸습니다','Promotion exam open'):biHTML('다음 단계까지 '+t.need+'문항','Next level: '+t.need+' more to master');
   $('#go-lesson').innerHTML=cool?biHTML('수업 대기 중','Lesson on cooldown'):(t.grad||t.ratio>=1?biHTML('복습 수업 듣기','Take a review lesson'):biHTML('오늘 수업 듣기',"Today's lesson"));
@@ -1708,15 +1709,15 @@ function updateBilingualHome(){
   $('#go-review').innerHTML='<span class="bi-ko" lang="ko">복습할 항목 <span id="review-n">'+due+'</span>개</span><span class="bi-en" lang="en">Review: '+due+' due</span>';
   const bc=beacons(lightCount());
   const cap=$('.cap-right');
-  if(cap.lastChild&&cap.lastChild.nodeType===3)cap.lastChild.textContent=bc.big?' 봉화·불빛 / beacons & lights':' 밝힌 불빛 / lights lit';
+  if(cap.lastChild&&cap.lastChild.nodeType===3)cap.lastChild.textContent=bc.big?' 봉화 · 불빛':' 밝힌 불빛';
   $('#badgerow').querySelectorAll('.bdg').forEach((el,i)=>{const b=BADGES[i];if(b){el.querySelector('span').innerHTML=biLabel(b.n);}});
   $('#ladder').querySelectorAll('.stage-h').forEach(el=>{
     const si=Number(el.dataset.stage),st=STAGES[si];el.querySelector('b').innerHTML=biHTML(...STAGE_PAIRS[si]);
     const rows=st.cs.map(c=>LADDER.find(g=>g.c===c)).filter(Boolean),now=rows.some(g=>g.c===S.grade),done=rows.every(g=>S.passed.includes(g.c)),jobs=rows.every(g=>g.job),n=rows.reduce((s,g)=>s+itemsOf(g.c).length,0);
-    el.querySelector('.stage-n').textContent=jobs?'명예 등급 / Honor':now?'재학 / Current':done?'수료 / Completed':n+'문항 / questions';
+    el.querySelector('.stage-n').textContent=jobs?'명예 등급':now?'재학':done?'수료':n+'문항';
   });
   $('#ladder').querySelectorAll('.rung-name').forEach(el=>el.innerHTML=biLabel(el.textContent));
-  $('#ladder').querySelectorAll('.rung-n').forEach(el=>{const n=el.textContent.match(/\d+/);el.textContent=n?n[0]+'문항 / questions':'명예 / Honor';});
+  $('#ladder').querySelectorAll('.rung-n').forEach(el=>{const n=el.textContent.match(/\d+/);el.textContent=n?n[0]+'문항':'명예';});
   if(canExam())$('#home-note').innerHTML=biHTML('진급 시험: 현재 학년에서 8문항을 풉니다.','Promotion exam: 8 questions from your current level.');
   else if(isJob(S.grade)){
     const n=careerNeed(S.grade);
@@ -1731,19 +1732,19 @@ function updateBilingualHome(){
   const litPairs=LIT.map(x=>[x.ko,x.en]);
   const litColors=LIT.map(x=>x.col);
   $('#legend').innerHTML=litPairs.map((p,i)=>'<i><b style="background:'+litColors[i]+'"></b><span>'+biHTML(p[0]+' '+litTally[i+1],p[1])+'</span></i>').join('');
-  $('#ver-note').textContent='문항 / Questions: '+DATA.questions.length+' · '+QVER;
+  $('#ver-note').textContent='문항 '+DATA.questions.length+'개 · '+QVER;
   refreshDataStatus();
 }
 function bilingualFlags(){
   $('#flags').querySelectorAll('.flag').forEach(el=>{const c=el.dataset.c;el.querySelector('span').innerHTML=biHTML(COUNTRY_KO[c]||c,COUNTRY_EN[c]||c);el.title=(COUNTRY_KO[c]||c)+' / '+(COUNTRY_EN[c]||c);el.setAttribute('aria-pressed',String(c===S.flag));});
 }
 const DATA_LANGUAGE='ko';
-let DATA_STATUS={state:'embedded',message:'내장 문항 사용 / Using embedded questions',error:''};
+let DATA_STATUS={state:'embedded',message:'내장 문항 사용',error:''};
 function refreshDataStatus(){
   const box=document.getElementById('data-status'),text=document.getElementById('data-status-text');
   if(!box||!text)return;
   box.dataset.state=DATA_STATUS.state;
-  text.textContent=DATA_STATUS.message+' · '+DATA.questions.length+'문항 / questions · '+QVER+(DATA_STATUS.error?' · '+DATA_STATUS.error:'');
+  text.textContent=DATA_STATUS.message+' · '+DATA.questions.length+'문항 · '+QVER+(DATA_STATUS.error?' · '+DATA_STATUS.error:'');
   window.DOKDO_DIAGNOSTICS={language:DATA_LANGUAGE,count:DATA.questions.length,version:QVER,expectedFile:QSRC,status:DATA_STATUS.state,detail:DATA_STATUS.message,error:DATA_STATUS.error};
 }
 function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error};refreshDataStatus();}
@@ -2137,7 +2138,7 @@ const lightLine=()=>{const b=beacons(lightCount());
   return b.big?`봉화 ${b.big}개 · 불빛 ${b.small}개`:`밝힌 불빛 ${lightCount()}개`;};
 const shareText=()=>[
   `🏫 ${APP_NAME} ${flagOf(S.flag)}`,
-  `${who()} · ${S.school||"독도초등학교"}`,
+  `${who()}${S.school?" · "+S.school:""}`,
   `독도 문제 ${totalCorrect()}개 정답 · ${S.xp}점 · 연속 개근 ${S.streak}일`,
   `${gradeName(S.grade)} · Lv.${levelOf(S.xp)} · ${lightLine()}`,
   ``,
@@ -2150,7 +2151,7 @@ const shareText=()=>[
 /* 도메인만 적으면 채팅에서 글자로만 보이고 눌리지 않습니다.
    실제로 붙여 보니 아무도 못 들어오는 문구가 됐습니다. 전체 주소를 넣습니다. */
 const DOMAIN=()=>APP_URL.replace(/^https?:\/\//,"").replace(/\/$/,"");
-const liveText=()=>`${who()}(${S.school||"독도초등학교"})의 독도 학력은 ${gradeName(S.grade)}! `
+const liveText=()=>`${who()}${S.school?"("+S.school+")":""}의 독도 학력은 ${gradeName(S.grade)}! `
   +`Lv.${levelOf(S.xp)} · ${lightLine()} · ${APP_URL}`;
 
 /* 복사 성공을 확인한 뒤에만 성공이라고 말합니다.
@@ -2481,14 +2482,15 @@ function drawChip(x,cx,cy,glyph,on){
    뱃지의 주인공은 점수가 아니라 사람입니다. 닉네임을 제일 크게,
    소속과 국가를 그 아래 한 줄로. 국기 이모지는 윈도우 캔버스에서 깨지므로 쓰지 않습니다. */
 function drawIdentity(x,W,y){
-  const nick=who(), school=S.school||"독도초등학교", nation=countryOf(S.flag), code=S.flag;
+  const nick=who(), school=S.school||"", nation=countryOf(S.flag), code=S.flag;
   /* 긴 닉네임이 카드 밖으로 나가지 않도록 폭에 맞춰 줄입니다. */
   let size=62;
   do{ x.font=`700 ${size}px "GmarketSans","Apple SD Gothic Neo",sans-serif`; size-=2; }
   while(x.measureText(nick).width>W-260&&size>30);
   x.textAlign="center";x.fillStyle="#E8EFF7";x.fillText(nick,W/2,y);
 
-  const sub=`${school} · ${nation}`;
+  /* 소속이 없으면 나라만 적습니다. 가운뎃점만 덩그러니 남지 않게 합니다. */
+  const sub=school?`${school} · ${nation}`:nation;
   x.font='500 27px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif';
   const tw=x.measureText(sub).width;
   const fw=46, hasFlag=!!FLAG_ART[code];
@@ -2636,7 +2638,7 @@ async function saveCard(){
       const f=new File([blob],name,{type:"image/png"});
       if(navigator.canShare&&navigator.canShare({files:[f]})){
         await navigator.share({files:[f],title:APP_NAME,
-          text:`${who()} · ${S.school||"독도초등학교"}\n나의 독도 학력: ${gradeName(S.grade)}\n▶ ${APP_URL}`});
+          text:`${who()}${S.school?" · "+S.school:""}\n나의 독도 학력: ${gradeName(S.grade)}\n▶ ${APP_URL}`});
         return;
       }
     }catch(e){ if(e&&e.name==="AbortError")return; }
@@ -2690,10 +2692,18 @@ let P=null;
 function startPlacement(){
   /* 배치고사도 형제가 겹치지 않게 합니다. 다섯 학년에서 한 문제씩 뽑습니다. */
   const seen=new Set(), items=[];
+  const prev=new Set(S.lastPlace||[]);
   PLACE.forEach(c=>{
-    const it=shuffle(itemsOf(c)).find(q=>!seen.has(groupOf(q)));
+    const pool=shuffle(itemsOf(c)).filter(q=>!seen.has(groupOf(q)));
+    /* 학년마다 문항이 열일곱 안팎입니다. 그냥 무작위로 뽑으면 두세 번만 다시 봐도 겹칩니다.
+       ① 한 번도 안 만난 문제 ② 지난 배치고사에 안 나온 문제 ③ 그래도 없으면 아무거나. */
+    const it = pool.find(q=>!S.m[q.id]&&!prev.has(q.id))
+            || pool.find(q=>!prev.has(q.id))
+            || pool[0];
     if(it){seen.add(groupOf(it));items.push(it);}
   });
+  /* 이번에 낸 다섯 문제를 적어 둡니다. 다음번에는 이 다섯을 피합니다. */
+  S.lastPlace=items.map(q=>q.id); save();
   P={items,i:0,ok:0};
   L={mode:"place",items,i:0,ok:0,xp:0,wrong:[]};
   show("s-lesson");renderPlaceQ();
@@ -2805,7 +2815,7 @@ function doReset(){
 }
 function armReset(btn){
   if(resetArm){doReset();return;}
-  btn.textContent="다시 누르면 삭제 / Tap again to delete";
+  btn.textContent="다시 누르면 삭제";
   resetArm=setTimeout(()=>{
     resetArm=null;
     document.querySelectorAll(".js-reset").forEach(b=>b.innerHTML=b.dataset.labelHtml||b.dataset.label);
@@ -2820,7 +2830,7 @@ $("#go-enter").addEventListener("click",()=>{show("s-start");renderFlags();});
 $("#intro-go").addEventListener("click",endIntro);
 $("#h-notify").addEventListener("click",()=>askNotify($("#h-notify")));
 function grabNames(){S.name=$("#realname").value.trim();
-  S.school=S.school||"독도초등학교";save();}
+  save();}   /* 소속은 고른 사람만 붙습니다 */
 $("#go-placement").addEventListener("click",()=>{grabNames();startPlacement();});
 $("#go-kinder").addEventListener("click",()=>{grabNames();S.grade="K";S.started=true;save();show("s-home");renderHome();});
 $("#go-lesson").addEventListener("click",()=>startLesson("daily"));
@@ -2939,7 +2949,7 @@ const GOODS_URL="";
   const g=document.getElementById('goods-box'); if(!g)return;
   const go=()=>{
     if(GOODS_URL){ window.open(GOODS_URL,'_blank','noopener'); return; }
-    toast('독도 코리아 굿즈는 준비 중입니다 · Dokdo merchandise is coming soon');
+    toast('독도 코리아 굿즈는 준비 중입니다');
   };
   g.addEventListener('click',go);
   g.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();go();} });
