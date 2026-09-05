@@ -2462,5 +2462,15 @@ bgmArm();bgmBtn(false);
 /* 화면을 먼저 띄우고 문항 갱신은 뒤에서 확인합니다. 첫 화면이 늦어지지 않습니다. */
 loadRemoteQuestions();
 </script>
+
+<!-- ---------- 방문 집계 ----------
+     Vercel 웹 분석입니다. 하루 방문자 수, 페이지 조회, 유입 경로, 국가, 기기를 봅니다.
+     쿠키를 쓰지 않고 개인을 식별하지 않습니다. 이름·소속·국적은 절대 보내지 않습니다.
+     Vercel 대시보드에서 Analytics를 Enable 해야 숫자가 쌓이기 시작합니다.
+     이 주소는 Vercel에 올렸을 때만 살아 있고, 로컬에서 파일을 열면 그냥 무시됩니다. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
