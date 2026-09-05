@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>독도 코리아 스쿨 · 명예의 전당</title>
+<style>
+/* OBS 브라우저 소스용.
+   배경이 비어 있어 방송 화면 위에 그대로 얹힙니다.
+   주소 뒤에 ?bg=1 을 붙이면 어두운 배경이 깔립니다(미리보기용).
+   ?scale=1.4 로 키우고, ?only=school 이나 ?only=person 으로 한쪽만 띄울 수 있습니다. */
+:root{
+  --gold:#F7B733; --ink:#EAF3FF; --dim:#9DB4CC; --line:rgba(255,255,255,.14);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent;font-family:"GmarketSans","Apple SD Gothic Neo",
+  "Malgun Gothic",sans-serif;color:var(--ink)}
+body.bg{background:#07131F}
+#wrap{padding:18px 22px;transform-origin:top left}
+.head{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.head h1{margin:0;font-size:23px;font-weight:800;color:var(--gold);letter-spacing:-.01em}
+.head small{font-size:13px;color:var(--dim)}
+.sec{margin:0 0 16px}
+.sec-t{font-size:13px;font-weight:800;color:var(--dim);letter-spacing:.04em;margin:0 0 6px}
+.row{display:flex;align-items:center;gap:11px;padding:8px 0;border-top:1px solid var(--line)}
+.sec .row:first-of-type{border-top:none}
+.m{font-size:21px;width:28px;text-align:center;flex:none}
+.n{flex:1 1 auto;min-width:0;font-weight:700;font-size:19px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  text-shadow:0 2px 6px rgba(0,0,0,.55)}
+.v{flex:none;font-size:15px;color:var(--gold);font-weight:700;font-variant-numeric:tabular-nums}
+.v small{color:var(--dim);font-weight:500;font-size:13px;margin-left:5px}
+.foot{font-size:12px;color:var(--dim);opacity:.75;margin-top:4px}
+.empty{font-size:15px;color:var(--dim);padding:8px 0}
+/* 1등만 살짝 빛나게 */
+.row.first .n{color:#FFE7B0}
+.row.first .m{filter:drop-shadow(0 0 6px rgba(247,183,51,.6))}
+</style>
+</head>
+<body>
+<div id="wrap"><div class="empty">불러오는 중…</div></div>
+
+<script>
+/* 시트 주소 — 앱과 같은 곳을 봅니다. */
+var SHEET_API="";
+
+var Q=new URLSearchParams(location.search);
+if(Q.get("bg"))document.body.classList.add("bg");
+var SCALE=parseFloat(Q.get("scale")||"1");
+if(SCALE!==1)document.getElementById("wrap").style.transform="scale("+SCALE+")";
+var ONLY=Q.get("only")||"";
+var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
+var MEDAL=["🥇","🥈","🥉"];
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,
+  function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+
+function rows(list,fmt){
+  return list.map(function(x,i){
+    return '<div class="row'+(i===0?' first':'')+'"><span class="m">'+MEDAL[i]+'</span>'
+      +'<span class="n">'+esc(x.name||x.nick)+'</span>'
+      +'<span class="v">'+fmt(x)+'</span></div>';
+  }).join("");
+}
+
+function draw(f){
+  var w=document.getElementById("wrap"),h="";
+  h+='<div class="head"><h1>명예의 전당</h1><small>이번 주'
+    +(f.weekOf?' · '+f.weekOf+' 시작':'')+'</small></div>';
+  var any=false;
+
+  if(ONLY!=="school" && f.week && f.week.length){
+    any=true;
+    h+='<div class="sec"><div class="sec-t">개인</div>'
+      +rows(f.week,function(x){return x.run+'<small>연속</small>';})+'</div>';
+  }
+  if(ONLY!=="person" && f.schools){
+    ["E","M","H","W"].forEach(function(c){
+      var l=f.schools[c]; if(!l||!l.length)return;   /* 참여 없는 부문은 띄우지 않습니다 */
+      any=true;
+      h+='<div class="sec"><div class="sec-t">'+CAT[c]+'</div>'
+        +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';})+'</div>';
+    });
+  }
+  if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
+  h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
+  w.innerHTML=h;
+}
+
+function load(){
+  if(!SHEET_API){
+    document.getElementById("wrap").innerHTML=
+      '<div class="empty">시트 주소가 비어 있습니다. hall.html 의 SHEET_API 를 채워 주세요.</div>';
+    return;
+  }
+  fetch(SHEET_API+"?ts="+Date.now(),{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(j){ if(j)draw(j); })
+    .catch(function(){});
+}
+load();
+setInterval(load,30000);          /* 30초마다 갱신 */
+</script>
+</body>
+</html>
