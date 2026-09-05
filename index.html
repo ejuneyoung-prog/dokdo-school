@@ -917,6 +917,28 @@ const KEY="dokdo-korea-school-v2";
 const COOL_MS=15*60*1000;
 let S=null;
 const REPORT_TO="ejuneyoung2@gmail.com";   // 문항 이의 신청 수신 주소
+
+/* ---------- 구글 애널리틱스 ----------
+   측정 ID를 비우면 아예 로드하지 않습니다. 쿠키도 생기지 않고 오류도 없습니다.
+   아이들이 쓰는 앱이라 광고 개인화 신호는 꺼 둡니다.
+   이름·소속·국적은 어떤 이벤트에도 보내지 않습니다.
+   보내는 것은 문항 번호, 정답 여부, 출제 형식, 학년 코드뿐입니다. */
+const GA_ID="G-WJM7KL33ST";
+if(GA_ID){
+  window.dataLayer=window.dataLayer||[];
+  window.gtag=function(){dataLayer.push(arguments);};
+  gtag("js",new Date());
+  gtag("config",GA_ID,{
+    allow_google_signals:false,              /* 광고 개인화 신호 끄기 */
+    allow_ad_personalization_signals:false,
+  });
+  const g=document.createElement("script");
+  g.async=true;
+  g.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(GA_ID);
+  document.head.appendChild(g);
+}
+/* 애널리틱스가 없거나 차단돼도 앱은 그대로 돌아갑니다. */
+function ev(name,params){ try{ if(window.gtag)gtag("event",name,params||{}); }catch(e){} }
 /* ---------- 배경음악 ----------
    브라우저는 소리가 나는 자동 재생을 막습니다. 무음으로 틀어 두고,
    스피커를 누르는 순간(사용자 동작)에 소리를 켭니다. 이게 유일하게 되는 방법입니다.
@@ -1575,6 +1597,9 @@ function answer(pick){
   r.due=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
   save();
 
+  /* 문항별 정답률의 재료입니다. 누가 풀었는지는 보내지 않습니다. */
+  ev("question_answered",{qid:item.id,correct:ok?1:0,qtype:q.type,
+                          grade:S.grade,item_grade:item.grade,hint:half?1:0});
   const rateLine=` · ${tier.n} · 체감 정답률 ${eff(item)}%`;
   /* 새로 켜졌는지, 한 단계 자랐는지를 구분해 알려줍니다. */
   const nowLv=litLv(item.id);
@@ -1637,6 +1662,8 @@ function markAttendance(){
 
 function finish(){
   const total=L.dead?L.i+1:L.items.length, pct=Math.round(L.ok/total*100);
+  /* 핵심 액션. 들어와서 실제로 공부까지 한 사람의 비율을 여기서 봅니다. */
+  ev("lesson_complete",{mode:L.mode,correct:L.ok,total,percent:pct,grade:S.grade});
   let promoted=false,graduated=false;
   if(L.mode==="exam"&&L.ok/total>=EXAM_PASS){
     if(!S.passed.includes(S.grade))S.passed.push(S.grade);
@@ -1647,6 +1674,7 @@ function finish(){
   /* 박사 2년을 마치면 그때부터는 누적 실적으로 임용됩니다. */
   const hired=promoteCareer();
   if(hired){promoted=true;}
+  if(promoted)ev("grade_up",{grade:S.grade,by:hired?"career":"exam"});
   const shel=S.sheltered;S.sheltered=false;
 
   const head=(hired&&L.mode!=="exam")
@@ -1803,7 +1831,9 @@ function toggleSheet(){
   $("#sh-card").addEventListener("click",saveCard);
   $("#sh-live").addEventListener("click",shareLive);
   $("#sh-kakao").addEventListener("click",shareKakao);
-  $("#sh-copy").addEventListener("click",()=>copyOrShow(shareText(),"결과를 복사했습니다"));
+  $("#sh-copy").addEventListener("click",()=>{
+    ev("share_click",{channel:"copy",grade:S.grade});
+    copyOrShow(shareText(),"결과를 복사했습니다");});
   box.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
@@ -1812,6 +1842,7 @@ function toggleSheet(){
    자동으로 넘겨 버리면 무엇이 복사됐는지 모른 채 방송으로 끌려가고,
    시간을 두고 여는 창은 팝업 차단에 걸립니다. 버튼을 누르게 하는 편이 확실합니다. */
 async function shareLive(){
+  ev("share_click",{channel:"live",grade:S.grade});
   const txt=liveText();
   let ok=false;
   try{ await navigator.clipboard.writeText(txt); ok=true; }catch(e){}
@@ -1843,6 +1874,7 @@ function liveModal(txt,ok){
 
 /* 카톡 전용 API는 없습니다. 기기 공유 시트를 열고, 없으면 복사로 내려갑니다. */
 async function shareKakao(){
+  ev("share_click",{channel:"kakao",grade:S.grade});
   const txt=shareText();
   try{
     if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
@@ -1852,6 +1884,7 @@ async function shareKakao(){
 
 /* 결과가 아니라 앱 자체를 권합니다. 성적이 부끄러운 사람도 누를 수 있는 버튼입니다. */
 async function shareLink(){
+  ev("share_click",{channel:"link",grade:S.grade});
   const txt=`독도, 얼마나 알고 있나요?\n${APP_NAME}에서 내 독도 학력을 확인해 보세요.\n${APP_URL}`;
   try{
     if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
@@ -2207,6 +2240,7 @@ function dataUrlToBlob(u){
 }
 
 async function saveCard(){
+  ev("share_click",{channel:"card",grade:S.grade});
   toast("뱃지를 만드는 중…");
   /* fonts.ready가 끝내 응답하지 않는 환경이 있습니다. 1.5초만 기다리고 진행합니다.
      안 그러면 버튼을 눌러도 아무 일도 안 일어난 것처럼 보입니다. */
@@ -2346,6 +2380,8 @@ function endPlacement(){
   S.grade=map[Math.min(L.ok,map.length-1)];
   for(let i=0;i<idx(S.grade);i++){const c=LADDER[i].c;if(!S.passed.includes(c))S.passed.push(c);}
   S.started=true;save();
+  /* 첫 화면에서 얼마나 이탈하는지, 어느 학년으로 배정되는지를 봅니다. */
+  ev("placement_done",{correct:L.ok,grade:S.grade});
   $("#s-result").innerHTML=`
     <div class="topbar"><div class="brand">독도 코리아 <span>스쿨</span></div></div>
     <div class="promo">
