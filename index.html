@@ -1051,7 +1051,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
    비워 두면 아무 데도 보내지 않고, 내 기록만으로 소식을 만듭니다.
    주소를 넣으면 응답 한 줄을 시트에 쌓고, 전체 집계를 받아 옵니다.
    시트가 죽어 있어도 앱은 그대로 돌아갑니다. */
-const SHEET_API="";
+const SHEET_API="https://script.google.com/macros/s/AKfycbxhkR93f7__AekcpkHyd-pzfNHcPeQQK8HhHrtcRW6sLanzJGhPI3B2LRksxqrs1Uzelw/exec";
 let FEED=null;
 
 const escHtml=s=>String(s==null?"":s).replace(/[&<>"']/g,
@@ -1061,9 +1061,11 @@ function sendLog(p){
   if(!SHEET_API)return;
   /* text/plain 이라야 브라우저가 사전 확인 요청을 보내지 않습니다.
      응답은 읽지 않습니다. 실패해도 사용자는 아무것도 느끼지 않습니다. */
+  /* fetch 는 약속을 돌려주므로 try 로는 실패가 안 잡힙니다.
+     .catch 를 붙이지 않으면 시트가 막혔을 때 콘솔에 오류가 쌓입니다. */
   try{ fetch(SHEET_API,{method:"POST",mode:"no-cors",
     headers:{"Content-Type":"text/plain;charset=utf-8"},
-    body:JSON.stringify(p)}); }catch(e){}
+    body:JSON.stringify(p)}).catch(function(){}); }catch(e){}
 }
 
 async function loadFeed(){
@@ -1996,7 +1998,10 @@ async function shareKakao(){
   ev("share_click",{channel:"kakao",grade:S.grade});
   const txt=shareText();
   try{
-    if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
+    /* url 을 따로 넘기면 카카오톡이 글과 링크를 각각 다른 메시지로 보냅니다.
+       노란 말풍선 하나, 미리보기 카드 하나로 쪼개집니다.
+       주소는 이미 txt 마지막 줄에 있으니 url 은 넘기지 않습니다. */
+    if(navigator.share){await navigator.share({title:APP_NAME,text:txt});return;}
   }catch(e){ if(e&&e.name==="AbortError")return; }
   copyOrShow(txt,"결과를 복사했습니다 · 카톡에 붙여넣으세요");
 }
@@ -2006,7 +2011,10 @@ async function shareLink(){
   ev("share_click",{channel:"link",grade:S.grade});
   const txt=`독도, 얼마나 알고 있나요?\n${APP_NAME}에서 내 독도 학력을 확인해 보세요.\n${APP_URL}`;
   try{
-    if(navigator.share){await navigator.share({title:APP_NAME,text:txt,url:APP_URL});return;}
+    /* url 을 따로 넘기면 카카오톡이 글과 링크를 각각 다른 메시지로 보냅니다.
+       노란 말풍선 하나, 미리보기 카드 하나로 쪼개집니다.
+       주소는 이미 txt 마지막 줄에 있으니 url 은 넘기지 않습니다. */
+    if(navigator.share){await navigator.share({title:APP_NAME,text:txt});return;}
   }catch(e){ if(e&&e.name==="AbortError")return; }
   copyOrShow(txt,"링크를 복사했습니다");
 }
