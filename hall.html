@@ -28,26 +28,32 @@ html,body{margin:0;background:transparent;overflow:hidden;
 body.bg{background:#07131F}
 #wrap{padding:2.2vw 2.6vw 1.4vw;transform-origin:top left}
 .head{display:flex;align-items:baseline;gap:1.6vw;margin:0 0 1.6vw}
-.head h1{margin:0;font-size:clamp(20px,5.4vw,54px);font-weight:800;color:var(--gold);
+.head h1{margin:0;font-size:clamp(34px,9.2vw,86px);font-weight:800;color:var(--gold);
   letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
-.head small{font-size:clamp(11px,2.5vw,24px);color:var(--dim)}
+.head small{font-size:clamp(18px,4.2vw,40px);color:var(--dim)}
 .sec{margin:0 0 2.2vw}
-.sec-t{font-size:clamp(12px,3vw,30px);font-weight:800;color:var(--gold);opacity:.85;
+.sec-t{font-size:clamp(22px,5.4vw,52px);font-weight:800;color:var(--gold);opacity:.85;
   letter-spacing:.02em;margin:0 0 .6vw}
 .row{display:flex;align-items:center;gap:1.6vw;padding:.9vw 0;border-top:1px solid var(--line)}
 .sec .row:first-of-type{border-top:none}
-.m{font-size:clamp(17px,4.6vw,46px);width:7.5vw;min-width:26px;text-align:center;flex:none}
-.m.num{font-size:clamp(12px,2.8vw,28px);color:var(--dim);font-weight:800;
+.m{font-size:clamp(30px,8vw,74px);width:7.5vw;min-width:26px;text-align:center;flex:none}
+.m.num{font-size:clamp(21px,5vw,48px);color:var(--dim);font-weight:800;
   font-variant-numeric:tabular-nums}
-.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(16px,4.4vw,44px);
+.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(30px,8.2vw,76px);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   text-shadow:0 2px 8px rgba(0,0,0,.7)}
-.n .sch{font-weight:600;font-size:.62em;color:var(--dim);margin-left:.5em}
-.v{flex:none;font-size:clamp(13px,3.4vw,34px);color:var(--gold);font-weight:800;
+.n .sch{font-weight:600;font-size:.56em;color:var(--dim);margin-left:.5em}
+.v{flex:none;font-size:clamp(24px,6.4vw,58px);color:var(--gold);font-weight:800;
   font-variant-numeric:tabular-nums;text-shadow:0 2px 8px rgba(0,0,0,.7)}
 .v small{color:var(--dim);font-weight:600;font-size:.72em;margin-left:.4em}
-.foot{font-size:clamp(10px,2.3vw,22px);color:var(--dim);opacity:.7;margin-top:1vw}
-.empty{font-size:clamp(14px,3.4vw,34px);color:var(--dim);padding:1.4vw 0}
+.foot{font-size:clamp(15px,3.4vw,32px);color:var(--dim);opacity:.7;margin-top:1vw}
+.empty{font-size:clamp(24px,6vw,56px);color:var(--dim);padding:1.4vw 0}
+.live-dot{display:inline-block;width:.6em;height:.6em;border-radius:50%;background:#5CF0C0;
+  margin-right:.5em;box-shadow:0 0 12px rgba(92,240,192,.9);animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:1}50%{opacity:.4}}
+.row.live{padding:.7vw 0}
+.row.live .n{font-size:clamp(24px,6.4vw,58px)}
+.row.live .v{font-size:clamp(19px,4.8vw,44px)}
 /* 1·2·3등만 살짝 빛나게 */
 .row.first .n{color:#FFE7B0}
 .row.first .m{filter:drop-shadow(0 0 8px rgba(247,183,51,.7))}
@@ -68,6 +74,13 @@ var ROWS=Math.max(1,parseInt(Q.get("rows")||"60",10));
 var ONLY=Q.get("only")||"";
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
+var LIVE=[], LIVE_N=Math.max(1,parseInt(Q.get("live")||"12",10));
+function when(m){
+  if(!(m>=0))return "";
+  if(m<1)return "방금";
+  if(m<60)return m+"분 전";
+  var h=Math.round(m/60); return h<24?h+"시간 전":"오늘";
+}
 
 /* 'KR' 두 글자를 국기 그림으로 바꿉니다. 유니코드 지역 표시 문자를 씁니다.
    글꼴이 국기를 못 그리는 컴퓨터에서는 자리만 비웁니다. */
@@ -113,6 +126,18 @@ function draw(f){
         +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';},false)+'</div>';
     });
   }
+  /* 실시간 — 방금 푼 사람들. 이번 주 결산과 달리 지금 이 순간입니다. */
+  if(ONLY!=="school" && LIVE.length){
+    any=true;
+    h+='<div class="sec"><div class="sec-t"><span class="live-dot"></span>지금 풀고 있는 사람</div>'
+      +LIVE.slice(0,LIVE_N).map(function(x){
+        var sch=x.school?'<span class="sch">'+esc(x.school)+'</span>':'';
+        var fg=x.flag?flag(x.flag)+' ':'';
+        return '<div class="row live"><span class="m num">·</span>'
+          +'<span class="n">'+fg+esc(x.nick)+sch+'</span>'
+          +'<span class="v">'+x.n+'<small>문제 · '+when(x.min)+'</small></span></div>';
+      }).join("")+'</div>';
+  }
   if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
   h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
   /* 30초마다 그대로 다시 그리면 흐르던 명단이 매번 처음으로 튀어 올라갑니다.
@@ -148,11 +173,20 @@ function load(){
   }
   fetch(SHEET_API+"?ts="+Date.now(),{cache:"no-store"})
     .then(function(r){return r.ok?r.json():null;})
-    .then(function(j){ if(j)draw(j); })
+    .then(function(j){ if(j){FEED=j;draw(j);} })
     .catch(function(){});
 }
-load();
-setInterval(load,30000);          /* 30초마다 갱신 */
+var FEED=null;
+function loadLive(){
+  if(!SHEET_API)return;
+  fetch(SHEET_API+"?live=1&ts="+Date.now(),{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(j){ if(j&&j.live){LIVE=j.live; if(FEED)draw(FEED);} })
+    .catch(function(){});
+}
+load(); loadLive();
+setInterval(load,30000);      /* 주간 결산은 1분에 두 번이면 충분합니다 */
+setInterval(loadLive,10000);  /* 지금 풀고 있는 사람은 10초마다 */
 </script>
 </body>
 </html>
