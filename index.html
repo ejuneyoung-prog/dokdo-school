@@ -616,7 +616,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <section class="hidden" id="s-intro">
 <div class="intro" style="padding:30px 0 14px">
 <h1><span class="bi-ko" lang="ko">독도 코리아 스쿨</span><span class="bi-en" lang="en">Dokdo Korea School</span></h1>
-<p><span class="bi-ko" lang="ko">오늘의 독도 노래</span><span class="bi-en" lang="en">Today&#39;s Dokdo Song</span></p>
+<p><span class="bi-ko" id="intro-title" lang="ko">오늘의 독도 노래</span><span class="bi-en" id="intro-title-en" lang="en">Today&#39;s Dokdo Song</span></p>
 </div>
 <div class="videobox"><div id="intro-slot"></div></div>
 <div class="btnrow"><button class="btn" id="intro-go"><span class="bi-ko" lang="ko">오늘의 노래 건너뛰고 시작하기</span><span class="bi-en" lang="en">Skip and Start</span></button></div>
@@ -1861,7 +1861,7 @@ document.addEventListener('visibilitychange',()=>{
    오늘의 곡과 겹치지 않게 고르고, 자동 재생하지 않습니다.
    학습 화면에서 소리가 두 개 나면 안 되기 때문입니다. */
 function pickAnotherSong(){
-  const t=songOfToday(), rest=SONGS.filter(v=>v!==t);
+  const t=songOfToday(), rest=SONGS.filter(v=>v!==t&&INTRO_IDS.indexOf(v)<0);
   return rest[(dayIndex()*7+3)%rest.length];
 }
 function renderChannel(){
@@ -1902,7 +1902,14 @@ const dayIndex=()=>{
   const d=new Date();
   return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
 };
-const songOfToday=()=>SONGS[dayIndex()%SONGS.length];
+/* 처음 온 사람에게는 채널을 소개하는 두 편 중 하나를 먼저 보여 줍니다.
+   날마다 바뀌는 노래보다, 이 채널이 무엇을 하는 곳인지가 먼저입니다.
+   두 번째 방문부터 오늘의 노래로 넘어갑니다. */
+const INTRO_IDS=["Yt59g3GKH58","qIPzX4Pv_pw"];
+const isFirstVisit=()=>!S.started;
+const songOfToday=()=>
+  isFirstVisit() ? INTRO_IDS[dayIndex()%INTRO_IDS.length]
+                 : SONGS[dayIndex()%SONGS.length];
 /* 오늘 이미 갈림길을 지났는가. 하루 한 번만 묻습니다. */
 const introSeenToday=()=>S.introDay===today();
 /* 눌러야 보이던 것을 바로 재생으로 바꿉니다. 검은 화면이나 재생 버튼으로 시작하면
@@ -1917,7 +1924,13 @@ function ytFrame(v,title){
 function playIntro(){
   const slot=document.getElementById('intro-slot');
   if(!slot)return;
-  slot.innerHTML=ytFrame(songOfToday(),"오늘의 독도 노래");
+  const first=isFirstVisit();
+  slot.innerHTML=ytFrame(songOfToday(), first?"독도 코리아 소개":"오늘의 독도 노래");
+  /* 첫 방문과 그 뒤는 제목이 달라야 합니다. 같은 자리에 다른 뜻이 오기 때문입니다. */
+  const t=document.getElementById('intro-title');
+  if(t)t.textContent=first?"독도 코리아 소개":"오늘의 독도 노래";
+  const te=document.getElementById('intro-title-en');
+  if(te)te.textContent=first?"About Dokdo Korea":"Today\u2019s Dokdo Song";
 }
 function endIntro(){
   const sl=$("#intro-slot"); if(sl)sl.innerHTML="";   /* 재생을 확실히 멈춥니다 */
