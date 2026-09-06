@@ -61,8 +61,8 @@
     --line:#333330;
     --line-soft:#262623;
     --ink:#F5F5F5;
-    --ink-mid:#A3A3A0;
-    --ink-dim:#6B6B67;
+    --ink-mid:#C4C4BE;
+    --ink-dim:#9A9A94;
     --light:#FFD600;
     --light-soft:#FFE766;
     --light-deep:#B39600;
@@ -171,13 +171,13 @@
     background:linear-gradient(180deg,rgba(6,13,23,0) 0%,rgba(6,13,23,.9) 62%);
   }
   .cap-grade{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:23px;font-weight:700;line-height:1.18;letter-spacing:-.02em}
-  .cap-sub{font-size:13.5px;color:var(--ink-dim);margin-top:1px}
+  .cap-sub{font-size:15px;color:var(--ink-mid);margin-top:2px}
   .cap-right{margin-left:auto;text-align:right;font-size:13.5px;color:var(--ink-dim)}
   .cap-right b{display:block;font-family:"IBM Plex Mono",monospace;font-size:19px;color:var(--light);font-weight:600}
 
   /* ---------- 진도 막대 ---------- */
   .prog{margin:14px 0 6px}
-  .prog-head{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--ink-dim);margin-bottom:7px}
+  .prog-head{display:flex;justify-content:space-between;align-items:baseline;font-size:15.5px;color:var(--ink-mid);margin-bottom:7px}
   .prog-head b{color:var(--ink-mid);font-weight:500}
   .bar{height:9px;border-radius:99px;background:#0C1727;overflow:hidden;
     box-shadow:inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.04)}
@@ -364,7 +364,7 @@
   .shot-b.main{background:var(--light);border-color:var(--light);color:#241703;font-weight:600}
   .shot-b:hover{filter:brightness(1.08)}
 
-  .note{font-size:14px;color:var(--ink-dim);line-height:1.65;margin-top:14px}
+  .note{font-size:15px;color:var(--ink-mid);line-height:1.7;margin-top:14px}
   .toast{
     position:fixed;left:50%;bottom:26px;transform:translateX(-50%);
     background:var(--panel-2);border:1px solid var(--line);color:var(--ink);
@@ -401,7 +401,7 @@
   .videobox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .locmap{background:linear-gradient(180deg,#071320,#0A1B2B);border:1px solid var(--line-soft);border-radius:var(--r);overflow:hidden}
   .locmap svg{display:block;width:100%;height:auto}
-  .loc-legend{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line-soft);font-size:14px;color:var(--ink-dim)}
+  .loc-legend{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line-soft);font-size:15.5px;color:var(--ink-mid)}
   .loc-legend div{flex:1}
   .loc-legend b{display:block;font-family:"IBM Plex Mono",monospace;font-size:17px;color:var(--ink);font-weight:600}
   .loc-legend .near b{color:var(--light)}
@@ -524,12 +524,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .matbox,.flags{scrollbar-width:thin;scrollbar-color:var(--ink-dim) var(--panel)}
 .matbox::-webkit-scrollbar,.flags::-webkit-scrollbar{width:6px;height:6px}
 .matbox::-webkit-scrollbar-thumb,.flags::-webkit-scrollbar-thumb{background:var(--ink-dim);border-radius:6px}
-.lang-nav{display:flex;align-items:center;gap:8px;padding:14px 0 0;flex-wrap:wrap}
-.lang-nav-label{font-size:13px;color:var(--ink-mid);margin-right:auto}
+
+
 .lang-link{display:inline-flex;align-items:center;min-height:42px;padding:8px 12px;border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);background:var(--panel);font-size:13px;font-weight:700}
 .lang-link[aria-current=page]{border-color:var(--light-deep);color:var(--light-soft)}
 .lang-link:hover,.lang-link:active{background:var(--panel-2)}
-.lang-help{font-size:12.5px;color:var(--ink-dim);line-height:1.5;margin:7px 0 0}
+
 .bi-ko,.bi-en{display:block}
 .bi-en{font-family:Arial,system-ui,sans-serif;font-size:.84em;font-weight:400;letter-spacing:0;line-height:1.45;margin-top:3px;opacity:.86}
 button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
@@ -554,11 +554,11 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .data-status{margin:12px 0 4px;padding:8px 10px;border:1px solid var(--line-soft);border-radius:9px;font-size:12.5px;color:var(--ink-dim)}
 .data-status summary{cursor:pointer;line-height:1.5}.data-status p{margin:8px 0 0;overflow-wrap:anywhere}
 .data-status[data-state=failed],.data-status[data-state=invalid]{border-color:var(--no);color:var(--ink-mid)}
-@media(max-width:360px){.lang-nav-label{flex-basis:100%}.lang-link{flex:1;justify-content:center}.intro h1{font-size:27px}.cap-grade{font-size:18px}.cap-sub{max-width:175px}.topbar .stat{font-size:12px}}
+@media(max-width:360px){.lang-link{flex:1;justify-content:center}.intro h1{font-size:27px}.cap-grade{font-size:18px}.cap-sub{max-width:175px}.topbar .stat{font-size:12px}}
 
 /* Readability pass after mobile rendering. */
-.lang-nav-label{flex:1 0 100%}.lang-link{flex:1;justify-content:center}
-.hint .bi-en,.note .bi-en,.lang-help{font-size:13.5px;line-height:1.55;opacity:1}
+.lang-link{flex:1;justify-content:center}
+.hint .bi-en,.note .bi-en,
 .field label .bi-en{font-size:13.5px;opacity:1}
 .island-cap>div:first-child{flex:1;min-width:0}.cap-sub{max-width:100%}
 .legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
@@ -599,12 +599,17 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 #school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn[hidden]{display:none}
-.code-row .btn{width:auto;flex:none;padding:0 12px;font-size:14px;white-space:nowrap;line-height:1}
+.lang-foot{display:flex;align-items:center;justify-content:center;gap:10px;
+      padding:22px 0 calc(18px + env(safe-area-inset-bottom));font-size:13.5px}
+    .lang-foot .lang-link{color:var(--ink-dim);text-decoration:none;padding:6px 10px;border-radius:8px}
+    .lang-foot .lang-link.on{color:var(--light);font-weight:600}
+    .lang-sep{color:var(--ink-dim);opacity:.5}
+    .code-row .btn{width:auto;flex:none;padding:0 12px;font-size:14px;white-space:nowrap;line-height:1}
 @media(max-width:380px){.code-row{flex-wrap:wrap}.code-row input{flex:1 0 100%}}
 </style>
 </head>
 <body>
-<div class="wrap"><nav aria-label="학습 언어 / Learning language" class="lang-nav"><span class="lang-nav-label">문제 언어 / Quiz language</span><a aria-current="page" class="lang-link" data-lang="ko" href="./index.html" lang="ko">한국어 · Korean</a><a class="lang-link" data-lang="en" href="./index-en.html" lang="en">English · 영어</a></nav><p class="lang-help">언어별 학습 기록은 별도입니다. / Each language keeps separate progress.</p>
+<div class="wrap">
 <p id="boot-message" class="boot-message"><span lang="ko">미리보기에서 버튼이 안 눌리면 배포한 사이트를 브라우저로 여세요.</span><br><span lang="en">If buttons do not respond in a preview, open the deployed site in your browser.</span></p>
 <!-- ============ 입구: 독도의 위치 ============ -->
 <!-- 인트로 영상. 첫 방문에만 나오고 두 번째부터는 건너뜁니다. -->
@@ -802,7 +807,12 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </section>
 <!-- ============ 결과 ============ -->
 <section class="hidden" id="s-result"></section>
-<details class="data-status" id="data-status"><summary>문항 연결 상태 / Question-file status</summary><p id="data-status-text">앱 시작 중 / Starting app</p><p>표준 파일명: index.html · index-en.html · questions.json · questions-en.json</p></details></div>
+<details class="data-status" id="data-status"><summary>문항 연결 상태 / Question-file status</summary><p id="data-status-text">앱 시작 중 / Starting app</p><p>표준 파일명: index.html · index-en.html · questions.json · questions-en.json</p></details><nav aria-label="학습 언어 / Learning language" class="lang-foot">
+<a aria-current="page" class="lang-link on" data-lang="ko" href="./index.html" lang="ko">한국어</a>
+<span class="lang-sep">·</span>
+<a class="lang-link" data-lang="en" href="./index-en.html" lang="en">English</a>
+</nav>
+</div>
 <script>
 /* =========================================================
    독도 코리아 스쿨 · Dokdo Korea School
