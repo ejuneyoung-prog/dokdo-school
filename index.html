@@ -68,8 +68,8 @@
     --light-deep:#B39600;
     --ok:#48C79E;
     --no:#E4695D;
-    --rock:#232320;
-    --rock-lit:#3A3A34;
+    --rock:#42423A;
+    --rock-lit:#5C5C51;
     --r:14px;
     --maxw:600px;
   }
@@ -145,9 +145,9 @@
   .sound-btn.on .sb-t{font-weight:600}
   .stars circle{fill:#CFE0F0}
   .rockface{fill:var(--rock)}
-  .rockedge{fill:none;stroke:#4A6C90;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
+  .rockedge{fill:none;stroke:#6B6B62;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
   /* 능선 아래쪽에 한 겹 더. 각진 면이 살아납니다. */
-  .rockrim{fill:none;stroke:#5A82AB;stroke-width:.7;opacity:.32;stroke-linejoin:round}
+  .rockrim{fill:none;stroke:#8A8A80;stroke-width:.7;opacity:.32;stroke-linejoin:round}
   .refl{opacity:.26}
   .refls{mix-blend-mode:screen}
   .lamp{fill:var(--light-soft)}
@@ -156,7 +156,7 @@
   .lamp-aura{fill:url(#glow)}
   .lamp-core{fill:#FFFFFF;opacity:.9}
   .lv1 .lamp{fill:#FFE766} .lv1 .lamp-halo,.lv1.refl{fill:#FFD600}
-  .lv2 .lamp{fill:#F4F8FF} .lv2 .lamp-halo,.lv2.refl{fill:#CFE0F0}
+  .lv2 .lamp{fill:#F5F5F5} .lv2 .lamp-halo,.lv2.refl{fill:#CFE0F0}
   .lv3 .lamp{fill:#C6F573} .lv3 .lamp-halo,.lv3.refl{fill:#8FD93A}
   .lv4 .lamp{fill:#5CF0C0} .lv4 .lamp-halo,.lv4.refl{fill:#20C99A}
   .legend{display:flex;flex-wrap:wrap;gap:12px;margin:-6px 0 14px;padding:0 2px}
@@ -536,7 +536,8 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .intro h1 .bi-en{font-size:18px;color:var(--light-soft);margin-top:8px}
 .intro>p .bi-en{font-size:13px}
 .topbar{flex-wrap:wrap}
-.topbar .brand{flex:1 0 100%;white-space:normal;overflow:visible}
+.topbar .brand{flex:1 0 100%;white-space:normal;overflow:visible;
+      text-align:center;margin-right:0;margin-bottom:4px}
 .topbar .brand .bi-en{font-size:13px;display:inline;margin-left:8px}
 .cap-grade{font-size:21px}.cap-grade .bi-en{font-size:12.5px}
 .cap-sub{max-width:245px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
