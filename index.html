@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<meta content="#060D17" name="theme-color"/>
+<meta content="#0A0A0A" name="theme-color"/>
 <meta content="독도를 하루 한 수업씩 배워 유치원에서 박사까지 오르는 학습 게임." name="description"/>
 <!-- 카카오톡·유튜브·트위터에 링크를 붙였을 때 미리보기 카드가 뜨도록 합니다. og:image는 배포 후 실제 파일로 교체하세요. -->
 <meta content="website" property="og:type"/>
@@ -50,22 +50,26 @@
     src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
   }
   :root{
-    --sea-deep:#060D17;
-    --sea:#0B1524;
-    --panel:#111E30;
-    --panel-2:#16273D;
-    --line:#22394F;
-    --line-soft:#1A2C40;
-    --ink:#E8EFF7;
-    --ink-mid:#A9BCD0;
-    --ink-dim:#6F8399;
-    --light:#F7B733;
-    --light-soft:#FFD57E;
-    --light-deep:#B87A12;
+    /* 채널 아이덴티티 — 검정 배경 · 흰 글씨 · 노랑 하나만 강조.
+       발표자료·피칭덱과 같은 값을 씁니다. 앱만 다른 색을 쓰면 브랜드가 갈라집니다.
+       바다는 완전한 검정 대신 아주 어두운 회색을 씁니다.
+       순검정 위에서는 섬과 파도의 층이 구분되지 않습니다. */
+    --sea-deep:#0A0A0A;
+    --sea:#101010;
+    --panel:#1C1C19;
+    --panel-2:#242421;
+    --line:#333330;
+    --line-soft:#262623;
+    --ink:#F5F5F5;
+    --ink-mid:#A3A3A0;
+    --ink-dim:#6B6B67;
+    --light:#FFD600;
+    --light-soft:#FFE766;
+    --light-deep:#B39600;
     --ok:#48C79E;
     --no:#E4695D;
-    --rock:#1D2E3F;
-    --rock-lit:#2A4056;
+    --rock:#232320;
+    --rock-lit:#3A3A34;
     --r:14px;
     --maxw:600px;
   }
@@ -111,7 +115,7 @@
   .brand span{color:var(--light)}
   .stat{
     display:flex;align-items:center;gap:5px;
-    background:linear-gradient(180deg,#17293F,#101E30);
+    background:linear-gradient(180deg,#262623,#1A1A18);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 1px 0 rgba(0,0,0,.3);
     border:1px solid var(--line-soft);
     border-radius:999px;padding:5px 11px;font-size:14px;color:var(--ink-mid);
@@ -125,7 +129,7 @@
     position:relative;overflow:hidden;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.07),
                0 18px 38px -26px rgba(0,0,0,.95);
-    background:linear-gradient(180deg,#040A13 0%,#08111D 46%,#0B1929 100%);
+    background:linear-gradient(180deg,#040A13 0%,#0D0D0C 46%,#131311 100%);
     border:1px solid var(--line-soft);border-radius:var(--r);
     margin-bottom:14px;
   }
@@ -151,7 +155,7 @@
   /* 불빛 단계별 색. 주광색에서 시작해 에메랄드로 끝납니다. */
   .lamp-aura{fill:url(#glow)}
   .lamp-core{fill:#FFFFFF;opacity:.9}
-  .lv1 .lamp{fill:#FFD57E} .lv1 .lamp-halo,.lv1.refl{fill:#F7B733}
+  .lv1 .lamp{fill:#FFE766} .lv1 .lamp-halo,.lv1.refl{fill:#FFD600}
   .lv2 .lamp{fill:#F4F8FF} .lv2 .lamp-halo,.lv2.refl{fill:#CFE0F0}
   .lv3 .lamp{fill:#C6F573} .lv3 .lamp-halo,.lv3.refl{fill:#8FD93A}
   .lv4 .lamp{fill:#5CF0C0} .lv4 .lamp-halo,.lv4.refl{fill:#20C99A}
@@ -159,7 +163,7 @@
   .legend i{display:inline-flex;align-items:center;gap:5px;font-style:normal;
     font-size:12.5px;color:var(--ink-dim)}
   .legend i b{width:8px;height:8px;border-radius:99px;display:block}
-  .seaband{stroke:#16344F;stroke-width:1;opacity:.5}
+  .seaband{stroke:#2E2E29;stroke-width:1;opacity:.5}
   .island-cap{
     position:absolute;left:0;right:0;bottom:0;
     padding:12px 14px;
@@ -178,7 +182,7 @@
   .bar{height:9px;border-radius:99px;background:#0C1727;overflow:hidden;
     box-shadow:inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.04)}
   .bar i{display:block;height:100%;border-radius:99px;
-    background:linear-gradient(180deg,#FFD57E,#F7B733 55%,#D9930F);
+    background:linear-gradient(180deg,#FFE766,#FFD600 55%,#D9930F);
     box-shadow:0 0 12px -2px rgba(247,183,51,.75), inset 0 1px 0 rgba(255,255,255,.4);
     transition:width .5s cubic-bezier(.2,.8,.3,1)}
 
@@ -188,7 +192,7 @@
   .btn{
     display:block;width:100%;text-align:center;
     padding:15px 18px;border-radius:13px;
-    background:linear-gradient(180deg,#FFD264 0%,#F7B733 52%,#E9A31C 100%);
+    background:linear-gradient(180deg,#FFD264 0%,#FFD600 52%,#E9A31C 100%);
     color:#2A1A02;font-weight:700;font-size:16px;letter-spacing:-.02em;
     box-shadow:0 3px 0 #9C6608, 0 10px 22px -12px rgba(247,183,51,.75),
                inset 0 1px 0 rgba(255,255,255,.45);
@@ -199,12 +203,12 @@
     box-shadow:0 0 0 #9C6608, 0 4px 10px -8px rgba(247,183,51,.6),
                inset 0 1px 0 rgba(255,255,255,.3)}
   .btn.ghost{
-    background:linear-gradient(180deg,#1A2C42 0%,#132135 100%);
+    background:linear-gradient(180deg,#1E1E1C 0%,#132135 100%);
     border:1px solid var(--line);color:var(--ink-mid);font-weight:500;
     box-shadow:0 2px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05)}
   .btn.ghost:hover{border-color:var(--ink-dim);color:var(--ink)}
   .btn.ghost:active{transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.35)}
-  .btn.exam{background:linear-gradient(100deg,#F7B733,#FFD57E);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
+  .btn.exam{background:linear-gradient(100deg,#FFD600,#FFE766);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
   .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none;transform:none}
   .btnrow{display:flex;flex-direction:column;gap:9px;margin-top:14px}
 
@@ -261,7 +265,7 @@
   .opt{
     display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
     padding:15px 15px;border-radius:12px;
-    background:linear-gradient(180deg,#17293F 0%,#101E30 100%);
+    background:linear-gradient(180deg,#262623 0%,#1A1A18 100%);
     border:1px solid var(--line-soft);
     box-shadow:0 2px 0 rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.05);
     font-size:15px;line-height:1.5;
@@ -271,7 +275,7 @@
   .opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.32)}
   .opt .num{
     flex:none;width:21px;height:21px;border-radius:6px;margin-top:1px;
-    background:linear-gradient(180deg,#22374F,#16273D);border:1px solid var(--line);
+    background:linear-gradient(180deg,#22374F,#242421);border:1px solid var(--line);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
     font-size:13px;display:grid;place-items:center;color:var(--ink-mid);
     font-family:"IBM Plex Mono",monospace;font-weight:600;
@@ -488,7 +492,7 @@
    오른쪽에서 왼쪽으로 흐릅니다. 손가락을 올리면 멈춥니다.
    움직임을 줄이도록 설정한 기기에서는 흐르지 않고 그냥 보입니다. */
 .ticker{overflow:hidden;white-space:nowrap;border-radius:13px;margin:0 0 11px;
-  padding:9px 0;background:linear-gradient(100deg,#0c3050,#164e79 55%,#0c3050);
+  padding:9px 0;background:linear-gradient(100deg,#1E1E1C,#164e79 55%,#1E1E1C);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 3px 10px rgba(10,40,70,.16)}
 /* 같은 줄을 두 번 이어 붙이고 딱 절반만 밀기 때문에 끊김 없이 이어집니다.
    왼쪽 여백을 주면 절반 계산이 어긋나 한 바퀴마다 튑니다. 여백은 글 안에 넣습니다. */
@@ -571,7 +575,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .hall-t{font-size:13.5px;font-weight:800;color:var(--ink-mid,#6F8399);
   letter-spacing:.02em;margin:0 0 4px}
 .hall-row{display:flex;align-items:center;gap:8px;padding:5px 0;
-  border-top:1px solid var(--line,#22364a)}
+  border-top:1px solid var(--line,#333330)}
 .hall-sec .hall-row:first-of-type{border-top:none}
 .hall-m{font-size:15px;width:20px;text-align:center;flex:none}
 .hall-n small{font-weight:500;opacity:.62;margin-left:6px;font-size:.86em}
@@ -583,7 +587,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 /* ---------- 학교 찾기 ---------- */
 .sch-wrap{position:relative}
 .sch-list{position:absolute;left:0;right:0;top:100%;z-index:40;max-height:230px;
-  overflow:auto;background:var(--card,#10202f);border:1px solid var(--line,#22364a);
+  overflow:auto;background:var(--card,#10202f);border:1px solid var(--line,#333330);
   border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.35);margin-top:4px}
 .sch-list b{display:block;padding:9px 12px;font-weight:600;font-size:13.5px;cursor:pointer}
 .sch-list b:hover,.sch-list b.on{background:rgba(255,213,126,.14)}
@@ -606,10 +610,10 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <section class="hidden" id="s-intro">
 <div class="intro" style="padding:30px 0 14px">
 <h1><span class="bi-ko" lang="ko">독도 코리아 스쿨</span><span class="bi-en" lang="en">Dokdo Korea School</span></h1>
-<p><span class="bi-ko" lang="ko">시작하기 전에, 잠깐.</span><span class="bi-en" lang="en">Before We Begin</span></p>
+<p><span class="bi-ko" lang="ko">오늘의 독도 노래</span><span class="bi-en" lang="en">Today&#39;s Dokdo Song</span></p>
 </div>
 <div class="videobox"><div id="intro-slot"></div></div>
-<div class="btnrow"><button class="btn" id="intro-go"><span class="bi-ko" lang="ko">건너뛰고 시작하기</span><span class="bi-en" lang="en">Skip and Start</span></button></div>
+<div class="btnrow"><button class="btn" id="intro-go"><span class="bi-ko" lang="ko">오늘의 노래 건너뛰고 시작하기</span><span class="bi-en" lang="en">Skip and Start</span></button></div>
 <p class="note"><span class="bi-ko" lang="ko">원본 영상은 한국어입니다. 소리는 영상의 스피커 버튼으로 켜세요. 건너뛰어도 학습할 수 있습니다.</span><span class="bi-en" lang="en">The original video is in Korean. Use its speaker button for sound, or skip to continue learning.</span></p>
 </section>
 <section id="s-locate">
@@ -620,11 +624,11 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <div class="locmap">
 <svg aria-label="울릉도·독도·일본 오키섬의 상대 위치 / Relative positions of Ulleungdo, Dokdo and the Oki Islands" role="img" viewBox="0 0 400 250">
 <!-- 한반도 동쪽 해안 -->
-<path d="M0,26 L44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250 L0,250 Z" fill="#16293B"></path>
+<path d="M0,26 L44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250 L0,250 Z" fill="#232320"></path>
 <path d="M44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250" fill="none" stroke="#26445E" stroke-width="1.2"></path>
 <text class="mapname ko" style="letter-spacing:.16em;font-size:12px" x="14" y="132">KOREA</text>
 <!-- 일본 혼슈 서안 -->
-<path d="M400,150 L366,164 L344,190 L332,216 L318,250 L400,250 Z" fill="#16293B"></path>
+<path d="M400,150 L366,164 L344,190 L332,216 L318,250 L400,250 Z" fill="#232320"></path>
 <path d="M366,164 L344,190 L332,216 L318,250" fill="none" stroke="#26445E" stroke-width="1.2"></path>
 <text class="mapname" style="letter-spacing:.14em;font-size:11px" x="348" y="232">JAPAN</text>
 <!-- 동해 -->
@@ -633,13 +637,13 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <!-- 거리선 -->
 <line opacity=".85" stroke="var(--light)" stroke-dasharray="4 3" stroke-width="1.3" x1="150" x2="243" y1="140" y2="126"></line>
 <line opacity=".7" stroke="#3D6180" stroke-dasharray="4 3" stroke-width="1.3" x1="243" x2="336" y1="126" y2="176"></line>
-<text class="mapname" fill="#F7B733" x="163" y="126">87.4km</text>
+<text class="mapname" fill="#FFD600" x="163" y="126">87.4km</text>
 <text class="mapname" x="272" y="146">157.5km</text>
 <!-- 울릉도 -->
-<circle cx="150" cy="140" fill="#24415A" r="5.5"></circle><circle cx="150" cy="140" fill="#7E97AC" r="2"></circle>
+<circle cx="150" cy="140" fill="#3A3A34" r="5.5"></circle><circle cx="150" cy="140" fill="#7E97AC" r="2"></circle>
 <text class="mapname ko" text-anchor="middle" x="150" y="160">울릉도</text><text class="mapname" style="font-size:10px" text-anchor="middle" x="150" y="173">Ulleungdo</text>
 <!-- 오키섬 -->
-<circle cx="336" cy="176" fill="#24415A" r="4.5"></circle><circle cx="336" cy="176" fill="#7E97AC" r="1.8"></circle>
+<circle cx="336" cy="176" fill="#3A3A34" r="4.5"></circle><circle cx="336" cy="176" fill="#7E97AC" r="1.8"></circle>
 <text class="mapname" text-anchor="middle" x="335" y="196">일본 오키섬</text><text class="mapname" style="font-size:9px" text-anchor="middle" x="335" y="209">Oki Islands (Japan)</text>
 <!-- 독도 -->
 <circle class="dokdo-glow" cx="243" cy="126" fill="var(--light)" r="17"></circle>
@@ -765,6 +769,17 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <span class="note" style="margin:0"><span class="bi-ko" lang="ko">티셔츠·스티커·배지를 준비하고 있습니다.</span><span class="bi-en" lang="en">Shirts, stickers and badges are planned.</span></span></div>
 </div>
 <p class="note" id="home-note"></p>
+
+<!-- 채널 소개. 학습이 끝나는 자리에 노래 한 편을 둡니다.
+     앱이 채널을 키우고 채널이 앱을 키우는 자리입니다. -->
+<div class="ladder" style="margin-top:22px">
+<div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아의 다른 노래</span><span class="bi-en" lang="en">More from Dokdo Korea</span></div>
+<div id="ch-slot" style="margin-top:10px"></div>
+<div class="btnrow" style="margin-top:10px">
+<a class="btn ghost" href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">채널에서 더 듣기</span><span class="bi-en" lang="en">More on YouTube</span></a>
+</div>
+</div>
+
 <p class="note" id="ver-note" style="opacity:.55;font-size:11.5px;margin-top:10px"></p>
 </section>
 <!-- ============ 수업 ============ -->
@@ -927,7 +942,7 @@ const PROMOTE_N=12;
    이름·색·섬 위 크기·다음 복습까지의 날수가 한 줄에 모여 있어
    예전처럼 네 군데를 따로 고치다 하나를 빠뜨릴 일이 없습니다. */
 const LIT=[
- {ko:"작은 불", en:"Small Light",   col:"#FFD57E", r:1.35, h:4.2, ho:.20, next:3},
+ {ko:"작은 불", en:"Small Light",   col:"#FFE766", r:1.35, h:4.2, ho:.20, next:3},
  {ko:"중간 불", en:"Growing Light", col:"#F4F8FF", r:1.9,  h:5.6, ho:.24, next:7},
  {ko:"큰 불",   en:"Bright Light",  col:"#C6F573", r:2.5,  h:7.4, ho:.28, next:14},
  {ko:"봉화",    en:"Beacon",        col:"#5CF0C0", r:3.2,  h:11,  ho:.32, next:30},
@@ -941,6 +956,11 @@ const INTERVALS=[FIRST_DAY].concat(LIT.map(x=>x.next));
 const APP_NAME   = "독도 코리아 스쿨";
 const APP_NAME_EN= "DOKDO KOREA SCHOOL";
 const APP_URL = (()=>{try{if(/^https?:$/.test(location.protocol))return new URL("./index.html",location.href).href;}catch(e){}return "https://dokdo-school.vercel.app/";})();
+/* APP_URL 은 index.html 까지 가리킵니다. 그 뒤에 파일명을 붙이면
+   .../index.html/og.png 라는 없는 주소가 됩니다. 폴더 기준 주소를 따로 둡니다. */
+const APP_BASE = (()=>{try{return new URL("./",APP_URL).href;}catch(e){
+  return "https://dokdo-school.vercel.app/";}})();
+const OG_IMAGE = APP_BASE + "og.png";
 const LIVE_URL   = "https://www.youtube.com/@독도코리아/live";
 /* ↑ 특정 방송 주소라 라이브가 끝나면 죽습니다. 채널 고정 주소로 바꾸면
    방송이 바뀔 때마다 앱을 다시 배포할 필요가 없습니다(제미니 실측으로 동작 확인됨):
@@ -1722,7 +1742,7 @@ function seaCompass(cx,cy){
   x.beginPath(); x.moveTo(cx,cy-r+3); x.lineTo(cx,cy+r-3);
   x.moveTo(cx-r+3,cy); x.lineTo(cx+r-3,cy); x.stroke();
   /* 북쪽 바늘만 색을 줍니다 */
-  x.globalAlpha=.95; x.fillStyle='#F7B733';
+  x.globalAlpha=.95; x.fillStyle='#FFD600';
   x.beginPath(); x.moveTo(cx,cy-r-4); x.lineTo(cx-6,cy-r+11); x.lineTo(cx+6,cy-r+11);
   x.closePath(); x.fill();
   x.globalAlpha=.7; x.fillStyle='#A8BED6';
@@ -1783,12 +1803,12 @@ function seaFrame(now){
   (()=>{const[ax,ay]=CP(-92,26),[bx,by]=CP(112,4);
    x.setLineDash([5,6]);x.strokeStyle='rgba(255,201,74,.42)';x.lineWidth=1.3;
    x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,by);x.stroke();x.setLineDash([]);
-   x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#C9A24A';x.textAlign='center';
+   x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#B39600';x.textAlign='center';
    x.fillText('151m',(ax+bx)/2,(ay+by)/2-9);})();
   /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있습니다 */
   (()=>{const[sx,sy]=CP(215,-185);
    x.fillStyle='#3D5876';x.fillRect(sx-2,sy,4,20);
-   x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FFE9B8';
+   x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FFF0A0';
    x.beginPath();x.arc(sx,sy-3,9,0,7);x.fill();x.globalAlpha=1;
    x.fillStyle='#FFF6DC';x.beginPath();x.arc(sx,sy-3,2.8,0,7);x.fill();})();
 
@@ -1825,21 +1845,74 @@ document.addEventListener('visibilitychange',()=>{
   else if(seaCv&&seaCv.isConnected&&!seaRaf)seaRaf=requestAnimationFrame(seaFrame);
 });
 
+/* ---------- 채널 소개 ----------
+   홈 맨 아래에 이 채널의 다른 노래를 한 편 얹습니다.
+   오늘의 곡과 겹치지 않게 고르고, 자동 재생하지 않습니다.
+   학습 화면에서 소리가 두 개 나면 안 되기 때문입니다. */
+function pickAnotherSong(){
+  const t=songOfToday(), rest=SONGS.filter(v=>v!==t);
+  return rest[(dayIndex()*7+3)%rest.length];
+}
+function renderChannel(){
+  const box=document.getElementById("ch-slot"); if(!box)return;
+  const v=pickAnotherSong();
+  box.innerHTML='<div class="videobox"><iframe '
+    +'src="https://www.youtube-nocookie.com/embed/'+v+'?rel=0&modestbranding=1" '
+    +'allow="encrypted-media; picture-in-picture" allowfullscreen '
+    +'title="독도 코리아 노래" loading="lazy"></iframe></div>';
+}
+
 /* ---------- 화면 ---------- */
 const $=s=>document.querySelector(s);
 const SCREENS=["s-intro","s-locate","s-start","s-home","s-lesson","s-result"];
 /* 인트로 영상 두 편 중 무작위로 한 편. 소리가 나는 자동 재생은 브라우저가 막으므로
    무음으로 시작하고, 소리는 보는 사람이 켭니다. */
-const INTRO_IDS=["Yt59g3GKH58", "qIPzX4Pv_pw"];
+/* 독도 코리아 음원. 날짜로 골라 하루에 한 곡씩 돕니다.
+   무작위로 뽑으면 새로고침할 때마다 곡이 바뀌어 '오늘의 곡'이 되지 않습니다. */
+const SONGS=["M7FvE6fxUVw","FopCZvMGvRQ","rots70BT7S4","4z2lzU7ZYGk",
+             "IS0fK9kt-sE","EZfn_mKg9sI","xBd6QDlTLpE","GKNV0UX3dIU",
+             "7QRtHpzAgeA","AheUe-8-sDY","sgzS66CXiew","ogh--u-5xQg"];
+/* 진급 축하에 쓰는 세 곡. 초등·중등·고등 졸업에서 한 번씩만 띄웁니다.
+   매 학년마다 띄우면 축하가 아니라 방해가 됩니다. */
+const CHEER={E6:"7QRtHpzAgeA", M3:"AheUe-8-sDY", H3:"sgzS66CXiew"};
+/* 진급 축하는 초등·중등·고등 졸업 세 번만입니다.
+   서른 단계마다 띄우면 축하가 아니라 방해가 되고, 매번 앱을 떠나게 됩니다.
+   자동으로 유튜브로 보내지 않고 카드만 띄웁니다. */
+function cheerHTML(from){
+  const v=CHEER[from]; if(!v)return "";
+  return '<div class="ladder" style="margin:16px 0">'
+    +'<div class="eyebrow">졸업 축하 공연</div>'
+    +'<div class="videobox" style="margin-top:10px"><iframe '
+    +'src="https://www.youtube-nocookie.com/embed/'+v+'?rel=0&modestbranding=1" '
+    +'allow="encrypted-media; picture-in-picture" allowfullscreen '
+    +'title="졸업 축하 공연" loading="lazy"></iframe></div></div>';
+}
+const dayIndex=()=>{
+  const d=new Date();
+  return Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/864e5);
+};
+const songOfToday=()=>SONGS[dayIndex()%SONGS.length];
+/* 오늘 이미 갈림길을 지났는가. 하루 한 번만 묻습니다. */
+const introSeenToday=()=>S.introDay===today();
+/* 눌러야 보이던 것을 바로 재생으로 바꿉니다. 검은 화면이나 재생 버튼으로 시작하면
+   이 채널의 노래가 첫인상이 되지 못합니다. 소리는 브라우저 정책상 무음으로 시작하고
+   보는 사람이 스피커로 켭니다. */
+function ytFrame(v,title){
+  return '<iframe src="https://www.youtube-nocookie.com/embed/'+v
+    +'?autoplay=1&mute=1&playsinline=1&rel=0&modestbranding=1" '
+    +'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen '
+    +'title="'+title+'" loading="lazy"></iframe>';
+}
 function playIntro(){
   const slot=document.getElementById('intro-slot');
-  const v=INTRO_IDS[Math.floor(Math.random()*INTRO_IDS.length)];
-  slot.innerHTML='<button type="button" class="btn ghost intro-play"><span lang="ko">소개 영상 보기</span><span class="bi-en" lang="en">Play introduction (optional)</span></button>';
-  slot.querySelector('button').addEventListener('click',()=>{
-    slot.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+v+'?autoplay=1&mute=1&playsinline=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="Dokdo introduction"></iframe>';
-  },{once:true});
+  if(!slot)return;
+  slot.innerHTML=ytFrame(songOfToday(),"오늘의 독도 노래");
 }
-function endIntro(){ $("#intro-slot").innerHTML=""; show("s-locate"); }
+function endIntro(){
+  const sl=$("#intro-slot"); if(sl)sl.innerHTML="";   /* 재생을 확실히 멈춥니다 */
+  S.introDay=today(); save();                          /* 오늘 몫은 지났습니다 */
+  show(S.name?"s-home":"s-locate");
+}
 /* 저학년은 틀려도 수업이 끝나지 않습니다 — 일곱 살이 첫 문제 틀리고 쫓겨나면 다시 오지 않습니다 */
 /* 초3 이하를 예외로 두었더니 '틀려도 계속 진행된다'는 상태가 되어
    한 문제 한 문제의 긴장감이 사라졌습니다. 전 학년에 적용합니다.
@@ -1981,6 +2054,7 @@ function refreshDataStatus(){
 function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error};refreshDataStatus();}
 
 function renderHome(){
+  renderChannel();
   const lights=lightCount(), due=dueList().length, bc=beacons(lights), lb=levelBar(S.xp);
   $("#st-streak").innerHTML=`🔥 개근 <b>${S.streak}</b>일`;
   $("#st-xp").innerHTML=`Lv.<b>${lb.lv}</b> <span style="opacity:.6">${S.xp}점</span>`;
@@ -2270,6 +2344,8 @@ function finish(){
   if(hired){promoted=true;}
   if(promoted)ev("grade_up",{grade:S.grade,by:hired?"career":"exam"});
   const shel=S.sheltered;S.sheltered=false;
+  /* 진급 직전 학년으로 축하 영상을 고릅니다. 승급이 끝난 뒤라 S.grade 는 이미 다음 칸입니다. */
+  const cheer=promoted&&!hired?cheerHTML(LADDER[Math.max(0,idx(S.grade)-1)].c):"";
 
   const head=(hired&&L.mode!=="exam")
     ?`<div class="promo"><div class="eyebrow">임용</div><div class="big">${gradeName(S.grade)}</div><div style="font-size:13.5px;color:var(--ink-mid)">누적 실적으로 임용되었습니다.</div></div>`
@@ -2313,6 +2389,7 @@ function finish(){
       <div class="score-num">${pct}<span style="font-size:26px">%</span></div>
       <div class="score-lab">${total}문항 중 ${L.ok}문항 정답</div>
     </div>
+    ${cheer}
     ${levelBlock}
     <div class="kpis">
       <div class="kpi"><b>+${L.xp}</b><span>획득 점수</span></div>
@@ -2483,7 +2560,7 @@ function shareKakaoTalk(){
       content:{
         title:`${who()}님의 독도 학력은 ${gradeName(S.grade)}`,
         description:`${S.school?S.school+" · ":""}밝힌 불빛 ${lightCount()}개 · 연속 개근 ${S.streak}일`,
-        imageUrl:APP_URL.replace(/\/$/,"")+"/og.png",
+        imageUrl:OG_IMAGE,
         link:{mobileWebUrl:APP_URL,webUrl:APP_URL}
       },
       buttons:[{title:"내 독도 학력 확인하기",
@@ -2727,14 +2804,14 @@ function drawChip(x,cx,cy,glyph,on){
   const r=33;
   x.beginPath();x.arc(cx,cy,r,0,7);
   x.fillStyle=on?"rgba(247,183,51,.13)":"rgba(22,39,61,.55)";x.fill();
-  x.lineWidth=on?3:1.5;x.strokeStyle=on?"#F7B733":"#22394F";x.stroke();
+  x.lineWidth=on?3:1.5;x.strokeStyle=on?"#FFD600":"#22394F";x.stroke();
   if(on){x.globalAlpha=.18;x.beginPath();x.arc(cx,cy,r+9,0,7);
-    x.fillStyle="#F7B733";x.fill();x.globalAlpha=1;}
+    x.fillStyle="#FFD600";x.fill();x.globalAlpha=1;}
   /* 글자 수에 맞춰 크기를 줄여 원 안에 확실히 들어가게 합니다. */
   const fs=glyph.length>=3?19:glyph.length===2?25:31;
   x.font=`700 ${fs}px "IBM Plex Mono",ui-monospace,monospace`;
   x.textAlign="center";x.textBaseline="middle";
-  x.fillStyle=on?"#FFD57E":"#3D5468";x.fillText(glyph,cx,cy+1);
+  x.fillStyle=on?"#FFE766":"#3D5468";x.fillText(glyph,cx,cy+1);
   x.textBaseline="alphabetic";
 }
 
@@ -2760,11 +2837,11 @@ function drawIdentity(x,W,y){
   if(hasFlag){
     drawFlag(x,left,cy-fw/3-5,fw,code);
   }else{
-    x.fillStyle="#16273D";x.strokeStyle="#2A4056";x.lineWidth=1.5;
+    x.fillStyle="#242421";x.strokeStyle="#2A4056";x.lineWidth=1.5;
     if(x.roundRect){x.beginPath();x.roundRect(left,cy-21,cw,30,8);x.fill();x.stroke();}
     else x.fillRect(left,cy-21,cw,30);
     x.font='600 21px "IBM Plex Mono",monospace';
-    x.fillStyle="#FFD57E";x.fillText(code,left+cw/2,cy);
+    x.fillStyle="#FFE766";x.fillText(code,left+cw/2,cy);
   }
   x.font='500 27px "GmarketSans","Apple SD Gothic Neo",sans-serif';
   x.fillStyle="#A9BCD0";x.textAlign="left";x.fillText(sub,left+cw+13,cy);
@@ -2775,7 +2852,7 @@ function makeCard(){
   const W=1080,H=1350,c=document.createElement("canvas");
   c.width=W;c.height=H;const x=c.getContext("2d");
   const g=x.createLinearGradient(0,0,0,H);
-  g.addColorStop(0,"#040A13");g.addColorStop(.55,"#08111D");g.addColorStop(1,"#0B1929");
+  g.addColorStop(0,"#040A13");g.addColorStop(.55,"#0D0D0C");g.addColorStop(1,"#131311");
   x.fillStyle=g;x.fillRect(0,0,W,H);
 
   /* 같은 사람이 다시 받아도 같은 별자리가 나오도록 시드 난수를 씁니다. */
@@ -2789,7 +2866,7 @@ function makeCard(){
     x.fillStyle=col;x.textAlign=al||"center";};
 
   /* 머리말 */
-  F("",700,30,"#F7B733");x.fillText(APP_NAME,W/2,86);
+  F("",700,30,"#FFD600");x.fillText(APP_NAME,W/2,86);
   F("",500,15,"#54697D");x.fillText(APP_NAME_EN,W/2,114);
 
   /* 신분 — 카드에서 제일 큰 글자 */
@@ -2802,7 +2879,7 @@ function makeCard(){
               [String(totalCorrect()),"맞힌 문제"],
               [String(S.streak),"연속 개근"]];
   HERO.forEach((v,i)=>{const cx=W/2+(i-1)*300;
-    F("",700,78,"#F7B733");x.fillText(v[0],cx,392);
+    F("",700,78,"#FFD600");x.fillText(v[0],cx,392);
     F("",400,26,"#6F8399");x.fillText(v[1],cx,436);});
 
   /* 섬 (앱 화면과 같은 좌표를 2.7배로) */
@@ -2817,7 +2894,7 @@ function makeCard(){
   P("M202,172L214,151L223,155L233,129L243,117L253,111L263,101L277,96L289,97L301,105L309,117L319,129L327,149L337,153L350,172Z");
   x.fillStyle="#081726";x.fillRect(0,OY+172*K,W,H-(OY+172*K));
   /* 앱 화면과 같은 수평 물결선. 없으면 아래쪽이 텅 빈 검은 판이 됩니다. */
-  x.strokeStyle="#16344F";x.lineWidth=2;x.globalAlpha=.5;
+  x.strokeStyle="#2E2E29";x.lineWidth=2;x.globalAlpha=.5;
   for(let i=0;i<7;i++){const yy=OY+178*K+i*26;if(yy>H-210)break;
     x.beginPath();x.moveTo(0,yy);x.lineTo(W,yy);x.stroke();}
   x.globalAlpha=1;
@@ -2825,19 +2902,19 @@ function makeCard(){
   /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있다 */
   x.fillStyle="#31485E";x.fillRect(OX+286*K,OY+80*K,3*K,18*K);
   const lx=OX+287.5*K,ly=OY+78*K;
-  x.globalAlpha=.15;x.fillStyle="#F7B733";x.beginPath();x.arc(lx,ly,26,0,7);x.fill();
-  x.globalAlpha=1;x.fillStyle="#F7B733";x.beginPath();x.arc(lx,ly,7,0,7);x.fill();
+  x.globalAlpha=.15;x.fillStyle="#FFD600";x.beginPath();x.arc(lx,ly,26,0,7);x.fill();
+  x.globalAlpha=1;x.fillStyle="#FFD600";x.beginPath();x.arc(lx,ly,7,0,7);x.fill();
 
   /* 봉화와 불빛 — 작은 빛 10개가 큰 봉화 하나로 합쳐집니다. */
   const lit=lightCount(), bc=beacons(Math.min(lit,SPOTS.length*BEACON_AT));
   const at=i=>SPOTS[i%SPOTS.length];
   for(let i=0;i<bc.big;i++){const p=at(i),px=OX+p.x*K,py=OY+p.y*K;
-    x.globalAlpha=.14;x.fillStyle="#F7B733";x.beginPath();x.arc(px,py,30,0,7);x.fill();
+    x.globalAlpha=.14;x.fillStyle="#FFD600";x.beginPath();x.arc(px,py,30,0,7);x.fill();
     x.globalAlpha=.30;x.beginPath();x.arc(px,py,17,0,7);x.fill();
-    x.globalAlpha=1;x.fillStyle="#FFE7B0";x.beginPath();x.arc(px,py,8.4,0,7);x.fill();}
+    x.globalAlpha=1;x.fillStyle="#FFF0A0";x.beginPath();x.arc(px,py,8.4,0,7);x.fill();}
   for(let i=0;i<bc.small;i++){const p=at(bc.big+i),px=OX+p.x*K,py=OY+p.y*K;
-    x.globalAlpha=.22;x.fillStyle="#F7B733";x.beginPath();x.arc(px,py,11,0,7);x.fill();
-    x.globalAlpha=1;x.fillStyle="#FFD57E";x.beginPath();x.arc(px,py,3.6,0,7);x.fill();}
+    x.globalAlpha=.22;x.fillStyle="#FFD600";x.beginPath();x.arc(px,py,11,0,7);x.fill();
+    x.globalAlpha=1;x.fillStyle="#FFE766";x.beginPath();x.arc(px,py,3.6,0,7);x.fill();}
   x.globalAlpha=1;
 
   /* 성취 뱃지 — 좌우 세로줄. 획득 여부와 무관하게 자리는 늘 보입니다. */
@@ -3131,8 +3208,11 @@ S=load();
 renderFlags();
 $("#realname").value=S.name||"";
 /* 학교는 아래 학교 찾기에서 채웁니다 */
-if(S.started){show("s-home");renderHome();}
-else if(S.introDay!==today()){S.introDay=today();save();show("s-intro");playIntro();}
+/* 오늘 아직 노래를 만나지 않았다면 누구든 먼저 지나갑니다.
+   예전에는 이미 시작한 사람이 곧장 홈으로 가서 영상을 영영 보지 못했습니다.
+   introDay 는 건너뛰기를 눌러야 기록됩니다. 열어만 두고 닫으면 내일 다시 만납니다. */
+if(S.introDay!==today()){ show("s-intro"); playIntro(); }
+else if(S.started){ show("s-home"); renderHome(); }
 else show("s-locate");
 /* ---------- 학교 고르기 ---------- */
 (function(){
