@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>독도 코리아 스쿨 · 실시간</title>
+<style>
+/* OBS 브라우저 소스용 — 방금 문제를 푼 사람이 위에서부터 쌓입니다.
+   명예의 전당(hall.html)은 한 주를 결산하는 표이고, 이 화면은 지금 이 순간입니다.
+
+   주소 뒤에 붙이는 값
+     ?bg=1        어두운 배경 (눈으로 확인할 때만)
+     ?scale=1.3   전체 확대
+     ?rows=8      화면에 남기는 줄 수 (기본 10)
+     ?title=0     맨 위 제목 숨기기
+
+   10초마다 새로 받아 옵니다. 새로 들어온 사람만 위에서 미끄러져 들어옵니다. */
+:root{ --gold:#F7B733; --ink:#EAF3FF; --dim:#9DB4CC; --line:rgba(255,255,255,.14); }
+*{box-sizing:border-box}
+html,body{margin:0;background:transparent;overflow:hidden;
+  font-family:"GmarketSans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink)}
+body.bg{background:#07131F}
+#wrap{padding:2.2vw 2.6vw;transform-origin:top left}
+.head{display:flex;align-items:center;gap:1.4vw;margin:0 0 1.6vw}
+.head h1{margin:0;font-size:clamp(15px,3.6vw,36px);font-weight:800;color:var(--gold);
+  letter-spacing:-.01em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
+.dot{width:.9em;height:.9em;border-radius:50%;background:#5CF0C0;flex:none;
+  box-shadow:0 0 10px rgba(92,240,192,.9);animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+.row{display:flex;align-items:center;gap:1.6vw;padding:1.1vw 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:none}
+.row.new{animation:slide .5s cubic-bezier(.2,.9,.3,1) both}
+@keyframes slide{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.fg{font-size:clamp(16px,4.2vw,42px);flex:none}
+.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(16px,4.4vw,44px);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.n .sch{font-weight:600;font-size:.6em;color:var(--dim);margin-left:.5em}
+.v{flex:none;text-align:right;font-variant-numeric:tabular-nums}
+.v b{display:block;font-size:clamp(13px,3.2vw,32px);color:var(--gold);font-weight:800;
+  text-shadow:0 2px 8px rgba(0,0,0,.7)}
+.v small{display:block;font-size:clamp(10px,2.2vw,21px);color:var(--dim);margin-top:.15em}
+/* 맨 위 한 줄만 살짝 밝게 — 눈이 어디를 볼지 알려 줍니다 */
+.row:first-of-type .n{color:#FFE7B0}
+.empty{font-size:clamp(13px,3.2vw,32px);color:var(--dim);padding:1.4vw 0}
+</style>
+</head>
+<body>
+<div id="wrap"><div class="empty">불러오는 중…</div></div>
+
+<script>
+/* 시트 주소 — 앱·명예의 전당과 같은 곳을 봅니다. */
+var SHEET_API="https://script.google.com/macros/s/AKfycbxhkR93f7__AekcpkHyd-pzfNHcPeQQK8HhHrtcRW6sLanzJGhPI3B2LRksxqrs1Uzelw/exec";
+
+var Q=new URLSearchParams(location.search);
+if(Q.get("bg"))document.body.classList.add("bg");
+var SCALE=parseFloat(Q.get("scale")||"1");
+var ROWS=Math.max(1,parseInt(Q.get("rows")||"10",10));
+var TITLE=Q.get("title")!=="0";
+
+function flag(c){
+  c=String(c||"").trim().toUpperCase();
+  if(!/^[A-Z]{2}$/.test(c))return "";
+  return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65, 0x1F1E6+c.charCodeAt(1)-65);
+}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,
+  function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+function when(m){
+  if(!(m>=0)) return "";
+  if(m<1) return "방금";
+  if(m<60) return m+"분 전";
+  var h=Math.round(m/60); return h<24 ? h+"시간 전" : "오늘";
+}
+
+var seen={};        /* 이미 화면에 올린 줄 번호 */
+var first=true;
+
+function rowHTML(x,isNew){
+  var fg=x.flag?'<span class="fg">'+flag(x.flag)+'</span>':'';
+  var sch=x.school?'<span class="sch">'+esc(x.school)+'</span>':'';
+  return '<div class="row'+(isNew?' new':'')+'" data-k="'+x.k+'">'+fg
+    +'<span class="n">'+esc(x.nick)+sch+'</span>'
+    +'<span class="v"><b>'+x.n+'문제</b><small>'+when(x.min)+'</small></span></div>';
+}
+
+function draw(list){
+  var w=document.getElementById("wrap");
+  if(!w.querySelector(".head")){
+    w.innerHTML=(TITLE?'<div class="head"><span class="dot"></span>'
+      +'<h1>실시간 퀴즈 참가자</h1></div>':'')+'<div id="list"></div>';
+  }
+  var box=document.getElementById("list");
+  if(!list.length){ if(!box.children.length) box.innerHTML='<div class="empty">아직 오늘 푼 사람이 없습니다</div>'; return; }
+
+  /* 새로 들어온 줄만 위에 끼워 넣습니다. 통째로 다시 그리면 화면이 매번 튑니다. */
+  var fresh=list.filter(function(x){return !seen[x.k];});
+  if(first){
+    box.innerHTML=list.slice(0,ROWS).map(function(x){return rowHTML(x,false);}).join("");
+    list.forEach(function(x){seen[x.k]=1;});
+    first=false;
+  }else{
+    var e=box.querySelector(".empty"); if(e)e.remove();
+    fresh.slice().reverse().forEach(function(x){
+      seen[x.k]=1;
+      box.insertAdjacentHTML("afterbegin", rowHTML(x,true));
+    });
+    while(box.children.length>ROWS) box.removeChild(box.lastElementChild);
+  }
+  /* 시간 표시만 조용히 갱신합니다 */
+  var byK={}; list.forEach(function(x){byK[x.k]=x;});
+  [].forEach.call(box.children,function(el){
+    var x=byK[el.dataset.k]; if(!x)return;
+    var v=el.querySelector(".v");
+    if(v) v.innerHTML='<b>'+x.n+'문제</b><small>'+when(x.min)+'</small>';
+  });
+  if(SCALE!==1) w.style.transform="scale("+SCALE+")";
+}
+
+function load(){
+  if(!SHEET_API){
+    document.getElementById("wrap").innerHTML=
+      '<div class="empty">시트 주소가 비어 있습니다. live.html 의 SHEET_API 를 채워 주세요.</div>';
+    return;
+  }
+  fetch(SHEET_API+"?live=1&ts="+Date.now(),{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():null;})
+    .then(function(j){ if(j&&j.live)draw(j.live); })
+    .catch(function(){});
+}
+load();
+setInterval(load,10000);          /* 10초마다 */
+</script>
+</body>
+</html>

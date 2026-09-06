@@ -7,43 +7,52 @@
 <style>
 /* OBS 브라우저 소스용.
    배경이 비어 있어 방송 화면 위에 그대로 얹힙니다.
-   ?bg=1 을 붙이면 어두운 배경이 깔립니다(미리보기용).
-   ?scale=1.4 로 키우고, ?only=school 이나 ?only=person 으로 한쪽만 띄웁니다.
+
+   주소 뒤에 붙이는 값
+     ?bg=1        어두운 배경 (눈으로 확인할 때만)
+     ?scale=1.4   전체 확대
+     ?rows=20     명단에 싣는 사람 수 (기본 60)
+     ?only=school 학교 순위만  ·  ?only=person 사람 명단만
 
    글자 크기는 vw 로 잡았습니다. 소스 너비를 키우면 글자도 같이 커집니다.
-   OBS에서 화면 위에 올려 두고 마우스로 줄이면 글자만 작아져 읽히지 않습니다.
-   크기는 소스 속성의 너비로 조절하십시오. */
+   화면에서 마우스로 늘이면 글자만 뭉개집니다. 크기는 소스 속성의 너비로 조절하십시오.
+
+   명단이 소스 높이보다 길면 천천히 위로 흘렀다가 돌아옵니다.
+   방송 자막처럼 끝까지 다 보이게 하려는 것입니다. */
 :root{
   --gold:#F7B733; --ink:#EAF3FF; --dim:#9DB4CC; --line:rgba(255,255,255,.16);
 }
 *{box-sizing:border-box}
-html,body{margin:0;background:transparent;font-family:"GmarketSans","Apple SD Gothic Neo",
-  "Malgun Gothic",sans-serif;color:var(--ink)}
+html,body{margin:0;background:transparent;overflow:hidden;
+  font-family:"GmarketSans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:var(--ink)}
 body.bg{background:#07131F}
 #wrap{padding:2.2vw 2.6vw 1.4vw;transform-origin:top left}
-.head{display:flex;align-items:baseline;gap:1.6vw;margin:0 0 2vw}
+.head{display:flex;align-items:baseline;gap:1.6vw;margin:0 0 1.6vw}
 .head h1{margin:0;font-size:clamp(20px,5.4vw,54px);font-weight:800;color:var(--gold);
   letter-spacing:-.02em;text-shadow:0 2px 10px rgba(0,0,0,.6)}
 .head small{font-size:clamp(11px,2.5vw,24px);color:var(--dim)}
-.sec{margin:0 0 2.4vw}
+.sec{margin:0 0 2.2vw}
 .sec-t{font-size:clamp(12px,3vw,30px);font-weight:800;color:var(--gold);opacity:.85;
   letter-spacing:.02em;margin:0 0 .6vw}
-.row{display:flex;align-items:center;gap:1.8vw;padding:1.1vw 0;border-top:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:1.6vw;padding:.9vw 0;border-top:1px solid var(--line)}
 .sec .row:first-of-type{border-top:none}
-.m{font-size:clamp(18px,5.2vw,52px);width:7.5vw;min-width:26px;text-align:center;flex:none}
-.n .fg{margin-right:.35em}
-.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(17px,5vw,50px);
+.m{font-size:clamp(17px,4.6vw,46px);width:7.5vw;min-width:26px;text-align:center;flex:none}
+.m.num{font-size:clamp(12px,2.8vw,28px);color:var(--dim);font-weight:800;
+  font-variant-numeric:tabular-nums}
+.n{flex:1 1 auto;min-width:0;font-weight:800;font-size:clamp(16px,4.4vw,44px);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   text-shadow:0 2px 8px rgba(0,0,0,.7)}
-.v{flex:none;font-size:clamp(14px,3.8vw,38px);color:var(--gold);font-weight:800;
+.n .sch{font-weight:600;font-size:.62em;color:var(--dim);margin-left:.5em}
+.v{flex:none;font-size:clamp(13px,3.4vw,34px);color:var(--gold);font-weight:800;
   font-variant-numeric:tabular-nums;text-shadow:0 2px 8px rgba(0,0,0,.7)}
 .v small{color:var(--dim);font-weight:600;font-size:.72em;margin-left:.4em}
 .foot{font-size:clamp(10px,2.3vw,22px);color:var(--dim);opacity:.7;margin-top:1vw}
 .empty{font-size:clamp(14px,3.4vw,34px);color:var(--dim);padding:1.4vw 0}
-/* 1등만 살짝 빛나게 */
+/* 1·2·3등만 살짝 빛나게 */
 .row.first .n{color:#FFE7B0}
 .row.first .m{filter:drop-shadow(0 0 8px rgba(247,183,51,.7))}
 </style>
+<style id="scr"></style>
 </head>
 <body>
 <div id="wrap"><div class="empty">불러오는 중…</div></div>
@@ -55,53 +64,77 @@ var SHEET_API="https://script.google.com/macros/s/AKfycbxhkR93f7__AekcpkHyd-pzfN
 var Q=new URLSearchParams(location.search);
 if(Q.get("bg"))document.body.classList.add("bg");
 var SCALE=parseFloat(Q.get("scale")||"1");
-if(SCALE!==1)document.getElementById("wrap").style.transform="scale("+SCALE+")";
+var ROWS=Math.max(1,parseInt(Q.get("rows")||"60",10));
 var ONLY=Q.get("only")||"";
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
 
 /* 'KR' 두 글자를 국기 그림으로 바꿉니다. 유니코드 지역 표시 문자를 씁니다.
-   글꼴이 국기를 못 그리는 컴퓨터에서는 아무것도 안 보이므로 자리만 비웁니다. */
+   글꼴이 국기를 못 그리는 컴퓨터에서는 자리만 비웁니다. */
 function flag(c){
-  c=String(c||'').trim().toUpperCase();
-  if(!/^[A-Z]{2}$/.test(c))return '';
+  c=String(c||"").trim().toUpperCase();
+  if(!/^[A-Z]{2}$/.test(c))return "";
   return String.fromCodePoint(0x1F1E6+c.charCodeAt(0)-65, 0x1F1E6+c.charCodeAt(1)-65);
 }
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,
   function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 
-function rows(list,fmt){
+function mark(i){
+  return i<3 ? '<span class="m">'+MEDAL[i]+'</span>'
+             : '<span class="m num">'+(i+1)+'</span>';
+}
+function rows(list,fmt,withFlag){
   return list.map(function(x,i){
-    return '<div class="row'+(i===0?' first':'')+'"><span class="m">'+MEDAL[i]+'</span>'
-      +'<span class="n">'+(x.flag?'<span class="fg">'+flag(x.flag)+'</span>':'')
-        +esc(x.name||x.nick)+'</span>'
+    var sch = x.school ? '<span class="sch">'+esc(x.school)+'</span>' : '';
+    var fg  = (withFlag&&x.flag) ? flag(x.flag)+' ' : '';
+    return '<div class="row'+(i===0?' first':'')+'">'+mark(i)
+      +'<span class="n">'+fg+esc(x.name||x.nick)+sch+'</span>'
       +'<span class="v">'+fmt(x)+'</span></div>';
   }).join("");
 }
 
 function draw(f){
   var w=document.getElementById("wrap"),h="";
+  var wk=(f.week||[]).slice(0,ROWS);
   h+='<div class="head"><h1>명예의 전당</h1><small>이번 주'
     +(f.weekOf?' · '+f.weekOf+' 시작':'')+'</small></div>';
   var any=false;
 
-  if(ONLY!=="school" && f.week && f.week.length){
+  if(ONLY!=="school" && wk.length){
     any=true;
-    h+='<div class="sec"><div class="sec-t">개인</div>'
-      +rows(f.week,function(x){return (x.correct!=null?x.correct:x.run)+'<small>문제</small>';})+'</div>';
+    h+='<div class="sec"><div class="sec-t">이번 주 참여자 '+wk.length+'명</div>'
+      +rows(wk,function(x){return x.correct+'<small>문제</small>';},true)+'</div>';
   }
   if(ONLY!=="person" && f.schools){
     ["E","M","H","W"].forEach(function(c){
       var l=f.schools[c]; if(!l||!l.length)return;   /* 참여 없는 부문은 띄우지 않습니다 */
       any=true;
       h+='<div class="sec"><div class="sec-t">'+CAT[c]+'</div>'
-        +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';})+'</div>';
+        +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';},false)+'</div>';
     });
   }
   if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
   h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
   w.innerHTML=h;
+  layout();
 }
+
+/* 명단이 화면보다 길면 천천히 흘렀다가 돌아옵니다. 초당 22px.
+   자동으로 줄여 버리면 아래쪽 사람들의 이름이 방송에 나오지 않습니다. */
+function layout(){
+  var w=document.getElementById("wrap");
+  w.style.animation="";
+  w.style.transform = SCALE!==1 ? "scale("+SCALE+")" : "";
+  var over = w.scrollHeight*SCALE - window.innerHeight;
+  if(over<=8) return;
+  var dist = Math.ceil(over/SCALE);
+  var dur  = Math.max(10, Math.round(over/22));
+  document.getElementById("scr").textContent =
+    "@keyframes roll{0%,10%{transform:scale("+SCALE+") translateY(0)}"
+    +"90%,100%{transform:scale("+SCALE+") translateY(-"+dist+"px)}}";
+  w.style.animation = "roll "+dur+"s ease-in-out infinite alternate";
+}
+addEventListener("resize",layout);
 
 function load(){
   if(!SHEET_API){
