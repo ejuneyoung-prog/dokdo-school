@@ -54,22 +54,22 @@
        발표자료·피칭덱과 같은 값을 씁니다. 앱만 다른 색을 쓰면 브랜드가 갈라집니다.
        바다는 완전한 검정 대신 아주 어두운 회색을 씁니다.
        순검정 위에서는 섬과 파도의 층이 구분되지 않습니다. */
-    --sea-deep:#0A0A0A;
-    --sea:#101010;
-    --panel:#1C1C19;
-    --panel-2:#242421;
-    --line:#333330;
-    --line-soft:#262623;
-    --ink:#F5F5F5;
-    --ink-mid:#C4C4BE;
-    --ink-dim:#9A9A94;
-    --light:#FFD600;
-    --light-soft:#FFE766;
-    --light-deep:#B39600;
+    --sea-deep:#050D1A;
+    --sea:#0A1628;
+    --panel:#0F2035;
+    --panel-2:#16304D;
+    --line:#1E3A5F;
+    --line-soft:#142842;
+    --ink:#F8FAFC;
+    --ink-mid:#B6C4D4;
+    --ink-dim:#8CA0B8;
+    --light:#FBBF24;
+    --light-soft:#FCD34D;
+    --light-deep:#B45309;
     --ok:#48C79E;
     --no:#E4695D;
-    --rock:#42423A;
-    --rock-lit:#5C5C51;
+    --rock:#1E3A5F;
+    --rock-lit:#3A6789;
     --r:14px;
     --maxw:600px;
   }
@@ -77,6 +77,8 @@
   body{
     margin:0;
     background:var(--sea-deep);
+    background-image:radial-gradient(130% 62% at 50% -6%, #0E2440 0%, #071324 45%, #050D1A 100%);
+    background-attachment:fixed;
     color:var(--ink);
     font-family:"GmarketSans","Apple SD Gothic Neo",system-ui,sans-serif;
     font-weight:500;
@@ -115,7 +117,7 @@
   .brand span{color:var(--light)}
   .stat{
     display:flex;align-items:center;gap:5px;
-    background:linear-gradient(180deg,#262623,#1A1A18);
+    background:linear-gradient(180deg,#262623,#081324);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 1px 0 rgba(0,0,0,.3);
     border:1px solid var(--line-soft);
     border-radius:999px;padding:5px 11px;font-size:14px;color:var(--ink-mid);
@@ -129,7 +131,7 @@
     position:relative;overflow:hidden;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.07),
                0 18px 38px -26px rgba(0,0,0,.95);
-    background:linear-gradient(180deg,#040A13 0%,#0D0D0C 46%,#131311 100%);
+    background:linear-gradient(180deg,#040A13 0%,#050D1A 46%,#081324 100%);
     border:1px solid var(--line-soft);border-radius:var(--r);
     margin-bottom:14px;
   }
@@ -145,9 +147,9 @@
   .sound-btn.on .sb-t{font-weight:600}
   .stars circle{fill:#CFE0F0}
   .rockface{fill:var(--rock)}
-  .rockedge{fill:none;stroke:#6B6B62;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
+  .rockedge{fill:none;stroke:#4A7BA3;stroke-width:1.3;stroke-linejoin:round;opacity:.85}
   /* 능선 아래쪽에 한 겹 더. 각진 면이 살아납니다. */
-  .rockrim{fill:none;stroke:#8A8A80;stroke-width:.7;opacity:.32;stroke-linejoin:round}
+  .rockrim{fill:none;stroke:#6B9BC4;stroke-width:.7;opacity:.32;stroke-linejoin:round}
   .refl{opacity:.26}
   .refls{mix-blend-mode:screen}
   .lamp{fill:var(--light-soft)}
@@ -155,7 +157,7 @@
   /* 불빛 단계별 색. 주광색에서 시작해 에메랄드로 끝납니다. */
   .lamp-aura{fill:url(#glow)}
   .lamp-core{fill:#FFFFFF;opacity:.9}
-  .lv1 .lamp{fill:#FFE766} .lv1 .lamp-halo,.lv1.refl{fill:#FFD600}
+  .lv1 .lamp{fill:#FCD34D} .lv1 .lamp-halo,.lv1.refl{fill:#FBBF24}
   .lv2 .lamp{fill:#F5F5F5} .lv2 .lamp-halo,.lv2.refl{fill:#CFE0F0}
   .lv3 .lamp{fill:#C6F573} .lv3 .lamp-halo,.lv3.refl{fill:#8FD93A}
   .lv4 .lamp{fill:#5CF0C0} .lv4 .lamp-halo,.lv4.refl{fill:#20C99A}
@@ -163,7 +165,7 @@
   .legend i{display:inline-flex;align-items:center;gap:5px;font-style:normal;
     font-size:12.5px;color:var(--ink-dim)}
   .legend i b{width:8px;height:8px;border-radius:99px;display:block}
-  .seaband{stroke:#2E2E29;stroke-width:1;opacity:.5}
+  .seaband{stroke:#1E3A5F;stroke-width:1;opacity:.5}
   .island-cap{
     position:absolute;left:0;right:0;bottom:0;
     padding:12px 14px;
@@ -182,7 +184,7 @@
   .bar{height:9px;border-radius:99px;background:#0C1727;overflow:hidden;
     box-shadow:inset 0 2px 4px rgba(0,0,0,.55), inset 0 -1px 0 rgba(255,255,255,.04)}
   .bar i{display:block;height:100%;border-radius:99px;
-    background:linear-gradient(180deg,#FFE766,#FFD600 55%,#D9930F);
+    background:linear-gradient(180deg,#FCD34D,#FBBF24 55%,#D9930F);
     box-shadow:0 0 12px -2px rgba(247,183,51,.75), inset 0 1px 0 rgba(255,255,255,.4);
     transition:width .5s cubic-bezier(.2,.8,.3,1)}
 
@@ -192,7 +194,7 @@
   .btn{
     display:block;width:100%;text-align:center;
     padding:15px 18px;border-radius:13px;
-    background:linear-gradient(180deg,#FFD264 0%,#FFD600 52%,#E9A31C 100%);
+    background:linear-gradient(180deg,#FFD264 0%,#FBBF24 52%,#E9A31C 100%);
     color:#2A1A02;font-weight:700;font-size:16px;letter-spacing:-.02em;
     box-shadow:0 3px 0 #9C6608, 0 10px 22px -12px rgba(247,183,51,.75),
                inset 0 1px 0 rgba(255,255,255,.45);
@@ -203,12 +205,12 @@
     box-shadow:0 0 0 #9C6608, 0 4px 10px -8px rgba(247,183,51,.6),
                inset 0 1px 0 rgba(255,255,255,.3)}
   .btn.ghost{
-    background:linear-gradient(180deg,#1E1E1C 0%,#132135 100%);
+    background:linear-gradient(180deg,#0A1628 0%,#132135 100%);
     border:1px solid var(--line);color:var(--ink-mid);font-weight:500;
     box-shadow:0 2px 0 rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05)}
   .btn.ghost:hover{border-color:var(--ink-dim);color:var(--ink)}
   .btn.ghost:active{transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.35)}
-  .btn.exam{background:linear-gradient(100deg,#FFD600,#FFE766);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
+  .btn.exam{background:linear-gradient(100deg,#FBBF24,#FCD34D);box-shadow:0 0 0 1px rgba(247,183,51,.35),0 8px 26px -12px rgba(247,183,51,.8)}
   .btn[disabled]{opacity:.4;cursor:not-allowed;filter:none;transform:none}
   .btnrow{display:flex;flex-direction:column;gap:9px;margin-top:14px}
 
@@ -265,7 +267,7 @@
   .opt{
     display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
     padding:15px 15px;border-radius:12px;
-    background:linear-gradient(180deg,#262623 0%,#1A1A18 100%);
+    background:linear-gradient(180deg,#262623 0%,#081324 100%);
     border:1px solid var(--line-soft);
     box-shadow:0 2px 0 rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.05);
     font-size:15px;line-height:1.5;
@@ -275,7 +277,7 @@
   .opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 0 0 rgba(0,0,0,.32)}
   .opt .num{
     flex:none;width:21px;height:21px;border-radius:6px;margin-top:1px;
-    background:linear-gradient(180deg,#22374F,#242421);border:1px solid var(--line);
+    background:linear-gradient(180deg,#22374F,#16304D);border:1px solid var(--line);
     box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
     font-size:13px;display:grid;place-items:center;color:var(--ink-mid);
     font-family:"IBM Plex Mono",monospace;font-weight:600;
@@ -317,9 +319,11 @@
 
   /* ---------- 시작 화면 ---------- */
   .intro{padding:44px 0 26px;text-align:center}
-  .intro h1{font-size:38px;line-height:1.2;margin-bottom:12px}
+  .intro h1{font-size:clamp(38px,10.5vw,58px);line-height:1.12;margin-bottom:14px;
+      letter-spacing:-.03em;font-weight:700;
+      text-shadow:0 0 42px rgba(251,191,36,.20)}
   .intro h1 span{color:var(--light)}
-  .intro p{color:var(--ink-mid);font-size:14.5px;max-width:34ch;margin:0 auto;line-height:1.7}
+  .intro p{color:var(--ink-mid);font-size:16px;max-width:32ch;margin:0 auto;line-height:1.75}
   .field{margin:26px 0 6px}
   .field label{display:block;font-size:14px;color:var(--ink-dim);margin-bottom:7px}
   .field input{
@@ -492,7 +496,7 @@
    오른쪽에서 왼쪽으로 흐릅니다. 손가락을 올리면 멈춥니다.
    움직임을 줄이도록 설정한 기기에서는 흐르지 않고 그냥 보입니다. */
 .ticker{overflow:hidden;white-space:nowrap;border-radius:13px;margin:0 0 11px;
-  padding:9px 0;background:linear-gradient(100deg,#1E1E1C,#164e79 55%,#1E1E1C);
+  padding:9px 0;background:linear-gradient(100deg,#0A1628,#164e79 55%,#0A1628);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 3px 10px rgba(10,40,70,.16)}
 /* 같은 줄을 두 번 이어 붙이고 딱 절반만 밀기 때문에 끊김 없이 이어집니다.
    왼쪽 여백을 주면 절반 계산이 어긋나 한 바퀴마다 튑니다. 여백은 글 안에 넣습니다. */
@@ -576,7 +580,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .hall-t{font-size:13.5px;font-weight:800;color:var(--ink-mid,#6F8399);
   letter-spacing:.02em;margin:0 0 4px}
 .hall-row{display:flex;align-items:center;gap:8px;padding:5px 0;
-  border-top:1px solid var(--line,#333330)}
+  border-top:1px solid var(--line,#1E3A5F)}
 .hall-sec .hall-row:first-of-type{border-top:none}
 .hall-m{font-size:15px;width:20px;text-align:center;flex:none}
 .hall-n small{font-weight:500;opacity:.62;margin-left:6px;font-size:.86em}
@@ -588,7 +592,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 /* ---------- 학교 찾기 ---------- */
 .sch-wrap{position:relative}
 .sch-list{position:absolute;left:0;right:0;top:100%;z-index:40;max-height:230px;
-  overflow:auto;background:var(--card,#10202f);border:1px solid var(--line,#333330);
+  overflow:auto;background:var(--card,#10202f);border:1px solid var(--line,#1E3A5F);
   border-radius:10px;box-shadow:0 8px 22px rgba(0,0,0,.35);margin-top:4px}
 .sch-list b{display:block;padding:9px 12px;font-weight:600;font-size:13.5px;cursor:pointer}
 .sch-list b:hover,.sch-list b.on{background:rgba(255,213,126,.14)}
@@ -604,7 +608,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
     .lang-foot .lang-link{color:var(--ink-dim);text-decoration:none;padding:6px 10px;border-radius:8px}
     .lang-foot .lang-link.on{color:var(--light);font-weight:600}
     .lang-sep{color:var(--ink-dim);opacity:.5}
-    .code-row .btn{width:auto;flex:none;padding:0 12px;font-size:14px;white-space:nowrap;line-height:1}
+    .code-row .btn{width:auto;flex:none;padding:0 12px;font-size:14px;white-space:nowrap;line-height:1;box-shadow:0 6px 22px rgba(251,191,36,.16)}
 @media(max-width:380px){.code-row{flex-wrap:wrap}.code-row input{flex:1 0 100%}}
 </style>
 </head>
@@ -630,11 +634,11 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <div class="locmap">
 <svg aria-label="울릉도·독도·일본 오키섬의 상대 위치 / Relative positions of Ulleungdo, Dokdo and the Oki Islands" role="img" viewBox="0 0 400 250">
 <!-- 한반도 동쪽 해안 -->
-<path d="M0,26 L44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250 L0,250 Z" fill="#232320"></path>
+<path d="M0,26 L44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250 L0,250 Z" fill="#0F2035"></path>
 <path d="M44,34 L58,58 L52,86 L64,112 L56,140 L70,166 L58,196 L72,224 L60,250" fill="none" stroke="#26445E" stroke-width="1.2"></path>
 <text class="mapname ko" style="letter-spacing:.16em;font-size:12px" x="14" y="132">KOREA</text>
 <!-- 일본 혼슈 서안 -->
-<path d="M400,150 L366,164 L344,190 L332,216 L318,250 L400,250 Z" fill="#232320"></path>
+<path d="M400,150 L366,164 L344,190 L332,216 L318,250 L400,250 Z" fill="#0F2035"></path>
 <path d="M366,164 L344,190 L332,216 L318,250" fill="none" stroke="#26445E" stroke-width="1.2"></path>
 <text class="mapname" style="letter-spacing:.14em;font-size:11px" x="348" y="232">JAPAN</text>
 <!-- 동해 -->
@@ -643,13 +647,13 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <!-- 거리선 -->
 <line opacity=".85" stroke="var(--light)" stroke-dasharray="4 3" stroke-width="1.3" x1="150" x2="243" y1="140" y2="126"></line>
 <line opacity=".7" stroke="#3D6180" stroke-dasharray="4 3" stroke-width="1.3" x1="243" x2="336" y1="126" y2="176"></line>
-<text class="mapname" fill="#FFD600" x="163" y="126">87.4km</text>
+<text class="mapname" fill="#FBBF24" x="163" y="126">87.4km</text>
 <text class="mapname" x="272" y="146">157.5km</text>
 <!-- 울릉도 -->
-<circle cx="150" cy="140" fill="#3A3A34" r="5.5"></circle><circle cx="150" cy="140" fill="#7E97AC" r="2"></circle>
+<circle cx="150" cy="140" fill="#3A6789" r="5.5"></circle><circle cx="150" cy="140" fill="#7E97AC" r="2"></circle>
 <text class="mapname ko" text-anchor="middle" x="150" y="160">울릉도</text><text class="mapname" style="font-size:10px" text-anchor="middle" x="150" y="173">Ulleungdo</text>
 <!-- 오키섬 -->
-<circle cx="336" cy="176" fill="#3A3A34" r="4.5"></circle><circle cx="336" cy="176" fill="#7E97AC" r="1.8"></circle>
+<circle cx="336" cy="176" fill="#3A6789" r="4.5"></circle><circle cx="336" cy="176" fill="#7E97AC" r="1.8"></circle>
 <text class="mapname" text-anchor="middle" x="335" y="196">일본 오키섬</text><text class="mapname" style="font-size:9px" text-anchor="middle" x="335" y="209">Oki Islands (Japan)</text>
 <!-- 독도 -->
 <circle class="dokdo-glow" cx="243" cy="126" fill="var(--light)" r="17"></circle>
@@ -953,7 +957,7 @@ const PROMOTE_N=12;
    이름·색·섬 위 크기·다음 복습까지의 날수가 한 줄에 모여 있어
    예전처럼 네 군데를 따로 고치다 하나를 빠뜨릴 일이 없습니다. */
 const LIT=[
- {ko:"작은 불", en:"Small Light",   col:"#FFE766", r:1.35, h:4.2, ho:.20, next:3},
+ {ko:"작은 불", en:"Small Light",   col:"#FCD34D", r:1.35, h:4.2, ho:.20, next:3},
  {ko:"중간 불", en:"Growing Light", col:"#F4F8FF", r:1.9,  h:5.6, ho:.24, next:7},
  {ko:"큰 불",   en:"Bright Light",  col:"#C6F573", r:2.5,  h:7.4, ho:.28, next:14},
  {ko:"봉화",    en:"Beacon",        col:"#5CF0C0", r:3.2,  h:11,  ho:.32, next:30},
@@ -1753,7 +1757,7 @@ function seaCompass(cx,cy){
   x.beginPath(); x.moveTo(cx,cy-r+3); x.lineTo(cx,cy+r-3);
   x.moveTo(cx-r+3,cy); x.lineTo(cx+r-3,cy); x.stroke();
   /* 북쪽 바늘만 색을 줍니다 */
-  x.globalAlpha=.95; x.fillStyle='#FFD600';
+  x.globalAlpha=.95; x.fillStyle='#FBBF24';
   x.beginPath(); x.moveTo(cx,cy-r-4); x.lineTo(cx-6,cy-r+11); x.lineTo(cx+6,cy-r+11);
   x.closePath(); x.fill();
   x.globalAlpha=.7; x.fillStyle='#A8BED6';
@@ -1814,12 +1818,12 @@ function seaFrame(now){
   (()=>{const[ax,ay]=CP(-92,26),[bx,by]=CP(112,4);
    x.setLineDash([5,6]);x.strokeStyle='rgba(255,201,74,.42)';x.lineWidth=1.3;
    x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,by);x.stroke();x.setLineDash([]);
-   x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#B39600';x.textAlign='center';
+   x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#B45309';x.textAlign='center';
    x.fillText('151m',(ax+bx)/2,(ay+by)/2-9);})();
   /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있습니다 */
   (()=>{const[sx,sy]=CP(215,-185);
    x.fillStyle='#3D5876';x.fillRect(sx-2,sy,4,20);
-   x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FFF0A0';
+   x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FDE68A';
    x.beginPath();x.arc(sx,sy-3,9,0,7);x.fill();x.globalAlpha=1;
    x.fillStyle='#FFF6DC';x.beginPath();x.arc(sx,sy-3,2.8,0,7);x.fill();})();
 
@@ -1881,7 +1885,7 @@ const SCREENS=["s-intro","s-locate","s-start","s-home","s-lesson","s-result"];
 /* 독도 코리아 음원. 날짜로 골라 하루에 한 곡씩 돕니다.
    무작위로 뽑으면 새로고침할 때마다 곡이 바뀌어 '오늘의 곡'이 되지 않습니다. */
 const SONGS=["M7FvE6fxUVw","FopCZvMGvRQ","rots70BT7S4","4z2lzU7ZYGk",
-             "IS0fK9kt-sE","EZfn_mKg9sI","xBd6QDlTLpE","GKNV0UX3dIU",
+             "EZfn_mKg9sI","xBd6QDlTLpE","GKNV0UX3dIU",
              "7QRtHpzAgeA","AheUe-8-sDY","sgzS66CXiew","ogh--u-5xQg"];
 /* 진급 축하에 쓰는 세 곡. 초등·중등·고등 졸업에서 한 번씩만 띄웁니다.
    매 학년마다 띄우면 축하가 아니라 방해가 됩니다. */
@@ -2828,14 +2832,14 @@ function drawChip(x,cx,cy,glyph,on){
   const r=33;
   x.beginPath();x.arc(cx,cy,r,0,7);
   x.fillStyle=on?"rgba(247,183,51,.13)":"rgba(22,39,61,.55)";x.fill();
-  x.lineWidth=on?3:1.5;x.strokeStyle=on?"#FFD600":"#22394F";x.stroke();
+  x.lineWidth=on?3:1.5;x.strokeStyle=on?"#FBBF24":"#22394F";x.stroke();
   if(on){x.globalAlpha=.18;x.beginPath();x.arc(cx,cy,r+9,0,7);
-    x.fillStyle="#FFD600";x.fill();x.globalAlpha=1;}
+    x.fillStyle="#FBBF24";x.fill();x.globalAlpha=1;}
   /* 글자 수에 맞춰 크기를 줄여 원 안에 확실히 들어가게 합니다. */
   const fs=glyph.length>=3?19:glyph.length===2?25:31;
   x.font=`700 ${fs}px "IBM Plex Mono",ui-monospace,monospace`;
   x.textAlign="center";x.textBaseline="middle";
-  x.fillStyle=on?"#FFE766":"#3D5468";x.fillText(glyph,cx,cy+1);
+  x.fillStyle=on?"#FCD34D":"#3D5468";x.fillText(glyph,cx,cy+1);
   x.textBaseline="alphabetic";
 }
 
@@ -2861,11 +2865,11 @@ function drawIdentity(x,W,y){
   if(hasFlag){
     drawFlag(x,left,cy-fw/3-5,fw,code);
   }else{
-    x.fillStyle="#242421";x.strokeStyle="#2A4056";x.lineWidth=1.5;
+    x.fillStyle="#16304D";x.strokeStyle="#2A4056";x.lineWidth=1.5;
     if(x.roundRect){x.beginPath();x.roundRect(left,cy-21,cw,30,8);x.fill();x.stroke();}
     else x.fillRect(left,cy-21,cw,30);
     x.font='600 21px "IBM Plex Mono",monospace';
-    x.fillStyle="#FFE766";x.fillText(code,left+cw/2,cy);
+    x.fillStyle="#FCD34D";x.fillText(code,left+cw/2,cy);
   }
   x.font='500 27px "GmarketSans","Apple SD Gothic Neo",sans-serif';
   x.fillStyle="#A9BCD0";x.textAlign="left";x.fillText(sub,left+cw+13,cy);
@@ -2876,7 +2880,7 @@ function makeCard(){
   const W=1080,H=1350,c=document.createElement("canvas");
   c.width=W;c.height=H;const x=c.getContext("2d");
   const g=x.createLinearGradient(0,0,0,H);
-  g.addColorStop(0,"#040A13");g.addColorStop(.55,"#0D0D0C");g.addColorStop(1,"#131311");
+  g.addColorStop(0,"#040A13");g.addColorStop(.55,"#050D1A");g.addColorStop(1,"#081324");
   x.fillStyle=g;x.fillRect(0,0,W,H);
 
   /* 같은 사람이 다시 받아도 같은 별자리가 나오도록 시드 난수를 씁니다. */
@@ -2890,7 +2894,7 @@ function makeCard(){
     x.fillStyle=col;x.textAlign=al||"center";};
 
   /* 머리말 */
-  F("",700,30,"#FFD600");x.fillText(APP_NAME,W/2,86);
+  F("",700,30,"#FBBF24");x.fillText(APP_NAME,W/2,86);
   F("",500,15,"#54697D");x.fillText(APP_NAME_EN,W/2,114);
 
   /* 신분 — 카드에서 제일 큰 글자 */
@@ -2903,7 +2907,7 @@ function makeCard(){
               [String(totalCorrect()),"맞힌 문제"],
               [String(S.streak),"연속 개근"]];
   HERO.forEach((v,i)=>{const cx=W/2+(i-1)*300;
-    F("",700,78,"#FFD600");x.fillText(v[0],cx,392);
+    F("",700,78,"#FBBF24");x.fillText(v[0],cx,392);
     F("",400,26,"#6F8399");x.fillText(v[1],cx,436);});
 
   /* 섬 (앱 화면과 같은 좌표를 2.7배로) */
@@ -2918,7 +2922,7 @@ function makeCard(){
   P("M202,172L214,151L223,155L233,129L243,117L253,111L263,101L277,96L289,97L301,105L309,117L319,129L327,149L337,153L350,172Z");
   x.fillStyle="#081726";x.fillRect(0,OY+172*K,W,H-(OY+172*K));
   /* 앱 화면과 같은 수평 물결선. 없으면 아래쪽이 텅 빈 검은 판이 됩니다. */
-  x.strokeStyle="#2E2E29";x.lineWidth=2;x.globalAlpha=.5;
+  x.strokeStyle="#1E3A5F";x.lineWidth=2;x.globalAlpha=.5;
   for(let i=0;i<7;i++){const yy=OY+178*K+i*26;if(yy>H-210)break;
     x.beginPath();x.moveTo(0,yy);x.lineTo(W,yy);x.stroke();}
   x.globalAlpha=1;
@@ -2926,19 +2930,19 @@ function makeCard(){
   /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있다 */
   x.fillStyle="#31485E";x.fillRect(OX+286*K,OY+80*K,3*K,18*K);
   const lx=OX+287.5*K,ly=OY+78*K;
-  x.globalAlpha=.15;x.fillStyle="#FFD600";x.beginPath();x.arc(lx,ly,26,0,7);x.fill();
-  x.globalAlpha=1;x.fillStyle="#FFD600";x.beginPath();x.arc(lx,ly,7,0,7);x.fill();
+  x.globalAlpha=.15;x.fillStyle="#FBBF24";x.beginPath();x.arc(lx,ly,26,0,7);x.fill();
+  x.globalAlpha=1;x.fillStyle="#FBBF24";x.beginPath();x.arc(lx,ly,7,0,7);x.fill();
 
   /* 봉화와 불빛 — 작은 빛 10개가 큰 봉화 하나로 합쳐집니다. */
   const lit=lightCount(), bc=beacons(Math.min(lit,SPOTS.length*BEACON_AT));
   const at=i=>SPOTS[i%SPOTS.length];
   for(let i=0;i<bc.big;i++){const p=at(i),px=OX+p.x*K,py=OY+p.y*K;
-    x.globalAlpha=.14;x.fillStyle="#FFD600";x.beginPath();x.arc(px,py,30,0,7);x.fill();
+    x.globalAlpha=.14;x.fillStyle="#FBBF24";x.beginPath();x.arc(px,py,30,0,7);x.fill();
     x.globalAlpha=.30;x.beginPath();x.arc(px,py,17,0,7);x.fill();
-    x.globalAlpha=1;x.fillStyle="#FFF0A0";x.beginPath();x.arc(px,py,8.4,0,7);x.fill();}
+    x.globalAlpha=1;x.fillStyle="#FDE68A";x.beginPath();x.arc(px,py,8.4,0,7);x.fill();}
   for(let i=0;i<bc.small;i++){const p=at(bc.big+i),px=OX+p.x*K,py=OY+p.y*K;
-    x.globalAlpha=.22;x.fillStyle="#FFD600";x.beginPath();x.arc(px,py,11,0,7);x.fill();
-    x.globalAlpha=1;x.fillStyle="#FFE766";x.beginPath();x.arc(px,py,3.6,0,7);x.fill();}
+    x.globalAlpha=.22;x.fillStyle="#FBBF24";x.beginPath();x.arc(px,py,11,0,7);x.fill();
+    x.globalAlpha=1;x.fillStyle="#FCD34D";x.beginPath();x.arc(px,py,3.6,0,7);x.fill();}
   x.globalAlpha=1;
 
   /* 성취 뱃지 — 좌우 세로줄. 획득 여부와 무관하게 자리는 늘 보입니다. */
