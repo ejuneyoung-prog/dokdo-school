@@ -1,5 +1,5 @@
 {
- "version": "2026-09-06.603",
+ "version": "2026-09-06.603b",
  "updated": "2026-09-05",
  "count": 603,
  "note": "판을 올릴 때 version 값을 반드시 바꾸십시오. id는 재사용 금지.",
@@ -19297,5 +19297,6 @@
    }
   }
  ],
- "dataset_id": "dokdo-school-603-20260906"
+ "dataset_id": "dokdo-school-603-20260906",
+ "language": "ko"
 }

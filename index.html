@@ -17,9 +17,12 @@
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<title>독도 코리아 스쿨 - 327문항</title>
+<title>독도 코리아 스쿨 · 603문항</title>
 <link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<!-- 카카오 JS SDK. integrity 해시는 공식 문서 값을 확인한 뒤에만 넣으십시오.
+     틀린 값을 넣으면 브라우저가 스크립트를 차단하고 콘솔에만 조용히 에러가 남습니다. -->
+<script crossorigin="anonymous" src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"></script>
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%AB%3C/text%3E%3C/svg%3E" rel="icon"/>
 <style>
   /* ---------- 글꼴 ----------
@@ -578,7 +581,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 .sch-list b i{font-style:normal;opacity:.55;font-size:13px;margin-left:6px}
 .sch-list:empty{display:none}
 .code-row{display:flex;gap:6px;align-items:stretch}
-.opt{font-weight:500;opacity:.6;font-size:.86em}
+.sch-opt{font-weight:500;opacity:.6;font-size:.86em}
 #school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn[hidden]{display:none}
@@ -1686,7 +1689,8 @@ async function loadRemoteQuestions(){
     const j=await r.json();
     if(!j||!usableQuestions(j.questions)||j.count!==j.questions.length)throw new Error('Invalid question schema or count');
     if(j.dataset_id!==EXPECTED_DATASET)throw new Error('Wrong file set. Upload the matching 603-question package.');
-    if(j.language!==DATA_LANGUAGE)throw new Error('Wrong question language: expected '+DATA_LANGUAGE);
+    /* language 가 없던 판이 있어 없으면 현재 언어로 간주합니다. 값이 있으면 그대로 검사합니다. */
+    if(j.language&&j.language!==DATA_LANGUAGE)throw new Error('Wrong question language: expected '+DATA_LANGUAGE);
     if(DATA_LANGUAGE==='en'&&j.source_version!==EXPECTED_KO_VERSION)throw new Error('Korean source version mismatch');
     const ids=new Set(j.questions.map(q=>q.id));
     if(REQUIRED_IDS.some(id=>!ids.has(id)))throw new Error('Required questions missing: refusing to reduce this collection.');
@@ -2209,12 +2213,14 @@ function toggleSheet(){
       <div class="sheet-h">나의 결과 자랑하기</div>
       <button class="sheet-i live" id="sh-live"><i>▶</i><span>독도 코리아 라이브에 결과 공유하기<small>채팅용 한 줄로 복사하고 방송을 엽니다</small></span></button>
       <button class="sheet-i" id="sh-card"><i>📸</i><span>결과 이미지 저장<small>사진첩에 저장하거나 바로 공유합니다</small></span></button>
-      <button class="sheet-i" id="sh-kakao"><i>💬</i><span>카톡으로 전송<small>공유 시트에서 대화상대를 고릅니다</small></span></button>
+      <button class="sheet-i" id="sh-kko"><i>💬</i><span>카카오톡으로 보내기<small>${KAKAO_OK?"대화방을 직접 엽니다":"이 환경에서는 글 복사로 대신합니다"}</small></span></button>
+      ${CAN_SHARE?`<button class="sheet-i" id="sh-kakao"><i>📤</i><span>다른 앱으로 공유<small>기기 공유창을 엽니다</small></span></button>`:""}
       <button class="sheet-i" id="sh-copy"><i>📋</i><span>결과 글로 복사하기<small>카톡·메모용 (여러 줄)</small></span></button>
     </div>`;
   $("#sh-card").addEventListener("click",saveCard);
   $("#sh-live").addEventListener("click",shareLive);
-  $("#sh-kakao").addEventListener("click",shareKakao);
+  $("#sh-kko").addEventListener("click",shareKakaoTalk);
+  const sk=$("#sh-kakao"); if(sk)sk.addEventListener("click",shareKakao);
   $("#sh-copy").addEventListener("click",()=>{
     ev("share_click",{channel:"copy",grade:S.grade});
     copyOrShow(shareText(),"결과를 복사했습니다");});
@@ -2257,6 +2263,32 @@ function liveModal(txt,ok){
 }
 
 /* 카톡 전용 API는 없습니다. 기기 공유 시트를 열고, 없으면 복사로 내려갑니다. */
+/* 카카오톡으로 직접 보냅니다. 기기 공유창을 거치지 않으므로
+   안드로이드 인앱 브라우저에서도 대화방으로 갑니다. */
+function shareKakaoTalk(){
+  ev("share_click",{channel:"kakaotalk",grade:S.grade});
+  if(!KAKAO_OK){
+    toast("카카오톡 공유를 쓸 수 없는 환경입니다 · 글을 복사합니다");
+    return copyOrShow(shareText(),"결과를 복사했습니다 · 카톡에 붙여넣으세요");
+  }
+  try{
+    Kakao.Share.sendDefault({
+      objectType:"feed",
+      content:{
+        title:`${who()}님의 독도 학력은 ${gradeName(S.grade)}`,
+        description:`${S.school?S.school+" · ":""}밝힌 불빛 ${lightCount()}개 · 연속 개근 ${S.streak}일`,
+        imageUrl:APP_URL.replace(/\/$/,"")+"/og.png",
+        link:{mobileWebUrl:APP_URL,webUrl:APP_URL}
+      },
+      buttons:[{title:"내 독도 학력 확인하기",
+                link:{mobileWebUrl:APP_URL,webUrl:APP_URL}}]
+    });
+  }catch(e){
+    toast("카카오톡을 열지 못했습니다 · 글을 복사합니다");
+    copyOrShow(shareText(),"결과를 복사했습니다 · 카톡에 붙여넣으세요");
+  }
+}
+
 async function shareKakao(){
   ev("share_click",{channel:"kakao",grade:S.grade});
   const txt=shareText();
@@ -2623,6 +2655,20 @@ function makeCard(){
    그래서 저장 경로를 하나만 두면 조용히 실패합니다. 네 갈래로 나눕니다. */
 const inFrame=(()=>{try{return window.self!==window.top;}catch(e){return true;}})();
 
+/* ---------- 공유 환경 ----------
+   버튼이 실제로 무엇을 할 수 있는지 먼저 확인합니다.
+   '카톡으로 전송'을 눌렀는데 글만 복사되는 일이 없어야 합니다. */
+const KAKAO_KEY="97c52922c96accf37b16aa4753b7d054";
+let KAKAO_OK=false;
+try{
+  if(window.Kakao&&!Kakao.isInitialized()){Kakao.init(KAKAO_KEY);}
+  KAKAO_OK=!!(window.Kakao&&Kakao.isInitialized()&&Kakao.Share);
+}catch(e){KAKAO_OK=false;}
+/* Web Share 는 HTTPS·최상위 문서·브라우저 지원이 모두 맞아야 뜹니다.
+   안드로이드 인앱 웹뷰에는 없는 경우가 많아 여기서 갈라 둡니다. */
+const CAN_SHARE=!!(navigator.share)&&!inFrame&&(window.isSecureContext!==false);
+const CAN_COPY =!!(navigator.clipboard&&navigator.clipboard.writeText);
+
 function dataUrlToBlob(u){
   const [head,body]=u.split(",");
   const mime=(/:(.*?);/.exec(head)||[])[1]||"image/png";
@@ -2707,9 +2753,9 @@ function showCard(src,blob,name){
 
 /* ---------- 배치고사 ---------- */
 /* 배치고사 5문항 — 뒤로 갈수록 난이도가 올라갑니다 */
-/* 배치고사는 가볍게 봅니다. 다섯 문항을 유치원부터 초등 4학년까지 한 칸씩 올려 냅니다.
+/* 배치고사는 가볍게 봅니다. 다섯 문항을 초등 1학년부터 5학년까지 한 칸씩 올려 냅니다.
    여기서 위 학년을 물으면 첫 화면에서 이탈합니다. 상위 학년은 수업으로 올라갑니다. */
-const PLACE=["K","E1","E2","E3","E4"];
+const PLACE=["E1","E2","E3","E4","E5"];
 let P=null;
 function startPlacement(){
   /* 배치고사도 형제가 겹치지 않게 합니다. 다섯 학년에서 한 문제씩 뽑습니다. */
@@ -2780,8 +2826,9 @@ function nextPlaceQ(){
   L.i<L.items.length?renderPlaceQ():endPlacement();
 }
 function endPlacement(){
-  /* 맞힌 개수만큼 한 칸씩 올라갑니다. 상한은 초등 4학년입니다. */
-  const map=["K","E1","E2","E3","E4","E4"];   // 맞힌 개수 0~5
+  /* 맞힌 개수만큼 한 칸씩 올라갑니다. 상한은 초등 5학년입니다.
+     다섯 문항과 여섯 칸이 일대일이라 만점이 헛돌지 않습니다. */
+  const map=["K","E1","E2","E3","E4","E5"];   // 0개 유치원 … 5개 초등 5학년
   S.grade=map[Math.min(L.ok,map.length-1)];
   for(let i=0;i<idx(S.grade);i++){const c=LADDER[i].c;if(!S.passed.includes(c))S.passed.push(c);}
   S.started=true;save();
