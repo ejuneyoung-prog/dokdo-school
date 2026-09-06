@@ -85,9 +85,12 @@ function rowHTML(x,isNew){
 
 function draw(list){
   var w=document.getElementById("wrap");
-  if(!w.querySelector(".head")){
+  /* 제목을 숨기면(.head 가 없으면) 이 검사가 늘 참이 되어 매번 명단을 지웠습니다.
+     제목이 아니라 목록 상자가 있는지로 봅니다. */
+  if(!document.getElementById("list")){
     w.innerHTML=(TITLE?'<div class="head"><span class="dot"></span>'
       +'<h1>실시간 퀴즈 참가자</h1></div>':'')+'<div id="list"></div>';
+    first=true;
   }
   var box=document.getElementById("list");
   if(!list.length){ if(!box.children.length) box.innerHTML='<div class="empty">아직 오늘 푼 사람이 없습니다</div>'; return; }

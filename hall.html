@@ -115,9 +115,13 @@ function draw(f){
   }
   if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
   h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
-  w.innerHTML=h;
+  /* 30초마다 그대로 다시 그리면 흐르던 명단이 매번 처음으로 튀어 올라갑니다.
+     내용이 진짜로 바뀐 때만 다시 그리고, 그때만 흐름을 새로 겁니다. */
+  if(h===LAST) return;
+  LAST=h; w.innerHTML=h;
   layout();
 }
+var LAST="";
 
 /* 명단이 화면보다 길면 천천히 흘렀다가 돌아옵니다. 초당 22px.
    자동으로 줄여 버리면 아래쪽 사람들의 이름이 방송에 나오지 않습니다. */

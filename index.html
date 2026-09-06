@@ -9,7 +9,7 @@
 <!-- 카카오톡·유튜브·트위터에 링크를 붙였을 때 미리보기 카드가 뜨도록 합니다. og:image는 배포 후 실제 파일로 교체하세요. -->
 <meta content="website" property="og:type"/>
 <meta content="독도 코리아 스쿨 · 당신의 독도 학력은 몇 학년인가요?" property="og:title"/>
-<meta content="독도를 하루 한 수업씩. 유치원에서 박사까지, 출석할수록 섬에 불이 켜집니다." property="og:description"/>
+<meta content="독도를 하루 한 수업씩. 유치원에서 박사까지, 출석할수록 독도에 불이 켜집니다." property="og:description"/>
 <meta content="독도 코리아 스쿨" property="og:site_name"/>
 <meta content="ko_KR" property="og:locale"/>
 <meta content="https://dokdo-school.vercel.app/" property="og:url"/>
@@ -27,18 +27,27 @@
 <style>
   /* ---------- 글꼴 ----------
      아이들이 읽는 화면이라 명조를 걷어내고 둥근 고딕으로 바꿨습니다.
-     제목·문항·버튼은 지마켓산스, 본문·해설은 에스코어드림입니다.
-     한글 웹폰트는 파일이 커서 두 벌만 씁니다. 강조는 지마켓산스와 색이 맡고,
-     본문 글꼴은 전 굵기를 한 벌로 덮어 합성 볼드가 생기지 않게 했습니다.
+     화면 전체를 지마켓산스 한 벌로 씁니다. 가늘게·중간·굵게 세 굵기를 받아
+     본문은 중간, 제목과 단추는 굵게 씁니다. 굵기를 실제 파일로 받기 때문에
+     브라우저가 억지로 굵게 만드는 합성 볼드가 생기지 않습니다.
      한글에서 합성 볼드는 획이 뭉개져 지저분해집니다.
      내려받기 전에는 기기 기본 글꼴로 먼저 보입니다(font-display:swap). */
+  /* 세 굵기를 각각 받습니다. 한 벌만 받아 전 굵기를 덮으면 본문까지 볼드로 나옵니다.
+     각 줄의 두 번째 주소는 대비책입니다. 앞 파일을 못 받으면 볼드로 대신 그립니다.
+     그래야 한 파일이 사라져도 글꼴이 시스템 고딕으로 튀지 않습니다. */
   @font-face{
-    font-family:"GmarketSans";font-style:normal;font-weight:400 900;font-display:swap;
-    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+    font-family:"GmarketSans";font-style:normal;font-weight:300;font-display:swap;
+    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
   }
   @font-face{
-    font-family:"SCDream";font-style:normal;font-weight:100 900;font-display:swap;
-    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+    font-family:"GmarketSans";font-style:normal;font-weight:500;font-display:swap;
+    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff") format("woff"),
+        url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
+  }
+  @font-face{
+    font-family:"GmarketSans";font-style:normal;font-weight:700 900;font-display:swap;
+    src:url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff") format("woff");
   }
   :root{
     --sea-deep:#060D17;
@@ -65,8 +74,8 @@
     margin:0;
     background:var(--sea-deep);
     color:var(--ink);
-    font-family:"SCDream","Apple SD Gothic Neo",system-ui,sans-serif;
-    font-weight:400;
+    font-family:"GmarketSans","Apple SD Gothic Neo",system-ui,sans-serif;
+    font-weight:500;
     letter-spacing:-.005em;
     -webkit-font-smoothing:antialiased;
     line-height:1.6;
@@ -120,7 +129,7 @@
     border:1px solid var(--line-soft);border-radius:var(--r);
     margin-bottom:14px;
   }
-  .island-card svg{display:block;width:100%;height:auto}
+  .island-card svg,.island-card canvas{display:block;width:100%;height:auto}
   .sound-btn{position:absolute;top:11px;right:11px;z-index:2;
     display:flex;align-items:center;gap:5px;cursor:pointer;
     background:rgba(6,13,23,.62);border:1px solid rgba(255,255,255,.14);
@@ -245,7 +254,7 @@
     background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.09);
     border-left:3px solid var(--light-deep);border-radius:10px;
     padding:13px 15px;margin:2px 0 16px;max-height:46vh;overflow-y:auto;
-    font-family:"SCDream",-apple-system,sans-serif;word-break:keep-all}
+    font-family:"GmarketSans",-apple-system,sans-serif;word-break:keep-all}
   .matbox b{color:var(--light);font-weight:600}
   .qtext em{font-style:normal;color:var(--light);border-bottom:2px dotted var(--light-deep);padding-bottom:1px}
   .opts{display:flex;flex-direction:column;gap:9px}
@@ -392,7 +401,7 @@
   .loc-legend div{flex:1}
   .loc-legend b{display:block;font-family:"IBM Plex Mono",monospace;font-size:17px;color:var(--ink);font-weight:600}
   .loc-legend .near b{color:var(--light)}
-  .mapname{font-family:"IBM Plex Sans KR",sans-serif;font-size:11.5px;fill:var(--ink-dim);letter-spacing:.04em}
+  .mapname{font-family:"GmarketSans",sans-serif;font-size:11.5px;fill:var(--ink-dim);letter-spacing:.04em}
   .mapname.ko{fill:var(--ink-mid);font-size:12px}
   .mapsea{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:13px;fill:#3D6180;letter-spacing:.22em}
 
@@ -473,7 +482,7 @@
   .cool{display:flex;align-items:center;gap:11px;padding:15px;border-radius:12px;
     background:var(--panel);border:1px solid var(--line-soft);margin-top:14px}
   .cool-t{font-family:"IBM Plex Mono",monospace;font-size:23px;color:var(--light);font-weight:600;font-variant-numeric:tabular-nums}
-  .cool small{display:block;font-size:13.5px;color:var(--ink-dim);font-family:"IBM Plex Sans KR",sans-serif}
+  .cool small{display:block;font-size:13.5px;color:var(--ink-dim);font-family:"GmarketSans",sans-serif}
 
 /* ---------- 상단 흐르는 소식 ----------
    오른쪽에서 왼쪽으로 흐릅니다. 손가락을 올리면 멈춥니다.
@@ -651,7 +660,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <section class="hidden" id="s-start">
 <div class="intro" style="padding:34px 0 18px">
 <h1><span class="bi-ko" lang="ko">독도 코리아 스쿨</span><span class="bi-en" lang="en">Dokdo Korea School</span></h1>
-<p><span class="bi-ko" lang="ko">하루 한 수업씩 독도를 배웁니다. 출석할수록 섬에 불이 켜집니다.</span><span class="bi-en" lang="en">One Lesson a Day Light Up the Island</span></p>
+<p><span class="bi-ko" lang="ko">하루 한 수업씩 독도를 배웁니다. 출석할수록 독도에 불이 켜집니다.</span><span class="bi-en" lang="en">One Lesson a Day · Light Up Dokdo</span></p>
 </div>
 <div class="field">
 <label for="realname"><span class="bi-ko" lang="ko">이름 (또는 닉네임)</span><span class="bi-en" lang="en">Your name or nickname</span></label>
@@ -1547,79 +1556,236 @@ function buildSpots(){
 }
 buildSpots();
 
-function island(n){
-  const stars=Array.from({length:52},(_,i)=>{
-    const r=mulberry(7+i*13), x=r()*400, y=r()*96, big=r();
-    const rad=big>.88?1.5:big>.6?1.05:.7;
-    return`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${rad}" style="animation:twinkle ${(1.8+r()*2.6).toFixed(1)}s ease-in-out ${(r()*3).toFixed(1)}s infinite;transform-origin:${x.toFixed(1)}px ${y.toFixed(1)}px"/>`;
-  }).join("");
-  const bands=[178,186,194,202].map(y=>`<line class="seaband" x1="0" y1="${y}" x2="400" y2="${y}"/>`).join("");
-  /* 작은 불빛 10개가 봉화 하나로 합쳐집니다. 10번째를 켜는 순간 화면이 바뀝니다. */
-  /* 문항 하나에 자리 하나를 고정으로 줍니다. id 순서로 배정하므로
-     같은 불빛이 자라기만 할 뿐, 단계가 오를 때 자리를 옮겨 다니지 않습니다. */
-  const SZ=[null].concat(LIT.map(x=>({r:x.r,h:x.h,ho:x.ho})));
-  const ids=litIds();
-  const lamps=ids.map((id,i)=>{
-    const p=SPOTS[i%SPOTS.length], lv=litLv(id), z=SZ[lv]||SZ[1];
-    const x=p.x.toFixed(1), y=p.y.toFixed(1);
-    /* 바깥 발광 → 중간 후광 → 심지. 세 겹이라야 점이 아니라 불로 보입니다. */
-    const halo2=lv>=LIT_MAX
-      ?`<circle class="lamp-halo" cx="${x}" cy="${y}" r="6" opacity=".34"/>`:"";
-    const aura=`<circle class="lamp-aura" cx="${x}" cy="${y}" r="${(z.h*1.25).toFixed(1)}" opacity="${(z.ho*.42).toFixed(2)}"/>`;
-    /* 한꺼번에 켜면 그냥 화면이 바뀐 것처럼 보입니다.
-       아래에서 위로 한 개씩 번지게 해야 '내가 켰다'는 느낌이 남습니다.
-       불빛이 많아져도 전체 3초를 넘지 않도록 간격을 줄입니다. */
-    const gap=Math.min(.09,2.6/Math.max(1,ids.length));
-    return`<g class="lv${lv}" style="animation:lampin .85s cubic-bezier(.2,1.1,.4,1) ${(i*gap).toFixed(2)}s both;transform-origin:${x}px ${y}px">
-       ${aura}<circle class="lamp-halo" cx="${x}" cy="${y}" r="${z.h}" opacity="${z.ho}"/>${halo2}
-       <circle class="lamp" cx="${x}" cy="${y}" r="${z.r}"/>
-       <circle class="lamp-core" cx="${x}" cy="${(+y-z.r*.3).toFixed(1)}" r="${(z.r*.42).toFixed(2)}"/>
-     </g>`;}).join("");
-  /* 물에 비친 불빛. 섬 위 불빛마다 바다 쪽으로 길게 늘어진 그림자를 하나씩 둡니다.
-     이것만 있어도 평면 그림이 물 위에 떠 있는 것처럼 보입니다. */
-  const refl=ids.map((id,i)=>{
-    const p=SPOTS[i%SPOTS.length], lv=litLv(id);
-    if(p.y>168)return"";
-    const x=p.x.toFixed(1), w=(0.9+lv*.45).toFixed(1), h=(7+lv*3.4).toFixed(1);
-    return`<ellipse class="lv${lv} refl" cx="${x}" cy="${(178+lv*1.6).toFixed(1)}" rx="${w}" ry="${h}"/>`;
-  }).join("");
-  return `<svg viewBox="0 0 400 210" role="img" aria-label="독도 위에 ${n}개의 불빛이 켜진 그림">
-    <defs>
-      <!-- 두 섬에 서로 다른 방향의 빛을 줘서 덩어리로 보이게 합니다. -->
-      <linearGradient id="rkL" x1="0" y1="0" x2=".85" y2=".5">
-        <stop offset="0" stop-color="#33506F"/><stop offset=".42" stop-color="#22364B"/>
-        <stop offset="1" stop-color="#0E1926"/></linearGradient>
-      <linearGradient id="rkR" x1="1" y1="0" x2=".1" y2=".6">
-        <stop offset="0" stop-color="#2E4863"/><stop offset=".46" stop-color="#1E3145"/>
-        <stop offset="1" stop-color="#0D1825"/></linearGradient>
-      <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#10293F"/><stop offset=".45" stop-color="#0A1B2B"/>
-        <stop offset="1" stop-color="#050F1A"/></linearGradient>
-      <radialGradient id="glow">
-        <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
-        <stop offset=".45" stop-color="#fff" stop-opacity=".22"/>
-        <stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-      <filter id="blur3" x="-60%" y="-60%" width="220%" height="220%">
-        <feGaussianBlur stdDeviation="2.6"/></filter>
-    </defs>
-    <g class="stars">${stars}</g>
-    <path class="rockface" fill="url(#rkL)" d="M30,172 L44,148 L53,153 L64,120 L73,126 L83,90 L92,97 L101,55 L108,44 L115,63 L123,59 L131,87 L141,105 L149,101 L159,133 L169,148 L179,172 Z"/>
-    <path class="rockedge" d="M101,55 L108,44 L115,63"/>
-    <path class="rockrim" d="M108,44 L115,63 L123,59 L131,87 L141,105"/>
-    <path class="rockface" fill="url(#rkR)" d="M202,172 L214,151 L223,155 L233,129 L243,117 L253,111 L263,101 L277,96 L289,97 L301,105 L309,117 L319,129 L327,149 L337,153 L350,172 Z"/>
-    <path class="rockedge" d="M263,101 L277,96 L289,97"/>
-    <path class="rockrim" d="M277,96 L289,97 L301,105 L309,117 L319,129"/>
-    <rect x="286" y="80" width="3" height="18" fill="#3D5876"/>
-    <circle cx="287.5" cy="78" r="9" fill="url(#glow)" opacity=".55"/>
-    <circle cx="287.5" cy="78" r="2.6" fill="var(--light-soft)"/>
-    ${lamps}
-    <rect x="0" y="172" width="400" height="38" fill="url(#seaG)"/>
-    <g class="refls" filter="url(#blur3)">${refl}</g>
-    ${bands}
-    <!-- 물가 경계에 얇은 빛. 섬과 바다가 붙어 보이지 않게 갈라 줍니다. -->
-    <line x1="0" y1="172" x2="400" y2="172" stroke="#2A4A6B" stroke-width="1" opacity=".55"/>
-  </svg>`;
+/* ---------- 독도 (캔버스) ----------
+   예전에는 SVG 그림 한 장이었습니다. 바다가 멈춰 있어 살아 있는 섬으로 보이지 않았습니다.
+   파도·물고기·고래는 캔버스에서 실시간으로 그립니다. 이미지 파일이 아니라 코드라
+   용량이 늘지 않고, 같은 코드로 정지 화면도 뽑을 수 있습니다.
+
+   불빛은 정상 링부터 바깥으로 번집니다. 무작위로 흩뿌리면 산포도처럼 보입니다.
+   정상에 등대가 있으니 '등대에서 불이 번져 나간다'는 그림이 됩니다.
+
+   움직임을 불편해하는 사람을 위해 prefers-reduced-motion 을 따릅니다.
+   그때는 애니메이션 없이 완성된 한 장만 그립니다. */
+const SEA_W=1000, SEA_H=640;
+/* 실제 지형. 서도는 뾰족한 원뿔(대한봉 168.5m), 동도는 뭉툭하고 정상부가 평탄(우산봉 98.6m). */
+const SEO_OL =[[-132,-58],[-84,-140],[4,-162],[92,-120],[142,-40],[150,52],[102,142],[18,172],[-72,140],[-142,48]];
+const DONG_OL=[[-118,-152],[-28,-182],[62,-150],[112,-72],[86,-14],[142,38],[118,122],[38,176],[-52,158],[-122,82],[-140,-42]];
+/* 카드 아래쪽 3분의 1은 학년 캡션이 덮습니다. 섬을 그 위로 올려 두 봉우리가 다 보이게 합니다. */
+const SEA_S=.90, SEA_OX=SEA_W/2, SEA_OY=230;
+const CP=(a,b)=>[SEA_OX+a*SEA_S, SEA_OY+b*SEA_S];
+const shrinkP=(p,cx,cy,k)=>p.map(([a,b])=>[cx+(a-cx)*k, cy+(b-cy)*k]);
+function ringsOf(ol,dx,dy,px,py,n,shape){
+  const out=[];
+  for(let i=0;i<=n;i++){
+    const t=i/n;
+    out.push({t, pts:shrinkP(ol,px,py,1-shape(t)).map(([a,b])=>[a+dx,b+dy])});
+  }
+  return out;                       /* 0 = 해안선 · 마지막 = 정상 */
 }
+const SEO_R =ringsOf(SEO_OL, -235, 33,   0,-20, 11, t=>Math.pow(t,.72)*.93);
+const DONG_R=ringsOf(DONG_OL, 235,-33, -20, 10,  6, t=>Math.pow(t,1.5)*.52);
+
+/* 불빛 자리 — 정상 링부터 바깥으로. 두 섬을 번갈아 채워 한쪽만 밝아지지 않게 합니다.
+   링마다 크기에 비례해 자리를 둡니다. 개수를 똑같이 두면 좁은 정상 링에 다 몰려
+   불빛이 점 하나로 뭉칩니다. 실제로 서도가 그렇게 보였습니다.
+   너무 작은 안쪽 링 두 개는 건너뜁니다. 거기엔 자리가 없습니다. */
+let SEA_SPOTS=[];
+function buildSeaSpots(){
+  const r=mulberry(20261025);
+  const one=rings=>{
+    const out=[];
+    for(let i=rings.length-1;i>=1;i--){
+      const pts=rings[i].pts;
+      let cx=0,cy=0; pts.forEach(([a,b])=>{cx+=a;cy+=b;});
+      cx/=pts.length; cy/=pts.length;
+      let rad=0; pts.forEach(([a,b])=>{rad+=Math.hypot(a-cx,b-cy);});
+      rad/=pts.length;
+      if(rad<26)continue;                       /* 자리가 안 나오는 좁은 링 */
+      const k=Math.max(2,Math.round(rad/13));
+      for(let j=0;j<k;j++){
+        const f=(j+.5)/k*pts.length, i0=Math.floor(f)%pts.length, i1=(i0+1)%pts.length, u=f-Math.floor(f);
+        const a=pts[i0], b=pts[i1];
+        const wob=.86+r()*.14;                  /* 링 위에 딱 붙지 않게 살짝 안쪽으로 */
+        out.push([cx+((a[0]+(b[0]-a[0])*u)-cx)*wob, cy+((a[1]+(b[1]-a[1])*u)-cy)*wob]);
+      }
+    }
+    return out;
+  };
+  const w=one(SEO_R), e=one(DONG_R);
+  SEA_SPOTS=[];
+  for(let i=0;i<Math.max(w.length,e.length);i++){
+    if(w[i])SEA_SPOTS.push(w[i]);
+    if(e[i])SEA_SPOTS.push(e[i]);
+  }
+}
+buildSeaSpots();
+
+/* 물고기·고래·지느러미 */
+const SEA_R=mulberry(70417);
+const FISH=[];
+for(let i=0;i<24;i++){
+  const dir=SEA_R()<.5?-1:1;                     /* 양방향. 한 방향이면 강물처럼 보입니다 */
+  FISH.push({x:SEA_R()*SEA_W, y:SEA_H*.36+SEA_R()*SEA_H*.34,
+             v:(.5+SEA_R()*.8)*dir, dir, sz:3.4+SEA_R()*3, ph:SEA_R()*6.28});
+}
+let WHALE={x:-360,y:SEA_H*.62,v:.62,on:false,spout:0,next:900};
+let FIN={x:SEA_W+200,y:SEA_H*.17,v:-.45,on:false,next:700};
+
+let seaCv=null, seaX=null, seaRaf=0, seaT0=0, seaLitShown=0;
+const SEA_REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function island(n){
+  return '<canvas id="sea-cv" width="'+SEA_W+'" height="'+SEA_H+'" role="img" '
+    +'aria-label="독도 위에 '+n+'개의 불빛이 켜진 그림"></canvas>';
+}
+
+function seaWave(t,y,amp,len,spd,col,alpha){
+  seaX.beginPath();
+  for(let a=0;a<=SEA_W;a+=8){
+    const b=y+Math.sin(a/len+t*spd)*amp+Math.sin(a/(len*.43)+t*spd*1.7)*amp*.4;
+    a?seaX.lineTo(a,b):seaX.moveTo(a,b);
+  }
+  seaX.globalAlpha=alpha;seaX.strokeStyle=col;seaX.lineWidth=1.6;seaX.stroke();seaX.globalAlpha=1;
+}
+function seaFish(f,t){
+  const x=seaX;
+  x.save();x.translate(f.x,f.y+Math.sin(t*1.4+f.ph)*4);x.scale(f.dir,1);
+  x.rotate(Math.sin(t*3+f.ph)*.12);
+  x.beginPath();x.moveTo(f.sz*2,0);x.quadraticCurveTo(0,-f.sz,-f.sz*1.6,0);
+  x.quadraticCurveTo(0,f.sz,f.sz*2,0);x.closePath();
+  x.fillStyle='rgba(95,227,208,.46)';x.fill();
+  x.beginPath();x.moveTo(-f.sz*1.6,0);x.lineTo(-f.sz*2.6,-f.sz*.8);
+  x.lineTo(-f.sz*2.6,f.sz*.8);x.closePath();x.fillStyle='rgba(95,227,208,.30)';x.fill();
+  x.restore();
+}
+function seaWhale(w,t){
+  const x=seaX;
+  x.save();x.translate(w.x,w.y+Math.sin(t*.7)*6);x.scale(w.v<0?-1:1,1);
+  x.globalAlpha=.26;x.fillStyle='#7FB3D5';
+  x.beginPath();x.moveTo(-150,0);x.bezierCurveTo(-110,-46,60,-52,140,-12);
+  x.bezierCurveTo(160,-4,160,6,140,14);x.bezierCurveTo(60,42,-110,38,-150,0);x.closePath();x.fill();
+  x.beginPath();x.moveTo(-150,0);x.lineTo(-196,-34);x.lineTo(-176,0);x.lineTo(-196,34);x.closePath();x.fill();
+  x.beginPath();x.moveTo(-10,22);x.quadraticCurveTo(-40,58,-64,44);
+  x.quadraticCurveTo(-42,28,-10,22);x.closePath();x.fill();
+  x.restore();
+  if(w.spout>0){
+    x.save();x.globalAlpha=Math.min(.45,w.spout/40);x.fillStyle='#CFEAFF';
+    for(let i=0;i<7;i++){const a=(i/6-.5)*1.1;
+      x.beginPath();x.arc(w.x+60+Math.sin(a)*w.spout*.8, w.y-24-w.spout*1.5+Math.cos(a)*6, 3,0,7);x.fill();}
+    x.restore();
+  }
+}
+function seaFin(f){
+  const x=seaX;
+  x.save();x.globalAlpha=.32;x.fillStyle='#8FA6BC';
+  x.beginPath();x.moveTo(f.x,f.y);x.lineTo(f.x+24,f.y-27);x.lineTo(f.x+31,f.y);x.closePath();x.fill();
+  x.globalAlpha=.15;x.beginPath();x.ellipse(f.x+15,f.y+3,36,4.5,0,0,7);x.fill();
+  x.restore();
+}
+
+/* 불빛 색은 단계표를 그대로 씁니다. 색을 두 군데 적어 두면 반드시 어긋납니다. */
+function seaLamp(i,lv,age){
+  const p=SEA_SPOTS[i%SEA_SPOTS.length]; if(!p)return;
+  const [sx,sy]=CP(p[0],p[1]);
+  const c=LIT[Math.min(lv,LIT_MAX)-1]||LIT[0];
+  const pop=Math.min(1,age*3.2); if(pop<=0)return;
+  const puls=1+Math.sin(seaLitShown*0+i)*0;      /* 자리마다 다른 위상은 아래에서 t 로 */
+  const x=seaX;
+  x.globalAlpha=c.ho*.55*pop;x.fillStyle=c.col;
+  x.beginPath();x.arc(sx,sy,c.h*1.5*pop,0,7);x.fill();
+  x.globalAlpha=c.ho*1.05*pop;
+  x.beginPath();x.arc(sx,sy,c.h*.95*pop,0,7);x.fill();
+  x.globalAlpha=pop;x.fillStyle=c.col;
+  x.beginPath();x.arc(sx,sy,c.r*1.45*pop,0,7);x.fill();
+  x.globalAlpha=.85*pop;x.fillStyle='#FFFFFF';
+  x.beginPath();x.arc(sx,sy-c.r*.3,c.r*.45*pop,0,7);x.fill();
+  x.globalAlpha=1;
+}
+
+function seaFrame(now){
+  seaRaf=0;
+  if(!seaCv||!seaCv.isConnected)return;
+  const t=(now-seaT0)/1000, x=seaX;
+  x.clearRect(0,0,SEA_W,SEA_H);
+
+  /* 바다 결 — 뒤가 느리고 앞이 빠릅니다 */
+  for(let i=0;i<9;i++)
+    seaWave(t, SEA_H*.13+i*SEA_H*.098, 3+i*.9, 150+i*18, .18+i*.035,
+            i<5?'#22527D':'#2E6C9E', .30+i*.045);
+
+  /* 물고기 — 섬 아래쪽 바다에서만, 양방향 */
+  FISH.forEach(f=>{
+    f.x+=f.v;
+    if(f.dir>0&&f.x>SEA_W+50){f.x=-50;f.y=SEA_H*.36+SEA_R()*SEA_H*.34;}
+    if(f.dir<0&&f.x<-50){f.x=SEA_W+50;f.y=SEA_H*.36+SEA_R()*SEA_H*.34;}
+    seaFish(f,t);
+  });
+
+  /* 고래 — 가끔 지나갑니다. 늘 있으면 특별하지 않습니다 */
+  if(!WHALE.on){ if(--WHALE.next<=0){WHALE.on=true;WHALE.x=-360;WHALE.spout=0;} }
+  else{
+    WHALE.x+=WHALE.v;
+    if(WHALE.spout>0)WHALE.spout-=.6;
+    if(WHALE.x>SEA_W*.44&&WHALE.x<SEA_W*.47&&WHALE.spout<=0)WHALE.spout=40;
+    if(WHALE.x>SEA_W+300){WHALE.on=false;WHALE.next=2600+Math.floor(SEA_R()*2600);}
+    seaWhale(WHALE,t);
+  }
+  if(!FIN.on){ if(--FIN.next<=0){FIN.on=true;FIN.x=SEA_W+120;} }
+  else{ FIN.x+=FIN.v; if(FIN.x<-140){FIN.on=false;FIN.next=1800+Math.floor(SEA_R()*1600);} seaFin(FIN); }
+
+  /* 등고선 섬 */
+  [SEO_R,DONG_R].forEach(rings=>{
+    rings.forEach(({pts,t:rt})=>{
+      x.beginPath();
+      pts.forEach(([a,b],i)=>{const[sx,sy]=CP(a,b);i?x.lineTo(sx,sy):x.moveTo(sx,sy);});
+      x.closePath();
+      const s=Math.round(24+rt*46);
+      x.fillStyle='rgb('+s+','+(s+15)+','+(s+25)+')';x.fill();
+      x.strokeStyle='rgba(150,195,235,'+(.13+rt*.30).toFixed(3)+')';x.lineWidth=1.3;x.stroke();
+    });
+  });
+  /* 천장굴 — 동도 동쪽 끝의 컵 모양 함몰지 */
+  (()=>{const[sx,sy]=CP(235+92,-33+32);
+   x.beginPath();x.ellipse(sx,sy,16,14,0,0,7);x.fillStyle='#08182B';x.fill();
+   x.strokeStyle='rgba(150,195,235,.3)';x.lineWidth=1.3;x.stroke();})();
+  /* 두 섬 사이 151m */
+  (()=>{const[ax,ay]=CP(-92,26),[bx,by]=CP(112,4);
+   x.setLineDash([5,6]);x.strokeStyle='rgba(255,201,74,.42)';x.lineWidth=1.3;
+   x.beginPath();x.moveTo(ax,ay);x.lineTo(bx,by);x.stroke();x.setLineDash([]);
+   x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#C9A24A';x.textAlign='center';
+   x.fillText('151m',(ax+bx)/2,(ay+by)/2-9);})();
+  /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있습니다 */
+  (()=>{const[sx,sy]=CP(235-20,-33-152);
+   x.fillStyle='#3D5876';x.fillRect(sx-2,sy,4,20);
+   x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FFE9B8';
+   x.beginPath();x.arc(sx,sy-3,9,0,7);x.fill();x.globalAlpha=1;
+   x.fillStyle='#FFF6DC';x.beginPath();x.arc(sx,sy-3,2.8,0,7);x.fill();})();
+
+  /* 불빛 — 정상부터 하나씩. 한꺼번에 켜면 '내가 켰다'는 느낌이 남지 않습니다 */
+  const ids=litIds(), N=Math.min(ids.length, SEA_MAX_LAMP);
+  if(SEA_REDUCE) seaLitShown=N;
+  else if(seaLitShown<N) seaLitShown=Math.min(N,(t-0.25)*Math.max(9,N/2.4));
+  const shown=Math.max(0,Math.floor(seaLitShown));
+  for(let i=0;i<shown;i++) seaLamp(i, litLv(ids[i]), seaLitShown-i);
+
+  if(!SEA_REDUCE) seaRaf=requestAnimationFrame(seaFrame);
+}
+const SEA_MAX_LAMP=240;   /* 이보다 많이 그리면 낮은 기기에서 끊깁니다. 숫자는 캡션이 말해 줍니다 */
+
+function seaStart(){
+  seaCv=document.getElementById('sea-cv');
+  if(!seaCv)return;
+  seaX=seaCv.getContext('2d');
+  seaT0=performance.now(); seaLitShown=0;
+  if(seaRaf)cancelAnimationFrame(seaRaf);
+  seaRaf=requestAnimationFrame(seaFrame);
+}
+function seaStop(){ if(seaRaf){cancelAnimationFrame(seaRaf);seaRaf=0;} }
+/* 화면을 덮어 두거나 다른 화면에 있으면 그리지 않습니다. 배터리를 씁니다. */
+document.addEventListener('visibilitychange',()=>{
+  if(document.hidden)seaStop();
+  else if(seaCv&&seaCv.isConnected&&!seaRaf)seaRaf=requestAnimationFrame(seaFrame);
+});
 
 /* ---------- 화면 ---------- */
 const $=s=>document.querySelector(s);
@@ -1660,6 +1826,7 @@ function applyQuestions(list){
 /* 수업 도중에 문항이 바뀌면 남은 점수가 흔들리므로, 수업이 끝난 뒤에 적용합니다. */
 let PENDING=null;
 function show(id){
+  if(id!=="s-home")seaStop();   /* 안 보이는 화면에서 그리면 배터리만 씁니다 */
   if(id!=="s-lesson"&&PENDING){applyQuestions(PENDING.list);QVER=PENDING.ver;PENDING=null;setDataStatus("external","대기 중 갱신 적용");}
   SCREENS.forEach(s=>$("#"+s).classList.toggle("hidden",s!==id));window.scrollTo(0,0);
 }
@@ -1780,6 +1947,7 @@ function renderHome(){
   $("#st-streak").innerHTML=`🔥 개근 <b>${S.streak}</b>일`;
   $("#st-xp").innerHTML=`Lv.<b>${lb.lv}</b> <span style="opacity:.6">${S.xp}점</span>`;
   $("#island-holder").innerHTML=island(lights);
+  seaStart();
   /* 색이 무엇을 뜻하는지 알려주지 않으면 그냥 예쁜 점으로만 보입니다. */
   const tally=[0,0,0,0,0]; litIds().forEach(id=>tally[litLv(id)]++);
   const LC=[""].concat(LIT.map(x=>x.col));
@@ -1994,7 +2162,7 @@ function answer(pick){
   const justLit=ok&&!wasLit&&isLit(item.id);
   const grew=ok&&wasLit&&nowLv>wasLv;
   const litNote=justLit
-    ?`<div class="lit-note">섬에 <b>${LIT_NAME[1]}</b>이 하나 켜졌습니다 · 지금 <b>${lightCount()}</b>개</div>`
+    ?`<div class="lit-note">독도에 <b>${LIT_NAME[1]}</b>이 하나 켜졌습니다 · 지금 <b>${lightCount()}</b>개</div>`
     :grew
     ?`<div class="lit-note">불빛이 <b>${LIT_NAME[nowLv]}</b>로 자랐습니다${nowLv>=LIT_MAX?" · 봉화가 하나 올랐습니다":` · 다음 복습에서 ${LIT_NAME[nowLv+1]}가 됩니다`}</div>`:"";
   const wrongNote=(!ok&&item.wrong&&q.type==="mc")?(()=>{
@@ -2086,7 +2254,7 @@ function finish(){
       <div class="lv-bar"><i id="lv-fill" style="width:${before}%"></i>
         ${t.grad?"":`<u style="left:${goalPct}%"></u>`}</div>
       <div class="lv-foot">
-        ${t.grad?'<span>익힌 항목이 곧 섬의 불빛입니다.</span>'
+        ${t.grad?'<span>익힌 항목이 곧 독도의 불빛입니다.</span>'
           :t.job?(t.open?'<span class="lv-open">임용 조건을 채웠습니다.</span>'
             :`<b class="lv-need">${t.need}</b><span>점${t.needStreak?` · 개근 ${t.needStreak}일`:""} 더 채우면 승진합니다</span>`)
           :t.open?'<span class="lv-open">진급 시험이 열렸습니다. 지금 응시할 수 있습니다.</span>'
@@ -2545,7 +2713,7 @@ function drawIdentity(x,W,y){
 
   /* 소속이 없으면 나라만 적습니다. 가운뎃점만 덩그러니 남지 않게 합니다. */
   const sub=school?`${school} · ${nation}`:nation;
-  x.font='500 27px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif';
+  x.font='500 27px "GmarketSans","Apple SD Gothic Neo",sans-serif';
   const tw=x.measureText(sub).width;
   const fw=46, hasFlag=!!FLAG_ART[code];
   let cw=fw, cy=y+44;
@@ -2560,7 +2728,7 @@ function drawIdentity(x,W,y){
     x.font='600 21px "IBM Plex Mono",monospace';
     x.fillStyle="#FFD57E";x.fillText(code,left+cw/2,cy);
   }
-  x.font='500 27px "IBM Plex Sans KR","Apple SD Gothic Neo",sans-serif';
+  x.font='500 27px "GmarketSans","Apple SD Gothic Neo",sans-serif';
   x.fillStyle="#A9BCD0";x.textAlign="left";x.fillText(sub,left+cw+13,cy);
   x.textAlign="center";
 }
@@ -2788,7 +2956,7 @@ function renderPlaceQ(){
   $("#q-opts").querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{
     const pick=+b.dataset.i, ok=pick===q.ans;
     if(ok)L.ok++;
-    /* 배치고사에서 맞힌 문항도 섬에 불을 켭니다.
+    /* 배치고사에서 맞힌 문항도 독도에 불을 켭니다.
        다만 진급 점수(earned)는 주지 않습니다. 시험 한 번으로 학년을 벌면 수업이 무의미해집니다. */
     if(ok){const r=rec(item.id);
       r.seen++; r.att=(r.att||0)+1; r.cor=(r.cor||0)+1;
@@ -2839,7 +3007,7 @@ function endPlacement(){
     <div class="promo">
       <div class="eyebrow">배치고사 결과</div>
       <div class="big">${gradeName(S.grade)}</div>
-      <div style="font-size:13.5px;color:var(--ink-mid)">${L.items.length}문항 중 ${L.ok}문항 정답${L.ok?` · 섬에 불빛 ${L.ok}개가 켜졌습니다`:""}</div>
+      <div style="font-size:13.5px;color:var(--ink-mid)">${L.items.length}문항 중 ${L.ok}문항 정답${L.ok?` · 독도에 불빛 ${L.ok}개가 켜졌습니다`:""}</div>
     </div>
     <p class="note" style="text-align:center">${gradeName(S.grade)}부터 시작합니다. 아래 학년은 이미 수료 처리했습니다.</p>
     <div class="btnrow">
@@ -3043,7 +3211,7 @@ document.addEventListener("visibilitychange",()=>{ if(!document.hidden)loadFeed(
   const move=()=>{
     tick=false;
     const g=document.querySelector("#island-holder .stars");
-    if(!g)return;
+    if(!g)return;                      /* 캔버스판에는 별 그룹이 없습니다. 그냥 넘어갑니다 */
     const y=Math.min(160,window.scrollY);
     g.setAttribute("transform","translate(0 "+(y*.06).toFixed(2)+")");
   };
