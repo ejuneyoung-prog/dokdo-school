@@ -1121,7 +1121,7 @@ function tickerLinesKO(){
   else if(totalCorrect()>=3)
     out.push(`🏅 <b>${escHtml(me)}</b>님이 지금까지 <b>${totalCorrect()}문제</b>를 맞히셨습니다`);
   const n=FEED&&typeof FEED.today==="number"?FEED.today:myDayCount();
-  if(n>0)out.push(`📚 오늘 독도 코리아 스쿨 키즈가 총 <b>${n}문제</b>를 풀었습니다`);
+  if(n>0)out.push(`📚 오늘 독도 코리아 스쿨에서 총 <b>${n}문제</b>가 풀렸습니다`);
   if(FEED&&typeof FEED.people==="number"&&FEED.people>1)
     out.push(`👥 오늘 <b>${FEED.people}명</b>이 함께 공부하고 있습니다`);
   if(!out.length)out.push("🇰🇷 오늘도 독도를 한 문제씩 알아 갑니다");
@@ -1571,7 +1571,7 @@ const SEA_W=1000, SEA_H=640;
 const SEO_OL =[[-132,-58],[-84,-140],[4,-162],[92,-120],[142,-40],[150,52],[102,142],[18,172],[-72,140],[-142,48]];
 const DONG_OL=[[-118,-152],[-28,-182],[62,-150],[112,-72],[86,-14],[142,38],[118,122],[38,176],[-52,158],[-122,82],[-140,-42]];
 /* 카드 아래쪽 3분의 1은 학년 캡션이 덮습니다. 섬을 그 위로 올려 두 봉우리가 다 보이게 합니다. */
-const SEA_S=.90, SEA_OX=SEA_W/2, SEA_OY=230;
+const SEA_S=.88, SEA_OX=SEA_W/2, SEA_OY=212;
 const CP=(a,b)=>[SEA_OX+a*SEA_S, SEA_OY+b*SEA_S];
 const shrinkP=(p,cx,cy,k)=>p.map(([a,b])=>[cx+(a-cx)*k, cy+(b-cy)*k]);
 function ringsOf(ol,dx,dy,px,py,n,shape){
@@ -1702,6 +1702,37 @@ function seaLamp(i,lv,age){
   x.globalAlpha=1;
 }
 
+/* 섬 이름표 — 굵은 이름 아래에 봉우리와 높이. 실제 지형 정보라 아이가 그대로 배웁니다. */
+function seaLabel(cx,cy,name,peak){
+  const x=seaX;
+  x.textAlign='center';
+  x.shadowColor='rgba(0,0,0,.85)'; x.shadowBlur=10;
+  x.font='700 27px GmarketSans,sans-serif'; x.fillStyle='#DCE9F7';
+  x.fillText(name,cx,cy);
+  x.font='500 19px GmarketSans,sans-serif'; x.fillStyle='#8FA6BC';
+  x.fillText(peak,cx,cy+25);
+  x.shadowBlur=0; x.textAlign='left';
+}
+/* 나침반 — 왼쪽 위 구석. 두 섬이 왜 동도·서도인지 한눈에 알게 합니다. */
+function seaCompass(cx,cy){
+  const x=seaX, r=26;
+  x.save(); x.globalAlpha=.55;
+  x.strokeStyle='#7B9AB8'; x.lineWidth=1.4;
+  x.beginPath(); x.arc(cx,cy,r,0,7); x.stroke();
+  x.beginPath(); x.moveTo(cx,cy-r+3); x.lineTo(cx,cy+r-3);
+  x.moveTo(cx-r+3,cy); x.lineTo(cx+r-3,cy); x.stroke();
+  /* 북쪽 바늘만 색을 줍니다 */
+  x.globalAlpha=.95; x.fillStyle='#F7B733';
+  x.beginPath(); x.moveTo(cx,cy-r-4); x.lineTo(cx-6,cy-r+11); x.lineTo(cx+6,cy-r+11);
+  x.closePath(); x.fill();
+  x.globalAlpha=.7; x.fillStyle='#A8BED6';
+  x.font='700 15px GmarketSans,sans-serif'; x.textAlign='center';
+  x.fillText('북',cx,cy-r-12);
+  x.font='600 13px GmarketSans,sans-serif';
+  x.fillText('남',cx,cy+r+18); x.fillText('서',cx-r-13,cy+5); x.fillText('동',cx+r+13,cy+5);
+  x.textAlign='left'; x.restore();
+}
+
 function seaFrame(now){
   seaRaf=0;
   if(!seaCv||!seaCv.isConnected)return;
@@ -1755,11 +1786,18 @@ function seaFrame(now){
    x.font='600 15px GmarketSans,sans-serif';x.fillStyle='#C9A24A';x.textAlign='center';
    x.fillText('151m',(ax+bx)/2,(ay+by)/2-9);})();
   /* 동도 등대 — 불빛이 하나도 없어도 섬은 살아 있습니다 */
-  (()=>{const[sx,sy]=CP(235-20,-33-152);
+  (()=>{const[sx,sy]=CP(215,-185);
    x.fillStyle='#3D5876';x.fillRect(sx-2,sy,4,20);
    x.globalAlpha=.5+Math.sin(t*1.6)*.16;x.fillStyle='#FFE9B8';
    x.beginPath();x.arc(sx,sy-3,9,0,7);x.fill();x.globalAlpha=1;
    x.fillStyle='#FFF6DC';x.beginPath();x.arc(sx,sy-3,2.8,0,7);x.fill();})();
+
+  /* 섬 이름과 봉우리 높이 — 지도처럼 읽히게 각 섬 옆에 답니다.
+     서도가 왼쪽(서쪽), 동도가 오른쪽(동쪽)입니다. 나침반과 방향이 맞습니다. */
+  /* 서도는 섬이 아래까지 내려와 캡션과 겹칩니다. 위쪽 빈 바다에 답니다. */
+  seaLabel(CP(-235,0)[0], 52,                   '서도', '대한봉 168.5m');
+  seaLabel(CP(215,0)[0],  CP(0,176)[1]+4,       '동도', '우산봉 98.6m');
+  seaCompass(74, 78);
 
   /* 불빛 — 정상부터 하나씩. 한꺼번에 켜면 '내가 켰다'는 느낌이 남지 않습니다 */
   const ids=litIds(), N=Math.min(ids.length, SEA_MAX_LAMP);
