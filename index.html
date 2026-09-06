@@ -174,7 +174,8 @@
     background:linear-gradient(180deg,rgba(6,13,23,0) 0%,rgba(6,13,23,.9) 62%);
   }
   .cap-grade{font-family:"GmarketSans","Apple SD Gothic Neo",sans-serif;font-size:23px;font-weight:700;line-height:1.18;letter-spacing:-.02em}
-  .cap-sub{font-size:15px;color:var(--ink-mid);margin-top:2px}
+  .cap-sub{font-size:17px;color:var(--ink-mid);margin-top:3px}
+  .cap-sub b{color:var(--ink);font-weight:700;font-size:1.15em}
   .cap-right{margin-left:auto;text-align:right;font-size:13.5px;color:var(--ink-dim)}
   .cap-right b{display:block;font-family:"IBM Plex Mono",monospace;font-size:19px;color:var(--light);font-weight:600}
 
@@ -604,7 +605,21 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 #school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn[hidden]{display:none}
-.lang-foot{display:flex;align-items:center;justify-content:center;gap:10px;
+.gc{margin-top:14px;padding:14px 15px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+    .gc-row{display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
+    .gc-t{font-weight:700;color:var(--ink)}
+    .gc-n{font-family:"IBM Plex Mono",monospace;color:var(--light)}
+    .gc-bar{height:10px;border-radius:99px;background:var(--panel-2);overflow:hidden;margin:9px 0 11px}
+    .gc-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--light-deep),var(--light));transition:width .5s}
+    .gc button{width:100%}
+    .gc button:disabled{opacity:.45}
+    .gc-note{font-size:13px;color:var(--ink-dim);line-height:1.65;margin:9px 0 0}
+    .linkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:10px}
+    .linkgrid a{display:block;text-align:center;padding:11px 6px;border-radius:10px;
+      border:1px solid var(--line);background:var(--panel);color:var(--ink-mid);
+      text-decoration:none;font-size:13.5px}
+    .linkgrid a:hover{border-color:var(--light-deep);color:var(--ink)}
+    .lang-foot{display:flex;align-items:center;justify-content:center;gap:10px;
       padding:22px 0 calc(18px + env(safe-area-inset-bottom));font-size:13.5px}
     .lang-foot .lang-link{color:var(--ink-dim);text-decoration:none;padding:6px 10px;border-radius:8px}
     .lang-foot .lang-link.on{color:var(--light);font-weight:600}
@@ -779,15 +794,24 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <div class="g-row"><span class="g-chip"><span class="bi-ko" lang="ko">준비 중</span><span class="bi-en" lang="en">Coming soon</span></span>
 <span class="note" style="margin:0"><span class="bi-ko" lang="ko">티셔츠·스티커·배지를 준비하고 있습니다.</span><span class="bi-en" lang="en">Shirts, stickers and badges are planned.</span></span></div>
 </div>
+<div class="gc" id="gc-box">
+<div class="gc-row">
+<span class="gc-t"><span class="bi-ko" lang="ko">강치를 부른다</span><span class="bi-en" lang="en">Call the sea lions</span></span>
+<span class="gc-n" id="gc-n">0 / 10</span>
+</div>
+<div class="gc-bar"><i id="gc-fill"></i></div>
+<button class="btn ghost" id="gc-go" type="button" disabled><span class="bi-ko" lang="ko">강치를 부른다</span><span class="bi-en" lang="en">Call</span></button>
+<p class="gc-note"><span class="bi-ko" lang="ko">10문제를 맞히면 부를 수 있습니다. 학년 수만큼 나타납니다. 1904년부터의 남획으로 사라진 동물입니다.</span><span class="bi-en" lang="en">Master 10 to call. Hunted to disappearance from 1904.</span></p>
+</div>
 <p class="note" id="home-note"></p>
 
 <!-- 채널 소개. 학습이 끝나는 자리에 노래 한 편을 둡니다.
      앱이 채널을 키우고 채널이 앱을 키우는 자리입니다. -->
 <div class="ladder" style="margin-top:22px">
-<div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아의 다른 노래</span><span class="bi-en" lang="en">More from Dokdo Korea</span></div>
+<div class="eyebrow"><span class="bi-ko" lang="ko">독도 실시간</span><span class="bi-en" lang="en">Dokdo Live</span></div>
 <div id="ch-slot" style="margin-top:10px"></div>
 <div class="btnrow" style="margin-top:10px">
-<a class="btn ghost" href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">채널에서 더 듣기</span><span class="bi-en" lang="en">More on YouTube</span></a>
+<a class="btn ghost" href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">실시간 독도 보러 가기</span><span class="bi-en" lang="en">Watch Dokdo Live</span></a>
 </div>
 </div>
 
@@ -812,7 +836,28 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </section>
 <!-- ============ 결과 ============ -->
 <section class="hidden" id="s-result"></section>
-<details class="data-status" id="data-status"><summary>문항 연결 상태 / Question-file status</summary><p id="data-status-text">앱 시작 중 / Starting app</p><p>표준 파일명: index.html · index-en.html · questions.json · questions-en.json</p></details><nav aria-label="학습 언어 / Learning language" class="lang-foot">
+<details class="data-status" id="data-status"><summary>문항 연결 상태 / Question-file status</summary><p id="data-status-text">앱 시작 중 / Starting app</p><p>표준 파일명: index.html · index-en.html · questions.json · questions-en.json</p></details><div class="ladder" style="margin-top:22px">
+<div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아</span><span class="bi-en" lang="en">Dokdo Korea</span></div>
+<div class="linkgrid">
+<a href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank">YouTube</a>
+<a href="https://www.youtube.com/@독도코리아레이블" rel="noopener" target="_blank">레이블</a>
+<a href="https://open.spotify.com/artist/58jsU8YkpGVCjkbCsHv6UE" rel="noopener" target="_blank">Spotify</a>
+<a href="https://music.youtube.com/channel/UC6qbOiEP_Ogs9Bpi1YkN3mQ" rel="noopener" target="_blank">YT Music</a>
+<a href="https://www.melon.com/artist/timeline.htm?artistId=4719975" rel="noopener" target="_blank">멜론</a>
+<a href="https://www.genie.co.kr/detail/artistInfo?xxnm=83161895" rel="noopener" target="_blank">지니</a>
+<a href="https://www.music-flo.com/detail/artist/413058843/track" rel="noopener" target="_blank">FLO</a>
+<a href="https://music.apple.com/kr/artist/1864252544" rel="noopener" target="_blank">Apple</a>
+<a href="https://instagram.com/dokdokorea_815" rel="noopener" target="_blank">Instagram</a>
+<a href="https://www.tiktok.com/@dokdo.korea" rel="noopener" target="_blank">TikTok</a>
+<a href="https://open.kakao.com/o/pFAjzXXh" rel="noopener" target="_blank">오픈채팅</a>
+<a href="https://linktr.ee/DokdoKorea" rel="noopener" target="_blank">전체 링크</a>
+</div>
+<div class="btnrow" style="margin-top:10px">
+<a class="btn ghost" href="https://www.youtube.com/@독도코리아/join" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">채널 응원하기</span><span class="bi-en" lang="en">Support the channel</span></a>
+</div>
+</div>
+
+<nav aria-label="학습 언어 / Learning language" class="lang-foot">
 <a aria-current="page" class="lang-link on" data-lang="ko" href="./index.html" lang="ko">한국어</a>
 <span class="lang-sep">·</span>
 <a class="lang-link" data-lang="en" href="./index-en.html" lang="en">English</a>
@@ -1071,7 +1116,7 @@ function bgmBtn(on){
   b.title=on?cur.t+' · 눌러서 끄기':'BGM 켜기';
   b.setAttribute('aria-pressed',String(!!on));b.classList.toggle('on',!!on);
 }
-function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[],code:"",schoolCode:"",schoolCat:""};}
+function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[],code:"",schoolCode:"",schoolCat:"",gcHit:0};}
 const who=()=>S.name||S.nick||"이름 없음";
 
 /* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
@@ -1584,11 +1629,23 @@ let SPOT_N=0, SPOTS=[];
 function buildSpots(){
   SPOT_N=Math.max(100,DATA.questions.length);
   const r=mulberry(20261025); SPOTS=[];
-  for(let i=0;i<SPOT_N;i++){
-    const west=i%2===0, u=r(), v=r();
-    if(west){const y=58+u*104, hw=(y-44)/126*68; SPOTS.push({x:107+(v*2-1)*hw*.82,y});}
-    else{const y=106+u*58, hw=20+(y-98)/72*46; SPOTS.push({x:280+(v*2-1)*hw*.82,y});}
-  }
+  /* 섬마다 자리를 따로 만든 뒤 정상에 가까운 순으로 줄을 세웁니다.
+     동도가 다 차야 서도로 넘어갑니다. 두 섬이 동시에 얼룩덜룩해지면
+     어디까지 밝혔는지 눈으로 셀 수 없습니다.
+     가장자리는 물과 닿아 불이 물 위에 뜬 것처럼 보이므로 안쪽 70%만 씁니다. */
+  const make=(cx,yTop,yBot,hw0,hw1,n)=>{
+    const out=[];
+    for(let i=0;i<n;i++){
+      const u=r(), v=r(), y=yTop+u*(yBot-yTop);
+      const hw=hw0+(y-yTop)/(yBot-yTop)*(hw1-hw0);
+      out.push({x:cx+(v*2-1)*hw*.70, y, d:y-yTop});
+    }
+    out.sort((a,b)=>a.d-b.d);
+    return out;
+  };
+  const east=make(280,106,164,20,66,Math.ceil(SPOT_N*.42));
+  const west=make(107, 58,162, 6,68,SPOT_N-east.length);
+  SPOTS=east.concat(west);
 }
 buildSpots();
 
@@ -1659,12 +1716,37 @@ buildSeaSpots();
 /* 물고기·고래·지느러미 */
 const SEA_R=mulberry(70417);
 const FISH=[];
-for(let i=0;i<24;i++){
-  const dir=SEA_R()<.5?-1:1;                     /* 양방향. 한 방향이면 강물처럼 보입니다 */
-  FISH.push({x:SEA_R()*SEA_W, y:SEA_H*.36+SEA_R()*SEA_H*.34,
-             v:(.5+SEA_R()*.8)*dir, dir, sz:3.4+SEA_R()*3, ph:SEA_R()*6.28});
-}
+/* 독도 주변은 난류와 한류가 만나는 조경수역입니다.
+   위쪽 물길은 왼쪽으로, 아래쪽은 오른쪽으로 흐르게 해 두 물이 만나는 모습을 만듭니다.
+   어종마다 속도와 크기가 달라야 바다가 살아 있어 보입니다. */
+const KIND=[{v:1.55,sz:7.0,w:3},{v:0.85,sz:4.2,w:7},
+            {v:0.55,sz:3.0,w:12},{v:0.30,sz:3.6,w:2,floor:true}];
+KIND.forEach(k=>{ for(let i=0;i<k.w;i++){
+  const top=!k.floor && SEA_R()<.5;
+  const dir=top?-1:1;
+  const y=k.floor ? SEA_H*.80+SEA_R()*SEA_H*.14
+        : top     ? SEA_H*.16+SEA_R()*SEA_H*.16
+                  : SEA_H*.60+SEA_R()*SEA_H*.20;
+  FISH.push({x:SEA_R()*SEA_W, y, v:k.v*(.82+SEA_R()*.36)*dir, dir,
+             sz:k.sz*(.85+SEA_R()*.3), ph:SEA_R()*6.28, top, floor:!!k.floor});
+}});
 let WHALE={x:-360,y:SEA_H*.62,v:.62,on:false,spout:0,next:900};
+/* 섬을 감싸는 타원 두 개. 물고기가 피해 갈 영역입니다. */
+const ISLE_BLOCK=[{x:SEA_W*.27,y:SEA_H*.46,rx:SEA_W*.17,ry:SEA_H*.30},
+                  {x:SEA_W*.70,y:SEA_H*.44,rx:SEA_W*.15,ry:SEA_H*.26}];
+/* 강치는 1904년부터의 남획으로 사라졌습니다. 살아 있는 물고기와 달리
+   빛나는 반투명 실루엣으로 그리고, 한 바퀴 돌고 흐려집니다. */
+let GANGCHI=[];
+const GANGCHI_NEED=10;
+function callGangchi(){
+  const n=Math.max(1,idx(S.grade)+1);
+  GANGCHI=[];
+  for(let i=0;i<n;i++){
+    GANGCHI.push({t:-i*0.5, y:SEA_H*(.34+ (i%5)*.10), sz:9+(i%3)*2.5});
+  }
+  S.gcHit=0; save();
+  toast("강치 "+n+"마리가 지나갑니다 · 1904년부터의 남획으로 사라졌습니다");
+}
 let FIN={x:SEA_W+200,y:SEA_H*.17,v:-.45,on:false,next:700};
 
 let seaCv=null, seaX=null, seaRaf=0, seaT0=0, seaLitShown=0;
@@ -1783,10 +1865,52 @@ function seaFrame(now){
   /* 물고기 — 섬 아래쪽 바다에서만, 양방향 */
   FISH.forEach(f=>{
     f.x+=f.v;
-    if(f.dir>0&&f.x>SEA_W+50){f.x=-50;f.y=SEA_H*.36+SEA_R()*SEA_H*.34;}
-    if(f.dir<0&&f.x<-50){f.x=SEA_W+50;f.y=SEA_H*.36+SEA_R()*SEA_H*.34;}
+    /* 독도를 통과하지 않게 합니다. 섬 두 개를 타원으로 잡아 두고
+       그 안에 들어오면 위아래로 비켜 갑니다. 물고기가 바위를 뚫고 지나가면
+       섬이 그림이 아니라 배경 무늬로 보입니다. */
+    for(const o of ISLE_BLOCK){
+      const dx=(f.x-o.x)/o.rx, dy=(f.y-o.y)/o.ry, d2=dx*dx+dy*dy;
+      if(d2<1){
+        const k=(1-Math.sqrt(d2))*o.ry*0.18;
+        f.y += (f.y<o.y ? -k : k);
+        f.y = Math.max(SEA_H*.10, Math.min(SEA_H*.94, f.y));
+      }
+    }
+    const back=f.floor ? SEA_H*.80+SEA_R()*SEA_H*.14
+             : f.top   ? SEA_H*.16+SEA_R()*SEA_H*.16
+                       : SEA_H*.60+SEA_R()*SEA_H*.20;
+    if(f.dir>0&&f.x>SEA_W+50){f.x=-50;f.y=back;}
+    if(f.dir<0&&f.x<-50){f.x=SEA_W+50;f.y=back;}
     seaFish(f,t);
   });
+
+  /* 강치 — 부른 뒤 잠깐 나타났다 흐려집니다 */
+  if(GANGCHI.length){
+    let alive=false;
+    for(const g of GANGCHI){
+      g.t+=0.006;
+      if(g.t<0||g.t>1)  { if(g.t<=1) alive=true; continue; }
+      alive=true;
+      const x=-70+g.t*(SEA_W+140);
+      const fade=Math.sin(Math.PI*g.t);
+      c.save(); c.globalAlpha=.55*fade;
+      c.translate(x, g.y+Math.sin(g.t*9)*7);
+      c.fillStyle="#FCD34D";
+      c.beginPath();
+      c.moveTo(-g.sz*2.2,0);
+      c.bezierCurveTo(-g.sz*1.2,-g.sz*1.1, g.sz*1.1,-g.sz*.95, g.sz*2.3,-g.sz*.15);
+      c.bezierCurveTo(g.sz*2.7,0, g.sz*2.7,g.sz*.1, g.sz*2.3,g.sz*.3);
+      c.bezierCurveTo(g.sz*1.1,g.sz*1.15, -g.sz*1.2,g.sz*1.05, -g.sz*2.2,0);
+      c.closePath(); c.fill();
+      c.beginPath();                                   /* 앞지느러미 */
+      c.moveTo(-g.sz*.2,g.sz*.6); c.quadraticCurveTo(-g.sz*1.5,g.sz*1.8,-g.sz*2.2,g.sz*1.2);
+      c.quadraticCurveTo(-g.sz*1.3,g.sz*.7,-g.sz*.2,g.sz*.6); c.closePath(); c.fill();
+      c.globalAlpha=.22*fade;                          /* 번짐 */
+      c.beginPath(); c.arc(0,0,g.sz*3.1,0,7); c.fill();
+      c.restore();
+    }
+    if(!alive) GANGCHI=[];
+  }
 
   /* 고래 — 가끔 지나갑니다. 늘 있으면 특별하지 않습니다 */
   if(!WHALE.on){ if(--WHALE.next<=0){WHALE.on=true;WHALE.x=-360;WHALE.spout=0;} }
@@ -1869,13 +1993,14 @@ function pickAnotherSong(){
   const t=songOfToday(), rest=SONGS.filter(v=>v!==t&&INTRO_IDS.indexOf(v)<0);
   return rest[(dayIndex()*7+3)%rest.length];
 }
+/* 채널 핸들 뒤에 /live 를 붙이면 지금 방송 중인 영상으로 자동 연결됩니다.
+   방송이 바뀔 때마다 주소를 고치지 않아도 됩니다. */
+const LIVE_EMBED="https://www.youtube.com/embed/live_stream?channel=UC6qbOiEP_Ogs9Bpi1YkN3mQ&autoplay=0&rel=0";
 function renderChannel(){
   const box=document.getElementById("ch-slot"); if(!box)return;
-  const v=pickAnotherSong();
-  box.innerHTML='<div class="videobox"><iframe '
-    +'src="https://www.youtube-nocookie.com/embed/'+v+'?rel=0&modestbranding=1" '
+  box.innerHTML='<div class="videobox"><iframe src="'+LIVE_EMBED+'" '
     +'allow="encrypted-media; picture-in-picture" allowfullscreen '
-    +'title="독도 코리아 노래" loading="lazy"></iframe></div>';
+    +'title="독도 실시간 라이브" loading="lazy"></iframe></div>';
 }
 
 /* ---------- 화면 ---------- */
@@ -2059,7 +2184,9 @@ function updateBilingualHome(){
 
   $('#st-xp').innerHTML='Lv.<b>'+levelBar(S.xp).lv+'</b> <span>'+S.xp+' XP</span>';
   $('#prog-num').textContent=t.grad?'—':t.got+' / '+t.total+' mastered';
-  $('#cap-sub').textContent=flagOf(S.flag)+' '+who()+' · '+S.flag;
+  /* KR 같은 코드보다 소속이 자랑거리입니다. 소속이 없을 때만 나라 이름을 씁니다. */
+    $('#cap-sub').innerHTML=flagOf(S.flag)+' <b>'+escHtml(who())+'</b>'
+      +(S.school?' · '+escHtml(S.school):' · '+escHtml(COUNTRY_KO[S.flag]||S.flag));
   $('#cap-sub').title=(COUNTRY_KO[S.flag]||S.flag)+' / '+(COUNTRY_EN[S.flag]||S.flag);
   const litTally=[0,0,0,0,0];litIds().forEach(id=>litTally[litLv(id)]++);
   const litPairs=LIT.map(x=>[x.ko,x.en]);
@@ -2082,8 +2209,18 @@ function refreshDataStatus(){
 }
 function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error};refreshDataStatus();}
 
+function renderGangchi(){
+  const hit=Math.min(GANGCHI_NEED,S.gcHit||0);
+  const n=document.getElementById("gc-n"), f=document.getElementById("gc-fill"), b=document.getElementById("gc-go");
+  if(n)n.textContent=hit+" / "+GANGCHI_NEED;
+  if(f)f.style.width=(hit/GANGCHI_NEED*100)+"%";
+  if(b){b.disabled=hit<GANGCHI_NEED;
+    if(!b.dataset.on){b.dataset.on="1";
+      b.addEventListener("click",()=>{callGangchi();renderGangchi();});}}
+}
 function renderHome(){
   renderChannel();
+  renderGangchi();
   const lights=lightCount(), due=dueList().length, bc=beacons(lights), lb=levelBar(S.xp);
   $("#st-streak").innerHTML=`🔥 개근 <b>${S.streak}</b>일`;
   $("#st-xp").innerHTML=`Lv.<b>${lb.lv}</b> <span style="opacity:.6">${S.xp}점</span>`;
@@ -2280,6 +2417,8 @@ function answer(pick){
   r.seen++; r.att=(r.att||0)+1; if(ok)r.cor=(r.cor||0)+1;
   if(ok){L.ok++;L.xp+=gained;S.xp+=gained;
     r.earned=Math.max(r.earned||0,pt);   // 진급 점수는 한 번만 · 힌트를 쓰면 절반만 쌓입니다
+    /* 맞힐 때마다 강치 게이지가 찹니다. 열 개면 부를 수 있습니다. */
+    S.gcHit=Math.min(GANGCHI_NEED,(S.gcHit||0)+1);
     r.lv=Math.min(r.lv+1,INTERVALS.length-1);}
   else{r.lv=0;L.wrong.push(item);}
   const d=new Date();d.setDate(d.getDate()+INTERVALS[Math.min(r.lv,INTERVALS.length-1)]);
@@ -2527,11 +2666,13 @@ function toggleSheet(){
       <button class="sheet-i" id="sh-card"><i>📸</i><span>결과 이미지 저장<small>사진첩에 저장하거나 바로 공유합니다</small></span></button>
       <button class="sheet-i" id="sh-kko"><i>💬</i><span>카카오톡으로 보내기<small>${KAKAO_OK?"대화방을 직접 엽니다":"이 환경에서는 글 복사로 대신합니다"}</small></span></button>
       ${CAN_SHARE?`<button class="sheet-i" id="sh-kakao"><i>📤</i><span>다른 앱으로 공유<small>기기 공유창을 엽니다</small></span></button>`:""}
+      <button class="sheet-i" id="sh-insta"><i>📷</i><span>인스타그램에 올리기<small>이미지를 저장한 뒤 인스타를 엽니다</small></span></button>
       <button class="sheet-i" id="sh-copy"><i>📋</i><span>결과 글로 복사하기<small>카톡·메모용 (여러 줄)</small></span></button>
     </div>`;
   $("#sh-card").addEventListener("click",saveCard);
   $("#sh-live").addEventListener("click",shareLive);
   $("#sh-kko").addEventListener("click",shareKakaoTalk);
+  const si=$("#sh-insta"); if(si)si.addEventListener("click",shareInstagram);
   const sk=$("#sh-kakao"); if(sk)sk.addEventListener("click",shareKakao);
   $("#sh-copy").addEventListener("click",()=>{
     ev("share_click",{channel:"copy",grade:S.grade});
@@ -2577,6 +2718,15 @@ function liveModal(txt,ok){
 /* 카톡 전용 API는 없습니다. 기기 공유 시트를 열고, 없으면 복사로 내려갑니다. */
 /* 카카오톡으로 직접 보냅니다. 기기 공유창을 거치지 않으므로
    안드로이드 인앱 브라우저에서도 대화방으로 갑니다. */
+/* 인스타그램은 웹에서 스토리로 바로 올리는 공식 방법이 없습니다.
+   이미지를 만들어 공유 시트에 올리면 사용자가 거기서 인스타를 고릅니다.
+   자동 업로드라고 말하지 않습니다. */
+async function shareInstagram(){
+  try{ ev("share_click",{channel:"instagram",grade:S.grade}); }catch(e){}
+  await saveCard();
+  setTimeout(function(){ try{ window.open("https://www.instagram.com/","_blank","noopener"); }catch(e){} },700);
+}
+
 function shareKakaoTalk(){
   ev("share_click",{channel:"kakaotalk",grade:S.grade});
   if(!KAKAO_OK){
@@ -3279,8 +3429,12 @@ else show("s-locate");
   };
   inp.addEventListener('focus',()=>{loadSchools();});
   inp.addEventListener('input',()=>{
-    /* 직접 친 이름은 순위에 넣지 않습니다. 목록에서 골라야 코드가 붙습니다. */
+    /* 목록에서 고르지 않은 이름은 학교 순위 집계에 넣지 않습니다(코드가 없으므로).
+       다만 이름 자체는 지켜야 합니다. 예전에는 여기서 S.school 이 비어
+       직접 친 소속이 저장되지 않고 사라졌습니다. */
     S.schoolCode='';S.schoolCat='';
+    S.school=inp.value.trim().slice(0,40);
+    save();
     run();
   });
   inp.addEventListener('keydown',e=>{
