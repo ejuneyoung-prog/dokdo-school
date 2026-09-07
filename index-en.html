@@ -605,7 +605,11 @@ button .bi-ko{font-size:.8em;font-weight:600;opacity:.92}
 #school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn[hidden]{display:none}
-.livecard{display:flex;align-items:center;gap:12px;padding:16px;border-radius:var(--r);
+.livecard-thumb{position:relative;flex:none;width:60px;height:34px;border-radius:6px;overflow:hidden}
+    .livecard-thumb svg{display:block}
+    .livecard-badge{position:absolute;left:3px;bottom:3px;display:flex;align-items:center;gap:3px;
+      padding:1px 4px;border-radius:3px;background:rgba(0,0,0,.55);font-size:8px;color:#fff;font-weight:700}
+    .livecard{display:flex;align-items:center;gap:12px;padding:16px;border-radius:var(--r);
       background:var(--panel);border:1px solid var(--line);text-decoration:none;color:var(--ink)}
     .livecard:hover{border-color:var(--light-deep)}
     .livecard-dot{width:12px;height:12px;border-radius:50%;background:#EF4444;flex:none;
@@ -1137,39 +1141,26 @@ function bgmBtn(on){
 function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[],code:"",schoolCode:"",schoolCat:"",gcHit:0};}
 const who=()=>S.name||S.nick||"이름 없음";
 
-/* 기상청 중기예보. 서비스키는 URL 인코딩된 형태 그대로 둡니다 —
-   디코딩해서 다시 encodeURIComponent 하면 %2B(+) 같은 문자가 이중 인코딩되어
-   인증에 실패합니다. 문서에 나온 그대로를 고정 문자열로 붙입니다. */
-const KMA_KEY="XPiNRhqWZQErBWlJe3ff9yZ%2BqM5qmeOap1B8KDBsm8BZmWqgwnze9vVeIM5BS20YEDDfAdFeMIQPb%2BjW7DzByg%3D%3D";
-const KMA_BASE="https://apis.data.go.kr/1360000/MidFcstInfoService";
-function kmaTmFc(){
-  /* 하루 2회(06·18시) 발표. 방금 지난 발표 시각을 골라야 '자료 없음'이 안 납니다. */
-  const d=new Date(), h=(d.getUTCHours()+9)%24;   // KST
-  const base = h<6 ? -1 : 0;
-  const hh = h<6 ? 18 : h<18 ? 6 : 18;
-  const t=new Date(d.getTime()+base*86400000);
-  const y=t.getUTCFullYear(),m=String(t.getUTCMonth()+1).padStart(2,"0"),
-        dd=String(t.getUTCDate()).padStart(2,"0");
-  return `${y}${m}${dd}${String(hh).padStart(2,"0")}00`;
-}
+/* 국립해양조사원 조위관측소 실측 기온 — 4~10일 뒤 전망이 아니라
+   실제로 방금 관측된 값입니다. 독도에는 관측소가 없어(관측소 목록에
+   없음을 가이드 문서로 확인) 가장 가까운 실제 지점인 울릉도(DT_0013)를 씁니다.
+   서비스키는 URL 인코딩된 형태 그대로 둡니다 — 디코딩해서 다시
+   encodeURIComponent 하면 %2B(+) 같은 문자가 이중 인코딩되어 인증에 실패합니다. */
+const KHOA_KEY="XPiNRhqWZQErBWlJe3ff9yZ%2BqM5qmeOap1B8KDBsm8BZmWqgwnze9vVeIM5BS20YEDDfAdFeMIQPb%2BjW7DzByg%3D%3D";
+const KHOA_URL="https://apis.data.go.kr/1192136/surveyAirTemp/GetSurveyAirTempApiService";
 async function loadWeather(){
   const box=document.getElementById("wx-box"); if(!box)return;
   try{
-    const tmFc=kmaTmFc();
-    const qs=`serviceKey=${KMA_KEY}&dataType=JSON&numOfRows=10&pageNo=1&tmFc=${tmFc}`;
-    const [ta,sea]=await Promise.all([
-      fetch(`${KMA_BASE}/getMidTa?${qs}&regId=11E00102`).then(r=>r.json()).catch(()=>null),
-      fetch(`${KMA_BASE}/getMidSeaFcst?${qs}&regId=12C20000`).then(r=>r.json()).catch(()=>null)
-    ]);
-    const ti = ta && ta.response && ta.response.body && ta.response.body.items && ta.response.body.items.item && ta.response.body.items.item[0];
-    const si = sea && sea.response && sea.response.body && sea.response.body.items && sea.response.body.items.item && sea.response.body.items.item[0];
-    if(!ti && !si){ box.hidden=true; return; }
-    const parts=[];
-    if(ti) parts.push("4일 뒤 독도 기온 "+(ti.taMin4??"-")+"~"+(ti.taMax4??"-")+"℃");
-    if(si) parts.push("파고 "+(si.wh4AAm??"-")+"~"+(si.wh4BPm??"-")+"m");
+    const qs=`serviceKey=${KHOA_KEY}&type=json&obsCode=DT_0013&numOfRows=1&pageNo=1`;
+    const r=await fetch(`${KHOA_URL}?${qs}`);
+    const j=await r.json();
+    const h=j&&j.response&&j.response.header;
+    if(!h||h.resultCode!=="00"){ box.hidden=true; return; }
+    const item=j.response.body&&j.response.body.items&&j.response.body.items.item&&j.response.body.items.item[0];
+    if(!item||item.artmp==null){ box.hidden=true; return; }
     box.hidden=false;
-    box.innerHTML='<span class="wx-tag">중기예보 · 4~10일 뒤</span>'
-      +'<span class="wx-txt">'+parts.join(" · ")+'</span>';
+    box.innerHTML='<span class="wx-tag">울릉도 실측 · '+(item.obsrvnDt||"")+'</span>'
+      +'<span class="wx-txt">기온 '+item.artmp+'℃</span>';
   }catch(e){ box.hidden=true; }
 }
 loadWeather();
@@ -1796,9 +1787,9 @@ const ISLE_BLOCK=[{x:SEA_W*.27,y:SEA_H*.46,rx:SEA_W*.17,ry:SEA_H*.30},
    학년이 오를 때마다 다음 자리를 채웁니다. 부르면 지나가고 끝나는 게
    아니라, 채워진 자리마다 강치가 머뭅니다. */
 const GC_ROCKS=[
-  {x:SEA_W*.455, y:SEA_H*.62, cap:1, name:"작은가제바위", r:9},
-  {x:SEA_W*.50,  y:SEA_H*.52, cap:2, name:"가제바위",     r:13},
-  {x:SEA_W*.545, y:SEA_H*.66, cap:3, name:"큰가제바위",   r:16}
+  {x:SEA_W*.355, y:SEA_H*.60, cap:1, name:"넙적바위",     r:10},  // 서도 인근
+  {x:SEA_W*.395, y:SEA_H*.68, cap:2, name:"작은가제바위", r:12},  // 서도 인근
+  {x:SEA_W*.610, y:SEA_H*.58, cap:3, name:"큰가제바위",   r:15}   // 동도 인근
 ];
 /* 바위 자체를 그립니다. 좌표만 있고 도형이 없으면 강치 두세 마리의
    노란 빛이 겹쳐 보여 그것이 섬인지 강치인지 구별되지 않습니다.
@@ -1820,7 +1811,7 @@ let GC_TOUR=null;   // 부르는 순간에만 한 바퀴 도는 연출
 
 /* 맞힌 문제 10개마다 한 자리가 찹니다. 학년과 달리 풀 때마다
    바로 반응이 와서 동기부여가 즉각적입니다. S.gcHit 는 누적 정답 수입니다. */
-const GC_PER_SEAT=10;
+const GC_PER_SEAT=5;   // 다섯 문제마다 강치 한 마리가 출동합니다
 function gcFilled(){
   return Math.max(0, Math.min(GC_TOTAL, Math.floor((S.gcHit||0)/GC_PER_SEAT)));
 }
@@ -2115,10 +2106,16 @@ function pickAnotherSong(){
    바로 여는 카드로 둡니다. 방송 중이 아니어도 오류가 나지 않습니다. */
 function renderChannel(){
   const box=document.getElementById("ch-slot"); if(!box)return;
+  /* 특정 영상 ID를 고정하면 방송이 바뀔 때마다 죽은 링크가 됩니다.
+     대신 '지금 방송 중'을 그림으로 보여 주는 미리보기 판을 그립니다. */
   box.innerHTML=
     '<a class="livecard" href="https://www.youtube.com/@독도코리아/live" '
     +'target="_blank" rel="noopener">'
-    +'<span class="livecard-dot"></span>'
+    +'<span class="livecard-thumb">'
+    +'<svg viewBox="0 0 60 34" width="60" height="34"><rect width="60" height="34" rx="6" fill="#1E3A5F"/>'
+    +'<path d="M24 11l14 6-14 6z" fill="#F8FAFC"/></svg>'
+    +'<span class="livecard-badge"><span class="livecard-dot"></span>LIVE</span>'
+    +'</span>'
     +'<span class="livecard-t">'
     +'<b class="bi-ko" lang="ko">독도 실시간 라이브 보러 가기</b>'
     +'<b class="bi-en" lang="en">Watch Dokdo Live now</b>'
