@@ -1710,7 +1710,7 @@ const SEA_W=1000, SEA_H=640;
 const SEO_OL =[[-132,-58],[-84,-140],[4,-162],[92,-120],[142,-40],[150,52],[102,142],[18,172],[-72,140],[-142,48]];
 const DONG_OL=[[-118,-152],[-28,-182],[62,-150],[112,-72],[86,-14],[142,38],[118,122],[38,176],[-52,158],[-122,82],[-140,-42]];
 /* 카드 아래쪽 3분의 1은 학년 캡션이 덮습니다. 섬을 그 위로 올려 두 봉우리가 다 보이게 합니다. */
-const SEA_S=.88, SEA_OX=SEA_W/2, SEA_OY=212;
+const SEA_S=.88, SEA_OX=SEA_W/2, SEA_OY=250;   // 학년 캡션 높이만큼만 아래 여백을 남깁니다
 const CP=(a,b)=>[SEA_OX+a*SEA_S, SEA_OY+b*SEA_S];
 const shrinkP=(p,cx,cy,k)=>p.map(([a,b])=>[cx+(a-cx)*k, cy+(b-cy)*k]);
 function ringsOf(ol,dx,dy,px,py,n,shape){
@@ -1765,8 +1765,8 @@ const FISH=[];
 /* 독도 주변은 난류와 한류가 만나는 조경수역입니다.
    위쪽 물길은 왼쪽으로, 아래쪽은 오른쪽으로 흐르게 해 두 물이 만나는 모습을 만듭니다.
    어종마다 속도와 크기가 달라야 바다가 살아 있어 보입니다. */
-const KIND=[{v:1.55,sz:7.0,w:3},{v:0.85,sz:4.2,w:7},
-            {v:0.55,sz:3.0,w:12},{v:0.30,sz:3.6,w:2,floor:true}];
+const KIND=[{v:1.55,sz:7.0,w:15},{v:0.85,sz:4.2,w:35},
+            {v:0.55,sz:3.0,w:60},{v:0.30,sz:3.6,w:10,floor:true}];
 KIND.forEach(k=>{ for(let i=0;i<k.w;i++){
   const top=!k.floor && SEA_R()<.5;
   const dir=top?-1:1;
@@ -1776,7 +1776,15 @@ KIND.forEach(k=>{ for(let i=0;i<k.w;i++){
   FISH.push({x:SEA_R()*SEA_W, y, v:k.v*(.82+SEA_R()*.36)*dir, dir,
              sz:k.sz*(.85+SEA_R()*.3), ph:SEA_R()*6.28, top, floor:!!k.floor});
 }});
-let WHALE={x:-360,y:SEA_H*.62,v:.62,on:false,spout:0,next:900};
+let WHALE={x:-360,y:SEA_H*.62,v:.62,on:false,spout:0,next:900,dir:1,scale:.5};
+function whaleSpawn(){
+  /* 양방향 — 절반은 왼쪽에서 오른쪽으로, 절반은 그 반대로 나옵니다.
+     한 방향만 나오면 바다가 아니라 컨베이어처럼 보입니다. */
+  const goRight = SEA_R()<.5;
+  WHALE.dir = goRight?1:-1;
+  WHALE.x = goRight ? -360 : SEA_W+360;
+  WHALE.v = 0.62*WHALE.dir;
+}
 /* 섬을 감싸는 타원 두 개. 물고기가 피해 갈 영역입니다. */
 const ISLE_BLOCK=[{x:SEA_W*.27,y:SEA_H*.46,rx:SEA_W*.17,ry:SEA_H*.30},
                   {x:SEA_W*.70,y:SEA_H*.44,rx:SEA_W*.15,ry:SEA_H*.26}];
@@ -1797,12 +1805,20 @@ const GC_ROCKS=[
 function seaGcRocks(){
   GC_ROCKS.forEach(r=>{
     seaX.save();
-    seaX.fillStyle="#4A5A6B";
-    seaX.beginPath(); seaX.ellipse(r.x, r.y, r.r*1.5, r.r*.62, 0, 0, 7); seaX.fill();
-    seaX.fillStyle="#5E7185";
-    seaX.beginPath(); seaX.ellipse(r.x, r.y-r.r*.28, r.r*1.05, r.r*.5, 0, 0, 7); seaX.fill();
-    seaX.strokeStyle="rgba(150,195,235,.22)"; seaX.lineWidth=1;
-    seaX.beginPath(); seaX.ellipse(r.x, r.y, r.r*1.5, r.r*.62, 0, 0, 7); seaX.stroke();
+    /* 매끈한 타원은 물고기 그림자처럼 보입니다. 각진 바위 윤곽 +
+       물결 거품으로 바위임을 분명히 합니다. */
+    const pts=[[-1.5,-.1],[-.9,-.55],[.1,-.62],[.9,-.35],[1.5,.05],
+               [.95,.5],[-.4,.6],[-1.3,.35]];
+    seaX.fillStyle="#3A4654";
+    seaX.beginPath();
+    pts.forEach(([dx,dy],i)=>{const x=r.x+dx*r.r,y=r.y+dy*r.r*.62;
+      i?seaX.lineTo(x,y):seaX.moveTo(x,y);});
+    seaX.closePath(); seaX.fill();
+    seaX.fillStyle="#4E5D6E";
+    seaX.beginPath(); seaX.ellipse(r.x-r.r*.1, r.y-r.r*.32, r.r*.75, r.r*.36, .15, 0, 7); seaX.fill();
+    /* 파도가 부딪히는 흰 거품 — 이게 있어야 물 위로 솟은 바위로 읽힙니다 */
+    seaX.strokeStyle="rgba(220,235,250,.35)"; seaX.lineWidth=1.4;
+    seaX.beginPath(); seaX.ellipse(r.x, r.y+r.r*.42, r.r*1.3, r.r*.22, 0, 0, Math.PI); seaX.stroke();
     seaX.restore();
   });
 }
@@ -1845,14 +1861,23 @@ function seaGangchi(t){
     seaGangchiOne(gx,gy,7+((k%3)*1.6), wob*0.05);
   }
   if(GC_TOUR){
-    GC_TOUR.t+=0.012;
-    if(GC_TOUR.t>1){ GC_TOUR=null; }
-    else{
-      const ang=GC_TOUR.t*Math.PI*2, cx=(SEA_W*.455+SEA_W*.545)/2, cy=SEA_H*.60;
-      const rx=SEA_W*.09, ry=SEA_H*.10;
-      for(let i=0;i<GC_TOUR.n;i++){
-        const a=ang+i*(Math.PI*2/GC_TOUR.n);
-        seaGangchiOne(cx+Math.cos(a)*rx, cy+Math.sin(a)*ry*.6, 8, a);
+    /* 한 바퀴를 강제로 다 돌게 하면 반지름 대비 각속도가 빨라 소용돌이처럼
+       보입니다. 원을 그리는 대신, 헤엄치듯 좌우로 완만하게 오가며
+       바위 사이를 누비는 궤적으로 바꿉니다. 시간은 초 단위로 흐르고
+       한 번 왕복하는 데 4~5초가 걸리게 늦춥니다. */
+    GC_TOUR.t += 1/60;                 // 프레임 시간 누적(초)
+    const DUR = 4.5;                    // 왕복 한 번의 길이(초)
+    if (GC_TOUR.t > DUR * 1.4) { GC_TOUR = null; }
+    else {
+      const rocks = GC_ROCKS;
+      const left  = rocks[0], right = rocks[rocks.length-1];
+      for (let i=0; i<GC_TOUR.n; i++) {
+        const ph = GC_TOUR.t/DUR + i*0.22;                 // 개체마다 위상차
+        const u  = (Math.sin(ph*Math.PI*2 - Math.PI/2)+1)/2; // 0→1→0, 완만한 왕복
+        const gx = left.x + (right.x-left.x)*u;
+        const gy = (left.y+right.y)/2 + Math.sin(ph*Math.PI*4)*14 - 10;
+        const heading = Math.cos(ph*Math.PI*2) >= 0 ? 1 : -1;
+        seaGangchiOne(gx, gy, 8, heading*0.3);
       }
     }
   }
@@ -1900,7 +1925,7 @@ function seaFish(f,t){
 }
 function seaWhale(w,t){
   const x=seaX;
-  const S=Math.min(1, SEA_W/1000);   // 기준 폭(1000px)보다 좁으면 함께 줄입니다
+  const S=Math.min(1, SEA_W/1000)*0.5;   // 기준 폭 대비 절반 크기
   x.save();x.translate(w.x,w.y+Math.sin(t*.7)*6);x.scale((w.v<0?-1:1)*S,S);
   x.globalAlpha=.26;x.fillStyle='#7FB3D5';
   x.beginPath();x.moveTo(-150,0);x.bezierCurveTo(-110,-46,60,-52,140,-12);
@@ -2011,7 +2036,7 @@ function seaFrame(now){
   seaGangchi(t);
 
   /* 고래 — 가끔 지나갑니다. 늘 있으면 특별하지 않습니다 */
-  if(!WHALE.on){ if(--WHALE.next<=0){WHALE.on=true;WHALE.x=-360;WHALE.spout=0;} }
+  if(!WHALE.on){ if(--WHALE.next<=0){WHALE.on=true;whaleSpawn();WHALE.spout=0;} }
   else{
     WHALE.x+=WHALE.v;
     if(WHALE.spout>0)WHALE.spout-=.6;
@@ -2024,7 +2049,7 @@ function seaFrame(now){
         WHALE.y = Math.max(SEA_H*.58, Math.min(SEA_H*.86, WHALE.y));
       }
     }
-    if(WHALE.x>SEA_W+300){WHALE.on=false;WHALE.next=2600+Math.floor(SEA_R()*2600);}
+    if(WHALE.x>SEA_W+300||WHALE.x<-300){WHALE.on=false;WHALE.next=2600+Math.floor(SEA_R()*2600);}
     seaWhale(WHALE,t);
   }
   if(!FIN.on){ if(--FIN.next<=0){FIN.on=true;FIN.x=SEA_W+120;} }
@@ -2097,7 +2122,7 @@ document.addEventListener('visibilitychange',()=>{
    학습 화면에서 소리가 두 개 나면 안 되기 때문입니다. */
 function pickAnotherSong(){
   const t=songOfToday(), rest=SONGS.filter(v=>v!==t&&INTRO_IDS.indexOf(v)<0);
-  return rest[(dayIndex()*7+3)%rest.length];
+  return rest[Math.floor(Math.random()*rest.length)];
 }
 /* 채널 핸들 뒤에 /live 를 붙이면 지금 방송 중인 영상으로 자동 연결됩니다.
    방송이 바뀔 때마다 주소를 고치지 않아도 됩니다. */
