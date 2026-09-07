@@ -1767,14 +1767,17 @@ const FISH=[];
    어종마다 속도와 크기가 달라야 바다가 살아 있어 보입니다. */
 const KIND=[{v:1.55,sz:7.0,w:22},{v:0.85,sz:4.2,w:55},
             {v:0.55,sz:3.0,w:90},{v:0.30,sz:3.6,w:15,floor:true}];
+/* 세로 위치를 6개 층으로 나눠 화면 전체(위부터 아래까지)에 고르게 퍼뜨립니다.
+   방향은 층과 무관하게 절반씩 섞어, 같은 높이에서도 서로 다른 방향으로
+   지나가게 합니다. 그래야 '줄지어 행진'이 아니라 자연스러운 무리가 됩니다. */
+const LANES=[.14,.24,.34,.62,.72,.82];
 KIND.forEach(k=>{ for(let i=0;i<k.w;i++){
-  const top=!k.floor && SEA_R()<.5;
-  const dir=top?-1:1;
-  const y=k.floor ? SEA_H*.80+SEA_R()*SEA_H*.14
-        : top     ? SEA_H*.16+SEA_R()*SEA_H*.16
-                  : SEA_H*.60+SEA_R()*SEA_H*.20;
+  const lane = k.floor ? .86+SEA_R()*.08 : LANES[Math.floor(SEA_R()*LANES.length)];
+  const top  = lane < .5;                     // 방향은 위아래 조류를 반영하되
+  const dir  = (SEA_R()<.72 ? (top?-1:1) : (top?1:-1));  // 28%는 반대로 섞습니다
+  const y = SEA_H*lane + (SEA_R()-.5)*SEA_H*.06;
   FISH.push({x:SEA_R()*SEA_W, y, v:k.v*(.82+SEA_R()*.36)*dir, dir,
-             sz:k.sz*(.85+SEA_R()*.3), ph:SEA_R()*6.28, top, floor:!!k.floor});
+             sz:k.sz*(.85+SEA_R()*.3), ph:SEA_R()*6.28, top, floor:!!k.floor, lane});
 }});
 let WHALE={x:-360,y:SEA_H*.62,v:.62,on:false,spout:0,next:900,dir:1,scale:.5};
 function whaleSpawn(){
@@ -1846,27 +1849,23 @@ function gcSeats(){
 }
 
 function callGangchi(){
-  const filled=gcFilled();
-  if(filled<=0){ toast("아직 자리 잡은 강치가 없습니다 · 학년이 오르면 나타납니다"); return; }
-  GC_TOUR={t:0, n:filled};
-  toast(filled+"마리가 자리를 도네요 · 1904년부터의 남획으로 사라진 동물입니다");
+  const ready=Math.min(GC_TOTAL, Math.floor((S.gcHit||0)/GC_PER_SEAT));
+  if(ready<=0){ toast("문제를 "+GC_PER_SEAT+"개 더 맞히면 강치를 부를 수 있습니다"); return; }
+  GC_TOUR={t:0, n:ready};
+  /* 부른 만큼 소진합니다. 다시 다섯 문제를 더 맞혀야 또 부를 수 있습니다. */
+  S.gcHit=(S.gcHit||0) - ready*GC_PER_SEAT;
+  save();
+  renderGangchi();
+  toast(ready+"마리가 헤엄쳐 옵니다 · 1904년부터의 남획으로 사라진 동물입니다");
 }
 let FIN={x:SEA_W+200,y:SEA_H*.17,v:-.45,on:false,next:700};
 
 /* 강치 그리기 — 머무는 것(자리를 채운 강치)과 도는 것(부른 순간)을 함께 그립니다. */
 function seaGangchi(t){
   seaGcRocks();
-  const seats=gcSeats(), filled=gcFilled();
-  for(let k=0;k<filled;k++){
-    const {rock,i}=seats[k];
-    const wob=Math.sin(t*0.9+k*1.7)*3;                 /* 자리에서 살짝만 움직입니다 */
-    const bob=Math.sin(t*1.6+k*2.3)*2;
-    const ang=(i-(rock.cap-1)/2)*22;                    /* 한 바위에 여럿이면 나란히 */
-    const rad=Math.PI/180*ang;
-    const gx=rock.x+Math.sin(rad)*14+wob*.3;
-    const gy=rock.y-Math.cos(rad)*6+bob;
-    seaGangchiOne(gx,gy,7+((k%3)*1.6), wob*0.05);
-  }
+  /* 자리가 찼다고 상시 보이면 '부르기'라는 말이 무색해집니다.
+     평소엔 바위만 있고, 부르는 순간(GC_TOUR)에만 강치가 나타났다가
+     지나가면 다시 사라집니다. gcFilled()는 몇 마리가 나올 '자격'만 정합니다. */
   if(GC_TOUR){
     /* 한 바퀴를 강제로 다 돌게 하면 반지름 대비 각속도가 빨라 소용돌이처럼
        보입니다. 원을 그리는 대신, 헤엄치듯 좌우로 완만하게 오가며
@@ -2031,9 +2030,8 @@ function seaFrame(now){
         f.y = Math.max(SEA_H*.10, Math.min(SEA_H*.94, f.y));
       }
     }
-    const back=f.floor ? SEA_H*.80+SEA_R()*SEA_H*.14
-             : f.top   ? SEA_H*.16+SEA_R()*SEA_H*.16
-                       : SEA_H*.60+SEA_R()*SEA_H*.20;
+    const back = f.floor ? SEA_H*(.86+SEA_R()*.08)
+               : SEA_H*f.lane + (SEA_R()-.5)*SEA_H*.06;
     if(f.dir>0&&f.x>SEA_W+50){f.x=-50;f.y=back;}
     if(f.dir<0&&f.x<-50){f.x=SEA_W+50;f.y=back;}
     seaFish(f,t);
@@ -2365,11 +2363,13 @@ function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error}
 /* 정원 6자리(1+2+3) 중 학년 순번만큼 채워집니다. 문제를 더 맞혀도
    게이지가 아니라 학년이 강치를 늘립니다 — 진급 자체가 보상입니다. */
 function renderGangchi(){
-  const filled=gcFilled();
+  /* 게이지는 이제 '언제든 부를 수 있는 다음 한 마리'까지 얼마나 남았는지를
+     보여 줍니다. 5문제를 채우면 부르기 버튼이 열립니다. */
+  const hit=(S.gcHit||0)%GC_PER_SEAT, ready=Math.floor((S.gcHit||0)/GC_PER_SEAT);
   const n=document.getElementById("gc-n"), f=document.getElementById("gc-fill"), b=document.getElementById("gc-go");
-  if(n)n.textContent=filled+" / "+GC_TOTAL;
-  if(f)f.style.width=(filled/GC_TOTAL*100)+"%";
-  if(b){b.disabled=filled<=0;
+  if(n)n.textContent=hit+" / "+GC_PER_SEAT;
+  if(f)f.style.width=(hit/GC_PER_SEAT*100)+"%";
+  if(b){b.disabled=ready<=0;
     if(!b.dataset.on){b.dataset.on="1";
       b.addEventListener("click",()=>{callGangchi();});}}
 }
