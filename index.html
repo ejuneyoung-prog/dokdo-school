@@ -614,6 +614,10 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
     .livecard-t{display:flex;flex-direction:column;gap:2px}
     .livecard-t b{font-size:16px;font-weight:700}
     .livecard-t small{font-size:12.5px;color:var(--ink-dim)}
+    .wx{display:flex;align-items:center;gap:8px;padding:9px 13px;margin-bottom:10px;
+      border-radius:10px;background:var(--panel);border:1px solid var(--line);font-size:13px}
+    .wx-tag{color:var(--ink-dim);font-size:11.5px;white-space:nowrap}
+    .wx-txt{color:var(--ink-mid);font-weight:600}
     .gc{margin-top:14px;padding:14px 15px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
     .gc-row{display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
     .gc-t{font-weight:700;color:var(--ink)}
@@ -749,6 +753,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </div>
 <!-- 오늘의 소식. 시트가 연결돼 있으면 전체 기록, 없으면 내 기록을 보여 줍니다. -->
 <div class="ticker" hidden="" id="ticker"><div class="ticker-in" id="ticker-in"></div></div>
+<div class="wx" id="wx-box" hidden></div>
 <div class="island-card">
 <div id="island-holder"></div>
 <!-- 상단 줄에 두면 다른 표시에 묻힙니다. 섬 그림 위가 가장 잘 보입니다. -->
@@ -792,7 +797,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </div>
 <div class="gc-bar"><i id="gc-fill"></i></div>
 <button class="btn ghost" id="gc-go" type="button" disabled><span class="bi-ko" lang="ko">강치야 돌아와</span><span class="bi-en" lang="en">Come back, sea lions</span></button>
-<p class="gc-note"><span class="bi-ko" lang="ko">*독도 강치 : 1904년 일본의 무분별한 남획으로 인해 멸종한 바다사자의 일종. 학년이 오를 때마다 큰가제바위 무리에 한 마리씩 자리를 잡습니다.</span><span class="bi-en" lang="en">*Dokdo sea lion: a subspecies of sea lion hunted to extinction by unchecked Japanese hunting starting in 1904. Each level fills a seat on Gajibawi rock.</span></p>
+<p class="gc-note"><span class="bi-ko" lang="ko">*독도 강치 : 1904년 일본의 무분별한 남획으로 인해 멸종한 바다사자의 일종. 문제를 10개 맞힐 때마다 큰가제바위 무리에 한 마리씩 자리를 잡습니다.</span><span class="bi-en" lang="en">*Dokdo sea lion: a subspecies of sea lion hunted to extinction by unchecked Japanese hunting starting in 1904. Every 10 correct answers fills a seat on Gajibawi rock.</span></p>
 </div>
 <div class="ladder">
 <div class="eyebrow">성취 배지 / Achievement badges <span id="badge-n">0</span>/12</div>
@@ -1131,6 +1136,43 @@ function bgmBtn(on){
 }
 function fresh(){return{name:"",nick:"",flag:"KR",school:"",sound:false,track:0,introDay:"",recent:[],grade:"K",xp:0,streak:0,lastDay:"",shelter:1,passed:[],m:{},started:false,cool:0,notify:false,run:0,best:0,dayD:"",dayN:0,recentG:[],code:"",schoolCode:"",schoolCat:"",gcHit:0};}
 const who=()=>S.name||S.nick||"이름 없음";
+
+/* 기상청 중기예보. 서비스키는 URL 인코딩된 형태 그대로 둡니다 —
+   디코딩해서 다시 encodeURIComponent 하면 %2B(+) 같은 문자가 이중 인코딩되어
+   인증에 실패합니다. 문서에 나온 그대로를 고정 문자열로 붙입니다. */
+const KMA_KEY="XPiNRhqWZQErBWlJe3ff9yZ%2BqM5qmeOap1B8KDBsm8BZmWqgwnze9vVeIM5BS20YEDDfAdFeMIQPb%2BjW7DzByg%3D%3D";
+const KMA_BASE="https://apis.data.go.kr/1360000/MidFcstInfoService";
+function kmaTmFc(){
+  /* 하루 2회(06·18시) 발표. 방금 지난 발표 시각을 골라야 '자료 없음'이 안 납니다. */
+  const d=new Date(), h=(d.getUTCHours()+9)%24;   // KST
+  const base = h<6 ? -1 : 0;
+  const hh = h<6 ? 18 : h<18 ? 6 : 18;
+  const t=new Date(d.getTime()+base*86400000);
+  const y=t.getUTCFullYear(),m=String(t.getUTCMonth()+1).padStart(2,"0"),
+        dd=String(t.getUTCDate()).padStart(2,"0");
+  return `${y}${m}${dd}${String(hh).padStart(2,"0")}00`;
+}
+async function loadWeather(){
+  const box=document.getElementById("wx-box"); if(!box)return;
+  try{
+    const tmFc=kmaTmFc();
+    const qs=`serviceKey=${KMA_KEY}&dataType=JSON&numOfRows=10&pageNo=1&tmFc=${tmFc}`;
+    const [ta,sea]=await Promise.all([
+      fetch(`${KMA_BASE}/getMidTa?${qs}&regId=11E00102`).then(r=>r.json()).catch(()=>null),
+      fetch(`${KMA_BASE}/getMidSeaFcst?${qs}&regId=12C20000`).then(r=>r.json()).catch(()=>null)
+    ]);
+    const ti = ta && ta.response && ta.response.body && ta.response.body.items && ta.response.body.items.item && ta.response.body.items.item[0];
+    const si = sea && sea.response && sea.response.body && sea.response.body.items && sea.response.body.items.item && sea.response.body.items.item[0];
+    if(!ti && !si){ box.hidden=true; return; }
+    const parts=[];
+    if(ti) parts.push("4일 뒤 독도 기온 "+(ti.taMin4??"-")+"~"+(ti.taMax4??"-")+"℃");
+    if(si) parts.push("파고 "+(si.wh4AAm??"-")+"~"+(si.wh4BPm??"-")+"m");
+    box.hidden=false;
+    box.innerHTML='<span class="wx-tag">중기예보 · 4~10일 뒤</span>'
+      +'<span class="wx-txt">'+parts.join(" · ")+'</span>';
+  }catch(e){ box.hidden=true; }
+}
+loadWeather();
 
 /* 함께 배우는 나라 — 국기를 고르면 섬과 공유 카드에 함께 표시됩니다 */
 const FLAGS=[["KR","🇰🇷","대한민국"],["US","🇺🇸","미국"],["JP","🇯🇵","일본"],["CN","🇨🇳","중국"],["GB","🇬🇧","영국"],
@@ -1776,11 +1818,11 @@ function seaGcRocks(){
 const GC_TOTAL=GC_ROCKS.reduce((a,r)=>a+r.cap,0);   // 6마리가 이 바다의 전부입니다
 let GC_TOUR=null;   // 부르는 순간에만 한 바퀴 도는 연출
 
-/* 학년이 오를수록 몇 마리가 자리를 채웠는지. 순번이 곧 채움 수입니다. */
+/* 맞힌 문제 10개마다 한 자리가 찹니다. 학년과 달리 풀 때마다
+   바로 반응이 와서 동기부여가 즉각적입니다. S.gcHit 는 누적 정답 수입니다. */
+const GC_PER_SEAT=10;
 function gcFilled(){
-  const total=LADDER.length-1;                      // 마지막 칸에서 6자리가 다 찹니다
-  const ratio=idx(S.grade)/Math.max(1,total);
-  return Math.max(0, Math.min(GC_TOTAL, Math.round(ratio*GC_TOTAL)));
+  return Math.max(0, Math.min(GC_TOTAL, Math.floor((S.gcHit||0)/GC_PER_SEAT)));
 }
 
 /* 자리를 채운 순서대로 (바위, 그 안에서 몇 번째)를 매깁니다. */
@@ -2120,7 +2162,7 @@ const dayIndex=()=>{
 const INTRO_IDS=["Yt59g3GKH58","qIPzX4Pv_pw"];
 const isFirstVisit=()=>!S.started;
 const songOfToday=()=>
-  isFirstVisit() ? INTRO_IDS[dayIndex()%INTRO_IDS.length]
+  isFirstVisit() ? INTRO_IDS[Math.floor(Math.random()*INTRO_IDS.length)]
                  : SONGS[dayIndex()%SONGS.length];
 /* 오늘 이미 갈림길을 지났는가. 하루 한 번만 묻습니다. */
 const introSeenToday=()=>S.introDay===today();
@@ -2519,6 +2561,7 @@ function answer(pick){
   r.seen++; r.att=(r.att||0)+1; if(ok)r.cor=(r.cor||0)+1;
   if(ok){L.ok++;L.xp+=gained;S.xp+=gained;
     r.earned=Math.max(r.earned||0,pt);   // 진급 점수는 한 번만 · 힌트를 쓰면 절반만 쌓입니다
+    S.gcHit=(S.gcHit||0)+1;          // 강치 자리는 맞힌 개수로 채워집니다
     r.lv=Math.min(r.lv+1,INTERVALS.length-1);}
   else{r.lv=0;L.wrong.push(item);}
   const d=new Date();d.setDate(d.getDate()+INTERVALS[Math.min(r.lv,INTERVALS.length-1)]);

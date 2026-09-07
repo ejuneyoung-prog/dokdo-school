@@ -74,7 +74,7 @@ var ROWS=Math.max(1,parseInt(Q.get("rows")||"60",10));
 var ONLY=Q.get("only")||"";
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
-var LIVE=[];   /* 이제까지 참여한 사람 전체. 길면 기존 흐름 애니메이션에 태워 스크롤합니다 */
+
 function when(m){
   if(!(m>=0))return "";
   if(m<1)return "방금";
@@ -108,6 +108,10 @@ function rows(list,fmt,withFlag){
 
 function draw(f){
   var w=document.getElementById("wrap"),h="";
+  /* 이번 주 참여자 전체를 순위 그대로 한 줄로 나열합니다.
+     '지금 풀고 있는 사람'처럼 따로 떼어낸 구역은 의미가 없어 없앴습니다 —
+     이미 이번 주 집계(week)에 전부 들어 있고 정답 수 순으로 정렬돼 있습니다.
+     1~3등만 메달로, 나머지는 순번(4, 5, 6…)으로 쭉 이어집니다. */
   var wk=(f.week||[]).slice(0,ROWS);
   h+='<div class="head"><h1>명예의 전당</h1><small>이번 주'
     +(f.weekOf?' · '+f.weekOf+' 시작':'')+'</small></div>';
@@ -119,24 +123,14 @@ function draw(f){
       +rows(wk,function(x){return x.correct+'<small>문제</small>';},true)+'</div>';
   }
   if(ONLY!=="person" && f.schools){
+    /* 그룹(학교·단체)이 생기면 사람 명단과 동등한 무게로 나란히 보여 줍니다.
+       참여가 없는 부문은 아예 띄우지 않습니다. */
     ["E","M","H","W"].forEach(function(c){
-      var l=f.schools[c]; if(!l||!l.length)return;   /* 참여 없는 부문은 띄우지 않습니다 */
+      var l=f.schools[c]; if(!l||!l.length)return;
       any=true;
       h+='<div class="sec"><div class="sec-t">'+CAT[c]+'</div>'
         +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';},false)+'</div>';
     });
-  }
-  /* 실시간 — 방금 푼 사람들. 이번 주 결산과 달리 지금 이 순간입니다. */
-  if(ONLY!=="school" && LIVE.length){
-    any=true;
-    h+='<div class="sec"><div class="sec-t"><span class="live-dot"></span>이제까지 참여한 사람 '+LIVE.length+'명</div>'
-      +LIVE.map(function(x){
-        var sch=x.school?'<span class="sch">'+esc(x.school)+'</span>':'';
-        var fg=x.flag?flag(x.flag)+' ':'';
-        return '<div class="row live"><span class="m num">·</span>'
-          +'<span class="n">'+fg+esc(x.nick)+sch+'</span>'
-          +'<span class="v">'+x.n+'<small>문제</small></span></div>';
-      }).join("")+'</div>';
   }
   if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
   h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
@@ -173,20 +167,11 @@ function load(){
   }
   fetch(SHEET_API+"?ts="+Date.now(),{cache:"no-store"})
     .then(function(r){return r.ok?r.json():null;})
-    .then(function(j){ if(j){FEED=j;draw(j);} })
+    .then(function(j){ if(j)draw(j); })
     .catch(function(){});
 }
-var FEED=null;
-function loadLive(){
-  if(!SHEET_API)return;
-  fetch(SHEET_API+"?live=1&ts="+Date.now(),{cache:"no-store"})
-    .then(function(r){return r.ok?r.json():null;})
-    .then(function(j){ if(j&&j.live){LIVE=j.live; if(FEED)draw(FEED);} })
-    .catch(function(){});
-}
-load(); loadLive();
-setInterval(load,30000);      /* 주간 결산은 1분에 두 번이면 충분합니다 */
-setInterval(loadLive,10000);  /* 지금 풀고 있는 사람은 10초마다 */
+load();
+setInterval(load,30000);
 </script>
 </body>
 </html>
