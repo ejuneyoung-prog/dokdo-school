@@ -74,7 +74,7 @@ var ROWS=Math.max(1,parseInt(Q.get("rows")||"60",10));
 var ONLY=Q.get("only")||"";
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
-var LIVE=[], LIVE_N=Math.max(1,parseInt(Q.get("live")||"12",10));
+var LIVE=[];   /* 이제까지 참여한 사람 전체. 길면 기존 흐름 애니메이션에 태워 스크롤합니다 */
 function when(m){
   if(!(m>=0))return "";
   if(m<1)return "방금";
@@ -129,13 +129,13 @@ function draw(f){
   /* 실시간 — 방금 푼 사람들. 이번 주 결산과 달리 지금 이 순간입니다. */
   if(ONLY!=="school" && LIVE.length){
     any=true;
-    h+='<div class="sec"><div class="sec-t"><span class="live-dot"></span>지금 풀고 있는 사람</div>'
-      +LIVE.slice(0,LIVE_N).map(function(x){
+    h+='<div class="sec"><div class="sec-t"><span class="live-dot"></span>이제까지 참여한 사람 '+LIVE.length+'명</div>'
+      +LIVE.map(function(x){
         var sch=x.school?'<span class="sch">'+esc(x.school)+'</span>':'';
         var fg=x.flag?flag(x.flag)+' ':'';
         return '<div class="row live"><span class="m num">·</span>'
           +'<span class="n">'+fg+esc(x.nick)+sch+'</span>'
-          +'<span class="v">'+x.n+'<small>문제 · '+when(x.min)+'</small></span></div>';
+          +'<span class="v">'+x.n+'<small>문제</small></span></div>';
       }).join("")+'</div>';
   }
   if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';

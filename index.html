@@ -605,7 +605,16 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 #school-show{cursor:default}
 .code-row input{flex:1 1 auto;min-width:0}
 .code-row .btn[hidden]{display:none}
-.gc{margin-top:14px;padding:14px 15px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
+.livecard{display:flex;align-items:center;gap:12px;padding:16px;border-radius:var(--r);
+      background:var(--panel);border:1px solid var(--line);text-decoration:none;color:var(--ink)}
+    .livecard:hover{border-color:var(--light-deep)}
+    .livecard-dot{width:12px;height:12px;border-radius:50%;background:#EF4444;flex:none;
+      box-shadow:0 0 10px rgba(239,68,68,.7);animation:lcbeat 1.6s ease-in-out infinite}
+    @keyframes lcbeat{0%,100%{opacity:1}50%{opacity:.35}}
+    .livecard-t{display:flex;flex-direction:column;gap:2px}
+    .livecard-t b{font-size:16px;font-weight:700}
+    .livecard-t small{font-size:12.5px;color:var(--ink-dim)}
+    .gc{margin-top:14px;padding:14px 15px;border:1px solid var(--line);border-radius:var(--r);background:var(--panel)}
     .gc-row{display:flex;justify-content:space-between;align-items:baseline;font-size:15px}
     .gc-t{font-weight:700;color:var(--ink)}
     .gc-n{font-family:"IBM Plex Mono",monospace;color:var(--light)}
@@ -753,6 +762,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
           밝힌 불빛
         </div>
 </div>
+
 </div>
 <!-- 불빛 색이 무엇을 뜻하는지. 섬 그림 위에 겹치면 캡션에 가려집니다. -->
 <div class="legend" id="legend"></div>
@@ -773,6 +783,15 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </div>
 <!-- 공유 시트가 열리는 자리. 결과 화면과 같은 함수를 씁니다. -->
 <div id="sheet-box-home"></div>
+<div class="gc" id="gc-box">
+<div class="gc-row">
+<span class="gc-t"><span class="bi-ko" lang="ko">독도 강치 부르기</span><span class="bi-en" lang="en">Call the Dokdo sea lions</span></span>
+<span class="gc-n" id="gc-n">0 / 6</span>
+</div>
+<div class="gc-bar"><i id="gc-fill"></i></div>
+<button class="btn ghost" id="gc-go" type="button" disabled><span class="bi-ko" lang="ko">강치야 돌아와</span><span class="bi-en" lang="en">Come back, sea lions</span></button>
+<p class="gc-note"><span class="bi-ko" lang="ko">*독도 강치 : 1904년 일본의 무분별한 남획으로 인해 멸종한 바다사자의 일종. 학년이 오를 때마다 큰가제바위 무리에 한 마리씩 자리를 잡습니다.</span><span class="bi-en" lang="en">*Dokdo sea lion: a subspecies of sea lion hunted to extinction by unchecked Japanese hunting starting in 1904. Each level fills a seat on Gajibawi rock.</span></p>
+</div>
 <div class="ladder">
 <div class="eyebrow">성취 배지 / Achievement badges <span id="badge-n">0</span>/12</div>
 <div class="badgerow" id="badgerow"></div>
@@ -793,15 +812,6 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 <div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아 굿즈</span><span class="bi-en" lang="en">Dokdo merchandise</span></div>
 <div class="g-row"><span class="g-chip"><span class="bi-ko" lang="ko">준비 중</span><span class="bi-en" lang="en">Coming soon</span></span>
 <span class="note" style="margin:0"><span class="bi-ko" lang="ko">티셔츠·스티커·배지를 준비하고 있습니다.</span><span class="bi-en" lang="en">Shirts, stickers and badges are planned.</span></span></div>
-</div>
-<div class="gc" id="gc-box">
-<div class="gc-row">
-<span class="gc-t"><span class="bi-ko" lang="ko">강치를 부른다</span><span class="bi-en" lang="en">Call the sea lions</span></span>
-<span class="gc-n" id="gc-n">0 / 10</span>
-</div>
-<div class="gc-bar"><i id="gc-fill"></i></div>
-<button class="btn ghost" id="gc-go" type="button" disabled><span class="bi-ko" lang="ko">강치를 부른다</span><span class="bi-en" lang="en">Call</span></button>
-<p class="gc-note"><span class="bi-ko" lang="ko">10문제를 맞히면 부를 수 있습니다. 학년 수만큼 나타납니다. 1904년부터의 남획으로 사라진 동물입니다.</span><span class="bi-en" lang="en">Master 10 to call. Hunted to disappearance from 1904.</span></p>
 </div>
 <p class="note" id="home-note"></p>
 
@@ -1736,18 +1746,78 @@ const ISLE_BLOCK=[{x:SEA_W*.27,y:SEA_H*.46,rx:SEA_W*.17,ry:SEA_H*.30},
                   {x:SEA_W*.70,y:SEA_H*.44,rx:SEA_W*.15,ry:SEA_H*.26}];
 /* 강치는 1904년부터의 남획으로 사라졌습니다. 살아 있는 물고기와 달리
    빛나는 반투명 실루엣으로 그리고, 한 바퀴 돌고 흐려집니다. */
-let GANGCHI=[];
-const GANGCHI_NEED=10;
+/* 강치 서식 바위 — 동도·서도 사이, 실제 부속 도서(큰가제바위 계열)를
+   본뜬 자리 셋. 정원이 1·2·3마리로 다릅니다.
+   학년이 오를 때마다 다음 자리를 채웁니다. 부르면 지나가고 끝나는 게
+   아니라, 채워진 자리마다 강치가 머뭅니다. */
+const GC_ROCKS=[
+  {x:SEA_W*.455, y:SEA_H*.62, cap:1, name:"작은가제바위"},
+  {x:SEA_W*.50,  y:SEA_H*.52, cap:2, name:"가제바위"},
+  {x:SEA_W*.545, y:SEA_H*.66, cap:3, name:"큰가제바위"}
+];
+const GC_TOTAL=GC_ROCKS.reduce((a,r)=>a+r.cap,0);   // 6마리가 이 바다의 전부입니다
+let GC_TOUR=null;   // 부르는 순간에만 한 바퀴 도는 연출
+
+/* 학년이 오를수록 몇 마리가 자리를 채웠는지. 순번이 곧 채움 수입니다. */
+function gcFilled(){
+  const total=LADDER.length-1;                      // 마지막 칸에서 6자리가 다 찹니다
+  const ratio=idx(S.grade)/Math.max(1,total);
+  return Math.max(0, Math.min(GC_TOTAL, Math.round(ratio*GC_TOTAL)));
+}
+
+/* 자리를 채운 순서대로 (바위, 그 안에서 몇 번째)를 매깁니다. */
+function gcSeats(){
+  const seats=[]; GC_ROCKS.forEach(r=>{for(let i=0;i<r.cap;i++)seats.push({rock:r,i});});
+  return seats;
+}
+
 function callGangchi(){
-  const n=Math.max(1,idx(S.grade)+1);
-  GANGCHI=[];
-  for(let i=0;i<n;i++){
-    GANGCHI.push({t:-i*0.5, y:SEA_H*(.34+ (i%5)*.10), sz:9+(i%3)*2.5});
-  }
-  S.gcHit=0; save();
-  toast("강치 "+n+"마리가 지나갑니다 · 1904년부터의 남획으로 사라졌습니다");
+  const filled=gcFilled();
+  if(filled<=0){ toast("아직 자리 잡은 강치가 없습니다 · 학년이 오르면 나타납니다"); return; }
+  GC_TOUR={t:0, n:filled};
+  toast(filled+"마리가 자리를 도네요 · 1904년부터의 남획으로 사라진 동물입니다");
 }
 let FIN={x:SEA_W+200,y:SEA_H*.17,v:-.45,on:false,next:700};
+
+/* 강치 그리기 — 머무는 것(자리를 채운 강치)과 도는 것(부른 순간)을 함께 그립니다. */
+function seaGangchi(t){
+  const seats=gcSeats(), filled=gcFilled();
+  for(let k=0;k<filled;k++){
+    const {rock,i}=seats[k];
+    const wob=Math.sin(t*0.9+k*1.7)*3;                 /* 자리에서 살짝만 움직입니다 */
+    const bob=Math.sin(t*1.6+k*2.3)*2;
+    const ang=(i-(rock.cap-1)/2)*22;                    /* 한 바위에 여럿이면 나란히 */
+    const rad=Math.PI/180*ang;
+    const gx=rock.x+Math.sin(rad)*14+wob*.3;
+    const gy=rock.y-Math.cos(rad)*6+bob;
+    seaGangchiOne(gx,gy,7+((k%3)*1.6), wob*0.05);
+  }
+  if(GC_TOUR){
+    GC_TOUR.t+=0.012;
+    if(GC_TOUR.t>1){ GC_TOUR=null; }
+    else{
+      const ang=GC_TOUR.t*Math.PI*2, cx=(SEA_W*.455+SEA_W*.545)/2, cy=SEA_H*.60;
+      const rx=SEA_W*.09, ry=SEA_H*.10;
+      for(let i=0;i<GC_TOUR.n;i++){
+        const a=ang+i*(Math.PI*2/GC_TOUR.n);
+        seaGangchiOne(cx+Math.cos(a)*rx, cy+Math.sin(a)*ry*.6, 8, a);
+      }
+    }
+  }
+}
+function seaGangchiOne(x,y,sz,rot){
+  seaX.save(); seaX.globalAlpha=.62; seaX.translate(x,y); seaX.rotate(rot*.4);
+  seaX.fillStyle="#FCD34D";
+  seaX.beginPath();
+  seaX.moveTo(-sz*2.1,0);
+  seaX.bezierCurveTo(-sz*1.1,-sz*1.05, sz*1.0,-sz*.9, sz*2.2,-sz*.14);
+  seaX.bezierCurveTo(sz*2.6,0, sz*2.6,sz*.1, sz*2.2,sz*.28);
+  seaX.bezierCurveTo(sz*1.0,sz*1.1, -sz*1.1,sz*1.0, -sz*2.1,0);
+  seaX.closePath(); seaX.fill();
+  seaX.globalAlpha=.20;
+  seaX.beginPath(); seaX.arc(0,0,sz*2.6,0,7); seaX.fill();
+  seaX.restore();
+}
 
 let seaCv=null, seaX=null, seaRaf=0, seaT0=0, seaLitShown=0;
 const SEA_REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1884,33 +1954,8 @@ function seaFrame(now){
     seaFish(f,t);
   });
 
-  /* 강치 — 부른 뒤 잠깐 나타났다 흐려집니다 */
-  if(GANGCHI.length){
-    let alive=false;
-    for(const g of GANGCHI){
-      g.t+=0.006;
-      if(g.t<0||g.t>1)  { if(g.t<=1) alive=true; continue; }
-      alive=true;
-      const x=-70+g.t*(SEA_W+140);
-      const fade=Math.sin(Math.PI*g.t);
-      c.save(); c.globalAlpha=.55*fade;
-      c.translate(x, g.y+Math.sin(g.t*9)*7);
-      c.fillStyle="#FCD34D";
-      c.beginPath();
-      c.moveTo(-g.sz*2.2,0);
-      c.bezierCurveTo(-g.sz*1.2,-g.sz*1.1, g.sz*1.1,-g.sz*.95, g.sz*2.3,-g.sz*.15);
-      c.bezierCurveTo(g.sz*2.7,0, g.sz*2.7,g.sz*.1, g.sz*2.3,g.sz*.3);
-      c.bezierCurveTo(g.sz*1.1,g.sz*1.15, -g.sz*1.2,g.sz*1.05, -g.sz*2.2,0);
-      c.closePath(); c.fill();
-      c.beginPath();                                   /* 앞지느러미 */
-      c.moveTo(-g.sz*.2,g.sz*.6); c.quadraticCurveTo(-g.sz*1.5,g.sz*1.8,-g.sz*2.2,g.sz*1.2);
-      c.quadraticCurveTo(-g.sz*1.3,g.sz*.7,-g.sz*.2,g.sz*.6); c.closePath(); c.fill();
-      c.globalAlpha=.22*fade;                          /* 번짐 */
-      c.beginPath(); c.arc(0,0,g.sz*3.1,0,7); c.fill();
-      c.restore();
-    }
-    if(!alive) GANGCHI=[];
-  }
+  /* 강치 — 학년만큼 바위에 자리 잡고 머뭅니다. 부르면 잠깐 돕니다. */
+  seaGangchi(t);
 
   /* 고래 — 가끔 지나갑니다. 늘 있으면 특별하지 않습니다 */
   if(!WHALE.on){ if(--WHALE.next<=0){WHALE.on=true;WHALE.x=-360;WHALE.spout=0;} }
@@ -1995,12 +2040,21 @@ function pickAnotherSong(){
 }
 /* 채널 핸들 뒤에 /live 를 붙이면 지금 방송 중인 영상으로 자동 연결됩니다.
    방송이 바뀔 때마다 주소를 고치지 않아도 됩니다. */
-const LIVE_EMBED="https://www.youtube.com/embed/live_stream?channel=UC6qbOiEP_Ogs9Bpi1YkN3mQ&autoplay=0&rel=0";
+/* embed/live_stream?channel= 방식은 채널 ID가 정확해도 방송 상태에 따라
+   "재생 ID는 ...입니다" 오류를 자주 냅니다. iframe 대신 채널 홈으로
+   바로 여는 카드로 둡니다. 방송 중이 아니어도 오류가 나지 않습니다. */
 function renderChannel(){
   const box=document.getElementById("ch-slot"); if(!box)return;
-  box.innerHTML='<div class="videobox"><iframe src="'+LIVE_EMBED+'" '
-    +'allow="encrypted-media; picture-in-picture" allowfullscreen '
-    +'title="독도 실시간 라이브" loading="lazy"></iframe></div>';
+  box.innerHTML=
+    '<a class="livecard" href="https://www.youtube.com/@독도코리아/live" '
+    +'target="_blank" rel="noopener">'
+    +'<span class="livecard-dot"></span>'
+    +'<span class="livecard-t">'
+    +'<b class="bi-ko" lang="ko">독도 실시간 라이브 보러 가기</b>'
+    +'<b class="bi-en" lang="en">Watch Dokdo Live now</b>'
+    +'<small class="bi-ko" lang="ko">24시간 방송 중인 독도 코리아 채널로 이동합니다</small>'
+    +'<small class="bi-en" lang="en">Opens the 24-hour Dokdo Korea live channel</small>'
+    +'</span></a>';
 }
 
 /* ---------- 화면 ---------- */
@@ -2209,14 +2263,16 @@ function refreshDataStatus(){
 }
 function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error};refreshDataStatus();}
 
+/* 정원 6자리(1+2+3) 중 학년 순번만큼 채워집니다. 문제를 더 맞혀도
+   게이지가 아니라 학년이 강치를 늘립니다 — 진급 자체가 보상입니다. */
 function renderGangchi(){
-  const hit=Math.min(GANGCHI_NEED,S.gcHit||0);
+  const filled=gcFilled();
   const n=document.getElementById("gc-n"), f=document.getElementById("gc-fill"), b=document.getElementById("gc-go");
-  if(n)n.textContent=hit+" / "+GANGCHI_NEED;
-  if(f)f.style.width=(hit/GANGCHI_NEED*100)+"%";
-  if(b){b.disabled=hit<GANGCHI_NEED;
+  if(n)n.textContent=filled+" / "+GC_TOTAL;
+  if(f)f.style.width=(filled/GC_TOTAL*100)+"%";
+  if(b){b.disabled=filled<=0;
     if(!b.dataset.on){b.dataset.on="1";
-      b.addEventListener("click",()=>{callGangchi();renderGangchi();});}}
+      b.addEventListener("click",()=>{callGangchi();});}}
 }
 function renderHome(){
   renderChannel();
@@ -2417,8 +2473,6 @@ function answer(pick){
   r.seen++; r.att=(r.att||0)+1; if(ok)r.cor=(r.cor||0)+1;
   if(ok){L.ok++;L.xp+=gained;S.xp+=gained;
     r.earned=Math.max(r.earned||0,pt);   // 진급 점수는 한 번만 · 힌트를 쓰면 절반만 쌓입니다
-    /* 맞힐 때마다 강치 게이지가 찹니다. 열 개면 부를 수 있습니다. */
-    S.gcHit=Math.min(GANGCHI_NEED,(S.gcHit||0)+1);
     r.lv=Math.min(r.lv+1,INTERVALS.length-1);}
   else{r.lv=0;L.wrong.push(item);}
   const d=new Date();d.setDate(d.getDate()+INTERVALS[Math.min(r.lv,INTERVALS.length-1)]);
