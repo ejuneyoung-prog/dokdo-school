@@ -624,10 +624,12 @@ button .bi-ko{font-size:.8em;font-weight:600;opacity:.92}
     .gc button:disabled{opacity:.45}
     .gc-note{font-size:13px;color:var(--ink-dim);line-height:1.65;margin:9px 0 0}
     .linkgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-top:10px}
-    .linkgrid a{display:block;text-align:center;padding:11px 6px;border-radius:10px;
+    .linkgrid a{display:flex;align-items:center;justify-content:center;gap:6px;
+      text-align:center;padding:11px 6px;border-radius:10px;
       border:1px solid var(--line);background:var(--panel);color:var(--ink-mid);
       text-decoration:none;font-size:13.5px}
     .linkgrid a:hover{border-color:var(--light-deep);color:var(--ink)}
+    .lg-i{display:inline-flex;opacity:.75;flex:none}
     .lang-foot{display:flex;align-items:center;justify-content:center;gap:10px;
       padding:22px 0 calc(18px + env(safe-area-inset-bottom));font-size:13.5px}
     .lang-foot .lang-link{color:var(--ink-dim);text-decoration:none;padding:6px 10px;border-radius:8px}
@@ -820,9 +822,10 @@ button .bi-ko{font-size:.8em;font-weight:600;opacity:.92}
 <div class="ladder" style="margin-top:22px">
 <div class="eyebrow"><span class="bi-ko" lang="ko">독도 실시간</span><span class="bi-en" lang="en">Dokdo Live</span></div>
 <div id="ch-slot" style="margin-top:10px"></div>
-<div class="btnrow" style="margin-top:10px">
-<a class="btn ghost" href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">실시간 독도 보러 가기</span><span class="bi-en" lang="en">Watch Dokdo Live</span></a>
 </div>
+<div class="ladder" style="margin-top:14px">
+<div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아의 다른 영상</span><span class="bi-en" lang="en">More Dokdo Korea videos</span></div>
+<div id="vid-slot" style="margin-top:10px"></div>
 </div>
 
 <p class="note" id="ver-note" style="opacity:.55;font-size:11.5px;margin-top:10px"></p>
@@ -849,18 +852,18 @@ button .bi-ko{font-size:.8em;font-weight:600;opacity:.92}
 <details class="data-status" id="data-status"><summary>문항 연결 상태 / Question-file status</summary><p id="data-status-text">앱 시작 중 / Starting app</p><p>표준 파일명: index.html · index-en.html · questions.json · questions-en.json</p></details><div class="ladder" style="margin-top:22px">
 <div class="eyebrow"><span class="bi-ko" lang="ko">독도 코리아</span><span class="bi-en" lang="en">Dokdo Korea</span></div>
 <div class="linkgrid">
-<a href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank">YouTube</a>
-<a href="https://www.youtube.com/@독도코리아레이블" rel="noopener" target="_blank">레이블</a>
-<a href="https://open.spotify.com/artist/58jsU8YkpGVCjkbCsHv6UE" rel="noopener" target="_blank">Spotify</a>
-<a href="https://music.youtube.com/channel/UC6qbOiEP_Ogs9Bpi1YkN3mQ" rel="noopener" target="_blank">YT Music</a>
-<a href="https://www.melon.com/artist/timeline.htm?artistId=4719975" rel="noopener" target="_blank">멜론</a>
-<a href="https://www.genie.co.kr/detail/artistInfo?xxnm=83161895" rel="noopener" target="_blank">지니</a>
-<a href="https://www.music-flo.com/detail/artist/413058843/track" rel="noopener" target="_blank">FLO</a>
-<a href="https://music.apple.com/kr/artist/1864252544" rel="noopener" target="_blank">Apple</a>
-<a href="https://instagram.com/dokdokorea_815" rel="noopener" target="_blank">Instagram</a>
-<a href="https://www.tiktok.com/@dokdo.korea" rel="noopener" target="_blank">TikTok</a>
-<a href="https://open.kakao.com/o/pFAjzXXh" rel="noopener" target="_blank">오픈채팅</a>
-<a href="https://linktr.ee/DokdoKorea" rel="noopener" target="_blank">전체 링크</a>
+<a href="https://www.youtube.com/@독도코리아" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 3-4 3V6z" fill="currentColor" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M7 4v5M17 4v5" stroke-width="1.3" opacity=".7"/></svg></span>YouTube</a>
+<a href="https://www.youtube.com/@독도코리아레이블" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 3-4 3V6z" fill="currentColor" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M7 4v5M17 4v5" stroke-width="1.3" opacity=".7"/></svg></span>레이블</a>
+<a href="https://open.spotify.com/artist/58jsU8YkpGVCjkbCsHv6UE" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>Spotify</a>
+<a href="https://music.youtube.com/channel/UC6qbOiEP_Ogs9Bpi1YkN3mQ" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>YT Music</a>
+<a href="https://www.melon.com/artist/timeline.htm?artistId=4719975" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>멜론</a>
+<a href="https://www.genie.co.kr/detail/artistInfo?xxnm=83161895" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>지니</a>
+<a href="https://www.music-flo.com/detail/artist/413058843/track" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>FLO</a>
+<a href="https://music.apple.com/kr/artist/1864252544" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg></span>Apple</a>
+<a href="https://instagram.com/dokdokorea_815" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 3-4 3V6z" fill="currentColor" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M7 4v5M17 4v5" stroke-width="1.3" opacity=".7"/></svg></span>Instagram</a>
+<a href="https://www.tiktok.com/@dokdo.korea" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6l4 3-4 3V6z" fill="currentColor" stroke="none"/><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M7 4v5M17 4v5" stroke-width="1.3" opacity=".7"/></svg></span>TikTok</a>
+<a href="https://open.kakao.com/o/pFAjzXXh" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 15l6-6M8 13l-2.5 2.5a3 3 0 104.2 4.2L12 17M16 11l2.5-2.5a3 3 0 10-4.2-4.2L12 7"/></svg></span>오픈채팅</a>
+<a href="https://linktr.ee/DokdoKorea" rel="noopener" target="_blank"><span class="lg-i"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 15l6-6M8 13l-2.5 2.5a3 3 0 104.2 4.2L12 17M16 11l2.5-2.5a3 3 0 10-4.2-4.2L12 7"/></svg></span>전체 링크</a>
 </div>
 <div class="btnrow" style="margin-top:10px">
 <a class="btn ghost" href="https://www.youtube.com/@독도코리아/join" rel="noopener" target="_blank"><span class="bi-ko" lang="ko">채널 응원하기</span><span class="bi-en" lang="en">Support the channel</span></a>
@@ -1751,10 +1754,25 @@ const ISLE_BLOCK=[{x:SEA_W*.27,y:SEA_H*.46,rx:SEA_W*.17,ry:SEA_H*.30},
    학년이 오를 때마다 다음 자리를 채웁니다. 부르면 지나가고 끝나는 게
    아니라, 채워진 자리마다 강치가 머뭅니다. */
 const GC_ROCKS=[
-  {x:SEA_W*.455, y:SEA_H*.62, cap:1, name:"작은가제바위"},
-  {x:SEA_W*.50,  y:SEA_H*.52, cap:2, name:"가제바위"},
-  {x:SEA_W*.545, y:SEA_H*.66, cap:3, name:"큰가제바위"}
+  {x:SEA_W*.455, y:SEA_H*.62, cap:1, name:"작은가제바위", r:9},
+  {x:SEA_W*.50,  y:SEA_H*.52, cap:2, name:"가제바위",     r:13},
+  {x:SEA_W*.545, y:SEA_H*.66, cap:3, name:"큰가제바위",   r:16}
 ];
+/* 바위 자체를 그립니다. 좌표만 있고 도형이 없으면 강치 두세 마리의
+   노란 빛이 겹쳐 보여 그것이 섬인지 강치인지 구별되지 않습니다.
+   바위는 청회색 암석色 — 강치의 노란빛과 뚜렷이 다른 색이어야 합니다. */
+function seaGcRocks(){
+  GC_ROCKS.forEach(r=>{
+    seaX.save();
+    seaX.fillStyle="#4A5A6B";
+    seaX.beginPath(); seaX.ellipse(r.x, r.y, r.r*1.5, r.r*.62, 0, 0, 7); seaX.fill();
+    seaX.fillStyle="#5E7185";
+    seaX.beginPath(); seaX.ellipse(r.x, r.y-r.r*.28, r.r*1.05, r.r*.5, 0, 0, 7); seaX.fill();
+    seaX.strokeStyle="rgba(150,195,235,.22)"; seaX.lineWidth=1;
+    seaX.beginPath(); seaX.ellipse(r.x, r.y, r.r*1.5, r.r*.62, 0, 0, 7); seaX.stroke();
+    seaX.restore();
+  });
+}
 const GC_TOTAL=GC_ROCKS.reduce((a,r)=>a+r.cap,0);   // 6마리가 이 바다의 전부입니다
 let GC_TOUR=null;   // 부르는 순간에만 한 바퀴 도는 연출
 
@@ -1781,6 +1799,7 @@ let FIN={x:SEA_W+200,y:SEA_H*.17,v:-.45,on:false,next:700};
 
 /* 강치 그리기 — 머무는 것(자리를 채운 강치)과 도는 것(부른 순간)을 함께 그립니다. */
 function seaGangchi(t){
+  seaGcRocks();
   const seats=gcSeats(), filled=gcFilled();
   for(let k=0;k<filled;k++){
     const {rock,i}=seats[k];
@@ -1848,7 +1867,8 @@ function seaFish(f,t){
 }
 function seaWhale(w,t){
   const x=seaX;
-  x.save();x.translate(w.x,w.y+Math.sin(t*.7)*6);x.scale(w.v<0?-1:1,1);
+  const S=Math.min(1, SEA_W/1000);   // 기준 폭(1000px)보다 좁으면 함께 줄입니다
+  x.save();x.translate(w.x,w.y+Math.sin(t*.7)*6);x.scale((w.v<0?-1:1)*S,S);
   x.globalAlpha=.26;x.fillStyle='#7FB3D5';
   x.beginPath();x.moveTo(-150,0);x.bezierCurveTo(-110,-46,60,-52,140,-12);
   x.bezierCurveTo(160,-4,160,6,140,14);x.bezierCurveTo(60,42,-110,38,-150,0);x.closePath();x.fill();
@@ -1963,6 +1983,14 @@ function seaFrame(now){
     WHALE.x+=WHALE.v;
     if(WHALE.spout>0)WHALE.spout-=.6;
     if(WHALE.x>SEA_W*.44&&WHALE.x<SEA_W*.47&&WHALE.spout<=0)WHALE.spout=40;
+    for(const o of ISLE_BLOCK){
+      const dx=(WHALE.x-o.x)/o.rx, dy=(WHALE.y-o.y)/(o.ry*1.3), d2=dx*dx+dy*dy;
+      if(d2<1){
+        const k=(1-Math.sqrt(d2))*o.ry*0.55;
+        WHALE.y += (WHALE.y<o.y ? -k : k);
+        WHALE.y = Math.max(SEA_H*.58, Math.min(SEA_H*.86, WHALE.y));
+      }
+    }
     if(WHALE.x>SEA_W+300){WHALE.on=false;WHALE.next=2600+Math.floor(SEA_R()*2600);}
     seaWhale(WHALE,t);
   }
@@ -2274,8 +2302,26 @@ function renderGangchi(){
     if(!b.dataset.on){b.dataset.on="1";
       b.addEventListener("click",()=>{callGangchi();});}}
 }
+/* 내 영상 랜덤 미리보기. 하루에 한 번 바뀌고, 오늘의 노래(입구)와는
+   다른 곡이 뜨게 시드를 다르게 잡습니다. 실제 썸네일이 보여야
+   두 블록의 차이(라이브 vs 저장된 영상)가 한눈에 들어옵니다. */
+function renderVideo(){
+  const box=document.getElementById("vid-slot"); if(!box)return;
+  const today=songOfToday();
+  const pool=SONGS.filter(v=>v!==today);
+  const v=pool[dayIndex()%pool.length] || SONGS[0];
+  box.innerHTML='<a class="videobox" href="https://youtu.be/'+v+'" target="_blank" rel="noopener" '
+    +'style="display:block;position:relative">'
+    +'<img src="https://i.ytimg.com/vi/'+v+'/hqdefault.jpg" alt="" '
+    +'style="width:100%;display:block;border-radius:var(--r)">'
+    +'<span style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center">'
+    +'<span style="width:56px;height:56px;border-radius:50%;background:rgba(0,0,0,.55);'
+    +'display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff">▶</span>'
+    +'</span></a>';
+}
 function renderHome(){
   renderChannel();
+  renderVideo();
   renderGangchi();
   const lights=lightCount(), due=dueList().length, bc=beacons(lights), lb=levelBar(S.xp);
   $("#st-streak").innerHTML=`🔥 개근 <b>${S.streak}</b>일`;
