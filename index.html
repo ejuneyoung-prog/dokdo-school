@@ -801,7 +801,7 @@ button .bi-en{font-size:.8em;font-weight:600;opacity:.92}
 </div>
 <div class="gc-bar"><i id="gc-fill"></i></div>
 <button class="btn ghost" id="gc-go" type="button" disabled><span class="bi-ko" lang="ko">강치야 돌아와</span><span class="bi-en" lang="en">Come back, sea lions</span></button>
-<p class="gc-note"><span class="bi-ko" lang="ko">*독도 강치 : 1904년 일본의 무분별한 남획으로 인해 멸종한 바다사자의 일종. 문제를 10개 맞힐 때마다 큰가제바위 무리에 한 마리씩 자리를 잡습니다.</span><span class="bi-en" lang="en">*Dokdo sea lion: a subspecies of sea lion hunted to extinction by unchecked Japanese hunting starting in 1904. Every 10 correct answers fills a seat on Gajibawi rock.</span></p>
+<p class="gc-note" id="gc-note"><span class="bi-ko" lang="ko">*독도 강치 : 1904년 일본의 무분별한 남획으로 인해 멸종한 바다사자의 일종.</span><span class="bi-en" lang="en">*Dokdo sea lion: a subspecies of sea lion hunted to extinction by unchecked Japanese hunting starting in 1904.</span></p>
 </div>
 <div class="ladder">
 <div class="eyebrow">성취 배지 / Achievement badges <span id="badge-n">0</span>/12</div>
@@ -2216,7 +2216,13 @@ function playIntro(){
 function endIntro(){
   const sl=$("#intro-slot"); if(sl)sl.innerHTML="";   /* 재생을 확실히 멈춥니다 */
   S.introDay=today(); save();                          /* 오늘 몫은 지났습니다 */
-  show(S.name?"s-home":"s-locate");
+  /* show() 는 화면 전환만 하고 다시 그리지 않습니다. 여기서 renderHome() 을
+     빼먹으면 저장된 기록(불빛·학년·XP)이 있어도 화면은 초기 상태로 보입니다.
+     다른 모든 홈 진입 지점은 show("s-home") 뒤에 반드시 renderHome() 을
+     짝지어 부릅니다 — 여기만 빠져 있었습니다. */
+  const dest = S.name ? "s-home" : "s-locate";
+  show(dest);
+  if (dest === "s-home") renderHome();
 }
 /* 저학년은 틀려도 수업이 끝나지 않습니다 — 일곱 살이 첫 문제 틀리고 쫓겨나면 다시 오지 않습니다 */
 /* 초3 이하를 예외로 두었더니 '틀려도 계속 진행된다'는 상태가 되어
@@ -2363,15 +2369,41 @@ function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error}
 /* 정원 6자리(1+2+3) 중 학년 순번만큼 채워집니다. 문제를 더 맞혀도
    게이지가 아니라 학년이 강치를 늘립니다 — 진급 자체가 보상입니다. */
 function renderGangchi(){
-  /* 게이지는 이제 '언제든 부를 수 있는 다음 한 마리'까지 얼마나 남았는지를
-     보여 줍니다. 5문제를 채우면 부르기 버튼이 열립니다. */
+  /* '지금 부를 수 있는 마리 수(ready)'와 '다음 충전까지 남은 진도(hit)'는
+     서로 다른 정보입니다. 5문제를 채우면 hit 가 0으로 돌아가면서 동시에
+     ready 가 1이 되는데, 두 값을 한 줄(0/5)로만 보여 주면 '0인데 왜
+     버튼이 눌리지?'로 보입니다. 부를 수 있을 때는 그 사실을 먼저 보여 주고,
+     다음 진행도는 보조 정보로 뒤에 붙입니다. */
   const hit=(S.gcHit||0)%GC_PER_SEAT, ready=Math.floor((S.gcHit||0)/GC_PER_SEAT);
   const n=document.getElementById("gc-n"), f=document.getElementById("gc-fill"), b=document.getElementById("gc-go");
-  if(n)n.textContent=hit+" / "+GC_PER_SEAT;
-  if(f)f.style.width=(hit/GC_PER_SEAT*100)+"%";
-  if(b){b.disabled=ready<=0;
-    if(!b.dataset.on){b.dataset.on="1";
-      b.addEventListener("click",()=>{callGangchi();});}}
+  if(n){
+    n.textContent = ready>0
+      ? `지금 ${ready}마리 부를 수 있음`
+      : `${hit} / ${GC_PER_SEAT}`;
+  }
+  if(f) f.style.width = ready>0 ? "100%" : (hit/GC_PER_SEAT*100)+"%";
+  if(b){
+    b.disabled = ready<=0;
+    if(!b.dataset.on){
+      b.dataset.on="1";
+      b.addEventListener("click",()=>{callGangchi();});
+    }
+  }
+  /* 안내 문구의 숫자는 GC_PER_SEAT 하나에서만 나옵니다. 문구를 정적 텍스트에
+     하드코딩해 두면 이 값을 바꿀 때마다 별도로 고쳐야 하는데, 실제로
+     10→5로 바꾸면서 이 문구만 빠뜨려 화면에 옛 숫자가 남았던 적이 있습니다. */
+  const note=document.getElementById("gc-note");
+  if(note && !note.dataset.base){
+    note.dataset.base="1";
+    note.dataset.ko=note.querySelector('[lang="ko"]').textContent;
+    note.dataset.en=note.querySelector('[lang="en"]').textContent;
+  }
+  if(note){
+    note.querySelector('[lang="ko"]').textContent =
+      note.dataset.ko+" 문제를 "+GC_PER_SEAT+"개 맞힐 때마다 큰가제바위 무리에 한 마리씩 자리를 잡습니다.";
+    note.querySelector('[lang="en"]').textContent =
+      note.dataset.en+" Every "+GC_PER_SEAT+" correct answers fills a seat on Gajibawi rock.";
+  }
 }
 /* 내 영상 랜덤 미리보기. 하루에 한 번 바뀌고, 오늘의 노래(입구)와는
    다른 곡이 뜨게 시드를 다르게 잡습니다. 실제 썸네일이 보여야
