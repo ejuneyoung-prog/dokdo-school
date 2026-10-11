@@ -716,15 +716,31 @@ button .bi-ko{font-size:.8em;font-weight:600;opacity:.92}
 <input autocomplete="name" id="realname" maxlength="28" placeholder="예: 안용복 / e.g. Alex"/>
 <p class="hint"><span class="bi-ko" lang="ko">뱃지와 공유 카드에 이 이름 그대로 표시됩니다. 본명이 부담스러우면 별명을 적으셔도 됩니다.</span><span class="bi-en" lang="en">Your badge and share card will show this name . A nickname is fine.</span></p>
 </div>
+<style>
+/* 학생/일반 고르기. 손가락으로 누르기 쉽게 44px 이상 */
+.who-row{display:flex;gap:6px;margin:2px 0 8px}
+.who-row button{flex:1;min-height:44px;border-radius:12px;border:1px solid var(--line);background:#0A1628;color:var(--ink-mid);font:inherit;font-size:15px;font-weight:600;cursor:pointer}
+.who-row button.on{border-color:var(--light);color:var(--ink);background:rgba(251,191,36,.12);box-shadow:inset 0 0 0 1px var(--light)}
+</style>
 <div class="field">
-<label><span class="bi-ko" lang="ko">소속 (선택)</span><span class="bi-en" lang="en">School (optional)</span></label>
+<label><span class="bi-ko" lang="ko">소속</span><span class="bi-en" lang="en">Your school or group</span></label>
+<div class="who-row" role="radiogroup">
+  <button type="button" id="who-stu" role="radio"><span class="bi-ko" lang="ko">학생이에요</span><span class="bi-en" lang="en">I am a student</span></button>
+  <button type="button" id="who-gen" role="radio"><span class="bi-ko" lang="ko">학생이 아니에요</span><span class="bi-en" lang="en">Not a student</span></button>
+</div>
+<div id="aff-gen" hidden>
+  <input id="org" maxlength="40" autocomplete="organization" placeholder="회사·단체·동아리·지역 / Workplace, club, town"/>
+  <p class="hint"><span class="bi-ko" lang="ko">뱃지와 공유 카드에 이름과 함께 표시됩니다.</span><span class="bi-en" lang="en">Shown with your name on your badge and share card.</span></p>
+</div>
+<div id="aff-stu">
 <div class="code-row">
-  <input id="school-show" readonly placeholder="고르지 않아도 됩니다 / Optional"/>
+  <input id="school-show" readonly placeholder="우리 학교 / My school"/>
   <button type="button" class="btn ghost" id="school-find">학교 찾기</button>
   <button type="button" class="btn ghost" id="school-clear" hidden="">지우기</button>
 </div>
 <div class="sch-wrap" hidden="" id="sch-wrap"><input autocomplete="off" id="school" maxlength="40" placeholder="학교 이름을 두 글자만 쳐 보세요 / Type two letters"/><div class="sch-list" id="sch-list"></div></div>
-<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">학교를 고르면 학교 순위에 함께 집계됩니다. 건너뛰어도 학습에는 지장이 없습니다.</span><span class="bi-en" lang="en">Pick your school to join the school ranking. You can skip this.</span></p>
+<p class="hint" id="sch-hint"><span class="bi-ko" lang="ko">우리 학교를 고르면 학교 순위에 함께 올라갑니다. 친구들과 우리 학교 불빛을 켜 보세요.</span><span class="bi-en" lang="en">Pick your school to put it on the school ranking.</span></p>
+</div>
 </div>
 <div class="field">
 <label for="mycode"><span class="bi-ko" lang="ko">네 자리 비밀번호</span><span class="bi-en" lang="en">Four-digit code</span></label>
@@ -2497,7 +2513,7 @@ function updateBilingualHome(){
   const litPairs=LIT.map(x=>[x.ko,x.en]);
   const litColors=LIT.map(x=>x.col);
   $('#legend').innerHTML=litPairs.map((p,i)=>'<i><b style="background:'+litColors[i]+'"></b><span>'+biHTML(p[0]+' '+litTally[i+1],p[1])+'</span></i>').join('');
-  $('#ver-note').textContent='출제 '+DATA.active_count+'개 / 보존 '+DATA.questions.length+'개 · '+QVER+' · ops1';
+  $('#ver-note').textContent='출제 '+DATA.active_count+'개 / 보존 '+DATA.questions.length+'개 · '+QVER+' · ops2';
   refreshDataStatus();
 }
 function bilingualFlags(){
@@ -2657,7 +2673,7 @@ function renderHome(){
     :`이 학년에서 ${Math.min(PROMOTE_N,gradeSet(S.grade).length)}문항을 익히면 진급 시험이 열립니다. 남은 휴교권 ${S.shelter}회.`;
   $("#home-note").textContent=note;
   /* 지금 보고 있는 판을 눈으로 확인할 수 있게 합니다. 캐시된 옛 버전 판별용입니다. */
-  $("#ver-note").textContent=`문항 ${DATA.questions.length}개 · ${QVER} 판 · ops1`;
+  $("#ver-note").textContent=`문항 ${DATA.questions.length}개 · ${QVER} 판 · ops2`;
   renderTicker();
   renderHall();
   updateBilingualHome();
@@ -3656,8 +3672,8 @@ $("#intro-go").addEventListener("click",endIntro);
 $("#h-notify").addEventListener("click",()=>askNotify($("#h-notify")));
 function grabNames(){S.name=$("#realname").value.trim();
   save();}   /* 소속은 고른 사람만 붙습니다 */
-$("#go-placement").addEventListener("click",()=>{grabNames();ev("onboarding_choice",{choice:"placement"});startPlacement();});
-$("#go-kinder").addEventListener("click",()=>{grabNames();ev("onboarding_choice",{choice:"kinder"});S.grade="K";S.started=true;save();show("s-home");renderHome();});
+$("#go-placement").addEventListener("click",()=>{grabNames();ev("onboarding_choice",{choice:"placement",who:S.who||"",has_affil:S.school?1:0});startPlacement();});
+$("#go-kinder").addEventListener("click",()=>{grabNames();ev("onboarding_choice",{choice:"kinder",who:S.who||"",has_affil:S.school?1:0});S.grade="K";S.started=true;save();show("s-home");renderHome();});
 $("#go-lesson").addEventListener("click",()=>startLesson("daily"));
 $("#go-review").addEventListener("click",()=>startLesson("review"));
 $("#go-brag").addEventListener("click",()=>toggleSheet());
@@ -3704,7 +3720,7 @@ async function importProgress3(file){
 S=load();
 if(!S.learning){try{const old=localStorage.getItem(KEY);if(old&&!localStorage.getItem(KEY+"-before-v3"))localStorage.setItem(KEY+"-before-v3",old);}catch(e){}}
 /* 며칠 만에 돌아왔는지. GA 기본 리텐션은 쿠키 기준이라 기기 안의 기록으로 한 번 더 봅니다. -1 = 수업 기록 없음 */
-ev("app_open",{days_since_last:S.lastDay?daysBetween(S.lastDay,today()):-1,streak:S.streak||0,started:S.started?1:0,app_ver:"ops1"});
+ev("app_open",{days_since_last:S.lastDay?daysBetween(S.lastDay,today()):-1,streak:S.streak||0,started:S.started?1:0,app_ver:"ops2"});
 LE.ensure(S,today());save();
 document.getElementById("progress-export").addEventListener("click",exportProgress3);
 document.getElementById("progress-import").addEventListener("change",e=>importProgress3(e.target.files[0]));
@@ -3773,6 +3789,33 @@ else show("s-locate");
     e.preventDefault(); pick(items[+b.dataset.i]);
   });
   inp.addEventListener('blur',()=>setTimeout(close,150));
+})();
+
+/* ---------- 학생 / 일반 소속 ----------
+   "선택"이라고 적어 두면 거의 아무도 적지 않습니다(기록지 15명 중 학교 입력 5명).
+   학교 순위가 학교 단위 참여를 부르는 장치이므로 학생에게는 학교 찾기를,
+   그 밖의 분에게는 소속(회사·단체·지역)을 바로 적게 합니다.
+   일반 소속은 학교 코드가 없어 학교 순위에는 들어가지 않고 뱃지·공유 카드에만 붙습니다.
+   비워 두어도 시작은 막지 않습니다. */
+(function(){
+  const stu=document.getElementById("who-stu"), gen=document.getElementById("who-gen");
+  const aS=document.getElementById("aff-stu"), aG=document.getElementById("aff-gen"), org=document.getElementById("org");
+  if(!stu||!gen||!aS||!aG||!org)return;
+  const set=(who,keep)=>{
+    if(S.who!==who&&!keep){ S.school="";S.schoolCode="";S.schoolCat=""; }
+    S.who=who; save();
+    stu.classList.toggle("on",who==="student"); gen.classList.toggle("on",who==="general");
+    stu.setAttribute("aria-checked",String(who==="student")); gen.setAttribute("aria-checked",String(who==="general"));
+    aS.hidden=who!=="student"; aG.hidden=who!=="general";
+    org.value=who==="general"?(S.school||""):"";
+    const sh=document.getElementById("school-show"); if(sh) sh.value=who==="student"?(S.school||""):"";
+    const cb=document.getElementById("school-clear"); if(cb) cb.hidden=!(who==="student"&&S.school);
+  };
+  /* 학교 코드가 있으면 학생, 코드 없이 소속만 있으면 일반으로 이어 갑니다. 처음이면 학생부터 보여 줍니다. */
+  set(S.who||(S.school&&!S.schoolCode?"general":"student"),true);
+  stu.addEventListener("click",()=>set("student"));
+  gen.addEventListener("click",()=>{ set("general"); org.focus(); });
+  org.addEventListener("input",()=>{ S.school=org.value.trim().slice(0,40); S.schoolCode=""; S.schoolCat=""; save(); });
 })();
 
 /* ---------- 이름 + 네 자리 ----------
