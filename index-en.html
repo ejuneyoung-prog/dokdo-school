@@ -1208,9 +1208,9 @@ const OG_IMAGE = APP_BASE + "og.png";
    라이브 채팅은 글자 수 제한이 있어 utm_medium 을 생략한 짧은 꼬리표를 씁니다. */
 const shareUrl=(src,short)=>APP_URL+(APP_URL.indexOf("?")<0?"?":"&")+"utm_source="+src+(short?"":"&utm_medium=share");
 const LIVE_URL   = "https://www.youtube.com/@독도코리아/live";
-/* ↑ 특정 방송 주소라 라이브가 끝나면 죽습니다. 채널 고정 주소로 바꾸면
-   방송이 바뀔 때마다 앱을 다시 배포할 필요가 없습니다(제미니 실측으로 동작 확인됨):
-   const LIVE_URL = "https://www.youtube.com/@채널핸들/live";  ← 공개 스트림만, 예약은 1개만 걸어둘 것 */
+/* ↑ 채널 고정 주소라 방송이 바뀌어도 앱을 다시 배포할 필요가 없습니다.
+   유튜브는 이 주소를 지금 방송 중인 공개 스트림으로 연결합니다. 예약 방송은 1개만 걸어 둘 것.
+   방송이 꺼져 있으면 채널 화면으로 가므로, 레드팀이 하루 두 번 실제 연결 영상을 확인합니다. */
 
 /* ---------- 상태 ---------- */
 const KEY="dokdo-korea-school-v2-en-expanded-preview";
@@ -2525,7 +2525,7 @@ function refreshDataStatus(){
   const box=document.getElementById('data-status'),text=document.getElementById('data-status-text');
   if(!box||!text)return;
   box.dataset.state=DATA_STATUS.state;
-  text.textContent=DATA_STATUS.message+' · '+DATA.questions.length+'문항 · '+QVER+(DATA_STATUS.error?' · '+DATA_STATUS.error:'');
+  text.textContent=DATA_STATUS.message+' · '+DATA.questions.length+' questions · '+QVER+(DATA_STATUS.error?' · '+DATA_STATUS.error:'');
   window.DOKDO_DIAGNOSTICS={language:DATA_LANGUAGE,count:DATA.questions.length,activeCount:DATA.active_count,engineVersion:3,version:QVER,expectedFile:QSRC,status:DATA_STATUS.state,detail:DATA_STATUS.message,error:DATA_STATUS.error};
 }
 function setDataStatus(state,message,error=''){DATA_STATUS={state,message,error};refreshDataStatus();}
