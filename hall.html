@@ -13,6 +13,9 @@
      ?scale=1.4   전체 확대
      ?rows=20     명단에 싣는 사람 수 (기본 60)
      ?only=school 학교 순위만  ·  ?only=person 사람 명단만
+     ?page=4      한 장에 싣는 줄 수(기본 4). 넘치면 10초마다 다음 장으로 넘어갑니다
+     ?page=0      장 넘기기를 끄고 예전처럼 한 번에 모두(길면 위로 흐름)
+     ?sec=10      한 장을 보여 주는 초
 
    글자 크기는 vw 로 잡았습니다. 소스 너비를 키우면 글자도 같이 커집니다.
    화면에서 마우스로 늘이면 글자만 뭉개집니다. 크기는 소스 속성의 너비로 조절하십시오.
@@ -54,6 +57,11 @@ body.bg{background:#07131F}
 .row.live{padding:.7vw 0}
 .row.live .n{font-size:clamp(24px,6.4vw,58px)}
 .row.live .v{font-size:clamp(19px,4.8vw,44px)}
+/* 장 넘기기: 머리말은 그대로 두고 명단만 바뀝니다. */
+.pg{transition:opacity .45s ease}
+.pg.out{opacity:0}
+.dots{font-size:.6em;letter-spacing:.25em;color:var(--dim);margin-left:.5em;font-weight:600}
+.dots b{color:var(--gold);font-weight:800}
 /* 1·2·3등만 살짝 빛나게 */
 .row.first .n{color:#FFE7B0}
 .row.first .m{filter:drop-shadow(0 0 8px rgba(247,183,51,.7))}
@@ -72,6 +80,8 @@ if(Q.get("bg"))document.body.classList.add("bg");
 var SCALE=parseFloat(Q.get("scale")||"1");
 var ROWS=Math.max(1,parseInt(Q.get("rows")||"60",10));
 var ONLY=Q.get("only")||"";
+var PAGE=Math.max(0,parseInt(Q.get("page")==null?"4":Q.get("page"),10)||0);
+var SEC=Math.max(4,parseInt(Q.get("sec")||"10",10));
 var CAT={E:"초등학교",M:"중학교",H:"고등학교",W:"해외 한국학교"};
 var MEDAL=["🥇","🥈","🥉"];
 
@@ -96,8 +106,10 @@ function mark(i){
   return i<3 ? '<span class="m">'+MEDAL[i]+'</span>'
              : '<span class="m num">'+(i+1)+'</span>';
 }
-function rows(list,fmt,withFlag){
-  return list.map(function(x,i){
+function rows(list,fmt,withFlag,off){
+  off=off||0;
+  return list.map(function(x,j){
+    var i=j+off;
     var sch = x.school ? '<span class="sch">'+esc(x.school)+'</span>' : '';
     var fg  = (withFlag&&x.flag) ? flag(x.flag)+' ' : '';
     return '<div class="row'+(i===0?' first':'')+'">'+mark(i)
@@ -107,39 +119,56 @@ function rows(list,fmt,withFlag){
 }
 
 function draw(f){
-  var w=document.getElementById("wrap"),h="";
-  /* 이번 주 참여자 전체를 순위 그대로 한 줄로 나열합니다.
-     '지금 풀고 있는 사람'처럼 따로 떼어낸 구역은 의미가 없어 없앴습니다 —
-     이미 이번 주 집계(week)에 전부 들어 있고 정답 수 순으로 정렬돼 있습니다.
-     1~3등만 메달로, 나머지는 순번(4, 5, 6…)으로 쭉 이어집니다. */
   var wk=(f.week||[]).slice(0,ROWS);
-  h+='<div class="head"><h1>명예의 전당</h1><small>이번 주'
-    +(f.weekOf?' · '+f.weekOf+' 시작':'')+'</small></div>';
-  var any=false;
-
-  if(ONLY!=="school" && wk.length){
-    any=true;
-    h+='<div class="sec"><div class="sec-t">이번 주 참여자 '+wk.length+'명</div>'
-      +rows(wk,function(x){return x.correct+'<small>문제</small>';},true)+'</div>';
+  /* 장(페이지) 목록을 만듭니다. 사람 명단을 PAGE줄씩 끊고, 학교 부문도 같은 방식으로 뒤에 붙입니다.
+     한 장에 다 들어가면 장이 하나뿐이라 넘기지 않습니다(예전 화면과 같음). */
+  var pages=[];
+  function chunk(title,list,fmt,flagOn){
+    var n=PAGE>0?PAGE:list.length||1;
+    for(var k=0;k<list.length;k+=n)
+      pages.push({t:title,h:rows(list.slice(k,k+n),fmt,flagOn,k)});
   }
+  if(ONLY!=="school" && wk.length)
+    chunk('이번 주 참여자 '+wk.length+'명',wk,function(x){return x.correct+'<small>문제</small>';},true);
   if(ONLY!=="person" && f.schools){
-    /* 그룹(학교·단체)이 생기면 사람 명단과 동등한 무게로 나란히 보여 줍니다.
-       참여가 없는 부문은 아예 띄우지 않습니다. */
     ["E","M","H","W"].forEach(function(c){
       var l=f.schools[c]; if(!l||!l.length)return;
-      any=true;
-      h+='<div class="sec"><div class="sec-t">'+CAT[c]+'</div>'
-        +rows(l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';},false)+'</div>';
+      chunk(CAT[c],l,function(x){return x.correct+'<small>문제 · '+x.people+'명</small>';},false);
     });
   }
-  if(!any)h+='<div class="empty">이번 주 기록이 아직 없습니다</div>';
-  h+='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
-  /* 30초마다 그대로 다시 그리면 흐르던 명단이 매번 처음으로 튀어 올라갑니다.
-     내용이 진짜로 바뀐 때만 다시 그리고, 그때만 흐름을 새로 겁니다. */
-  if(h===LAST) return;
-  LAST=h; w.innerHTML=h;
-  layout();
+  var head='<div class="head"><h1>명예의 전당</h1><small>이번 주'
+    +(f.weekOf?' · '+f.weekOf+' 시작':'')+'</small></div>';
+  var sig=head+JSON.stringify(pages);
+  if(sig===LAST) return;          /* 내용이 같으면 넘기던 장을 그대로 둡니다 */
+  LAST=sig; PAGES=pages;
+  if(PI>=pages.length) PI=0;
+  var w=document.getElementById("wrap");
+  if(!pages.length){
+    w.innerHTML=head+'<div class="empty">이번 주 기록이 아직 없습니다</div>'+FOOT;
+    layout(); return;
+  }
+  if(PAGE===0){                   /* 넘기기 끔: 예전처럼 모두 펼치고 길면 흐름 */
+    var all="",lastT="";
+    pages.forEach(function(p){ all+= (p.t!==lastT?'<div class="sec-t">'+p.t+'</div>':'')+p.h; lastT=p.t; });
+    w.innerHTML=head+'<div class="sec">'+all+'</div>'+FOOT; layout(); return;
+  }
+  w.innerHTML=head+'<div class="sec pg" id="pg"></div>'+FOOT;
+  show();
 }
+var FOOT='<div class="foot">월요일 0시에 새 주가 시작됩니다 · dokdo-school.vercel.app</div>';
+var PAGES=[],PI=0;
+function show(){
+  var el=document.getElementById("pg"); if(!el||!PAGES.length)return;
+  var p=PAGES[PI],dots="";
+  if(PAGES.length>1){ for(var i=0;i<PAGES.length;i++) dots+= i===PI?'<b>●</b>':'○'; dots='<span class="dots">'+dots+'</span>'; }
+  el.innerHTML='<div class="sec-t">'+p.t+dots+'</div>'+p.h;
+}
+setInterval(function(){
+  if(PAGE===0||PAGES.length<2)return;
+  var el=document.getElementById("pg"); if(!el)return;
+  el.classList.add("out");
+  setTimeout(function(){ PI=(PI+1)%PAGES.length; show(); el.classList.remove("out"); },450);
+},SEC*1000);
 var LAST="";
 
 /* 명단이 화면보다 길면 천천히 흘렀다가 돌아옵니다. 초당 22px.
